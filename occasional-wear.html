@@ -428,7 +428,7 @@
             <img class="modal-img" id="modalImg" src="" alt="">
             <div class="modal-body">
                 <p class="modal-name" id="modalName"></p>
-<p class="modal-meta">18K Gold &middot; Inquire for Price</p>
+<p class="modal-meta" id="modalMeta">18K Gold &middot; Inquire for Price</p>
                 <div class="modal-actions">
                     <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="modal-book">Book Appointment</a>
                     <button class="modal-close-btn" id="modalCloseBtn">Close</button>
@@ -471,20 +471,23 @@
                 var imgSrc = 'images/' + item.image;
                 var card = document.createElement('div');
                 card.className = 'product-card reveal';
-card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name">' + name + '</p><p class="meta">18K Gold &middot; Inquire for Price</p></div>';
+                var metal = item.metal || '18K Gold';
+card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name">' + name + '</p><p class="meta">' + metal + ' &middot; Inquire for Price</p></div>';
                 grid.appendChild(card);
             });
             container.appendChild(grid);
         }
 
-        document.addEventListener('click', function(e) {
+document.addEventListener('click', function(e) {
             var card = e.target.closest('.product-card');
             if (card) {
                 var img = card.querySelector('.image-wrap img');
                 var nameEl = card.querySelector('.info .name');
-                if (img && nameEl) {
+                var metaEl = card.querySelector('.info .meta');
+                if (img && nameEl && metaEl) {
                     document.getElementById('modalImg').src = img.src;
                     document.getElementById('modalName').textContent = nameEl.textContent;
+                    document.getElementById('modalMeta').textContent = metaEl.textContent;
                     document.getElementById('productModal').classList.add('active');
                     document.body.style.overflow = 'hidden';
                 }
@@ -509,18 +512,18 @@ card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category 
         renderProducts('occasionalWear', [
             {name:'Elysia Ring', image:'32.png'},
             {name:'\u00c9ternelle Grande Ring', image:'33.png'},
-            {name:'Ros\u00e9 Bloom Ring', image:'34.png'},
+            {name:'Ros\u00e9 Bloom Ring', image:'34.png', metal:'18K Rose Gold'},
             {name:'Venus Ring', image:'35.png'},
             {name:'Promise of Forever Ring', image:'36.png'},
-            {name:'Skylar Ring', image:'37.png'},
-            {name:'Fae Ring', image:'38.png'},
-            {name:'Celestia Ring', image:'39.png'},
-            {name:'Tranquility Ring', image:'40.png'},
-            {name:'Amour Ring', image:'41.png'},
-            {name:'Amora Ring', image:'42.png'},
+            {name:'Skylar Ring', image:'37.png',metal:'18K White Gold'},
+            {name:'Fae Ring', image:'38.png', metal:'18K White Gold'},
+            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold'},
+            {name:'Tranquility Ring', image:'40.png',metal:'18K White Gold' },
+            {name:'Amour Ring', image:'41.png', metal:'18K White Gold'},
+            {name:'Amora Ring', image:'42.png', },
             {name:'Imperial Pav\u00e9 Ring', image:'43.png'},
-            {name:'Athena Ring', image:'44.png'},
-            {name:'Victorian Ring', image:'45.png'},
+            {name:'Athena Ring', image:'44.png' ,metal:'18K White Gold'},
+            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold'},
             {name:'Lunelle Ring', image:'46.png'}
         ], 'Ring');
 

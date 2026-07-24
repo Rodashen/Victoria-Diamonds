@@ -391,7 +391,8 @@ function renderProducts(containerId, items, category) {
         var imgSrc = 'images/' + item.image;
         var card = document.createElement('div');
         card.className = 'product-card';
-        card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name">' + name + '</p><p class="meta">18K Gold &middot; Inquire for Price</p></div>';
+var metal = item.metal || '18K Gold';
+        card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name">' + name + '</p><p class="meta">' + metal + ' &middot; Inquire for Price</p></div>';
         grid.appendChild(card);
     });
     container.appendChild(grid);
@@ -490,8 +491,8 @@ document.addEventListener('keydown', function(e) {
             {name:'\u00c9lan Ring', image:'11.png'},
             {name:'Solitaire Ring', image:'12.png'},
             {name:'Timeless Classic Ring', image:'13.png'},
-            {name:'Eternity Stacking Ring', image:'29.png'},
-            {name:'Splendor Stacking Ring', image:'30.png'}
+            {name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold'},
+            {name:'Splendor Stacking Ring', image:'30.png', metal:'18K White Gold'}
         ], 'Ring');
 
         // Daily Sparkle - Necklaces (16–22)
@@ -529,18 +530,18 @@ document.addEventListener('keydown', function(e) {
         renderProducts('occasionalWear', [
             {name:'Elysia Ring', image:'32.png'},
             {name:'\u00c9ternelle Grande Ring', image:'33.png'},
-            {name:'Ros\u00e9 Bloom Ring', image:'34.png'},
+            {name:'Ros\u00e9 Bloom Ring', image:'34.png' ,metal:'18K Rose Gold'},
             {name:'Venus Ring', image:'35.png'},
             {name:'Promise of Forever Ring', image:'36.png'},
-            {name:'Skylar Ring', image:'37.png'},
-            {name:'Fae Ring', image:'38.png'},
-            {name:'Celestia Ring', image:'39.png'},
-            {name:'Tranquility Ring', image:'40.png'},
-            {name:'Amour Ring', image:'41.png'},
+            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold'},
+            {name:'Fae Ring', image:'38.png', metal:'18K White Gold'},
+            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold'},
+            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold'},
+            {name:'Amour Ring', image:'41.png', metal:'18K White Gold'},
             {name:'Amora Ring', image:'42.png'},
             {name:'Imperial Pav\u00e9 Ring', image:'43.png'},
-            {name:'Athena Ring', image:'44.png'},
-            {name:'Victorian Ring', image:'45.png'},
+            {name:'Athena Ring', image:'44.png', metal:'18K White Gold'},
+            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold'},
             {name:'Lunelle Ring', image:'46.png'}
         ], 'Ring');
 

@@ -381,6 +381,44 @@ if (form) {
    });
 }
 
+// ---------- Artist Modal ----------
+const artistModal = document.getElementById('artistModal');
+const artistModalCloseX = document.getElementById('artistModalCloseX');
+const artistModalCloseBtn = document.getElementById('artistModalCloseBtn');
+const craftArtistBtn = document.getElementById('craftArtistBtn');
+
+function openArtistModal() {
+    if (artistModal) {
+        artistModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeArtistModal() {
+    if (artistModal) {
+        artistModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+if (craftArtistBtn) {
+    craftArtistBtn.addEventListener('click', openArtistModal);
+}
+if (artistModalCloseX) {
+    artistModalCloseX.addEventListener('click', closeArtistModal);
+}
+if (artistModalCloseBtn) {
+    artistModalCloseBtn.addEventListener('click', closeArtistModal);
+}
+if (artistModal) {
+    artistModal.addEventListener('click', function(e) {
+        if (e.target === this) closeArtistModal();
+    });
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeArtistModal();
+});
+
 // ---------- Gold shimmer on hero title ----------
 const heroTitleEl = document.querySelector('.hero-title em');
 if (heroTitleEl) {

@@ -1944,6 +1944,86 @@ animation: dotProgress 2s linear forwards;
 	}
 }
 
+/* ========================================
+           MODAL OVERLAY (Artist Modal)
+        ======================================== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.modal-overlay.active {
+    display: flex;
+}
+.modal-popup {
+    background: var(--color-warm-white);
+    max-width: min(500px, 95vw);
+    width: 100%;
+    max-height: min(90vh, 95dvh);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    animation: modalIn 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-popup .modal-close-x {
+    position: sticky;
+    top: 0.75rem;
+    margin-left: auto;
+    margin-right: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-charcoal);
+    transition: all 0.3s ease;
+    z-index: 5;
+    flex-shrink: 0;
+    margin-top: 0.75rem;
+}
+.modal-popup .modal-close-x:hover {
+    background: var(--color-charcoal);
+    color: var(--color-cream);
+}
+.modal-popup .modal-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem;
+    border: 1px solid var(--color-charcoal);
+    background: transparent;
+    color: var(--color-charcoal);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+.modal-popup .modal-close-btn:hover {
+    background: var(--color-ivory);
+}
+
 /* Scroll-Reveal Animations */
 .reveal {
 	opacity: 0;

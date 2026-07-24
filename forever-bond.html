@@ -399,7 +399,7 @@
             <img class="modal-img" id="modalImg" src="" alt="">
             <div class="modal-body">
                 <p class="modal-name" id="modalName"></p>
-                <p class="modal-meta">18K Gold &middot; Inquire for Price</p>
+<p class="modal-meta" id="modalMeta">18K Gold &middot; Inquire for Price</p>
                 <div class="modal-actions">
                     <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="modal-book">Book Appointment</a>
                     <button class="modal-close-btn" id="modalCloseBtn">Close</button>
@@ -424,20 +424,23 @@
                 var imgSrc = 'images/' + item.image;
                 var card = document.createElement('div');
                 card.className = 'product-card';
-card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name">' + name + '</p><p class="meta">18K Gold &middot; Inquire for Price</p></div>';
+                var metal = item.metal || '18K Gold';
+                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name">' + name + '</p><p class="meta">' + metal + ' &middot; Inquire for Price</p></div>';
                 grid.appendChild(card);
             });
             container.appendChild(grid);
         }
 
-        document.addEventListener('click', function(e) {
+document.addEventListener('click', function(e) {
             var card = e.target.closest('.product-card');
             if (card) {
                 var img = card.querySelector('.image-wrap img');
                 var nameEl = card.querySelector('.info .name');
-                if (img && nameEl) {
+                var metaEl = card.querySelector('.info .meta');
+                if (img && nameEl && metaEl) {
                     document.getElementById('modalImg').src = img.src;
                     document.getElementById('modalName').textContent = nameEl.textContent;
+                    document.getElementById('modalMeta').textContent = metaEl.textContent;
                     document.getElementById('productModal').classList.add('active');
                     document.body.style.overflow = 'hidden';
                 }
@@ -467,15 +470,15 @@ card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category 
             {name:'Luminous Devotion Ring', image:'59.png'},
             {name:'Everlasting Embrace Ring', image:'60.png'},
             {name:'The Knot Ring', image:'61.png'},
-            {name:'Eternal Connection Ring Set', image:'62.png'},
+            {name:'Eternal Connection Ring Set', image:'62.png', metal:'18K White Gold'},
             {name:'Eternal Promise Ring', image:'63.png'},
-            {name:'Moment to Shine Ring', image:'64.png'},
+            {name:'Moment to Shine Ring', image:'64.png' ,metal:'18K White Gold'},
             {name:'Unbreakable Hearts Ring', image:'65.png'},
             {name:'Bound by Destiny Ring', image:'66.png'},
             {name:'Ethereal Halo Ring', image:'67.png'},
             {name:'Amour \u00c9ternel Ring', image:'68.png'},
             {name:'Celestial Embrace Ring', image:'69.png'},
-            {name:'Eternal Promise Ring Set (Couple\u2019s Ring)', image:'70.png'},
+            {name:'Eternal Promise Ring Set (Couple\u2019s Ring)', image:'70.png', metal:'18K White Gold'},
             {name:'Eternal Harmony Ring', image:'71.png'},
             {name:'Wedding Bands', image:'72.png'},
             {name:'Destiny Couple Ring', image:'73.png'},

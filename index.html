@@ -230,7 +230,7 @@
                 <div class="story-content">
                     <p class="text-label story-label">Our Heritage</p>
                     <h2 class="heading-display story-title">
-                        Three Generations of Golden Mastery
+                        Generations of Golden Mastery
                     </h2>
                     <p class="text-body story-text">
                         Established in the vibrant heart of Hong Kong, 
@@ -263,48 +263,47 @@
         </div>
     </section>
     
-    <!-- Meet the Artist -->
-    <section class="artist">
-        <div class="container">
-            <div class="artist-grid">
-                <div class="artist-image-wrapper">
-                    <div class="artist-image">
-                        <img src="images/arts.png" alt="Master artisan at work">
-                    </div>
+<!-- Meet the Artist (hidden, only accessible via modal) -->
+    <section class="artist" id="artist" style="display:none;"></section>
+
+    <!-- Artist Modal -->
+    <div class="modal-overlay" id="artistModal">
+        <div class="modal-popup" style="max-width:min(700px,95vw);">
+            <button class="modal-close-x" id="artistModalCloseX">×</button>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+                <div style="background:var(--color-ivory);display:flex;align-items:center;justify-content:center;padding:2rem;min-height:400px;">
+                    <img src="images/arts.png" alt="Master artisan at work" style="max-width:100%;max-height:100%;object-fit:contain;">
                 </div>
-                <div class="artist-content">
-                    <p class="text-label">Meet the Artisan</p>
-                    <h2 class="heading-display artist-title">
-                        The Hands Behind<br>Our Artistry
-                    </h2>
-                    <p class="text-body artist-text">
+                <div style="padding:2rem;display:flex;flex-direction:column;justify-content:center;">
+                    <p style="font-family:var(--font-body);font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);margin-bottom:0.75rem;">Meet the Artisan</p>
+                    <h3 style="font-family:var(--font-display);font-size:1.75rem;font-weight:300;margin-bottom:1rem;line-height:1.2;">The Hands Behind<br>Our Artistry</h3>
+                    <p style="font-family:var(--font-body);font-size:0.95rem;line-height:1.7;color:var(--color-charcoal-soft);margin-bottom:0.75rem;">
                         Rachel draws her expertise from a variety of disciplines such as business, arts, design and fashion. She has prior training in jewellery design from Nanyang Academy of Fine Arts and fashion design from Central Saint Martins.
                     </p>
-                    <p class="text-body artist-text">
+                    <p style="font-family:var(--font-body);font-size:0.95rem;line-height:1.7;color:var(--color-charcoal-soft);margin-bottom:1.25rem;">
                        She has been steeped in the design discipline for over 14 years. Her wide exposure to different cultures through her extensive travels is infused into her designs. She aims to create jewellery for the modern woman who is confident of her identity and unique in her style.
                     </p>
-                    <div class="artist-details">
-                        <div class="artist-detail-row">
-                            <span class="artist-detail-label">Experience</span>
-                            <span class="artist-detail-value">20+ Years</span>
+                    <div style="display:flex;flex-direction:column;gap:0.5rem;padding:1rem 0;border-top:1px solid var(--color-taupe-light);border-bottom:1px solid var(--color-taupe-light);margin-bottom:1rem;">
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;">
+                            <span style="color:var(--color-taupe);">Experience</span>
+                            <span style="font-weight:500;">10 Years</span>
                         </div>
-                        <div class="artist-detail-row">
-                            <span class="artist-detail-label">Specialty</span>
-                            <span class="artist-detail-value">Hand-Forged Gold</span>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;">
+                            <span style="color:var(--color-taupe);">Specialty</span>
+                            <span style="font-weight:500;">Hand-Forged Gold</span>
                         </div>
-                        <div class="artist-detail-row">
-                            <span class="artist-detail-label">Philosophy</span>
-                            <span class="artist-detail-value">Every piece tells a story</span>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;">
+                            <span style="color:var(--color-taupe);">Philosophy</span>
+                            <span style="font-weight:500;">Every piece tells a story</span>
                         </div>
                     </div>
-                    <div class="artist-signature">
-                        <p class="artist-signature-name">Rachel Gemma Tan</p>
-                        <p class="artist-signature-title">Lead Artists, Victoria Diamonds</p>
-                    </div>
+                    <p style="font-family:var(--font-display);font-style:italic;font-size:1.35rem;color:var(--color-gold-dark);margin-bottom:0.25rem;">Rachel Gemma Tan</p>
+                    <p style="font-size:0.85rem;color:var(--color-taupe);letter-spacing:0.1em;text-transform:uppercase;">Lead Artisan, Victoria Diamonds</p>
+                    <button class="modal-close-btn" id="artistModalCloseBtn" style="margin-top:1.25rem;display:flex;align-items:center;justify-content:center;font-family:var(--font-body);font-size:0.85rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:1rem;border:1px solid var(--color-charcoal);background:transparent;color:var(--color-charcoal);cursor:pointer;transition:all 0.3s ease;">Close</button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Craftsmanship -->
     <section class="craftsmanship" id="craftsmanship">
@@ -328,7 +327,10 @@
                         <li>Multiple quality inspections at every stage</li>
                         <li>Personalized finishing and custom sizing</li>
                     </ul>
-                    <a href="#contact" class="btn-primary">Commission a Custom Piece</a>
+                    <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+                        <a href="#contact" class="btn-primary">Commission a Custom Piece</a>
+                        <button class="btn-primary" id="craftArtistBtn" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);cursor:pointer;">Know Our Artist</button>
+                    </div>
                 </div>
                 <div class="craft-image-wrapper">
                     <div class="craft-image">
@@ -459,6 +461,10 @@
                                 <a href="mailto:inquiry@victoria-diamonds.com">inquiry@victoria-diamonds.com</a>
                             </p>
                         </div>
+                    </div>
+                    <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem;">
+                        <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="btn-primary">Book Appointment with us</a>
+                        <a href="https://wa.me/447594442577?text=Hi%20Victoria%20Diamonds!%20I%27d%20love%20to%20inquire%20about%20a%20jewelry%20piece.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" rel="noopener" class="btn-primary" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);">WhatsApp Us</a>
                     </div>
                 </div>
                 

@@ -470,7 +470,7 @@
             <img class="modal-img" id="modalImg" src="" alt="">
             <div class="modal-body">
                 <p class="modal-name" id="modalName"></p>
-<p class="modal-meta">18K Gold &middot; Inquire for Price</p>
+                <p class="modal-meta" id="modalMeta">18K Gold &middot; Inquire for Price</p>
                 <div class="modal-actions">
                     <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="modal-book">Book Appointment</a>
                     <button class="modal-close-btn" id="modalCloseBtn">Close</button>
@@ -513,7 +513,8 @@
                 var imgSrc = 'images/' + item.image;
                 var card = document.createElement('div');
                 card.className = 'product-card reveal';
-                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name">' + name + '</p><p class="meta">18K Gold &middot; Inquire for Price</p></div>';
+                var metal = item.metal || '18K Gold';
+                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name">' + name + '</p><p class="meta">' + metal + ' &middot; Inquire for Price</p></div>';
                 grid.appendChild(card);
             });
             container.appendChild(grid);
@@ -524,9 +525,11 @@
             if (card) {
                 var img = card.querySelector('.image-wrap img');
                 var nameEl = card.querySelector('.info .name');
-                if (img && nameEl) {
+                var metaEl = card.querySelector('.info .meta');
+                if (img && nameEl && metaEl) {
                     document.getElementById('modalImg').src = img.src;
                     document.getElementById('modalName').textContent = nameEl.textContent;
+                    document.getElementById('modalMeta').textContent = metaEl.textContent;
                     document.getElementById('productModal').classList.add('active');
                     document.body.style.overflow = 'hidden';
                 }
@@ -556,8 +559,8 @@
             {name:'\u00c9lan Ring', image:'11.png'},
             {name:'Solitaire Ring', image:'12.png'},
             {name:'Timeless Classic Ring', image:'13.png'},
-            {name:'Eternity Stacking Ring', image:'29.png'},
-            {name:'Splendor Stacking Ring', image:'30.png'}
+            {name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold'},
+            {name:'Splendor Stacking Ring', image:'30.png', metal:'18K White Gold'}
         ], 'Ring');
 
         // Daily Sparkle - Necklaces (14–20)
