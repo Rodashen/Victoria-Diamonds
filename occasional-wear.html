@@ -261,7 +261,7 @@
             .catalogue-header .inner { padding: 0 1rem; }
             .collection-section { padding: 0 1rem 3rem; }
         }
-        /* Modal Overlay */
+/* Modal Overlay */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -271,19 +271,22 @@
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1rem;
         }
         .modal-overlay.active {
             display: flex;
         }
         .modal-popup {
             background: var(--warm-white);
-            max-width: 500px;
+            max-width: min(500px, 95vw);
             width: 100%;
-            max-height: 90vh;
-            overflow: hidden;
+            max-height: min(90vh, 95dvh);
+            overflow-y: auto;
+            overflow-x: hidden;
             position: relative;
             animation: modalIn 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         @keyframes modalIn {
             from { opacity: 0; transform: scale(0.95) translateY(10px); }
@@ -291,12 +294,15 @@
         }
         .modal-popup .modal-img {
             width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
+            max-height: 55vh;
+            object-fit: contain;
             display: block;
+            background: #fff;
+            flex-shrink: 0;
         }
         .modal-popup .modal-body {
             padding: 1.5rem;
+            flex-shrink: 0;
         }
         .modal-popup .modal-name {
             font-family: var(--font-display);
@@ -320,15 +326,16 @@
             align-items: center;
             justify-content: center;
             font-family: var(--font-body);
-            font-size: 0.85rem;
+            font-size: clamp(0.75rem, 2.5vw, 0.85rem);
             font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            padding: 1rem;
+            padding: clamp(0.75rem, 2vw, 1rem);
             border: 1px solid var(--charcoal);
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
+            text-align: center;
         }
         .modal-popup .modal-actions .modal-book {
             background: var(--charcoal);
@@ -346,9 +353,10 @@
             background: var(--ivory);
         }
         .modal-popup .modal-close-x {
-            position: absolute;
+            position: sticky;
             top: 0.75rem;
-            right: 0.75rem;
+            margin-left: auto;
+            margin-right: 0.75rem;
             width: 2rem;
             height: 2rem;
             border-radius: 50%;
@@ -363,6 +371,8 @@
             color: var(--charcoal);
             transition: all 0.3s ease;
             z-index: 5;
+            flex-shrink: 0;
+            margin-top: 0.75rem;
         }
         .modal-popup .modal-close-x:hover {
             background: var(--charcoal);
@@ -373,7 +383,7 @@
 <body>
     <header class="catalogue-header">
         <div class="inner">
-            <a href="index.html" class="back-link">← Back to Main</a>
+<a href="index.html" class="back-link">← Back</a>
             <span class="brand">Victoria <span>Diamonds</span></span>
             <div style="display:flex;align-items:center;gap:0.75rem;">
                 <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid rgba(28,28,28,0.12);transition:all 0.3s ease;color:#E4405F;">
@@ -414,11 +424,11 @@
     <!-- Product Modal -->
     <div class="modal-overlay" id="productModal">
         <div class="modal-popup">
-            <button class="modal-close-x" id="modalCloseX">&times;</button>
+<button class="modal-close-x" id="modalCloseX">×</button>
             <img class="modal-img" id="modalImg" src="" alt="">
             <div class="modal-body">
                 <p class="modal-name" id="modalName"></p>
-                <p class="modal-meta">22K Gold &middot; Inquire for Price</p>
+<p class="modal-meta">18K Gold &middot; Inquire for Price</p>
                 <div class="modal-actions">
                     <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="modal-book">Book Appointment</a>
                     <button class="modal-close-btn" id="modalCloseBtn">Close</button>
@@ -461,7 +471,7 @@
                 var imgSrc = 'images/' + item.image;
                 var card = document.createElement('div');
                 card.className = 'product-card reveal';
-                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name">' + name + '</p><p class="meta">22K Gold &middot; Inquire for Price</p></div>';
+card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name">' + name + '</p><p class="meta">18K Gold &middot; Inquire for Price</p></div>';
                 grid.appendChild(card);
             });
             container.appendChild(grid);
@@ -514,27 +524,27 @@
             {name:'Lunelle Ring', image:'46.png'}
         ], 'Ring');
 
-        // Occasional Wear - Earrings (47–48)
+// Occasional Wear - Earrings (47–48)
         renderProducts('occasionalWear', [
-            {name:'Round Illusion Stud', image:'47.png'},
-            {name:'Fiora Earrings', image:'48.png'}
+            {name:'Round Illusion Stud', image:'50.png'},
+            {name:'Fiora Earrings', image:'52.png'}
         ], 'Earring');
 
         // Occasional Wear - Bracelets (49–50)
         renderProducts('occasionalWear', [
             {name:'Lumina Wedding Tennis', image:'49.png'},
-            {name:'Arabella', image:'50.png'}
+            {name:'Arabella', image:'53.png'}
         ], 'Bracelet');
 
         // Occasional Wear - Brooches (51–52)
         renderProducts('occasionalWear', [
-            {name:'Celestia Broche', image:'51.png'},
-            {name:'\u00c9ternelle Broche', image:'52.png'}
+            {name:'Celestia Broche', image:'47.png'},
+            {name:'\u00c9ternelle Broche', image:'48.png'}
         ], 'Brooch');
 
         // Occasional Wear - Tiara (53)
         renderProducts('occasionalWear', [
-            {name:'Lunaria Tiara', image:'53.png'}
+            {name:'Lunaria Tiara', image:'51.png'}
         ], 'Tiara');
     </script>
 </body>
