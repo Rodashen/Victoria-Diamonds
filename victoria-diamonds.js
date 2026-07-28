@@ -58,20 +58,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       e.preventDefault();
       const href = this.getAttribute('href');
       if (href === '#') {
-         window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-         });
+         window.scrollTo({ top: 0, behavior: 'smooth' });
          return;
       }
       const target = document.querySelector(href);
       if (target) {
          const headerHeight = header.offsetHeight;
          const targetPosition = target.offsetTop - headerHeight;
-         window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-         });
+         window.scrollTo({ top: targetPosition, behavior: 'smooth' });
       }
    });
 });
@@ -88,12 +82,10 @@ const heroArrowNext = document.getElementById('heroArrowNext');
 let currentSlide = 0;
 let slideInterval;
 
-// Format number with leading zero
 function padNumber(num) {
    return num < 10 ? `0${num}` : `${num}`;
 }
 
-// Update slide counter
 function updateSlideCounter(index) {
    if (slideCurrent && slideTotal) {
       slideCurrent.textContent = padNumber(index + 1);
@@ -107,15 +99,14 @@ function goToSlide(index) {
    slides[currentSlide].classList.remove('active');
    slideDots[currentSlide].classList.remove('active');
    
-   // Fade out text
    heroTitle.style.opacity = '0';
    heroPrice.style.opacity = '0';
    
    currentSlide = index;
    
    setTimeout(() => {
-heroTitle.textContent = slides[currentSlide].dataset.title;
-heroPrice.textContent = slides[currentSlide].dataset.price || '';
+      heroTitle.textContent = slides[currentSlide].dataset.title;
+      heroPrice.textContent = slides[currentSlide].dataset.price || '';
       heroTitle.style.opacity = '1';
       heroPrice.style.opacity = '1';
    }, 500);
@@ -123,13 +114,11 @@ heroPrice.textContent = slides[currentSlide].dataset.price || '';
    slides[currentSlide].classList.add('active');
    slideDots[currentSlide].classList.add('active');
    
-   // Update counter
    updateSlideCounter(currentSlide);
    
-   // Reset dot progress animation by re-triggering
    const activeDot = slideDots[currentSlide];
    activeDot.style.animation = 'none';
-   void activeDot.offsetHeight; // Force reflow
+   void activeDot.offsetHeight;
    activeDot.style.animation = '';
 }
 
@@ -160,7 +149,6 @@ function stopSlideShow() {
    clearInterval(slideInterval);
 }
 
-// Arrow click handlers
 if (heroArrowPrev) {
    heroArrowPrev.addEventListener('click', prevSlide);
 }
@@ -168,21 +156,12 @@ if (heroArrowNext) {
    heroArrowNext.addEventListener('click', nextSlide);
 }
 
-// Keyboard navigation
 document.addEventListener('keydown', function(e) {
-   // Only handle arrow keys when not in a form input
    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-   
-   if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      prevSlide();
-   } else if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      nextSlide();
-   }
+   if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+   else if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
 });
 
-// Slide dot click handlers
 slideDots.forEach(dot => {
    dot.addEventListener('click', function() {
       const index = parseInt(this.dataset.index);
@@ -192,13 +171,11 @@ slideDots.forEach(dot => {
    });
 });
 
-// Start auto-slideshow
 if (slides.length > 1) {
    updateSlideCounter(0);
    startSlideShow();
 }
 
-// Pause on hover
 const heroImage = document.querySelector('.hero-image');
 if (heroImage) {
    heroImage.addEventListener('mouseenter', stopSlideShow);
@@ -227,7 +204,6 @@ function animateShine() {
 }
 animateShine();
 
-// Hide cursor shine on touch devices
 if ('ontouchstart' in window) {
    cursorShine.style.display = 'none';
 }
@@ -253,7 +229,6 @@ function animateStats() {
       function updateCounter(currentTime) {
          const elapsed = currentTime - startTime;
          const progress = Math.min(elapsed / duration, 1);
-         // Ease out cubic
          const eased = 1 - Math.pow(1 - progress, 3);
          currentValue = Math.floor(eased * targetValue);
          stat.textContent = hasPlus ? `${currentValue}+` : currentValue;
@@ -261,7 +236,7 @@ function animateStats() {
          if (progress < 1) {
             requestAnimationFrame(updateCounter);
          } else {
-            stat.textContent = text; // Restore original
+            stat.textContent = text;
          }
       }
       
@@ -306,7 +281,6 @@ const revealObserver = new IntersectionObserver((entries) => {
       if (entry.isIntersecting) {
          const el = entry.target;
          
-         // Stagger children if they exist
          const children = el.querySelectorAll('.reveal-stagger > *');
          if (children.length > 0) {
             children.forEach((child, index) => {
@@ -316,7 +290,6 @@ const revealObserver = new IntersectionObserver((entries) => {
             });
          }
          
-         // Handle stat counter
          if (el.classList.contains('craft-stats') && !statsCounted) {
             animateStats();
          }
@@ -327,13 +300,11 @@ const revealObserver = new IntersectionObserver((entries) => {
    });
 }, revealObserverOptions);
 
-// Observe sections for scroll reveal
 document.querySelectorAll('section, .featured-grid, .collections-grid, .testimonials-grid, .contact-grid, .footer-grid').forEach(section => {
    section.classList.add('reveal');
    revealObserver.observe(section);
 });
 
-// Also observe individual elements
 document.querySelectorAll('.craft-stats, .hero-image-overlay').forEach(el => {
    el.classList.add('reveal');
    revealObserver.observe(el);
@@ -347,8 +318,6 @@ magneticButtons.forEach(btn => {
       const rect = this.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-      const strength = 8;
-      
       this.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
    });
    
@@ -471,8 +440,81 @@ collectionItems.forEach((item, index) => {
 });
 
 // ============================================
+// Translation / Language Switching
+// ============================================
+
+function getSavedLang() {
+    return localStorage.getItem('vd-lang') || 'en';
+}
+
+function saveLang(lang) {
+    localStorage.setItem('vd-lang', lang);
+}
+
+function storeOriginalText() {
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        if (!el.hasAttribute('data-i18n-original')) {
+            el.setAttribute('data-i18n-original', el.innerHTML);
+        }
+    });
+}
+
+function applyTranslations(lang) {
+    var dict = translations[lang] || {};
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (lang === 'en') {
+            var original = el.getAttribute('data-i18n-original');
+            if (original) {
+                el.innerHTML = original;
+            }
+        } else if (dict[key]) {
+            el.innerHTML = dict[key];
+        }
+    });
+    document.documentElement.lang = lang === 'zh-TW' ? 'zh-Hant' : 'en';
+    var selector = document.getElementById('langSelect');
+    if (selector) { selector.value = lang; }
+    var mobileSelector = document.getElementById('langSelectMobile');
+    if (mobileSelector) { mobileSelector.value = lang; }
+}
+
+function initLanguage() {
+    storeOriginalText();
+    var savedLang = getSavedLang();
+    applyTranslations(savedLang);
+
+    var selector = document.getElementById('langSelect');
+    if (selector) {
+        selector.addEventListener('change', function() {
+            var lang = this.value;
+            saveLang(lang);
+            var ms = document.getElementById('langSelectMobile');
+            if (ms) { ms.value = lang; }
+            applyTranslations(lang);
+        });
+    }
+
+    var mobileSelector = document.getElementById('langSelectMobile');
+    if (mobileSelector) {
+        mobileSelector.addEventListener('change', function() {
+            var lang = this.value;
+            saveLang(lang);
+            var sel = document.getElementById('langSelect');
+            if (sel) { sel.value = lang; }
+            applyTranslations(lang);
+        });
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLanguage);
+} else {
+    initLanguage();
+}
+
+// ============================================
 // Console signature
 // ============================================
 console.log('%c Victoria Diamonds ', 'background: #1C1C1C; color: #D4A853; font-size: 14px; font-weight: bold; padding: 8px 12px; border-radius: 4px; font-family: Cormorant Garamond, serif;');
 console.log('%c Handcrafted gold jewelry of exceptional quality.', 'color: #A69080; font-size: 12px; font-style: italic;');
-

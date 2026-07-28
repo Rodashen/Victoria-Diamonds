@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victoria Diamonds — Fine Jewelry</title>
+    <title data-i18n="page-title">Victoria Diamonds — Fine Jewelry</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="victoria-diamonds.css">
+    <script src="translations.js"></script>
 </head>
 <body>
     <div class="progress-bar" id="progressBar"></div>
@@ -18,18 +20,29 @@
     <header class="site-header" id="header">
         <div class="container">
             <div class="header-inner">
-                <a href="#" class="logo">Victoria <span>Diamonds</span></a>
+                <a href="#" class="logo" data-i18n="brand-name">Victoria <span>Diamonds</span></a>
                 
                 <nav class="nav-main">
-                    <a href="#collections">Collections</a>
-                    <a href="#story">Our Story</a>
-                    <a href="#craftsmanship">Craftsmanship</a>
-                    <a href="#contact">Visit Us</a>
-                    <a href="view-catalogue.html" class="nav-catalog">View Catalogue</a>
-                    <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="nav-cta">Book Appointment</a>
+                    <a href="#collections" data-i18n="nav-collections">Collections</a>
+                    <a href="#story" data-i18n="nav-our-story">Our Story</a>
+                    <a href="#craftsmanship" data-i18n="nav-craftsmanship">Craftsmanship</a>
+                    <a href="#contact" data-i18n="nav-visit-us">Visit Us</a>
+                    <a href="view-catalogue.html" class="nav-catalog" data-i18n="nav-view-catalogue">View Catalogue</a>
+                    <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav-book-appointment">Book Appointment</a>
                 </nav>
                 
                 <div class="top-social-links">
+                    <div class="lang-selector">
+                        <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <select id="langSelect">
+                            <option value="en">English</option>
+                            <option value="zh-TW">繁體中文</option>
+                        </select>
+                    </div>
                     <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener" aria-label="Instagram">
                         <svg viewBox="0 0 24 24" class="social-icon" aria-hidden="true">
                             <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Zm5.2-3.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2Z"/>
@@ -56,34 +69,40 @@
     <nav class="mobile-nav" id="mobileNav">
         <button class="mobile-nav-close" id="mobileNavClose">×</button>
         <ul class="mobile-nav-links">
-            <li><a href="#collections">Collections</a></li>
-            <li><a href="#story">Our Story</a></li>
-            <li><a href="#craftsmanship">Craftsmanship</a></li>
-            <li><a href="#contact">Visit Us</a></li>
+            <li><a href="#collections" data-i18n="nav-collections">Collections</a></li>
+            <li><a href="#story" data-i18n="nav-our-story">Our Story</a></li>
+            <li><a href="#craftsmanship" data-i18n="nav-craftsmanship">Craftsmanship</a></li>
+            <li><a href="#contact" data-i18n="nav-visit-us">Visit Us</a></li>
             <li>
-    <a href="view-catalogue.html">View Catalogue</a>
-</li>
+                <a href="view-catalogue.html" data-i18n="nav-view-catalogue">View Catalogue</a>
+            </li>
         </ul>
-<div class="mobile-nav-cta">
-            <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="btn-primary">Book Appointment</a>
+        <div class="lang-selector">
+            <select id="langSelectMobile">
+                <option value="en">English</option>
+                <option value="zh-TW">繁體中文</option>
+            </select>
+        </div>
+        <div class="mobile-nav-cta">
+            <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="btn-primary" data-i18n="nav-book-appointment">Book Appointment</a>
         </div>
     </nav>
     
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <p class="text-label hero-tagline">Artisan Jewelry Since 2012</p>
-            <h1 class="heading-display hero-title">
+            <p class="text-label hero-tagline" data-i18n="hero-tagline">Artisan Jewelry Since 2012</p>
+            <h1 class="heading-display hero-title" data-i18n="hero-title-full">
                 Where your story<br>Becomes <em>Art</em>
             </h1>
-            <p class="text-body hero-description">
+            <p class="text-body hero-description" data-i18n="hero-description">
                 Each piece in our collection is handcrafted by master artisans, 
                 transforming the finest gold into wearable works of art that 
                 tell your unique story.
             </p>
             <div class="hero-actions">
-                <a href="#collections" class="btn-primary">Explore Collections</a>
-                <a href="#story" class="btn-text">Our Heritage</a>
+                <a href="#collections" class="btn-primary" data-i18n="hero-explore">Explore Collections</a>
+                <a href="#story" class="btn-text" data-i18n="hero-heritage">Our Heritage</a>
             </div>
         </div>
         <div class="hero-image">
@@ -141,33 +160,34 @@
                         <img src="images/victoria-diamonds-hero-02.png" 
                              alt="Handcrafted gold necklace">
                     </div>
-                    <div class="featured-badge">New Arrival</div>
+                    <div class="featured-badge" data-i18n="featured-new-arrival">New Arrival</div>
                 </div>
                 <div class="featured-content">
-                    <p class="text-label featured-label">Featured Piece</p>
-                    <h2 class="heading-display featured-title">
+                    <p class="text-label featured-label" data-i18n="featured-label">Featured Piece</p>
+                    <h2 class="heading-display featured-title" data-i18n="featured-celestial">
                         Celestial Necklace
                     </h2>
-                    <p class="text-body featured-description">
+                    <p class="text-body featured-description" data-i18n="featured-description">
                         Inspired by the ethereal beauty of the night sky, 
                         the Celestial Necklace captures the fluid movement of light 
                         through hand-hammered 22-karat gold. Each surface catches 
                         and reflects light differently, creating a mesmerizing 
                         display of golden hues.
                     </p>
-<div class="featured-details">
+                    <div class="featured-details">
                         <div class="detail-row">
-                            <span class="detail-label">Material</span>
-                            <span class="detail-value">22K Yellow Gold</span>
+                            <span class="detail-label" data-i18n="featured-material">Material</span>
+                            <span class="detail-value" data-i18n="featured-material-val">22K Yellow Gold</span>
                         </div>
                         <div class="detail-row">
-                            <span class="detail-label">Weight</span>
-                            <span class="detail-value">18.5 grams</span>
+                            <span class="detail-label" data-i18n="featured-weight">Weight</span>
+                            <span class="detail-value" data-i18n="featured-weight-val">18.5 grams</span>
                         </div>
                         <div class="detail-row">
-                            <span class="detail-label">Chain Length</span>
-                            <span class="detail-value">18 inches (adjustable)</span>
+                            <span class="detail-label" data-i18n="featured-chain-length">Chain Length</span>
+                            <span class="detail-value" data-i18n="featured-chain-val">18 inches (adjustable)</span>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -178,12 +198,12 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-header-left">
-                    <h2 class="heading-display section-title">Our Collections</h2>
-                    <p class="text-body section-subtitle">
+                    <h2 class="heading-display section-title" data-i18n="collections-title">Our Collections</h2>
+                    <p class="text-body section-subtitle" data-i18n="collections-subtitle">
                         Discover pieces crafted for every chapter of your story
                     </p>
                 </div>
-                <a href="view-catalogue.html" class="btn-text">View All Collections</a>
+                <a href="view-catalogue.html" class="btn-text" data-i18n="collections-view-all">View All Collections</a>
             </div>
             
             <div class="collections-grid">
@@ -193,8 +213,8 @@
                              alt="Daily Sparkle collection">
                     </div>
                     <div class="collection-overlay">
-                        <h3 class="collection-name">Daily Sparkle</h3>
-                        <p class="collection-count">24 pieces</p>
+                        <h3 class="collection-name" data-i18n="collection-daily-sparkle">Daily Sparkle</h3>
+                        <p class="collection-count">27 <span data-i18n="collection-pieces">pieces</span></p>
                     </div>
                 </a>
                 
@@ -204,8 +224,8 @@
                              alt="Occasional Wear collection">
                     </div>
                     <div class="collection-overlay">
-                        <h3 class="collection-name">Occasional Wear</h3>
-                        <p class="collection-count">22 pieces</p>
+                        <h3 class="collection-name" data-i18n="collection-occasional-wear">Occasional Wear</h3>
+                        <p class="collection-count">22 <span data-i18n="collection-pieces">pieces</span></p>
                     </div>
                 </a>
                 
@@ -215,8 +235,8 @@
                              alt="Forever Bond collection">
                     </div>
                     <div class="collection-overlay">
-                        <h3 class="collection-name">Forever Bond</h3>
-                        <p class="collection-count">20 rings</p>
+                        <h3 class="collection-name" data-i18n="collection-forever-bond">Forever Bond</h3>
+                        <p class="collection-count">20 <span data-i18n="collection-rings">rings</span></p>
                     </div>
                 </a>
             </div>
@@ -228,25 +248,25 @@
         <div class="container">
             <div class="story-grid">
                 <div class="story-content">
-                    <p class="text-label story-label">Our Heritage</p>
-                    <h2 class="heading-display story-title">
+                    <p class="text-label story-label" data-i18n="story-label">Our Heritage</p>
+                    <h2 class="heading-display story-title" data-i18n="story-title">
                         Generations of Golden Mastery
                     </h2>
-                    <p class="text-body story-text">
+                    <p class="text-body story-text" data-i18n="story-text-1">
                         Established in the vibrant heart of Hong Kong, 
                         Victoria Diamonds draws its inspiration from the city's centuries-old legacy as the crossroads of the East.
                         Deeply rooted in the ancient traditions of Chinese metallurgy and the historic maritime trade routes that once brought the world's finest gems to the Pearl of the Orient, our atelier began as a humble goldsmithing workshop. 
                         Today, our master artisans preserve these time-honored, dynastic techniques, ensuring that every piece crafted carries the weight of history and the enduring elegance of our heritage.
                     </p>
-                    <p class="text-body story-text">
+                    <p class="text-body story-text" data-i18n="story-text-2">
                         Today, we bring this art in London to continue the 
                         tradition, blending time-honored techniques with 
                         contemporary design sensibilities. Every piece that 
                         leaves our workshop carries the weight of this legacy.
                     </p>
                     <div class="story-signature">
-                        <p class="signature-name">Jenny Pun</p>
-                        <p class="signature-title">CEO and Founder</p>
+                        <p class="signature-name" data-i18n="story-signature-name">Jenny Pun</p>
+                        <p class="signature-title" data-i18n="story-signature-title">CEO and Founder</p>
                     </div>
                 </div>
                 <div class="story-images">
@@ -263,7 +283,7 @@
         </div>
     </section>
     
-<!-- Meet the Artist (hidden, only accessible via modal) -->
+    <!-- Meet the Artist (hidden, only accessible via modal) -->
     <section class="artist" id="artist" style="display:none;"></section>
 
     <!-- Artist Modal -->
@@ -275,31 +295,31 @@
                     <img src="images/arts.png" alt="Master artisan at work" style="max-width:100%;max-height:100%;object-fit:contain;">
                 </div>
                 <div style="padding:2rem;display:flex;flex-direction:column;justify-content:center;">
-                    <p style="font-family:var(--font-body);font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);margin-bottom:0.75rem;">Meet the Artisan</p>
-                    <h3 style="font-family:var(--font-display);font-size:1.75rem;font-weight:300;margin-bottom:1rem;line-height:1.2;">The Hands Behind<br>Our Artistry</h3>
-                    <p style="font-family:var(--font-body);font-size:0.95rem;line-height:1.7;color:var(--color-charcoal-soft);margin-bottom:0.75rem;">
+                    <p style="font-family:var(--font-body);font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);margin-bottom:0.75rem;" data-i18n="artist-label">Meet the Artisan</p>
+                    <h3 style="font-family:var(--font-display);font-size:1.75rem;font-weight:300;margin-bottom:1rem;line-height:1.2;" data-i18n="artist-title">The Hands Behind<br>Our Artistry</h3>
+                    <p style="font-family:var(--font-body);font-size:0.95rem;line-height:1.7;color:var(--color-charcoal-soft);margin-bottom:0.75rem;" data-i18n="artist-text-1">
                         Rachel draws her expertise from a variety of disciplines such as business, arts, design and fashion. She has prior training in jewellery design from Nanyang Academy of Fine Arts and fashion design from Central Saint Martins.
                     </p>
-                    <p style="font-family:var(--font-body);font-size:0.95rem;line-height:1.7;color:var(--color-charcoal-soft);margin-bottom:1.25rem;">
+                    <p style="font-family:var(--font-body);font-size:0.95rem;line-height:1.7;color:var(--color-charcoal-soft);margin-bottom:1.25rem;" data-i18n="artist-text-2">
                        She has been steeped in the design discipline for over 14 years. Her wide exposure to different cultures through her extensive travels is infused into her designs. She aims to create jewellery for the modern woman who is confident of her identity and unique in her style.
                     </p>
                     <div style="display:flex;flex-direction:column;gap:0.5rem;padding:1rem 0;border-top:1px solid var(--color-taupe-light);border-bottom:1px solid var(--color-taupe-light);margin-bottom:1rem;">
                         <div style="display:flex;justify-content:space-between;font-size:0.9rem;">
-                            <span style="color:var(--color-taupe);">Experience</span>
-                            <span style="font-weight:500;">10 Years</span>
+                            <span style="color:var(--color-taupe);" data-i18n="artist-experience">Experience</span>
+                            <span style="font-weight:500;" data-i18n="artist-experience-val">10 Years</span>
                         </div>
                         <div style="display:flex;justify-content:space-between;font-size:0.9rem;">
-                            <span style="color:var(--color-taupe);">Specialty</span>
-                            <span style="font-weight:500;">Hand-Forged Gold</span>
+                            <span style="color:var(--color-taupe);" data-i18n="artist-specialty">Specialty</span>
+                            <span style="font-weight:500;" data-i18n="artist-specialty-val">Hand-Forged Gold</span>
                         </div>
                         <div style="display:flex;justify-content:space-between;font-size:0.9rem;">
-                            <span style="color:var(--color-taupe);">Philosophy</span>
-                            <span style="font-weight:500;">Every piece tells a story</span>
+                            <span style="color:var(--color-taupe);" data-i18n="artist-philosophy">Philosophy</span>
+                            <span style="font-weight:500;" data-i18n="artist-philosophy-val">Every piece tells a story</span>
                         </div>
                     </div>
-                    <p style="font-family:var(--font-display);font-style:italic;font-size:1.35rem;color:var(--color-gold-dark);margin-bottom:0.25rem;">Rachel Gemma Tan</p>
-                    <p style="font-size:0.85rem;color:var(--color-taupe);letter-spacing:0.1em;text-transform:uppercase;">Lead Artisan, Victoria Diamonds</p>
-                    <button class="modal-close-btn" id="artistModalCloseBtn" style="margin-top:1.25rem;display:flex;align-items:center;justify-content:center;font-family:var(--font-body);font-size:0.85rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:1rem;border:1px solid var(--color-charcoal);background:transparent;color:var(--color-charcoal);cursor:pointer;transition:all 0.3s ease;">Close</button>
+                    <p style="font-family:var(--font-display);font-style:italic;font-size:1.35rem;color:var(--color-gold-dark);margin-bottom:0.25rem;" data-i18n="artist-name">Rachel Gemma Tan</p>
+                    <p style="font-size:0.85rem;color:var(--color-taupe);letter-spacing:0.1em;text-transform:uppercase;" data-i18n="artist-title-line">Lead Artisan, Victoria Diamonds</p>
+                    <button class="modal-close-btn" id="artistModalCloseBtn" style="margin-top:1.25rem;display:flex;align-items:center;justify-content:center;font-family:var(--font-body);font-size:0.85rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:1rem;border:1px solid var(--color-charcoal);background:transparent;color:var(--color-charcoal);cursor:pointer;transition:all 0.3s ease;" data-i18n="artist-close">Close</button>
                 </div>
             </div>
         </div>
@@ -310,11 +330,11 @@
         <div class="container">
             <div class="craft-grid">
                 <div class="craft-content">
-                    <p class="text-label">The Art of Creation</p>
-                    <h2 class="heading-display craft-title">
+                    <p class="text-label" data-i18n="craft-label">The Art of Creation</p>
+                    <h2 class="heading-display craft-title" data-i18n="craft-title">
                         Crafted by Hand, Treasured Forever
                     </h2>
-                    <p class="text-body craft-text">
+                    <p class="text-body craft-text" data-i18n="craft-text">
                         Each Victoria Diamonds piece undergoes a meticulous journey 
                         from concept to completion. Our artisans employ 
                         traditional goldsmithing techniques passed down through 
@@ -322,14 +342,14 @@
                         meets our exacting standards.
                     </p>
                     <ul class="craft-list text-body">
-                        <li>Hand-selected materials from ethical sources</li>
-                        <li>Traditional lost-wax casting and hand-forging</li>
-                        <li>Multiple quality inspections at every stage</li>
-                        <li>Personalized finishing and custom sizing</li>
+                        <li data-i18n="craft-list-1">Hand-selected materials from ethical sources</li>
+                        <li data-i18n="craft-list-2">Traditional lost-wax casting and hand-forging</li>
+                        <li data-i18n="craft-list-3">Multiple quality inspections at every stage</li>
+                        <li data-i18n="craft-list-4">Personalized finishing and custom sizing</li>
                     </ul>
                     <div style="display:flex;flex-wrap:wrap;gap:1rem;">
-                        <a href="#contact" class="btn-primary">Commission a Custom Piece</a>
-                        <button class="btn-primary" id="craftArtistBtn" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);cursor:pointer;">Know Our Artist</button>
+                        <a href="#contact" class="btn-primary" data-i18n="craft-commission">Commission a Custom Piece</a>
+                        <button class="btn-primary" id="craftArtistBtn" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);cursor:pointer;" data-i18n="craft-know-artist">Know Our Artist</button>
                     </div>
                 </div>
                 <div class="craft-image-wrapper">
@@ -340,15 +360,15 @@
                     <div class="craft-stats">
                         <div class="stat-item">
                             <p class="stat-number">20</p>
-                            <p class="stat-label">Years of Excellence</p>
+                            <p class="stat-label" data-i18n="craft-years">Years of Excellence</p>
                         </div>
                         <div class="stat-item">
                             <p class="stat-number">12</p>
-                            <p class="stat-label">Master Artisans</p>
+                            <p class="stat-label" data-i18n="craft-artisans">Master Artisans</p>
                         </div>
                         <div class="stat-item">
                             <p class="stat-number">2k+</p>
-                            <p class="stat-label">Pieces Created</p>
+                            <p class="stat-label" data-i18n="craft-pieces-created">Pieces Created</p>
                         </div>
                     </div>
                 </div>
@@ -360,9 +380,9 @@
     <section class="testimonials">
         <div class="container">
             <div class="testimonials-header">
-                <p class="text-label">Client Stories</p>
-                <h2 class="heading-display testimonials-title">Treasured by Many</h2>
-                <p class="text-body testimonials-subtitle">What our clients say about their Victoria Diamonds experience</p>
+                <p class="text-label" data-i18n="testimonials-label">Client Stories</p>
+                <h2 class="heading-display testimonials-title" data-i18n="testimonials-title">Treasured by Many</h2>
+                <p class="text-body testimonials-subtitle" data-i18n="testimonials-subtitle">What our clients say about their Victoria Diamonds experience</p>
             </div>
             
             <div class="testimonials-grid">
@@ -370,7 +390,7 @@
                     <div class="testimonial-stars">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
-                    <p class="testimonial-text">
+                    <p class="testimonial-text" data-i18n="testimonial-1">
                         The attention to detail is extraordinary. My wedding set from Victoria Diamonds isn't just jewelry — it's a work of art that I'll cherish forever.
                     </p>
                     <div class="testimonial-author">
@@ -378,8 +398,8 @@
                             <img src="images/avatar-01.jpg" alt="Catherine W.">
                         </div>
                         <div class="testimonial-info">
-                            <p class="testimonial-name">Catherine W.</p>
-                            <p class="testimonial-detail">Bridal Collection</p>
+                            <p class="testimonial-name" data-i18n="testimonial-name-1">Catherine W.</p>
+                            <p class="testimonial-detail" data-i18n="testimonial-detail-1">Bridal Collection</p>
                         </div>
                     </div>
                 </div>
@@ -388,7 +408,7 @@
                     <div class="testimonial-stars">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
-                    <p class="testimonial-text">
+                    <p class="testimonial-text" data-i18n="testimonial-2">
                         Working with the design team to create a custom anniversary gift was seamless. They understood my vision and exceeded expectations.
                     </p>
                     <div class="testimonial-author">
@@ -396,8 +416,8 @@
                             <img src="images/avatar-02.jpg" alt="Michael T.">
                         </div>
                         <div class="testimonial-info">
-                            <p class="testimonial-name">Michael T.</p>
-                            <p class="testimonial-detail">Custom Design</p>
+                            <p class="testimonial-name" data-i18n="testimonial-name-2">Michael T.</p>
+                            <p class="testimonial-detail" data-i18n="testimonial-detail-2">Custom Design</p>
                         </div>
                     </div>
                 </div>
@@ -406,7 +426,7 @@
                     <div class="testimonial-stars">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
-                    <p class="testimonial-text">
+                    <p class="testimonial-text" data-i18n="testimonial-3">
                         Three generations of my family have now worn pieces from Victoria Diamonds. The quality is unmatched and each piece tells our story.
                     </p>
                     <div class="testimonial-author">
@@ -414,8 +434,8 @@
                             <img src="images/avatar-03.jpg" alt="Eleanor M.">
                         </div>
                         <div class="testimonial-info">
-                            <p class="testimonial-name">Eleanor M.</p>
-                            <p class="testimonial-detail">Heritage Collection</p>
+                            <p class="testimonial-name" data-i18n="testimonial-name-3">Eleanor M.</p>
+                            <p class="testimonial-detail" data-i18n="testimonial-detail-3">Heritage Collection</p>
                         </div>
                     </div>
                 </div>
@@ -428,11 +448,11 @@
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-content">
-                    <p class="text-label">Visit Our Atelier</p>
-                    <h2 class="heading-display contact-title">
+                    <p class="text-label" data-i18n="contact-label">Visit Our Atelier</p>
+                    <h2 class="heading-display contact-title" data-i18n="contact-title">
                         Experience Victoria Diamonds
                     </h2>
-                    <p class="text-body contact-text">
+                    <p class="text-body contact-text" data-i18n="contact-text">
                         We invite you to visit our atelier for a personal 
                         consultation. Discover our collections in an intimate 
                         setting and work with our designers to create something 
@@ -441,21 +461,21 @@
                     
                     <div class="contact-details">
                         <div class="contact-item">
-                            <p class="contact-item-label">Address</p>
+                            <p class="contact-item-label" data-i18n="contact-address">Address</p>
                             <p class="contact-item-value">
-                               <p>London Shangrila Hotel (Appointment)</p>
-                        <p>31 St Thomas Street</p>
-                        <p>London SE1 9QU, United Kingdom</p>
+                                <span data-i18n="contact-address-val-1">London Shangrila Hotel (Appointment)</span><br>
+                                <span data-i18n="contact-address-val-2">31 St Thomas Street</span><br>
+                                <span data-i18n="contact-address-val-3">London SE1 9QU, United Kingdom</span>
                             </p>
                         </div>
                         <div class="contact-item">
-                            <p class="contact-item-label">Hours</p>
-                            <p class="contact-item-value">
-                               Monday to Sunday 11am to 9pm (Appointment)
+                            <p class="contact-item-label" data-i18n="contact-hours">Hours</p>
+                            <p class="contact-item-value" data-i18n="contact-hours-val">
+                                Monday to Sunday 11am to 9pm (Appointment)
                             </p>
                         </div>
                         <div class="contact-item">
-                            <p class="contact-item-label">Contact</p>
+                            <p class="contact-item-label" data-i18n="contact-phone">Contact</p>
                             <p class="contact-item-value">
                                 <a href="tel:+447594442577">+44 7594 442577</a><br>
                                 <a href="mailto:inquiry@victoria-diamonds.com">inquiry@victoria-diamonds.com</a>
@@ -463,20 +483,20 @@
                         </div>
                     </div>
                     <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem;">
-                        <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="btn-primary">Book Appointment with us</a>
-                        <a href="https://wa.me/447594442577?text=Hi%20Victoria%20Diamonds!%20I%27d%20love%20to%20inquire%20about%20a%20jewelry%20piece.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" rel="noopener" class="btn-primary" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);">WhatsApp Us</a>
+                        <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="btn-primary" data-i18n="contact-book">Book Appointment with us</a>
+                        <a href="https://wa.me/447594442577?text=Hi%20Victoria%20Diamonds!%20I%27d%20love%20to%20inquire%20about%20a%20jewelry%20piece.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" rel="noopener" class="btn-primary" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);" data-i18n="contact-whatsapp">WhatsApp Us</a>
                     </div>
                 </div>
                 
                 <div class="contact-form-wrapper">
-                    <div class="booking-pill">Private Consultation</div>
-                    <h3 class="form-title">Book an Appointment</h3>
-                    <p class="booking-copy">
+                    <div class="booking-pill" data-i18n="contact-private-consultation">Private Consultation</div>
+                    <h3 class="form-title" data-i18n="contact-appointment-title">Book an Appointment</h3>
+                    <p class="booking-copy" data-i18n="contact-appointment-text">
                         Reserve a personal viewing, custom design conversation, or collection consultation with our London atelier. Contact us directly to schedule your private appointment.
                     </p>
                     <div class="booking-actions" style="flex-direction:column;">
-                        <a href="tel:+447594442577" class="btn-primary">Call +44 7594 442577</a>
-                        <a href="mailto:inquiry@victoria-diamonds.com" class="btn-primary" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);">Email Us</a>
+                        <a href="tel:+447594442577" class="btn-primary" data-i18n="contact-call">Call +44 7594 442577</a>
+                        <a href="mailto:inquiry@victoria-diamonds.com" class="btn-primary" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);" data-i18n="contact-email">Email Us</a>
                     </div>
                 </div>
             </div>
@@ -489,14 +509,14 @@
             <div class="footer-grid">
                 <!-- Column 1: Brand & Contact -->
                 <div class="footer-brand">
-                    <p class="footer-logo">Victoria <span>Diamonds</span></p>
-                    <p class="footer-tagline">
+                    <p class="footer-logo" data-i18n="brand-name">Victoria <span>Diamonds</span></p>
+                    <p class="footer-tagline" data-i18n="footer-tagline">
                         Handcrafted gold jewelry of exceptional quality and timeless elegance. Family-owned atelier since 1987.
                     </p>
                     <div class="footer-contact-info">
-                        <p>London Shangrila Hotel (Appointment)</p>
-                        <p>31 St Thomas Street</p>
-                        <p>London SE1 9QU, United Kingdom</p>
+                        <p data-i18n="footer-address-1">London Shangrila Hotel (Appointment)</p>
+                        <p data-i18n="footer-address-2">31 St Thomas Street</p>
+                        <p data-i18n="footer-address-3">London SE1 9QU, United Kingdom</p>
                         <p><a href="tel:+447594442577">+44 7594 442577</a></p>
                         <p><a href="mailto:inquiry@victoria-diamonds.com">inquiry@victoria-diamonds.com</a></p>
                     </div>
@@ -504,37 +524,37 @@
                 
                 <!-- Column 2: Quick Links -->
                 <div class="footer-column">
-                    <h4 class="footer-column-title">Collections</h4>
+                    <h4 class="footer-column-title" data-i18n="footer-collections">Collections</h4>
                     <ul class="footer-links">
-                        <li><a href="view-catalogue.html">All Collections</a></li>
-                        <li><a href="daily-sparkle.html">Daily Sparkle</a></li>
-                        <li><a href="occasional-wear.html">Occasional Wear</a></li>
-                        <li><a href="forever-bond.html">Forever Bond</a></li>
+                        <li><a href="view-catalogue.html" data-i18n="footer-all-collections">All Collections</a></li>
+                        <li><a href="daily-sparkle.html" data-i18n="collection-daily-sparkle">Daily Sparkle</a></li>
+                        <li><a href="occasional-wear.html" data-i18n="collection-occasional-wear">Occasional Wear</a></li>
+                        <li><a href="forever-bond.html" data-i18n="collection-forever-bond">Forever Bond</a></li>
                     </ul>
                 </div>
                 
                 <!-- Column 3: Company -->
                 <div class="footer-column">
-                    <h4 class="footer-column-title">Company</h4>
+                    <h4 class="footer-column-title" data-i18n="footer-company">Company</h4>
                     <ul class="footer-links">
-                        <li><a href="#story">Our Story</a></li>
-                        <li><a href="#craftsmanship">Craftsmanship</a></li>
-                        <li><a href="#contact">Visit Us</a></li>
-                        <li><a href="#">Custom Design</a></li>
-                        <li><a href="#">Care Guide</a></li>
+                        <li><a href="#story" data-i18n="footer-our-story">Our Story</a></li>
+                        <li><a href="#craftsmanship" data-i18n="footer-craftsmanship">Craftsmanship</a></li>
+                        <li><a href="#contact" data-i18n="footer-visit-us">Visit Us</a></li>
+                        <li><a href="#" data-i18n="footer-custom-design">Custom Design</a></li>
+                        <li><a href="#" data-i18n="footer-care-guide">Care Guide</a></li>
                     </ul>
                 </div>
                 
                 <!-- Column 4: About This Website -->
                 <div class="footer-column footer-about">
-                    <h4 class="footer-column-title">About This Website</h4>
-                    <p>
+                    <h4 class="footer-column-title" data-i18n="footer-about">About This Website</h4>
+                    <p data-i18n="footer-about-text-1">
                         This website presents Victoria Diamonds, a London-based fine jewelry atelier offering bespoke consultations, private appointments, and timeless gold pieces.
                     </p>
-                    <p>
+                    <p data-i18n="footer-about-text-2">
                         Explore our collections online, then visit our London showroom for a personal experience with our design team.
                     </p>
-                    <p>
+                    <p data-i18n="footer-about-text-3">
                         For private appointments, contact us directly through the details above or our social channels.
                     </p>
                 </div>
@@ -542,7 +562,7 @@
             
             <!-- Footer Bottom -->
             <div class="footer-bottom">
-                <p class="footer-copyright">© 2026 Victoria Diamonds.</p>
+                <p class="footer-copyright" data-i18n="footer-copyright">© 2026 Victoria Diamonds.</p>
                 <div class="footer-social" aria-label="Social media links">
                     <a href="https://www.facebook.com/profile.php?id=61590599627658" target="_blank" rel="noopener" aria-label="Facebook">
                         <svg viewBox="0 0 24 24" class="social-icon" aria-hidden="true">

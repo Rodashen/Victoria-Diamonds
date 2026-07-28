@@ -1,45 +1,19 @@
-# ✅ Completed: Sync Collection Pages with view-catalogue.html
 
-## Changes applied to ALL 3 pages (daily-sparkle, forever-bond, occasional-wear):
 
-### Modal CSS improvements (match view-catalogue)
-- [x] daily-sparkle.html ✅
-- [x] forever-bond.html ✅
-- [x] occasional-wear.html ✅
+## Steps
 
-### Meta text change: `22K Gold` → `18K Gold` (product cards + modal)
-- [x] daily-sparkle.html ✅
-- [x] forever-bond.html ✅
-- [x] occasional-wear.html ✅
+- [x] 1. Analyze all files and create plan
+- [x] 2. Create `translations.js` with English→Traditional Chinese dictionary
+- [x] 3. Add language dropdown HTML to all 5 pages
+- [x] 4. Add `data-i18n` attributes to all text-bearing elements across all pages
+- [x] 5. Add translation initialization logic to `victoria-diamonds.js` and catalogue pages
+- [x] 6. Add CSS styling for language dropdown in `victoria-diamonds.css`
+- [x] 7. Fix broken HTML in `daily-sparkle.html` (unclosed tags, duplicate code, missing closes)
+- [x] 8. Add `getCatLabel()` and `getMetaText()` helpers to catalogue pages for dynamic content translation
+- [x] 9. Add 3 new necklace products (Elara, Nova, Raya) to Daily Sparkle collection using images 4.jpeg, 5.png, 6.jpeg
+- [x] 10. Update piece count from 24 → 27 across all pages and translations
+- [x] 11. Add Chinese translations for the 3 new product names
 
-### Header back link: `← Back to Main` → `← Back`
-- [x] daily-sparkle.html ✅
-- [x] forever-bond.html ✅
-- [x] occasional-wear.html ✅
+All files updated with 3 new Daily Sparkle rings and corrected piece count.
+</edit_file>
 
-### Close button symbol: `&times;` → `×`
-- [x] daily-sparkle.html ✅
-- [x] forever-bond.html ✅
-- [x] occasional-wear.html ✅
-
-## Additional changes for daily-sparkle.html only:
-### Product image data corrections (re-indexed filenames matching view-catalogue)
-- Rings: 7-13 (same), 14→29, 15→30
-- Necklaces: 16→14, 17→15, 18→16, 19→17, 20→18, 21→19, 22→20
-- Earrings: 23→21, 24→22
-- Earring Studs: 25→28
-- Bracelets: 26→23, 27→24, 28→25, 29→26, 30→27
-- [x] daily-sparkle.html ✅
-
-## Global changes:
-### Artist Modal CSS in victoria-diamonds.css
-- [x] Added modal-overlay, modal-popup, modal-close-x, modal-close-btn styles ✅
-
-### Artist Modal JS in victoria-diamonds.js
-- [x] Added open/close/escape-key modal functionality ✅
-
-## Verification
-- [ ] Open daily-sparkle.html in browser to verify
-- [ ] Open forever-bond.html in browser to verify
-- [ ] Open occasional-wear.html in browser to verify
-- [ ] Open index.html to verify artist modal works
