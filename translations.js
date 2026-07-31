@@ -161,7 +161,7 @@ const translations = {
         // ===== Daily Sparkle Page =====
         'daily-title': '日常閃耀',
         'daily-subtitle': '日常的簡約優雅 — 精緻作品為您的節奏增添一抹光彩。',
-'daily-count': '27 件作品',
+        'daily-count': '33 件作品',
         'daily-hero-title': '日常閃耀',
         'daily-hero-subtitle': '日常的簡約優雅 — 精緻作品為您的節奏增添一抹光彩。',
 
@@ -218,6 +218,12 @@ const translations = {
         'product-Timeless Classic Ring': '永恆經典戒指',
         'product-Eternity Stacking Ring': '永恆疊戴戒指',
         'product-Splendor Stacking Ring': '燦爛疊戴戒指',
+        'product-Aurelia Ring': '奧蕾莉亞戒指',
+        'product-Diamond Dust Ring': '鑽石塵戒指',
+        'product-Nocturne Ring': '夜曲戒指',
+        'product-Gianna Ring': '吉安娜戒指',
+        'product-Mirabelle Ring': '米拉貝爾戒指',
+        'product-Cascade Ring': '瀑布戒指',
         // Necklaces
         'product-Solstice Necklace': '夏至項鏈',
         'product-Aurora Necklace': '極光項鏈',
