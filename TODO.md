@@ -1,19 +1,11 @@
-# TODO: Add 6 New Rings (75.png-80.png) to Daily Sparkle Collection
+# TODO: Update Jewellery Catalogue with New Layout, Sort, and Product Data
 
-## New Rings
-| File | Name | Chinese Translation |
-|------|------|-------------------|
-| 75.png | Aurelia Ring | 奧蕾莉亞戒指 |
-| 76.png | Diamond Dust Ring | 鑽石塵戒指 |
-| 77.png | Nocturne Ring | 夜曲戒指 |
-| 78.png | Gianna Ring | 吉安娜戒指 |
-| 79.png | Mirabelle Ring | 米拉貝爾戒指 |
-| 80.png | Cascade Ring | 瀑布戒指 |
+## Steps
 
-## Files to Edit
-
-- [x] 1. **`translations.js`** - Add 6 new product translations + update `daily-count` from 27→33
-- [x] 2. **`daily-sparkle.html`** - Add 6 rings to Rings section + update count 27→33
-- [x] 3. **`view-catalogue.html`** - Add 6 rings to Daily Sparkle Rings + update count 27→33
-- [x] 4. **`index.html`** - Update Daily Sparkle piece count from 27→33
-
+- [ ] 1. Update `translations.js` - Add new translation keys, update metal meta keys
+- [ ] 2. Update `view-catalogue.html` - New product card layout, sort, product data, modal
+- [ ] 3. Update `daily-sparkle.html` - Add product data (stone, price, tag) to all items
+- [ ] 4. Update `occasional-wear.html` - New layout, sort, product data, modal
+- [ ] 5. Update `forever-bond.html` - New layout, sort, product data, modal
+- [ ] 6. Update `index.html` - Remove "Inquire for Price" references
+- [ ] 7. Verify all products match specification

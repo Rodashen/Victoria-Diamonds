@@ -409,10 +409,21 @@
         </div>
     </header>
 
-    <section class="catalogue-hero">
+<section class="catalogue-hero">
         <h1 data-i18n="occasional-hero-title">Occasional Wear</h1>
         <p data-i18n="occasional-hero-subtitle">Statement-making designs for life's special moments—celebrations, evenings, and milestones.</p>
     </section>
+
+    <div class="catalogue-sort-wrapper">
+        <div class="inner">
+            <span class="sort-label" data-i18n="sort-label">Sort</span>
+            <select id="sortSelect" class="sort-select">
+                <option value="default" data-i18n="sort-default">Default</option>
+                <option value="price-asc" data-i18n="sort-asc">Price: Low → High</option>
+                <option value="price-desc" data-i18n="sort-desc">Price: High → Low</option>
+            </select>
+        </div>
+    </div>
 
     <section class="collection-section">
         <div class="collection-head">
@@ -436,7 +447,7 @@
             <img class="modal-img" id="modalImg" src="" alt="">
             <div class="modal-body">
                 <p class="modal-name" id="modalName"></p>
-                <p class="modal-meta" id="modalMeta">18K Gold &middot; Inquire for Price</p>
+<p class="modal-meta" id="modalMeta"></p>
 <div class="modal-actions">
                     <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="modal-book" data-i18n="catalogue-book">Book Appointment</a>
                     <button class="modal-close-btn" id="modalCloseBtn" data-i18n="catalogue-close">Close</button>
@@ -467,7 +478,7 @@
 // Track current language globally for product name lookup
         var catalogueCurrentLang = 'en';
 
-        function getCatLabel(category) {
+function getCatLabel(category) {
             var catKey = 'category-' + category;
             if (typeof translations !== 'undefined' && translations[catalogueCurrentLang] && translations[catalogueCurrentLang][catKey]) {
                 return translations[catalogueCurrentLang][catKey];
@@ -477,7 +488,14 @@
             return labelText;
         }
 
-        function getMetaText(metal) {
+        function getLabel(key, fallback) {
+            if (typeof translations !== 'undefined' && translations[catalogueCurrentLang] && translations[catalogueCurrentLang][key]) {
+                return translations[catalogueCurrentLang][key];
+            }
+            return fallback;
+        }
+
+        function getMetalDisplay(metal) {
             var metaKey;
             if (metal.indexOf('White') !== -1) metaKey = 'meta-18k-white';
             else if (metal.indexOf('Rose') !== -1) metaKey = 'meta-18k-rose';
@@ -485,7 +503,35 @@
             if (typeof translations !== 'undefined' && translations[catalogueCurrentLang] && translations[catalogueCurrentLang][metaKey]) {
                 return translations[catalogueCurrentLang][metaKey];
             }
-            return metal + ' &middot; Inquire for Price';
+            return metal;
+        }
+
+        function formatPrice(price) {
+            return '£' + Number(price).toLocaleString('en-GB');
+        }
+
+        function getMetaHTML(item, category) {
+            var metal = item.metal || '18K Gold';
+            var price = item.price;
+            var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
+            var isBracelet = category === 'Bracelet';
+            var isBrooch = category === 'Brooch';
+            var isTiara = category === 'Tiara';
+            if (isBracelet) {
+                html += '<span class="meta-stone-label">' + getLabel('label-diamond', 'Total Diamond Weight') + ':</span>';
+                html += '<span class="meta-stone">' + (item.stone !== undefined ? item.stone : '') + '</span>';
+            } else if (!isBrooch && !isTiara && !item.tag) {
+                html += '<span class="meta-stone-label">' + getLabel('label-center', 'Center Stone') + ':</span>';
+                html += '<span class="meta-stone">' + (item.stone !== undefined ? item.stone : getLabel('label-none', 'None')) + '</span>';
+            }
+            if (item.tag) {
+                html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
+            }
+            if (price !== undefined) {
+                html += '<span class="meta-price-label">' + getLabel('label-price', 'Price') + ':</span>';
+                html += '<span class="meta-price"><strong>' + formatPrice(price) + '</strong></span>';
+            }
+            return html;
         }
 
         function getProductName(englishName) {
@@ -505,17 +551,60 @@
             container.appendChild(label);
             var grid = document.createElement('div');
             grid.className = 'product-grid';
+            grid.setAttribute('data-category', category);
             items.forEach(function(item) {
                 var name = item.name;
                 var imgSrc = 'images/' + item.image;
                 var card = document.createElement('div');
                 card.className = 'product-card reveal';
+                card.setAttribute('data-price', item.price !== undefined ? item.price : '');
+                card.setAttribute('data-stone', item.stone !== undefined ? item.stone : '');
+                card.setAttribute('data-metal', item.metal || '18K Gold');
+                if (item.tag) card.setAttribute('data-tag', item.tag);
                 var metal = item.metal || '18K Gold';
                 var displayName = getProductName(name);
-                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name" data-product-name="' + name.replace(/"/g, '"') + '">' + displayName + '</p><p class="meta">' + getMetaText(metal) + '</p></div>';
+                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name" data-product-name="' + name.replace(/"/g, '"') + '">' + displayName + '</p><p class="meta">' + getMetaHTML(item, category) + '</p></div>';
                 grid.appendChild(card);
             });
             container.appendChild(grid);
+        }
+
+        function refreshMeta() {
+            var grids = document.querySelectorAll('.product-grid');
+            grids.forEach(function(grid) {
+                var category = grid.getAttribute('data-category') || '';
+                var cards = grid.querySelectorAll('.product-card');
+                cards.forEach(function(card) {
+                    var stone = card.getAttribute('data-stone');
+                    var metal = card.getAttribute('data-metal') || '18K Gold';
+                    var tag = card.getAttribute('data-tag');
+                    var price = card.getAttribute('data-price');
+                    var item = { metal: metal };
+                    if (stone !== '') item.stone = stone;
+                    if (tag) item.tag = tag;
+                    if (price !== '') item.price = price;
+                    var metaEl = card.querySelector('.info .meta');
+                    if (metaEl) metaEl.innerHTML = getMetaHTML(item, category);
+                });
+            });
+        }
+
+        function applySort() {
+            var sortVal = document.getElementById('sortSelect') ? document.getElementById('sortSelect').value : 'default';
+            var grids = document.querySelectorAll('.product-grid');
+            grids.forEach(function(grid) {
+                var cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card'));
+                cards.sort(function(a, b) {
+                    var pa = parseFloat(a.getAttribute('data-price')) || 0;
+                    var pb = parseFloat(b.getAttribute('data-price')) || 0;
+                    if (sortVal === 'price-asc') return pa - pb;
+                    if (sortVal === 'price-desc') return pb - pa;
+                    return 0;
+                });
+                cards.forEach(function(card) {
+                    grid.appendChild(card);
+                });
+            });
         }
 
         document.addEventListener('click', function(e) {
@@ -550,46 +639,46 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        // Occasional Wear - Rings (32–46)
+// Occasional Wear - Rings (32–46)
         renderProducts('occasionalWear', [
-            {name:'Elysia Ring', image:'32.png'},
-            {name:'\u00c9ternelle Grande Ring', image:'33.png'},
-            {name:'Ros\u00e9 Bloom Ring', image:'34.png', metal:'18K Rose Gold'},
-            {name:'Venus Ring', image:'35.png'},
-            {name:'Promise of Forever Ring', image:'36.png'},
-            {name:'Skylar Ring', image:'37.png',metal:'18K White Gold'},
-            {name:'Fae Ring', image:'38.png', metal:'18K White Gold'},
-            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold'},
-            {name:'Tranquility Ring', image:'40.png',metal:'18K White Gold' },
-            {name:'Amour Ring', image:'41.png', metal:'18K White Gold'},
-            {name:'Amora Ring', image:'42.png', },
-            {name:'Imperial Pav\u00e9 Ring', image:'43.png'},
-            {name:'Athena Ring', image:'44.png' ,metal:'18K White Gold'},
-            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold'},
-            {name:'Lunelle Ring', image:'46.png'}
+            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', price:2530},
+            {name:'\u00c9ternelle Grande Ring', image:'33.png', stone:'5.00 ct', price:4810},
+            {name:'Ros\u00e9 Bloom Ring', image:'34.png', metal:'18K Rose Gold', stone:'1.00 ct', price:2560},
+            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'2.00 ct', price:3580},
+            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', price:2325},
+            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', price:2650},
+            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', price:2850},
+            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', price:2850},
+            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', price:2325},
+            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', stone:'None', price:1850},
+            {name:'Amora Ring', image:'42.png', stone:'1.00 ct', price:2540},
+            {name:'Imperial Pav\u00e9 Ring', image:'43.png', stone:'None', price:2890},
+            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', price:2525},
+            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'1.00 ct', price:2650},
+            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', price:2850}
         ], 'Ring');
 
         // Occasional Wear - Earrings (47–48)
         renderProducts('occasionalWear', [
-            {name:'Round Illusion Stud', image:'50.png'},
-            {name:'Fiora Earrings', image:'52.png'}
+            {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct', price:1850},
+            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct', price:2100}
         ], 'Earring');
 
         // Occasional Wear - Bracelets (49–50)
         renderProducts('occasionalWear', [
-            {name:'Lumina Wedding Tennis', image:'49.png'},
-            {name:'Arabella', image:'53.png'}
+            {name:'Lumina Wedding Tennis', image:'49.png', stone:'5.00 ct', price:3280},
+            {name:'Arabella', image:'53.png', stone:'5.00 ct', price:3280}
         ], 'Bracelet');
 
         // Occasional Wear - Brooches (51–52)
         renderProducts('occasionalWear', [
-            {name:'Celestia Broche', image:'47.png'},
-            {name:'\u00c9ternelle Broche', image:'48.png'}
+            {name:'Celestia Broche', image:'47.png', price:4560},
+            {name:'\u00c9ternelle Broche', image:'48.png', price:4580}
         ], 'Brooch');
 
         // Occasional Wear - Tiara (53)
         renderProducts('occasionalWear', [
-            {name:'Lunaria Tiara', image:'51.png'}
+            {name:'Lunaria Tiara', image:'51.png', price:10900}
         ], 'Tiara');
 
 // ===== Translation Init =====
@@ -616,10 +705,11 @@ function applyCatalogueTranslations(lang) {
                     }
                 });
                 // Update product card names using data-product-name attribute
-                document.querySelectorAll('.product-card .info .name[data-product-name]').forEach(function(el) {
+document.querySelectorAll('.product-card .info .name[data-product-name]').forEach(function(el) {
                     var englishName = el.getAttribute('data-product-name');
                     el.textContent = getProductName(englishName);
                 });
+                refreshMeta();
                 document.documentElement.lang = lang === 'zh-TW' ? 'zh-Hant' : 'en';
                 var selector = document.getElementById('langSelect');
                 if (selector) { selector.value = lang; }
@@ -637,6 +727,14 @@ function applyCatalogueTranslations(lang) {
                 });
             }
         })();
+
+        // ===== Sort by Price =====
+        var sortSelect = document.getElementById('sortSelect');
+        if (sortSelect) {
+            sortSelect.addEventListener('change', function() {
+                applySort();
+            });
+        }
     </script>
 </body>
 </html>

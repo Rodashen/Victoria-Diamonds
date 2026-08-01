@@ -192,9 +192,66 @@
             font-weight: 400;
             margin-bottom: 0.2rem;
         }
-        .product-card .info .meta {
+.product-card .info .meta {
             font-size: 0.8rem;
             color: var(--taupe);
+            line-height: 1.55;
+        }
+        .product-card .info .meta .meta-metal {
+            display: block;
+            font-weight: 600;
+            color: var(--charcoal-soft);
+        }
+        .product-card .info .meta .meta-tag,
+        .product-card .info .meta .meta-stone-label,
+        .product-card .info .meta .meta-stone,
+        .product-card .info .meta .meta-price-label,
+        .product-card .info .meta .meta-price {
+            display: block;
+        }
+        .product-card .info .meta .meta-price strong {
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+        .catalogue-sort-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 1.5rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .catalogue-sort-wrapper .inner {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .sort-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--taupe);
+        }
+        .sort-select {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.5rem 2rem 0.5rem 0.75rem;
+            border: 1px solid rgba(28,28,28,0.15);
+            border-radius: 3px;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1C1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 0.7rem;
+        }
+        @media (max-width: 480px) {
+            .catalogue-sort-wrapper { padding: 0 1rem 1rem; }
         }
         .product-card .badge-type {
             position: absolute;
@@ -380,10 +437,21 @@
         </div>
     </header>
 
-    <section class="catalogue-hero">
+<section class="catalogue-hero">
         <h1 data-i18n="forever-hero-title">Forever Bond</h1>
         <p data-i18n="forever-hero-subtitle">Timeless symbols of love and commitment—heirloom-quality rings for life's greatest promises.</p>
     </section>
+
+    <div class="catalogue-sort-wrapper">
+        <div class="inner">
+            <span class="sort-label" data-i18n="sort-label">Sort</span>
+            <select id="sortSelect" class="sort-select">
+                <option value="default" data-i18n="sort-default">Default</option>
+                <option value="price-asc" data-i18n="sort-asc">Price: Low → High</option>
+                <option value="price-desc" data-i18n="sort-desc">Price: High → Low</option>
+            </select>
+        </div>
+    </div>
 
     <section class="collection-section">
         <div class="collection-head">
@@ -407,7 +475,7 @@
             <img class="modal-img" id="modalImg" src="" alt="">
             <div class="modal-body">
                 <p class="modal-name" id="modalName"></p>
-                <p class="modal-meta" id="modalMeta">18K Gold &middot; Inquire for Price</p>
+<p class="modal-meta" id="modalMeta"></p>
 <div class="modal-actions">
                     <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="modal-book" data-i18n="catalogue-book">Book Appointment</a>
                     <button class="modal-close-btn" id="modalCloseBtn" data-i18n="catalogue-close">Close</button>
@@ -420,7 +488,7 @@
 // Track current language globally for product name lookup
         var catalogueCurrentLang = 'en';
 
-        function getCatLabel(category) {
+function getCatLabel(category) {
             var catKey = 'category-' + category;
             if (typeof translations !== 'undefined' && translations[catalogueCurrentLang] && translations[catalogueCurrentLang][catKey]) {
                 return translations[catalogueCurrentLang][catKey];
@@ -430,7 +498,14 @@
             return labelText;
         }
 
-        function getMetaText(metal) {
+        function getLabel(key, fallback) {
+            if (typeof translations !== 'undefined' && translations[catalogueCurrentLang] && translations[catalogueCurrentLang][key]) {
+                return translations[catalogueCurrentLang][key];
+            }
+            return fallback;
+        }
+
+        function getMetalDisplay(metal) {
             var metaKey;
             if (metal.indexOf('White') !== -1) metaKey = 'meta-18k-white';
             else if (metal.indexOf('Rose') !== -1) metaKey = 'meta-18k-rose';
@@ -438,7 +513,35 @@
             if (typeof translations !== 'undefined' && translations[catalogueCurrentLang] && translations[catalogueCurrentLang][metaKey]) {
                 return translations[catalogueCurrentLang][metaKey];
             }
-            return metal + ' &middot; Inquire for Price';
+            return metal;
+        }
+
+        function formatPrice(price) {
+            return '£' + Number(price).toLocaleString('en-GB');
+        }
+
+        function getMetaHTML(item, category) {
+            var metal = item.metal || '18K Gold';
+            var price = item.price;
+            var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
+            var isBracelet = category === 'Bracelet';
+            var isBrooch = category === 'Brooch';
+            var isTiara = category === 'Tiara';
+            if (isBracelet) {
+                html += '<span class="meta-stone-label">' + getLabel('label-diamond', 'Total Diamond Weight') + ':</span>';
+                html += '<span class="meta-stone">' + (item.stone !== undefined ? item.stone : '') + '</span>';
+            } else if (!isBrooch && !isTiara && !item.tag) {
+                html += '<span class="meta-stone-label">' + getLabel('label-center', 'Center Stone') + ':</span>';
+                html += '<span class="meta-stone">' + (item.stone !== undefined ? item.stone : getLabel('label-none', 'None')) + '</span>';
+            }
+            if (item.tag) {
+                html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
+            }
+            if (price !== undefined) {
+                html += '<span class="meta-price-label">' + getLabel('label-price', 'Price') + ':</span>';
+                html += '<span class="meta-price"><strong>' + formatPrice(price) + '</strong></span>';
+            }
+            return html;
         }
 
         function getProductName(englishName) {
@@ -458,17 +561,60 @@
             container.appendChild(label);
             var grid = document.createElement('div');
             grid.className = 'product-grid';
+            grid.setAttribute('data-category', category);
             items.forEach(function(item) {
                 var name = item.name;
                 var imgSrc = 'images/' + item.image;
                 var card = document.createElement('div');
                 card.className = 'product-card';
+                card.setAttribute('data-price', item.price !== undefined ? item.price : '');
+                card.setAttribute('data-stone', item.stone !== undefined ? item.stone : '');
+                card.setAttribute('data-metal', item.metal || '18K Gold');
+                if (item.tag) card.setAttribute('data-tag', item.tag);
                 var metal = item.metal || '18K Gold';
                 var displayName = getProductName(name);
-                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name" data-product-name="' + name.replace(/"/g, '"') + '">' + displayName + '</p><p class="meta">' + getMetaText(metal) + '</p></div>';
+                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name" data-product-name="' + name.replace(/"/g, '"') + '">' + displayName + '</p><p class="meta">' + getMetaHTML(item, category) + '</p></div>';
                 grid.appendChild(card);
             });
             container.appendChild(grid);
+        }
+
+        function refreshMeta() {
+            var grids = document.querySelectorAll('.product-grid');
+            grids.forEach(function(grid) {
+                var category = grid.getAttribute('data-category') || '';
+                var cards = grid.querySelectorAll('.product-card');
+                cards.forEach(function(card) {
+                    var stone = card.getAttribute('data-stone');
+                    var metal = card.getAttribute('data-metal') || '18K Gold';
+                    var tag = card.getAttribute('data-tag');
+                    var price = card.getAttribute('data-price');
+                    var item = { metal: metal };
+                    if (stone !== '') item.stone = stone;
+                    if (tag) item.tag = tag;
+                    if (price !== '') item.price = price;
+                    var metaEl = card.querySelector('.info .meta');
+                    if (metaEl) metaEl.innerHTML = getMetaHTML(item, category);
+                });
+            });
+        }
+
+        function applySort() {
+            var sortVal = document.getElementById('sortSelect') ? document.getElementById('sortSelect').value : 'default';
+            var grids = document.querySelectorAll('.product-grid');
+            grids.forEach(function(grid) {
+                var cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card'));
+                cards.sort(function(a, b) {
+                    var pa = parseFloat(a.getAttribute('data-price')) || 0;
+                    var pb = parseFloat(b.getAttribute('data-price')) || 0;
+                    if (sortVal === 'price-asc') return pa - pb;
+                    if (sortVal === 'price-desc') return pb - pa;
+                    return 0;
+                });
+                cards.forEach(function(card) {
+                    grid.appendChild(card);
+                });
+            });
         }
 
         document.addEventListener('click', function(e) {
@@ -501,28 +647,28 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        // Forever Bond - Rings (55–74)
+// Forever Bond - Rings (55–74)
         renderProducts('foreverBond', [
-            {name:'Stellar Promise Ring', image:'55.png'},
-            {name:'\u00c9l\u00e9gance Unie Ring', image:'56.png'},
-            {name:'Lumi\u00e8re Eternity Ring', image:'57.png'},
-            {name:'Endless Devotion Ring', image:'58.png'},
-            {name:'Luminous Devotion Ring', image:'59.png'},
-            {name:'Everlasting Embrace Ring', image:'60.png'},
-            {name:'The Knot Ring', image:'61.png'},
-            {name:'Eternal Connection Ring Set', image:'62.png', metal:'18K White Gold'},
-            {name:'Eternal Promise Ring', image:'63.png'},
-            {name:'Moment to Shine Ring', image:'64.png' ,metal:'18K White Gold'},
-            {name:'Unbreakable Hearts Ring', image:'65.png'},
-            {name:'Bound by Destiny Ring', image:'66.png'},
-            {name:'Ethereal Halo Ring', image:'67.png'},
-            {name:'Amour \u00c9ternel Ring', image:'68.png'},
-            {name:'Celestial Embrace Ring', image:'69.png'},
-            {name:'Eternal Promise Ring Set (Couple\u2019s Ring)', image:'70.png', metal:'18K White Gold'},
-            {name:'Eternal Harmony Ring', image:'71.png'},
-            {name:'Wedding Bands', image:'72.png'},
-            {name:'Destiny Couple Ring', image:'73.png'},
-            {name:'Elysian Ring', image:'74.png'}
+            {name:'Stellar Promise Ring', image:'55.png', stone:'2.00 ct', price:3657},
+            {name:'\u00c9l\u00e9gance Unie Ring', image:'56.png', stone:'0.75 ct', price:2250},
+            {name:'Lumi\u00e8re Eternity Ring', image:'57.png', stone:'None', price:1380},
+            {name:'Endless Devotion Ring', image:'58.png', stone:'1.00 ct', price:2557},
+            {name:'Luminous Devotion Ring', image:'59.png', stone:'2.00 ct', price:3970},
+            {name:'Everlasting Embrace Ring', image:'60.png', stone:'1.00 ct', price:2557},
+            {name:'The Knot Ring', image:'61.png', stone:'None', price:1090},
+            {name:'Eternal Connection Ring Set', image:'62.png', metal:'18K White Gold', tag:'set', price:720},
+            {name:'Eternal Promise Ring', image:'63.png', stone:'None', price:1380},
+            {name:'Moment to Shine Ring', image:'64.png', metal:'18K White Gold', stone:'1.00 ct', price:2557},
+            {name:'Unbreakable Hearts Ring', image:'65.png', stone:'1.00 ct', price:2325},
+            {name:'Bound by Destiny Ring', image:'66.png', stone:'1.00 ct', price:1085},
+            {name:'Ethereal Halo Ring', image:'67.png', stone:'2.00 ct', price:3190},
+            {name:'Amour \u00c9ternel Ring', image:'68.png', stone:'None', price:1085},
+            {name:'Celestial Embrace Ring', image:'69.png', stone:'2.00 ct', price:4100},
+            {name:'Eternal Promise Ring Set (Couple\u2019s Ring)', image:'70.png', metal:'18K White Gold', tag:'set', price:850},
+            {name:'Eternal Harmony Ring', image:'71.png', stone:'1.00 ct', price:2550},
+            {name:'Wedding Bands', image:'72.png', tag:'wedding', price:650},
+            {name:'Destiny Couple Ring', image:'73.png', tag:'set', price:680},
+            {name:'Elysian Ring', image:'74.png', stone:'3.00 ct', price:4525}
         ], 'Ring');
 
 // ===== Translation Init =====
@@ -549,10 +695,11 @@ function applyCatalogueTranslations(lang) {
                     }
                 });
                 // Update product card names using data-product-name attribute
-                document.querySelectorAll('.product-card .info .name[data-product-name]').forEach(function(el) {
+document.querySelectorAll('.product-card .info .name[data-product-name]').forEach(function(el) {
                     var englishName = el.getAttribute('data-product-name');
                     el.textContent = getProductName(englishName);
                 });
+                refreshMeta();
                 document.documentElement.lang = lang === 'zh-TW' ? 'zh-Hant' : 'en';
                 var selector = document.getElementById('langSelect');
                 if (selector) { selector.value = lang; }
@@ -570,6 +717,14 @@ function applyCatalogueTranslations(lang) {
                 });
             }
         })();
+
+        // ===== Sort by Price =====
+        var sortSelect = document.getElementById('sortSelect');
+        if (sortSelect) {
+            sortSelect.addEventListener('change', function() {
+                applySort();
+            });
+        }
     </script>
 </body>
 </html>

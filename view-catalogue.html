@@ -195,6 +195,63 @@
         .product-card .info .meta {
             font-size: 0.8rem;
             color: var(--taupe);
+            line-height: 1.55;
+        }
+        .product-card .info .meta .meta-metal {
+            display: block;
+            font-weight: 600;
+            color: var(--charcoal-soft);
+        }
+        .product-card .info .meta .meta-tag,
+        .product-card .info .meta .meta-stone-label,
+        .product-card .info .meta .meta-stone,
+        .product-card .info .meta .meta-price-label,
+        .product-card .info .meta .meta-price {
+            display: block;
+        }
+        .product-card .info .meta .meta-price strong {
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+        .catalogue-sort-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 1.5rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .catalogue-sort-wrapper .inner {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .sort-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--taupe);
+        }
+        .sort-select {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.5rem 2rem 0.5rem 0.75rem;
+            border: 1px solid rgba(28,28,28,0.15);
+            border-radius: 3px;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1C1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 0.7rem;
+        }
+        @media (max-width: 480px) {
+            .catalogue-sort-wrapper { padding: 0 1rem 1rem; }
         }
         .product-card .badge-type {
             position: absolute;
@@ -384,6 +441,17 @@
         <p data-i18n="catalogue-hero-subtitle">Discover pieces crafted for every moment—from daily elegance to life's most cherished milestones.</p>
     </section>
 
+    <div class="catalogue-sort-wrapper">
+        <div class="inner">
+            <span class="sort-label" data-i18n="sort-label">Sort</span>
+            <select id="sortSelect" class="sort-select">
+                <option value="default" data-i18n="sort-default">Default</option>
+                <option value="price-asc" data-i18n="sort-asc">Price: Low → High</option>
+                <option value="price-desc" data-i18n="sort-desc">Price: High → Low</option>
+            </select>
+        </div>
+    </div>
+
 <script>
         var catalogueCurrentLang = 'en';
 
@@ -397,7 +465,14 @@
             return labelText;
         }
 
-        function getMetaText(metal) {
+        function getLabel(key, fallback) {
+            if (typeof translations !== 'undefined' && translations[catalogueCurrentLang] && translations[catalogueCurrentLang][key]) {
+                return translations[catalogueCurrentLang][key];
+            }
+            return fallback;
+        }
+
+        function getMetalDisplay(metal) {
             var metaKey;
             if (metal.indexOf('White') !== -1) metaKey = 'meta-18k-white';
             else if (metal.indexOf('Rose') !== -1) metaKey = 'meta-18k-rose';
@@ -405,7 +480,35 @@
             if (typeof translations !== 'undefined' && translations[catalogueCurrentLang] && translations[catalogueCurrentLang][metaKey]) {
                 return translations[catalogueCurrentLang][metaKey];
             }
-            return metal + ' &middot; Inquire for Price';
+            return metal;
+        }
+
+        function formatPrice(price) {
+            return '£' + Number(price).toLocaleString('en-GB');
+        }
+
+        function getMetaHTML(item, category) {
+            var metal = item.metal || '18K Gold';
+            var price = item.price;
+            var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
+            var isBracelet = category === 'Bracelet';
+            var isBrooch = category === 'Brooch';
+            var isTiara = category === 'Tiara';
+            if (isBracelet) {
+                html += '<span class="meta-stone-label">' + getLabel('label-diamond', 'Total Diamond Weight') + ':</span>';
+                html += '<span class="meta-stone">' + (item.stone !== undefined ? item.stone : '') + '</span>';
+            } else if (!isBrooch && !isTiara && !item.tag) {
+                html += '<span class="meta-stone-label">' + getLabel('label-center', 'Center Stone') + ':</span>';
+                html += '<span class="meta-stone">' + (item.stone !== undefined ? item.stone : getLabel('label-none', 'None')) + '</span>';
+            }
+            if (item.tag) {
+                html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
+            }
+            if (price !== undefined) {
+                html += '<span class="meta-price-label">' + getLabel('label-price', 'Price') + ':</span>';
+                html += '<span class="meta-price"><strong>' + formatPrice(price) + '</strong></span>';
+            }
+            return html;
         }
 
         function getProductName(englishName) {
@@ -425,17 +528,61 @@
             container.appendChild(label);
             var grid = document.createElement('div');
             grid.className = 'product-grid';
+            grid.setAttribute('data-grid', containerId);
+            grid.setAttribute('data-category', category);
             items.forEach(function(item) {
                 var name = item.name;
                 var imgSrc = 'images/' + item.image;
                 var card = document.createElement('div');
                 card.className = 'product-card';
+                card.setAttribute('data-price', item.price !== undefined ? item.price : '');
+                card.setAttribute('data-stone', item.stone !== undefined ? item.stone : '');
+                card.setAttribute('data-metal', item.metal || '18K Gold');
+                if (item.tag) card.setAttribute('data-tag', item.tag);
                 var metal = item.metal || '18K Gold';
                 var displayName = getProductName(name);
-                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name" data-product-name="' + name.replace(/"/g, '"') + '">' + displayName + '</p><p class="meta">' + getMetaText(metal) + '</p></div>';
+                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name" data-product-name="' + name.replace(/"/g, '"') + '">' + displayName + '</p><p class="meta">' + getMetaHTML(item, category) + '</p></div>';
                 grid.appendChild(card);
             });
             container.appendChild(grid);
+        }
+
+        function refreshMeta() {
+            var grids = document.querySelectorAll('.product-grid');
+            grids.forEach(function(grid) {
+                var category = grid.getAttribute('data-category') || '';
+                var cards = grid.querySelectorAll('.product-card');
+                cards.forEach(function(card) {
+                    var stone = card.getAttribute('data-stone');
+                    var metal = card.getAttribute('data-metal') || '18K Gold';
+                    var tag = card.getAttribute('data-tag');
+                    var price = card.getAttribute('data-price');
+                    var item = { metal: metal };
+                    if (stone !== '') item.stone = stone;
+                    if (tag) item.tag = tag;
+                    if (price !== '') item.price = price;
+                    var metaEl = card.querySelector('.info .meta');
+                    if (metaEl) metaEl.innerHTML = getMetaHTML(item, category);
+                });
+            });
+        }
+
+        function applySort() {
+            var sortVal = document.getElementById('sortSelect') ? document.getElementById('sortSelect').value : 'default';
+            var grids = document.querySelectorAll('.product-grid');
+            grids.forEach(function(grid) {
+                var cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card'));
+                cards.sort(function(a, b) {
+                    var pa = parseFloat(a.getAttribute('data-price')) || 0;
+                    var pb = parseFloat(b.getAttribute('data-price')) || 0;
+                    if (sortVal === 'price-asc') return pa - pb;
+                    if (sortVal === 'price-desc') return pb - pa;
+                    return 0;
+                });
+                cards.forEach(function(card) {
+                    grid.appendChild(card);
+                });
+            });
         }
 </script>
 
@@ -483,7 +630,7 @@
             <img class="modal-img" id="modalImg" src="" alt="">
             <div class="modal-body">
                 <p class="modal-name" id="modalName"></p>
-                <p class="modal-meta">18K Gold &middot; Inquire for Price</p>
+                <p class="modal-meta" id="modalMeta"></p>
 <div class="modal-actions">
                     <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="modal-book" data-i18n="catalogue-book">Book Appointment</a>
                     <button class="modal-close-btn" id="modalCloseBtn" data-i18n="catalogue-close">Close</button>
@@ -498,9 +645,13 @@ document.addEventListener('click', function(e) {
     if (card) {
         var img = card.querySelector('.image-wrap img');
         var nameEl = card.querySelector('.info .name');
+        var metaEl = card.querySelector('.info .meta');
         if (img && nameEl) {
             document.getElementById('modalImg').src = img.src;
             document.getElementById('modalName').textContent = nameEl.textContent;
+            if (metaEl) {
+                document.getElementById('modalMeta').innerHTML = metaEl.innerHTML;
+            }
             document.getElementById('productModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -524,121 +675,121 @@ document.addEventListener('keydown', function(e) {
 
         // Daily Sparkle - Rings (4–13, 29, 30) + New rings (75–80)
         renderProducts('dailySparkle', [
-            {name:'Elara Ring', image:'4.png'},
-            {name:'Nova Ring', image:'5.png'},
-            {name:'Raya Ring', image:'6.jpeg'},
-            {name:'Solenne Ring', image:'7.png'},
-            {name:'Aria Ring', image:'8.png'},
-            {name:'Aurelle Ring', image:'9.png'},
-            {name:'Princess Ring', image:'10.png'},
-            {name:'\u00c9lan Ring', image:'11.png'},
-            {name:'Solitaire Ring', image:'12.png'},
-            {name:'Timeless Classic Ring', image:'13.png'},
-            {name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold'},
-            {name:'Splendor Stacking Ring', image:'30.png', metal:'18K White Gold'},
-            {name:'Aurelia Ring', image:'75.png'},
-            {name:'Diamond Dust Ring', image:'76.png'},
-            {name:'Nocturne Ring', image:'77.png'},
-            {name:'Gianna Ring', image:'78.png'},
-            {name:'Mirabelle Ring', image:'79.png'},
-            {name:'Cascade Ring', image:'80.png'}
+            {name:'Elara Ring', image:'4.png', stone:'1.00 ct', price:2525},
+            {name:'Nova Ring', image:'5.png', stone:'0.50 ct', price:1825},
+            {name:'Raya Ring', image:'6.jpeg', stone:'1.00 ct', price:2825},
+            {name:'Solenne Ring', image:'7.png', stone:'1.00 ct', price:2557},
+            {name:'Aria Ring', image:'8.png', stone:'2.00 ct', price:3250},
+            {name:'Aurelle Ring', image:'9.png', stone:'1.00 ct', price:2325},
+            {name:'Princess Ring', image:'10.png', stone:'1.00 ct', price:2673},
+            {name:'\u00c9lan Ring', image:'11.png', stone:'1.00 ct', price:2557},
+            {name:'Solitaire Ring', image:'12.png', stone:'1.00 ct', price:2325},
+            {name:'Timeless Classic Ring', image:'13.png', stone:'1.00 ct', price:2557},
+            {name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold', stone:'None', price:1085},
+            {name:'Splendor Stacking Ring', image:'30.png', metal:'18K White Gold', stone:'0.50 ct', price:1116},
+            {name:'Aurelia Ring', image:'75.png', stone:'0.50 ct', price:1825},
+            {name:'Diamond Dust Ring', image:'76.png', stone:'1.00 ct', price:2325},
+            {name:'Nocturne Ring', image:'77.png', stone:'1.00 ct', price:2440},
+            {name:'Gianna Ring', image:'78.png', stone:'0.50 ct', price:1825},
+            {name:'Mirabelle Ring', image:'79.png', stone:'0.50 ct', price:1825},
+            {name:'Cascade Ring', image:'80.png', stone:'1.00 ct', price:2325}
         ], 'Ring');
 
         // Daily Sparkle - Necklaces (14–20)
         renderProducts('dailySparkle', [
-            {name:'Solstice Necklace', image:'14.png'},
-            {name:'Aurora Necklace', image:'15.png'},
-            {name:'Celeste Necklace', image:'16.png'},
-            {name:'Serenity Necklace', image:'17.png'},
-            {name:'Virelle Necklace', image:'18.png'},
-            {name:'Luvia Necklace', image:'19.png'},
-            {name:'Solitaire Necklace', image:'20.png'}
+            {name:'Solstice Necklace', image:'14.png', stone:'0.20 ct', price:680},
+            {name:'Aurora Necklace', image:'15.png', stone:'0.30 ct', price:575},
+            {name:'Celeste Necklace', image:'16.png', stone:'0.50 ct', price:385},
+            {name:'Serenity Necklace', image:'17.png', stone:'0.30 ct', price:385},
+            {name:'Virelle Necklace', image:'18.png', stone:'0.20 ct', price:420},
+            {name:'Luvia Necklace', image:'19.png', stone:'None', price:298},
+            {name:'Solitaire Necklace', image:'20.png', stone:'0.50 ct', price:275}
         ], 'Necklace');
 
         // Daily Sparkle - Earrings (23–24)
         renderProducts('dailySparkle', [
-            {name:'Fiora Earrings', image:'21.png'},
-            {name:'Lumin\u00e9a Earrings', image:'22.png'}
+            {name:'Fiora Earrings', image:'21.png', stone:'None', price:278},
+            {name:'Lumin\u00e9a Earrings', image:'22.png', stone:'None', price:425}
         ], 'Earring');
 
         // Daily Sparkle - Earring Studs (25)
         renderProducts('dailySparkle', [
-            {name:'Martini Studs', image:'28.png'}
+            {name:'Martini Studs', image:'28.png', stone:'0.25 ct (each)', price:300}
         ], 'Earring Stud');
 
         // Daily Sparkle - Bracelets (26–30)
         renderProducts('dailySparkle', [
-            {name:'Solenne Bracelet', image:'23.png'},
-            {name:'Aur\u00e9a Bracelet', image:'24.png'},
-            {name:'Liora Bracelet', image:'25.png'},
-            {name:'Celeste Bracelet', image:'26.png'},
-            {name:'Lumi\u00e8re Bracelet', image:'27.png'}
+            {name:'Solenne Bracelet', image:'23.png', stone:'0.30 ct', price:250},
+            {name:'Aur\u00e9a Bracelet', image:'24.png', stone:'0.30 ct', price:265},
+            {name:'Liora Bracelet', image:'25.png', stone:'0.50 ct', price:250},
+            {name:'Celeste Bracelet', image:'26.png', stone:'0.30 ct', price:280},
+            {name:'Lumi\u00e8re Bracelet', image:'27.png', stone:'0.30 ct', price:265}
         ], 'Bracelet');
 
         // Occasional Wear - Rings (32–46)
         renderProducts('occasionalWear', [
-            {name:'Elysia Ring', image:'32.png'},
-            {name:'\u00c9ternelle Grande Ring', image:'33.png'},
-            {name:'Ros\u00e9 Bloom Ring', image:'34.png' ,metal:'18K Rose Gold'},
-            {name:'Venus Ring', image:'35.png'},
-            {name:'Promise of Forever Ring', image:'36.png'},
-            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold'},
-            {name:'Fae Ring', image:'38.png', metal:'18K White Gold'},
-            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold'},
-            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold'},
-            {name:'Amour Ring', image:'41.png', metal:'18K White Gold'},
-            {name:'Amora Ring', image:'42.png'},
-            {name:'Imperial Pav\u00e9 Ring', image:'43.png'},
-            {name:'Athena Ring', image:'44.png', metal:'18K White Gold'},
-            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold'},
-            {name:'Lunelle Ring', image:'46.png'}
+            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', price:2530},
+            {name:'\u00c9ternelle Grande Ring', image:'33.png', stone:'5.00 ct', price:4810},
+            {name:'Ros\u00e9 Bloom Ring', image:'34.png' ,metal:'18K Rose Gold', stone:'1.00 ct', price:2560},
+            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'2.00 ct', price:3580},
+            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', price:2325},
+            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', price:2650},
+            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', price:2850},
+            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', price:2850},
+            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', price:2325},
+            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', stone:'None', price:1850},
+            {name:'Amora Ring', image:'42.png', stone:'1.00 ct', price:2540},
+            {name:'Imperial Pav\u00e9 Ring', image:'43.png', stone:'None', price:2890},
+            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', price:2525},
+            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'1.00 ct', price:2650},
+            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', price:2850}
         ], 'Ring');
 
         // Occasional Wear - Earrings (47–48)
         renderProducts('occasionalWear', [
-            {name:'Round Illusion Stud', image:'50.png'},
-            {name:'Fiora Earrings', image:'52.png'}
+            {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct', price:1850},
+            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct', price:2100}
         ], 'Earring');
 
         // Occasional Wear - Bracelets (49–50)
         renderProducts('occasionalWear', [
-            {name:'Lumina Wedding Tennis', image:'49.png'},
-            {name:'Arabella', image:'53.png'}
+            {name:'Lumina Wedding Tennis', image:'49.png', stone:'5.00 ct', price:3280},
+            {name:'Arabella', image:'53.png', stone:'5.00 ct', price:3280}
         ], 'Bracelet');
 
         // Occasional Wear - Brooches (51–52)
         renderProducts('occasionalWear', [
-            {name:'Celestia Broche', image:'47.png'},
-            {name:'\u00c9ternelle Broche', image:'48.png'}
+            {name:'Celestia Broche', image:'47.png', price:4560},
+            {name:'\u00c9ternelle Broche', image:'48.png', price:4580}
         ], 'Brooch');
 
         // Occasional Wear - Tiara (53)
         renderProducts('occasionalWear', [
-            {name:'Lunaria Tiara', image:'51.png'}
+            {name:'Lunaria Tiara', image:'51.png', price:10900}
         ], 'Tiara');
 
         // Forever Bond - Rings (55–74)
         renderProducts('foreverBond', [
-            {name:'Stellar Promise Ring', image:'55.png'},
-            {name:'\u00c9l\u00e9gance Unie Ring', image:'56.png'},
-            {name:'Lumi\u00e8re Eternity Ring', image:'57.png'},
-            {name:'Endless Devotion Ring', image:'58.png'},
-            {name:'Luminous Devotion Ring', image:'59.png'},
-            {name:'Everlasting Embrace Ring', image:'60.png'},
-            {name:'The Knot Ring', image:'61.png'},
-            {name:'Eternal Connection Ring Set', image:'62.png'},
-            {name:'Eternal Promise Ring', image:'63.png'},
-            {name:'Moment to Shine Ring', image:'64.png'},
-            {name:'Unbreakable Hearts Ring', image:'65.png'},
-            {name:'Bound by Destiny Ring', image:'66.png'},
-            {name:'Ethereal Halo Ring', image:'67.png'},
-            {name:'Amour \u00c9ternel Ring', image:'68.png'},
-            {name:'Celestial Embrace Ring', image:'69.png'},
-            {name:'Eternal Promise Ring Set (Couple\u2019s Ring)', image:'70.png'},
-            {name:'Eternal Harmony Ring', image:'71.png'},
-            {name:'Wedding Bands', image:'72.png'},
-            {name:'Destiny Couple Ring', image:'73.png'},
-            {name:'Elysian Ring', image:'74.png'}
+            {name:'Stellar Promise Ring', image:'55.png', stone:'2.00 ct', price:3657},
+            {name:'\u00c9l\u00e9gance Unie Ring', image:'56.png', stone:'0.75 ct', price:2250},
+            {name:'Lumi\u00e8re Eternity Ring', image:'57.png', stone:'None', price:1380},
+            {name:'Endless Devotion Ring', image:'58.png', stone:'1.00 ct', price:2557},
+            {name:'Luminous Devotion Ring', image:'59.png', stone:'2.00 ct', price:3970},
+            {name:'Everlasting Embrace Ring', image:'60.png', stone:'1.00 ct', price:2557},
+            {name:'The Knot Ring', image:'61.png', stone:'None', price:1090},
+            {name:'Eternal Connection Ring Set', image:'62.png', metal:'18K White Gold', tag:'set', price:720},
+            {name:'Eternal Promise Ring', image:'63.png', stone:'None', price:1380},
+            {name:'Moment to Shine Ring', image:'64.png', metal:'18K White Gold', stone:'1.00 ct', price:2557},
+            {name:'Unbreakable Hearts Ring', image:'65.png', stone:'1.00 ct', price:2325},
+            {name:'Bound by Destiny Ring', image:'66.png', stone:'1.00 ct', price:1085},
+            {name:'Ethereal Halo Ring', image:'67.png', stone:'2.00 ct', price:3190},
+            {name:'Amour \u00c9ternel Ring', image:'68.png', stone:'None', price:1085},
+            {name:'Celestial Embrace Ring', image:'69.png', stone:'2.00 ct', price:4100},
+            {name:'Eternal Promise Ring Set (Couple\u2019s Ring)', image:'70.png', metal:'18K White Gold', tag:'set', price:850},
+            {name:'Eternal Harmony Ring', image:'71.png', stone:'1.00 ct', price:2550},
+            {name:'Wedding Bands', image:'72.png', tag:'wedding', price:650},
+            {name:'Destiny Couple Ring', image:'73.png', tag:'set', price:680},
+            {name:'Elysian Ring', image:'74.png', stone:'3.00 ct', price:4525}
         ], 'Ring');
 
 // ===== Translation Init =====
@@ -669,6 +820,7 @@ function applyCatalogueTranslations(lang) {
                     var englishName = el.getAttribute('data-product-name');
                     el.textContent = getProductName(englishName);
                 });
+                refreshMeta();
                 document.documentElement.lang = lang === 'zh-TW' ? 'zh-Hant' : 'en';
                 var selector = document.getElementById('langSelect');
                 if (selector) { selector.value = lang; }
@@ -686,6 +838,14 @@ function applyCatalogueTranslations(lang) {
                 });
             }
         })();
+
+        // ===== Sort by Price =====
+        var sortSelect = document.getElementById('sortSelect');
+        if (sortSelect) {
+            sortSelect.addEventListener('change', function() {
+                applySort();
+            });
+        }
     </script>
 </body>
 </html>

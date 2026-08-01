@@ -192,10 +192,22 @@ const translations = {
         'category-Brooch': '胸針',
         'category-Tiara': '冠冕',
 
-        // ===== Metal Descriptions for Dynamic Content =====
-        'meta-18k-gold': '18K黃金 · 請洽詢價格',
-        'meta-18k-white': '18K白金 · 請洽詢價格',
-        'meta-18k-rose': '18K玫瑰金 · 請洽詢價格',
+// ===== Metal Descriptions for Dynamic Content =====
+        'meta-18k-gold': '18K黃金',
+        'meta-18k-white': '18K白金',
+        'meta-18k-rose': '18K玫瑰金',
+
+        // ===== Label Keys for Product Cards =====
+        'label-center': '主石',
+        'label-diamond': '鑽石總重',
+        'label-none': '無',
+        'label-price': '價格',
+        'label-wedding': '結婚對戒',
+        'label-set': '戒指套裝',
+        'sort-label': '排序',
+        'sort-default': '默認',
+        'sort-asc': '價格：低 → 高',
+        'sort-desc': '價格：高 → 低',
 
         // ===== Page Titles =====
         'page-title': '維多利亞鑽石 — 高級珠寶',
