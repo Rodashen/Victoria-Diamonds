@@ -87,6 +87,78 @@
             <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="btn-primary" data-i18n="nav-book-appointment">Book Appointment</a>
         </div>
     </nav>
+
+    <button class="floating-transparency-btn" id="transparencyButton" type="button" aria-haspopup="dialog" aria-controls="transparencyModal">
+        <span class="floating-transparency-icon">✦</span>
+        <span>Victoria Transparency</span>
+    </button>
+
+    <div class="modal-overlay" id="transparencyModal" aria-hidden="true">
+        <div class="modal-popup transparency-popup" role="dialog" aria-modal="true" aria-labelledby="transparencyHeading">
+            <button class="modal-close-x" id="transparencyModalCloseX" type="button" aria-label="Close transparency modal">×</button>
+            <div class="transparency-modal-grid">
+                <div class="transparency-modal-body">
+                    <p class="text-label" style="margin-bottom:0.75rem;">Transparency</p>
+                    <h2 class="heading-display" id="transparencyHeading" style="font-size:2rem;margin-bottom:1rem;line-height:1.1;">Our Diamond Sourcing & Pricing Transparency</h2>
+                    <p class="text-body" style="font-size:0.97rem;margin-bottom:1rem;">
+                        At Victoria Diamonds, we believe transparency is the foundation of true luxury. We want you to know exactly what you are investing in and how we source the finest lab-grown diamonds directly for your bespoke pieces.
+                    </p>
+                    <p class="text-body" style="font-size:0.97rem;margin-bottom:1.5rem;">
+                        To maintain uncompromising standards, we work exclusively with high-quality stones, categorized into two carefully curated tiers to help you understand the value behind each selection.
+                    </p>
+
+                    <div class="transparency-tier-list">
+                        <div class="transparency-tier-card">
+                            <h3>Luxe</h3>
+                            <p><strong>Color:</strong> D</p>
+                            <p><strong>Clarity:</strong> IF / F</p>
+                            <p><strong>Ideal For:</strong> The top end of polish, rarity, and light performance.</p>
+                        </div>
+                        <div class="transparency-tier-card">
+                            <h3>Select</h3>
+                            <p><strong>Color:</strong> E / F / G</p>
+                            <p><strong>Clarity:</strong> VS+</p>
+                            <p><strong>Ideal For:</strong> Exceptional brilliance and striking value with beautiful near-colorless character.</p>
+                        </div>
+                    </div>
+
+                    <div class="transparency-source-copy">
+                        <h3>How We Source For You</h3>
+                        <p><strong>Direct Selection:</strong> We bypass traditional retail markups by hand-picking your stone directly from certified, sustainable lab-grown diamond creators.</p>
+                        <p><strong>Strict Grading:</strong> Every diamond must meet our strict requirements for cut, polish, and symmetry to ensure maximum light performance.</p>
+                        <p><strong>Custom Matching:</strong> Whether it is a 0.1 ct accent for our new silver collection or a major center stone, each diamond is meticulously matched to your design specifications.</p>
+                    </div>
+
+                    <div class="transparency-pricing-card">
+                        <div class="transparency-pricing-head">
+                            <h3>Pricing Guide</h3>
+                            <span>Starting from 1.0 ct</span>
+                        </div>
+                        <div class="transparency-pricing-table-wrap">
+                            <table class="transparency-pricing-table">
+                                <thead>
+                                    <tr>
+                                        <th>Karats</th>
+                                        <th>Luxe</th>
+                                        <th>Select</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1.00</td><td>594</td><td>220</td></tr>
+                                    <tr><td>2.00</td><td>1063</td><td>500</td></tr>
+                                    <tr><td>3.00</td><td>1594</td><td>850</td></tr>
+                                    <tr><td>4.00</td><td>1688</td><td>1300</td></tr>
+                                    <tr><td>5.00</td><td>2313</td><td>1500</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <button class="modal-close-btn" id="transparencyModalCloseBtn" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- Hero Section -->
     <section class="hero">

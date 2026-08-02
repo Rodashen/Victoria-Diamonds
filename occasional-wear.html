@@ -224,6 +224,60 @@
         .product-card .info .meta {
             font-size: 0.8rem;
             color: var(--taupe);
+            line-height: 1.55;
+        }
+        .product-card .info .meta .meta-metal {
+            display: block;
+            font-weight: 600;
+            color: var(--charcoal-soft);
+        }
+        .product-card .info .meta .meta-tag,
+        .product-card .info .meta .meta-stone-label,
+        .product-card .info .meta .meta-stone,
+        .product-card .info .meta .meta-price-label,
+        .product-card .info .meta .meta-price {
+            display: block;
+        }
+        .product-card .info .meta .meta-price strong {
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+        .catalogue-sort-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 1.5rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .catalogue-sort-wrapper .inner {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .sort-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--taupe);
+        }
+        .sort-select {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.5rem 2rem 0.5rem 0.75rem;
+            border: 1px solid rgba(28,28,28,0.15);
+            border-radius: 3px;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1C1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 0.7rem;
         }
         .product-card .badge-type {
             position: absolute;
@@ -316,6 +370,15 @@
             font-size: 0.85rem;
             color: var(--taupe);
             margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+        .modal-popup .modal-meta .meta-metal,
+        .modal-popup .modal-meta .meta-tag,
+        .modal-popup .modal-meta .meta-stone-label,
+        .modal-popup .modal-meta .meta-stone,
+        .modal-popup .modal-meta .meta-price-label,
+        .modal-popup .modal-meta .meta-price {
+            display: block;
         }
         .modal-popup .modal-actions {
             display: flex;
@@ -528,7 +591,7 @@ function getCatLabel(category) {
                 html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
             }
             if (price !== undefined) {
-                html += '<span class="meta-price-label">' + getLabel('label-price', 'Price') + ':</span>';
+                html += '<span class="meta-price-label">' + getLabel('label-price', 'Starts at') + ':</span>';
                 html += '<span class="meta-price"><strong>' + formatPrice(price) + '</strong></span>';
             }
             return html;
@@ -641,33 +704,33 @@ function getCatLabel(category) {
 
 // Occasional Wear - Rings (32–46)
         renderProducts('occasionalWear', [
-            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', price:2530},
-            {name:'\u00c9ternelle Grande Ring', image:'33.png', stone:'5.00 ct', price:4810},
-            {name:'Ros\u00e9 Bloom Ring', image:'34.png', metal:'18K Rose Gold', stone:'1.00 ct', price:2560},
-            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'2.00 ct', price:3580},
-            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', price:2325},
-            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', price:2650},
-            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', price:2850},
-            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', price:2850},
-            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', price:2325},
-            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', stone:'None', price:1850},
-            {name:'Amora Ring', image:'42.png', stone:'1.00 ct', price:2540},
-            {name:'Imperial Pav\u00e9 Ring', image:'43.png', stone:'None', price:2890},
-            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', price:2525},
-            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'1.00 ct', price:2650},
-            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', price:2850}
+            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', price:2214},
+            {name:'\u00c9ternelle Grande Ring', image:'33.png', stone:'5.00 ct', price:2260},
+            {name:'Ros\u00e9 Bloom Ring', image:'34.png', metal:'18K Rose Gold', stone:'1.00 ct', price:2190},
+            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'2.00 ct', price:2857},
+            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', price:1531},
+            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', price:2237},
+            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', price:2167},
+            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', price:2260},
+            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', price:1508},
+            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', stone:'None', price:1540},
+            {name:'Amora Ring', image:'42.png', stone:'1.00 ct', price:1540},
+            {name:'Imperial Pav\u00e9 Ring', image:'43.png', stone:'None', price:3043},
+            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', price:2214},
+            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'1.00 ct', price:2307},
+            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', price:2190}
         ], 'Ring');
 
         // Occasional Wear - Earrings (47–48)
         renderProducts('occasionalWear', [
-            {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct', price:1850},
-            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct', price:2100}
+            {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct', price:2002},
+            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct', price:2002}
         ], 'Earring');
 
         // Occasional Wear - Bracelets (49–50)
         renderProducts('occasionalWear', [
-            {name:'Lumina Wedding Tennis', image:'49.png', stone:'5.00 ct', price:3280},
-            {name:'Arabella', image:'53.png', stone:'5.00 ct', price:3280}
+            {name:'Lumina Wedding Tennis', image:'49.png', stone:'5.00 ct', price:2857},
+            {name:'Arabella', image:'53.png', stone:'5.00 ct', price:2950}
         ], 'Bracelet');
 
         // Occasional Wear - Brooches (51–52)

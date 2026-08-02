@@ -344,6 +344,15 @@
             font-size: 0.85rem;
             color: var(--taupe);
             margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+        .modal-popup .modal-meta .meta-metal,
+        .modal-popup .modal-meta .meta-tag,
+        .modal-popup .modal-meta .meta-stone-label,
+        .modal-popup .modal-meta .meta-stone,
+        .modal-popup .modal-meta .meta-price-label,
+        .modal-popup .modal-meta .meta-price {
+            display: block;
         }
         .modal-popup .modal-actions {
             display: flex;
@@ -505,7 +514,7 @@
                 html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
             }
             if (price !== undefined) {
-                html += '<span class="meta-price-label">' + getLabel('label-price', 'Price') + ':</span>';
+                html += '<span class="meta-price-label">' + getLabel('label-price', 'Starts at') + ':</span>';
                 html += '<span class="meta-price"><strong>' + formatPrice(price) + '</strong></span>';
             }
             return html;
@@ -675,35 +684,34 @@ document.addEventListener('keydown', function(e) {
 
         // Daily Sparkle - Rings (4–13, 29, 30) + New rings (75–80)
         renderProducts('dailySparkle', [
-            {name:'Elara Ring', image:'4.png', stone:'1.00 ct', price:2525},
-            {name:'Nova Ring', image:'5.png', stone:'0.50 ct', price:1825},
-            {name:'Raya Ring', image:'6.jpeg', stone:'1.00 ct', price:2825},
-            {name:'Solenne Ring', image:'7.png', stone:'1.00 ct', price:2557},
-            {name:'Aria Ring', image:'8.png', stone:'2.00 ct', price:3250},
-            {name:'Aurelle Ring', image:'9.png', stone:'1.00 ct', price:2325},
-            {name:'Princess Ring', image:'10.png', stone:'1.00 ct', price:2673},
-            {name:'\u00c9lan Ring', image:'11.png', stone:'1.00 ct', price:2557},
-            {name:'Solitaire Ring', image:'12.png', stone:'1.00 ct', price:2325},
-            {name:'Timeless Classic Ring', image:'13.png', stone:'1.00 ct', price:2557},
-            {name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold', stone:'None', price:1085},
-            {name:'Splendor Stacking Ring', image:'30.png', metal:'18K White Gold', stone:'0.50 ct', price:1116},
-            {name:'Aurelia Ring', image:'75.png', stone:'0.50 ct', price:1825},
-            {name:'Diamond Dust Ring', image:'76.png', stone:'1.00 ct', price:2325},
-            {name:'Nocturne Ring', image:'77.png', stone:'1.00 ct', price:2440},
-            {name:'Gianna Ring', image:'78.png', stone:'0.50 ct', price:1825},
-            {name:'Mirabelle Ring', image:'79.png', stone:'0.50 ct', price:1825},
-            {name:'Cascade Ring', image:'80.png', stone:'1.00 ct', price:2325}
+            {name:'Elara Ring', image:'4.png', stone:'1.00 ct', price:1485},
+            {name:'Nova Ring', image:'5.png', stone:'0.50 ct', price:1461},
+            {name:'Raya Ring', image:'6.jpeg', stone:'1.00 ct', price:1508},
+            {name:'Solenne Ring', image:'7.png', stone:'1.00 ct', price:1485},
+            {name:'Aria Ring', image:'8.png', stone:'2.00 ct', price:1475},
+            {name:'Aurelle Ring', image:'9.png', stone:'1.00 ct', price:1494},
+            {name:'Princess Ring', image:'10.png', stone:'1.00 ct', price:1508},
+            {name:'\u00c9lan Ring', image:'11.png', stone:'1.00 ct', price:1461},
+            {name:'Solitaire Ring', image:'12.png', stone:'1.00 ct', price:1531},
+            {name:'Timeless Classic Ring', image:'13.png', stone:'1.00 ct', price:1522},
+            {name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold', stone:'None', price:2051},
+            {name:'Splendor Stacking Ring', image:'30.png', metal:'18K White Gold', stone:'0.50 ct', price:2028},
+            {name:'Aurelia Ring', image:'75.png', stone:'0.50 ct', price:1461},
+            {name:'Diamond Dust Ring', image:'76.png', stone:'1.00 ct', price:1494},
+            {name:'Nocturne Ring', image:'77.png', stone:'1.00 ct', price:1522},
+            {name:'Gianna Ring', image:'78.png', stone:'0.50 ct', price:1461},
+            {name:'Mirabelle Ring', image:'79.png', stone:'0.50 ct', price:1461},
+            {name:'Cascade Ring', image:'80.png', stone:'1.00 ct', price:1494}
         ], 'Ring');
 
-        // Daily Sparkle - Necklaces (14–20)
+        // Daily Sparkle - Signature Necklaces / Bracelets / Earrings
         renderProducts('dailySparkle', [
-            {name:'Solstice Necklace', image:'14.png', stone:'0.20 ct', price:680},
-            {name:'Aurora Necklace', image:'15.png', stone:'0.30 ct', price:575},
-            {name:'Celeste Necklace', image:'16.png', stone:'0.50 ct', price:385},
-            {name:'Serenity Necklace', image:'17.png', stone:'0.30 ct', price:385},
-            {name:'Virelle Necklace', image:'18.png', stone:'0.20 ct', price:420},
-            {name:'Luvia Necklace', image:'19.png', stone:'None', price:298},
-            {name:'Solitaire Necklace', image:'20.png', stone:'0.50 ct', price:275}
+            {name:'Solstice Necklace', image:'14.png', stone:'0.20 ct', price:2112},
+            {name:'Aurora Necklace', image:'15.png', stone:'0.30 ct', price:2159},
+            {name:'Celeste Necklace', image:'16.png', stone:'0.50 ct', price:2135},
+            {name:'Serenity Necklace', image:'17.png', stone:'0.30 ct', price:2709},
+            {name:'Virelle Necklace', image:'18.png', stone:'0.20 ct', price:2802},
+            {name:'Luvia Necklace', image:'19.png', stone:'None', price:2895}
         ], 'Necklace');
 
         // Daily Sparkle - Earrings (23–24)
@@ -714,47 +722,47 @@ document.addEventListener('keydown', function(e) {
 
         // Daily Sparkle - Earring Studs (25)
         renderProducts('dailySparkle', [
-            {name:'Martini Studs', image:'28.png', stone:'0.25 ct (each)', price:300}
+            {name:'Martini Studs', image:'28.png', stone:'0.25 ct (each)', price:1863}
         ], 'Earring Stud');
 
         // Daily Sparkle - Bracelets (26–30)
         renderProducts('dailySparkle', [
-            {name:'Solenne Bracelet', image:'23.png', stone:'0.30 ct', price:250},
-            {name:'Aur\u00e9a Bracelet', image:'24.png', stone:'0.30 ct', price:265},
-            {name:'Liora Bracelet', image:'25.png', stone:'0.50 ct', price:250},
-            {name:'Celeste Bracelet', image:'26.png', stone:'0.30 ct', price:280},
-            {name:'Lumi\u00e8re Bracelet', image:'27.png', stone:'0.30 ct', price:265}
+            {name:'Solenne Bracelet', image:'23.png', stone:'0.30 ct', price:2121},
+            {name:'Aur\u00e9a Bracelet', image:'24.png', stone:'0.30 ct', price:2144},
+            {name:'Liora Bracelet', image:'25.png', stone:'0.50 ct', price:2097},
+            {name:'Celeste Bracelet', image:'26.png', stone:'0.30 ct', price:2121},
+            {name:'Lumi\u00e8re Bracelet', image:'27.png', stone:'0.30 ct', price:2167}
         ], 'Bracelet');
 
         // Occasional Wear - Rings (32–46)
         renderProducts('occasionalWear', [
-            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', price:2530},
-            {name:'\u00c9ternelle Grande Ring', image:'33.png', stone:'5.00 ct', price:4810},
-            {name:'Ros\u00e9 Bloom Ring', image:'34.png' ,metal:'18K Rose Gold', stone:'1.00 ct', price:2560},
-            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'2.00 ct', price:3580},
-            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', price:2325},
-            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', price:2650},
-            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', price:2850},
-            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', price:2850},
-            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', price:2325},
-            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', stone:'None', price:1850},
-            {name:'Amora Ring', image:'42.png', stone:'1.00 ct', price:2540},
-            {name:'Imperial Pav\u00e9 Ring', image:'43.png', stone:'None', price:2890},
-            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', price:2525},
-            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'1.00 ct', price:2650},
-            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', price:2850}
+            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', price:2214},
+            {name:'\u00c9ternelle Grande Ring', image:'33.png', stone:'5.00 ct', price:2260},
+            {name:'Ros\u00e9 Bloom Ring', image:'34.png', metal:'18K Rose Gold', stone:'1.00 ct', price:2190},
+            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'2.00 ct', price:2857},
+            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', price:1531},
+            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', price:2237},
+            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', price:2167},
+            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', price:2260},
+            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', price:1508},
+            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', stone:'None', price:1540},
+            {name:'Amora Ring', image:'42.png', stone:'1.00 ct', price:1540},
+            {name:'Imperial Pav\u00e9 Ring', image:'43.png', stone:'None', price:3043},
+            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', price:2214},
+            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'1.00 ct', price:2307},
+            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', price:2190}
         ], 'Ring');
 
         // Occasional Wear - Earrings (47–48)
         renderProducts('occasionalWear', [
-            {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct', price:1850},
-            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct', price:2100}
+            {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct', price:2002},
+            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct', price:2002}
         ], 'Earring');
 
         // Occasional Wear - Bracelets (49–50)
         renderProducts('occasionalWear', [
-            {name:'Lumina Wedding Tennis', image:'49.png', stone:'5.00 ct', price:3280},
-            {name:'Arabella', image:'53.png', stone:'5.00 ct', price:3280}
+            {name:'Lumina Wedding Tennis', image:'49.png', stone:'5.00 ct', price:2857},
+            {name:'Arabella', image:'53.png', stone:'5.00 ct', price:2950}
         ], 'Bracelet');
 
         // Occasional Wear - Brooches (51–52)
@@ -770,26 +778,26 @@ document.addEventListener('keydown', function(e) {
 
         // Forever Bond - Rings (55–74)
         renderProducts('foreverBond', [
-            {name:'Stellar Promise Ring', image:'55.png', stone:'2.00 ct', price:3657},
-            {name:'\u00c9l\u00e9gance Unie Ring', image:'56.png', stone:'0.75 ct', price:2250},
-            {name:'Lumi\u00e8re Eternity Ring', image:'57.png', stone:'None', price:1380},
-            {name:'Endless Devotion Ring', image:'58.png', stone:'1.00 ct', price:2557},
-            {name:'Luminous Devotion Ring', image:'59.png', stone:'2.00 ct', price:3970},
-            {name:'Everlasting Embrace Ring', image:'60.png', stone:'1.00 ct', price:2557},
-            {name:'The Knot Ring', image:'61.png', stone:'None', price:1090},
-            {name:'Eternal Connection Ring Set', image:'62.png', metal:'18K White Gold', tag:'set', price:720},
-            {name:'Eternal Promise Ring', image:'63.png', stone:'None', price:1380},
-            {name:'Moment to Shine Ring', image:'64.png', metal:'18K White Gold', stone:'1.00 ct', price:2557},
-            {name:'Unbreakable Hearts Ring', image:'65.png', stone:'1.00 ct', price:2325},
-            {name:'Bound by Destiny Ring', image:'66.png', stone:'1.00 ct', price:1085},
-            {name:'Ethereal Halo Ring', image:'67.png', stone:'2.00 ct', price:3190},
-            {name:'Amour \u00c9ternel Ring', image:'68.png', stone:'None', price:1085},
-            {name:'Celestial Embrace Ring', image:'69.png', stone:'2.00 ct', price:4100},
-            {name:'Eternal Promise Ring Set (Couple\u2019s Ring)', image:'70.png', metal:'18K White Gold', tag:'set', price:850},
-            {name:'Eternal Harmony Ring', image:'71.png', stone:'1.00 ct', price:2550},
-            {name:'Wedding Bands', image:'72.png', tag:'wedding', price:650},
-            {name:'Destiny Couple Ring', image:'73.png', tag:'set', price:680},
-            {name:'Elysian Ring', image:'74.png', stone:'3.00 ct', price:4525}
+            {name:'Stellar Promise Ring', image:'55.png', stone:'2.00 ct', price:2121},
+            {name:'\u00c9l\u00e9gance Unie Ring', image:'56.png', stone:'0.75 ct', price:2167},
+            {name:'Lumi\u00e8re Eternity Ring', image:'57.png', stone:'None', price:2144},
+            {name:'Endless Devotion Ring', image:'58.png', stone:'1.00 ct', price:2190},
+            {name:'Luminous Devotion Ring', image:'59.png', stone:'2.00 ct', price:2167},
+            {name:'Everlasting Embrace Ring', image:'60.png', stone:'1.00 ct', price:2214},
+            {name:'The Knot Ring', image:'61.png', stone:'None', price:2121},
+            {name:'Eternal Connection Ring Set', image:'62.png', metal:'18K White Gold', tag:'set', price:2316},
+            {name:'Eternal Promise Ring', image:'63.png', stone:'None', price:1578},
+            {name:'Moment to Shine Ring', image:'64.png', metal:'18K White Gold', stone:'1.00 ct', price:1485},
+            {name:'Unbreakable Hearts Ring', image:'65.png', stone:'1.00 ct', price:1508},
+            {name:'Bound by Destiny Ring', image:'66.png', stone:'1.00 ct', price:1531},
+            {name:'Ethereal Halo Ring', image:'67.png', stone:'2.00 ct', price:2671},
+            {name:'Amour \u00c9ternel Ring', image:'68.png', stone:'None', price:1522},
+            {name:'Celestial Embrace Ring', image:'69.png', stone:'2.00 ct', price:2237},
+            {name:'Eternal Promise Ring Set (Couple\u2019s Ring)', image:'70.png', metal:'18K White Gold', tag:'set', price:2167},
+            {name:'Eternal Harmony Ring', image:'71.png', stone:'1.00 ct', price:2167},
+            {name:'Wedding Bands', image:'72.png', tag:'wedding', price:1485},
+            {name:'Destiny Couple Ring', image:'73.png', tag:'set', price:2316},
+            {name:'Elysian Ring', image:'74.png', stone:'3.00 ct', price:2237}
         ], 'Ring');
 
 // ===== Translation Init =====

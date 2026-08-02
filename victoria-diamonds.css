@@ -2007,6 +2007,146 @@ animation: dotProgress 2s linear forwards;
 }
 
 /* ========================================
+           TRANSPARENCY BUTTON + MODAL
+        ======================================== */
+.floating-transparency-btn {
+    position: fixed;
+    top: 3.9rem;
+    right: 1rem;
+    z-index: 1101;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.7rem 1rem;
+    background: rgba(255, 251, 245, 0.94);
+    color: var(--color-charcoal);
+    border: 1px solid rgba(184, 134, 11, 0.55);
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(28, 28, 28, 0.12);
+    backdrop-filter: blur(10px);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: none;
+    cursor: pointer;
+    transition: transform var(--transition-lux), box-shadow var(--transition-lux), border-color var(--transition-lux);
+}
+.floating-transparency-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(28, 28, 28, 0.16);
+    border-color: var(--color-gold);
+}
+.floating-transparency-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    background: rgba(184, 134, 11, 0.12);
+    color: var(--color-gold-dark);
+}
+
+@media (max-width: 900px) {
+    .floating-transparency-btn {
+        top: 3.6rem;
+        right: 0.75rem;
+        max-width: calc(100vw - 1.5rem);
+        font-size: 0.72rem;
+    }
+}
+
+.transparency-popup {
+    max-width: min(860px, 96vw);
+    padding-bottom: 0;
+}
+.transparency-modal-grid {
+    display: block;
+}
+.transparency-modal-body {
+    padding: 2rem;
+}
+.transparency-tier-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0 0 1.5rem;
+}
+.transparency-tier-card,
+.transparency-source-copy,
+.transparency-pricing-card {
+    border: 1px solid rgba(166, 144, 128, 0.28);
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 1rem;
+}
+.transparency-tier-card {
+    padding: 1rem;
+}
+.transparency-tier-card h3,
+.transparency-source-copy h3,
+.transparency-pricing-head h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+    color: var(--color-charcoal);
+}
+.transparency-tier-card p,
+.transparency-source-copy p {
+    font-size: 0.93rem;
+    margin-bottom: 0.4rem;
+}
+.transparency-source-copy {
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.transparency-pricing-card {
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+}
+.transparency-pricing-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+.transparency-pricing-head span {
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-gold-dark);
+}
+.transparency-pricing-table-wrap {
+    overflow-x: auto;
+}
+.transparency-pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+.transparency-pricing-table th,
+.transparency-pricing-table td {
+    padding: 0.85rem 0.65rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(166, 144, 128, 0.22);
+}
+.transparency-pricing-table th {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold-dark);
+    background: rgba(184, 134, 11, 0.06);
+}
+.transparency-pricing-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+}
+
+/* ========================================
            MODAL OVERLAY (Artist Modal)
         ======================================== */
 .modal-overlay {

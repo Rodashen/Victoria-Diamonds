@@ -201,7 +201,7 @@ const translations = {
         'label-center': '主石',
         'label-diamond': '鑽石總重',
         'label-none': '無',
-        'label-price': '價格',
+        'label-price': '起價',
         'label-wedding': '結婚對戒',
         'label-set': '戒指套裝',
         'sort-label': '排序',

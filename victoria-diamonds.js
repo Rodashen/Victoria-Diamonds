@@ -350,6 +350,43 @@ if (form) {
    });
 }
 
+// ---------- Transparency Modal ----------
+const transparencyButton = document.getElementById('transparencyButton');
+const transparencyModal = document.getElementById('transparencyModal');
+const transparencyModalCloseX = document.getElementById('transparencyModalCloseX');
+const transparencyModalCloseBtn = document.getElementById('transparencyModalCloseBtn');
+
+function openTransparencyModal() {
+    if (transparencyModal) {
+        transparencyModal.classList.add('active');
+        transparencyModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeTransparencyModal() {
+    if (transparencyModal) {
+        transparencyModal.classList.remove('active');
+        transparencyModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+}
+
+if (transparencyButton) {
+    transparencyButton.addEventListener('click', openTransparencyModal);
+}
+if (transparencyModalCloseX) {
+    transparencyModalCloseX.addEventListener('click', closeTransparencyModal);
+}
+if (transparencyModalCloseBtn) {
+    transparencyModalCloseBtn.addEventListener('click', closeTransparencyModal);
+}
+if (transparencyModal) {
+    transparencyModal.addEventListener('click', function(e) {
+        if (e.target === this) closeTransparencyModal();
+    });
+}
+
 // ---------- Artist Modal ----------
 const artistModal = document.getElementById('artistModal');
 const artistModalCloseX = document.getElementById('artistModalCloseX');
@@ -385,7 +422,13 @@ if (artistModal) {
     });
 }
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeArtistModal();
+    if (e.key === 'Escape') {
+        if (transparencyModal && transparencyModal.classList.contains('active')) {
+            closeTransparencyModal();
+        } else if (artistModal && artistModal.classList.contains('active')) {
+            closeArtistModal();
+        }
+    }
 });
 
 // ---------- Gold shimmer on hero title ----------
