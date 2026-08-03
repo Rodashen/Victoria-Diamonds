@@ -526,11 +526,12 @@ function getMetaHTML(item, category) {
             if (item.tag) {
                 html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
             }
-            if (price === 'request') {
+if (price === 'request') {
                 html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
                 html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
             } else if (price !== undefined) {
-                html += '<span class="meta-price-label">' + getLabel('label-price', 'Starts at') + ':</span>';
+                var priceLabel = item.fixedPrice ? getLabel('label-price-fixed', 'Price') : getLabel('label-price', 'Starts at');
+                html += '<span class="meta-price-label">' + priceLabel + ':</span>';
                 html += '<span class="meta-price"><strong>' + formatPrice(price, currency) + '</strong></span>';
             }
             return html;
@@ -564,8 +565,9 @@ card.setAttribute('data-price', item.price !== undefined ? item.price : '');
                 card.setAttribute('data-stone', item.stone !== undefined ? item.stone : '');
                 card.setAttribute('data-total-weight', item.totalWeight !== undefined ? item.totalWeight : '');
                 card.setAttribute('data-weight', item.weight !== undefined ? item.weight : '');
-                card.setAttribute('data-metal', item.metal || '18K Gold');
+card.setAttribute('data-metal', item.metal || '18K Gold');
 card.setAttribute('data-currency', item.currency || 'GBP');
+if (item.fixedPrice) card.setAttribute('data-fixed-price', 'true');
 if (item.tag) card.setAttribute('data-tag', item.tag);
                 var metal = item.metal || '18K Gold';
                 var displayName = getProductName(name);
@@ -587,8 +589,9 @@ var stone = card.getAttribute('data-stone');
                     var price = card.getAttribute('data-price');
                     var totalWeight = card.getAttribute('data-total-weight');
                     var weight = card.getAttribute('data-weight');
-                    var currency = card.getAttribute('data-currency') || 'GBP';
+var currency = card.getAttribute('data-currency') || 'GBP';
                     var item = { metal: metal, currency: currency };
+                    if (card.getAttribute('data-fixed-price') === 'true') item.fixedPrice = true;
                     if (stone !== '') item.stone = stone;
                     if (tag) item.tag = tag;
                     if (price !== '') item.price = price;
@@ -719,38 +722,38 @@ document.addEventListener('keydown', function(e) {
 
 // Silver Collection - Rings
         renderProducts('silverCollection', [
-{name:'Everyday Silver Ring', image:'S1.png', metal:'Sterling 925', price:250, currency:'USD'},
-            {name:'Twisted Silver Band', image:'S2.png', metal:'Sterling 925', price:275, currency:'USD'},
-            {name:'Round Silver Ring', image:'S3.png', metal:'Sterling 925', price:320, currency:'USD'},
-            {name:'Classic Silver Ring', image:'S4.png', metal:'Sterling 925', price:290, currency:'USD'},
-            {name:'Curved Silver Band', image:'S7.png', metal:'Sterling 925', price:360, currency:'USD'},
-            {name:'Dainty Silver Ring', image:'S8.png', metal:'Sterling 925', price:315, currency:'USD'},
-            {name:'Crescent Silver Ring', image:'S9.png', metal:'Sterling 925', price:340, currency:'USD'},
-            {name:'Loop Silver Ring', image:'S10.png', metal:'Sterling 925', price:380, currency:'USD'}
+{name:'Everyday Silver Ring', image:'S1.png', metal:'Sterling 925', stone:'0.25 ct', totalWeight:'0.25 ct', price:79, fixedPrice:true},
+            {name:'Twisted Silver Band', image:'S2.png', metal:'Sterling 925', stone:'0.10 ct', totalWeight:'0.10 ct', price:59, fixedPrice:true},
+            {name:'Round Silver Ring', image:'S3.png', metal:'Sterling 925', stone:'0.25 ct', totalWeight:'0.25 ct', price:85, fixedPrice:true},
+            {name:'Classic Silver Ring', image:'S4.png', metal:'Sterling 925', stone:'0.15 ct', totalWeight:'0.15 ct', price:65, fixedPrice:true},
+            {name:'Curved Silver Band', image:'S7.png', metal:'Sterling 925', stone:'0.20 ct', totalWeight:'0.20 ct', price:75, fixedPrice:true},
+            {name:'Dainty Silver Ring', image:'S8.png', metal:'Sterling 925', stone:'0.10 ct', totalWeight:'0.10 ct', price:55, fixedPrice:true},
+            {name:'Crescent Silver Ring', image:'S9.png', metal:'Sterling 925', stone:'0.15 ct', totalWeight:'0.15 ct', price:69, fixedPrice:true},
+            {name:'Loop Silver Ring', image:'S10.png', metal:'Sterling 925', stone:'0.20 ct', totalWeight:'0.20 ct', price:72, fixedPrice:true}
         ], 'Ring');
 
         // Silver Collection - Necklaces
         renderProducts('silverCollection', [
-            {name:'Simple Chain Necklace', image:'S5.png', metal:'Sterling 925', price:225, currency:'USD'},
-            {name:'Little Drop Necklace', image:'S6.png', metal:'Sterling 925', price:260, currency:'USD'},
-            {name:'Everyday Pendant Necklace', image:'S11.png', metal:'Sterling 925', price:300, currency:'USD'}
+            {name:'Simple Chain Necklace', image:'S5.png', metal:'Sterling 925', stone:'0.10 ct', totalWeight:'0.10 ct', price:49, fixedPrice:true},
+            {name:'Little Drop Necklace', image:'S6.png', metal:'Sterling 925', stone:'0.15 ct', totalWeight:'0.15 ct', price:59, fixedPrice:true},
+            {name:'Everyday Pendant Necklace', image:'S11.png', metal:'Sterling 925', stone:'0.25 ct', totalWeight:'0.25 ct', price:79, fixedPrice:true}
         ], 'Necklace');
 
         // Silver Collection - Bracelets
         renderProducts('silverCollection', [
-            {name:'Open Cuff Bracelet', image:'S13.png', metal:'Sterling 925', price:420, currency:'USD'},
-            {name:'Link Charm Bracelet', image:'S12.png', metal:'Sterling 925', price:395, currency:'USD'}
+            {name:'Open Cuff Bracelet', image:'S13.png', metal:'Sterling 925', stone:'0.20 ct', totalWeight:'0.20 ct', price:69, fixedPrice:true},
+            {name:'Link Charm Bracelet', image:'S12.png', metal:'Sterling 925', stone:'0.15 ct', totalWeight:'0.15 ct', price:62, fixedPrice:true}
         ], 'Bracelet');
 
         // Silver Collection - Earrings
         renderProducts('silverCollection', [
-            {name:'Round Stud Earrings', image:'S14.png', metal:'Sterling 925', price:450, currency:'USD'},
-            {name:'Flower Drop Earrings', image:'S15.png', metal:'Sterling 925', price:480, currency:'USD'}
+            {name:'Round Stud Earrings', image:'S14.png', metal:'Sterling 925', stone:'0.10 ct (each)', totalWeight:'0.20 ct (pair)', price:75, fixedPrice:true},
+            {name:'Flower Drop Earrings', image:'S15.png', metal:'Sterling 925', stone:'0.12 ct (each)', totalWeight:'0.25 ct (pair)', price:79, fixedPrice:true}
         ], 'Earring');
 
         // Silver Collection - Anklet
         renderProducts('silverCollection', [
-            {name:'Everyday Silver Anklet', image:'S16.png', metal:'Sterling 925', price:340, currency:'USD'}
+            {name:'Everyday Silver Anklet', image:'S16.png', metal:'Sterling 925', stone:'0.10 ct', totalWeight:'0.10 ct', price:49, fixedPrice:true}
         ], 'Anklet');
 
 // Daily Sparkle - Rings (4–13, 29, 30) + New rings (75–80)

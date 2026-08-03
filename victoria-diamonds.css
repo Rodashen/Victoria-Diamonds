@@ -1075,10 +1075,10 @@ animation: dotProgress 2s linear forwards;
 	color: var(--color-taupe);
 }
 
-/* Equal-sized 3-column Grid */
+/* Equal-sized Collection Grid */
 .collections-grid {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: var(--space-md);
 }
 

@@ -1,14 +1,17 @@
 # Victoria Diamonds — Task List
 
-## Fix Hero Slideshow (victoria-diamonds.js)
-- [x] Remove `heroPrice` references from the slideshow code so it no longer throws an error on a non-existent element.
-- [x] Keep only the title (`heroTitle`) updating — no price display.
+## Silver Collection Updates
 
-## Remove Silver Collection from "Our Collections" (index.html)
-- [x] Delete the Silver Collection `<a>` card from the `.collections-grid`.
-- [x] Confirm remaining collections (Daily Sparkle, Occasional Wear, Forever Bond) display correctly.
+- [x] 1. Convert all silver prices to GBP (fixed "Price" instead of "Starts at").
 
-## Fix Featured Piece text and image touching (victoria-diamonds.css)
-- [x] Remove the stray `gi` typo after `--space-lg: 4rem;` in the `:root` block (introduced in commit V4.1.3).
-- [x] Restore proper tab indentation for the `:root` custom properties.
-- [x] Confirm `--space-lg`, `--space-xl`, and `--space-md` resolve correctly so the `.featured-grid` gap and `.featured-content` padding separate the image and text again.
+**All prices below £100 per user request:**
+- Rings: £49–£85
+- Necklaces: £49–£79
+- Earrings: £75–£79
+- Bracelets: £62–£69
+- Anklet: £49
+- [x] 2. Add center-stone carat (max 0.25 ct) and total carat info to each silver piece.
+- [x] 3. Add `fixedPrice` support in `getMetaHTML()` / `renderProducts()` / `refreshMeta()` in both silver-collection.html and view-catalogue.html.
+- [x] 4. Add new "Silver for Casual Wear" collection card to index.html using Silverhero1.png.
+- [x] 5. Update translations.js with new "Price" label ("價格") and "Silver for Casual Wear" collection name ("日常銀飾系列").
+- [x] 6. Verify pages render correctly in browser.
