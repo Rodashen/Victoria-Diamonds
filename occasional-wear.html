@@ -593,6 +593,10 @@ function getMetaHTML(item, category) {
                 html += '<span class="meta-stone-label">' + getLabel('label-diamond', 'Total Diamond Weight') + ':</span>';
                 html += '<span class="meta-stone">' + item.stone + '</span>';
             }
+            if (item.weight !== undefined && item.weight !== '') {
+                html += '<span class="meta-stone-label">' + getLabel('label-weight', 'Weight') + ':</span>';
+                html += '<span class="meta-stone">' + item.weight + ' g</span>';
+            }
             if (item.tag) {
                 html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
             }
@@ -632,6 +636,7 @@ function renderProducts(containerId, items, category) {
                 card.setAttribute('data-price', item.price !== undefined ? item.price : '');
                 card.setAttribute('data-stone', item.stone !== undefined ? item.stone : '');
                 card.setAttribute('data-total-weight', item.totalWeight !== undefined ? item.totalWeight : '');
+                card.setAttribute('data-weight', item.weight !== undefined ? item.weight : '');
                 card.setAttribute('data-metal', item.metal || '18K Gold');
                 if (item.tag) card.setAttribute('data-tag', item.tag);
                 var metal = item.metal || '18K Gold';
@@ -653,11 +658,13 @@ function refreshMeta() {
                     var tag = card.getAttribute('data-tag');
                     var price = card.getAttribute('data-price');
                     var totalWeight = card.getAttribute('data-total-weight');
+                    var weight = card.getAttribute('data-weight');
                     var item = { metal: metal };
                     if (stone !== '') item.stone = stone;
                     if (tag) item.tag = tag;
                     if (price !== '') item.price = price;
                     if (totalWeight !== '') item.totalWeight = totalWeight;
+                    if (weight !== '') item.weight = weight;
                     var metaEl = card.querySelector('.info .meta');
                     if (metaEl) metaEl.innerHTML = getMetaHTML(item, category);
                 });
@@ -716,44 +723,44 @@ function refreshMeta() {
 
 // Occasional Wear - Rings (32–46)
         renderProducts('occasionalWear', [
-            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', price:2214},
-            {name:'\u00c9ternelle Grande Ring', image:'33.png', stone:'5.00 ct', totalWeight:'3.75 ct', price:2127},
-            {name:'Ros\u00e9 Bloom Ring', image:'34.png', metal:'18K Rose Gold', stone:'1.00 ct', price:2410},
-            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'2.00 ct', price:3137},
-            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', price:1531},
-            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', price:2237},
-            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', price:2167},
-            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', price:2260},
-            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', price:1508},
-            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', stone:'None', price:1540},
-            {name:'Amora Ring', image:'42.png', stone:'2.00 ct', price:2805},
-            {name:'Imperial Pav\u00e9 Ring', image:'43.png', stone:'None', price:3043},
-            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', price:2214},
-            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'2.00 ct', price:2587},
-            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', price:2190}
+            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', weight:'9.0', price:2214},
+            {name:'\u00c9ternelle Grande Ring', image:'33.png', totalWeight:'3.75 ct', weight:'10.0', price:2127},
+            {name:'Ros\u00e9 Bloom Ring', image:'34.png', metal:'18K Rose Gold', stone:'1.00 ct', weight:'8.5', price:2410},
+            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'3.00 ct', weight:'18.0', price:3137},
+            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', weight:'4.0', price:1531},
+            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', weight:'9.5', price:2237},
+            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', weight:'8.0', price:2167},
+            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', weight:'10.0', price:2260},
+            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', weight:'3.5', price:1508},
+            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', stone:'None', weight:'4.2', price:1540},
+            {name:'Amora Ring', image:'42.png', stone:'2.00 ct', weight:'3.8', price:2805},
+            {name:'Imperial Pav\u00e9 Ring', image:'43.png', stone:'None', weight:'22.0', price:3043},
+            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', weight:'9.0', price:2214},
+            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'2.00 ct', weight:'11.0', price:2587},
+            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', weight:'8.5', price:2190}
         ], 'Ring');
 
         // Occasional Wear - Earrings (47–48)
         renderProducts('occasionalWear', [
-            {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct', price:2336},
-            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct', price:2656}
+            {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct', weight:'8.0', price:2336},
+            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct', weight:'9.0', price:2656}
         ], 'Earring');
 
         // Occasional Wear - Bracelets (49–50)
         renderProducts('occasionalWear', [
-            {name:'Lumina Wedding Tennis', image:'49.png', stone:'5.00 ct', price:2732},
-            {name:'Arabella', image:'53.png', stone:'5.00 ct', price:2935}
+            {name:'Lumina Wedding Tennis', image:'49.png', stone:'5.00 ct', weight:'18.0', price:2732},
+            {name:'Arabella', image:'53.png', stone:'5.00 ct', weight:'20.0', price:2935}
         ], 'Bracelet');
 
         // Occasional Wear - Brooches (51–52)
         renderProducts('occasionalWear', [
-            {name:'Celestia Broche', image:'47.png', price:'request'},
-            {name:'\u00c9ternelle Broche', image:'48.png', price:'request'}
+            {name:'Celestia Broche', image:'47.png', weight:'7.0', price:'request'},
+            {name:'\u00c9ternelle Broche', image:'48.png', weight:'7.5', price:'request'}
         ], 'Brooch');
 
         // Occasional Wear - Tiara (53)
         renderProducts('occasionalWear', [
-            {name:'Lunaria Tiara', image:'51.png', price:'request'}
+            {name:'Lunaria Tiara', image:'51.png', weight:'14.0', price:'request'}
         ], 'Tiara');
 
 // ===== Translation Init =====

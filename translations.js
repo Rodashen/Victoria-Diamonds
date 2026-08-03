@@ -200,6 +200,7 @@ const translations = {
         // ===== Label Keys for Product Cards =====
         'label-center': '主石',
         'label-diamond': '鑽石總重',
+        'label-weight': '重量',
         'label-none': '無',
 'label-price': '起價',
         'label-on-request': '請洽詢價格',
