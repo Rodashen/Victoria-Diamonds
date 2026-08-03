@@ -51,11 +51,13 @@ const translations = {
         'collections-title': '我們的系列',
         'collections-subtitle': '探索為您人生每個章節精心打造的作品',
         'collections-view-all': '查看所有系列',
+        'collection-silver-collection': '銀飾系列',
         'collection-daily-sparkle': '日常閃耀',
         'collection-occasional-wear': '場合穿搭',
         'collection-forever-bond': '永恆之約',
         'collection-pieces': '件作品',
         'collection-rings': '款戒指',
+        'silver-count': '16 件作品',
 
         // ===== Story Section =====
         'story-label': '我們的傳承',
@@ -158,6 +160,13 @@ const translations = {
         'modal-meta': '18K黃金 · 請洽詢價格',
         'modal-close': '關閉',
 
+// ===== Silver Collection Page =====
+        'silver-title': '銀飾系列',
+        'silver-subtitle': '簡約而亮眼的銀飾系列，為日常穿搭帶來柔和光采。',
+        'silver-hero-title': '銀飾系列',
+        'silver-hero-subtitle': '簡約而亮眼的銀飾系列，為日常穿搭帶來柔和光采。',
+        'page-title-silver': '銀飾系列 — 維多利亞鑽石',
+
         // ===== Daily Sparkle Page =====
         'daily-title': '日常閃耀',
         'daily-subtitle': '日常的簡約優雅 — 精緻作品為您的節奏增添一抹光彩。',
@@ -189,13 +198,15 @@ const translations = {
         'category-Earring': '耳環',
         'category-Earring Stud': '耳釘',
         'category-Bracelet': '手鏈',
-        'category-Brooch': '胸針',
+'category-Brooch': '胸針',
         'category-Tiara': '冠冕',
+        'category-Anklet': '腳鏈',
 
 // ===== Metal Descriptions for Dynamic Content =====
         'meta-18k-gold': '18K黃金',
         'meta-18k-white': '18K白金',
         'meta-18k-rose': '18K玫瑰金',
+        'meta-sterling': '純銀925',
 
         // ===== Label Keys for Product Cards =====
         'label-center': '主石',
@@ -309,6 +320,29 @@ const translations = {
         'product-Wedding Bands': '結婚對戒',
         'product-Destiny Couple Ring': '緣分對戒',
         'product-Elysian Ring': '極樂世界戒指',
+
+        // ===== Product Names - Silver Collection =====
+        // Rings
+        'product-Everyday Silver Ring': '日常銀戒指',
+        'product-Twisted Silver Band': '扭紋銀戒指',
+        'product-Round Silver Ring': '圓形銀戒指',
+        'product-Classic Silver Ring': '經典銀戒指',
+        'product-Curved Silver Band': '弧線銀戒指',
+        'product-Dainty Silver Ring': '纖巧銀戒指',
+        'product-Crescent Silver Ring': '新月銀戒指',
+        'product-Loop Silver Ring': '環形銀戒指',
+        // Necklaces
+        'product-Simple Chain Necklace': '簡約銀項鏈',
+        'product-Little Drop Necklace': '小水滴銀項鏈',
+        'product-Everyday Pendant Necklace': '日常銀吊墜項鏈',
+        // Bracelets
+        'product-Open Cuff Bracelet': '開口銀手鐲',
+        'product-Link Charm Bracelet': '鏈飾銀手鏈',
+        // Earrings
+        'product-Round Stud Earrings': '圓形銀耳釘',
+        'product-Flower Drop Earrings': '花形銀耳墜',
+        // Anklet
+        'product-Everyday Silver Anklet': '日常銀腳鏈',
     }
 };
 

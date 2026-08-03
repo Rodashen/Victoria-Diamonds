@@ -73,7 +73,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ---------- Hero image slideshow ----------
 const slides = document.querySelectorAll('.hero-slide');
 const heroTitle = document.getElementById('heroTitle');
-const heroPrice = document.getElementById('heroPrice');
 const slideDots = document.querySelectorAll('.slide-dot');
 const slideCurrent = document.getElementById('slideCurrent');
 const slideTotal = document.getElementById('slideTotal');
@@ -99,16 +98,17 @@ function goToSlide(index) {
    slides[currentSlide].classList.remove('active');
    slideDots[currentSlide].classList.remove('active');
    
-   heroTitle.style.opacity = '0';
-   heroPrice.style.opacity = '0';
+   if (heroTitle) {
+      heroTitle.style.opacity = '0';
+   }
    
    currentSlide = index;
    
    setTimeout(() => {
-      heroTitle.textContent = slides[currentSlide].dataset.title;
-      heroPrice.textContent = slides[currentSlide].dataset.price || '';
-      heroTitle.style.opacity = '1';
-      heroPrice.style.opacity = '1';
+      if (heroTitle) {
+         heroTitle.textContent = slides[currentSlide].dataset.title;
+         heroTitle.style.opacity = '1';
+      }
    }, 500);
    
    slides[currentSlide].classList.add('active');

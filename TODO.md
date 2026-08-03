@@ -1,11 +1,14 @@
-# TODO: Add Product Weights (grams) to All Catalogues
+# Victoria Diamonds — Task List
 
-## Steps
+## Fix Hero Slideshow (victoria-diamonds.js)
+- [x] Remove `heroPrice` references from the slideshow code so it no longer throws an error on a non-existent element.
+- [x] Keep only the title (`heroTitle`) updating — no price display.
 
-- [x] 1. Update `translations.js` - Add "Weight" label key
-- [x] 2. Update `daily-sparkle.html` - Add `weight` (g) to all products, remove center stones for Fiora/Luminéa Earrings
-- [x] 3. Update `occasional-wear.html` - Add `weight` (g) to all products, remove center stone for Éternelle Grande Ring, Venus Ring → 3.00 ct
-- [x] 4. Update `forever-bond.html` - Add `weight` (g) to all 20 rings
-- [x] 5. Update `view-catalogue.html` - Apply all weight/center-stone/Venus updates across all three collections
-- [x] 6. Update `getMetaHTML`/`renderProducts`/`refreshMeta` in all 4 HTML files to render the new weight field
+## Remove Silver Collection from "Our Collections" (index.html)
+- [x] Delete the Silver Collection `<a>` card from the `.collections-grid`.
+- [x] Confirm remaining collections (Daily Sparkle, Occasional Wear, Forever Bond) display correctly.
 
+## Fix Featured Piece text and image touching (victoria-diamonds.css)
+- [x] Remove the stray `gi` typo after `--space-lg: 4rem;` in the `:root` block (introduced in commit V4.1.3).
+- [x] Restore proper tab indentation for the `:root` custom properties.
+- [x] Confirm `--space-lg`, `--space-xl`, and `--space-md` resolve correctly so the `.featured-grid` gap and `.featured-content` padding separate the image and text again.
