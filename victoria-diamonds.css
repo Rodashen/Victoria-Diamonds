@@ -2050,7 +2050,8 @@ animation: dotProgress 2s linear forwards;
 
 @media (max-width: 900px) {
     .floating-transparency-btn {
-        top: 2.3rem;
+        top: auto;
+        bottom: 1.25rem;
         right: 0.75rem;
         max-width: calc(100vw - 1.5rem);
         font-size: 0.64rem;
