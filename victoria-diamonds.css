@@ -2011,7 +2011,7 @@ animation: dotProgress 2s linear forwards;
         ======================================== */
 .floating-transparency-btn {
     position: fixed;
-    top: 2.55rem;
+    bottom: 1.25rem;
     right: 1rem;
     z-index: 1101;
     display: inline-flex;
