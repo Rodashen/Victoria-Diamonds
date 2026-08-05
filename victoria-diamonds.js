@@ -55,6 +55,7 @@ mobileNavLinks.forEach(link => {
 // ---------- Smooth scroll ----------
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
    if (anchor.classList.contains('js-transparency-trigger')) return;
+   if (anchor.classList.contains('js-guarantee-trigger')) return;
    anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const href = this.getAttribute('href');
@@ -456,6 +457,10 @@ function closeGuaranteeModal() {
 
 guaranteeTriggers.forEach(function(trigger) {
     trigger.addEventListener('click', function(e) {
+        // Close the mobile nav if it's the trigger from the hamburger menu
+        if (typeof closeMobileNav === 'function') {
+            closeMobileNav();
+        }
         e.preventDefault();
         openGuaranteeModal();
     });

@@ -90,3 +90,8 @@
 - Removed the full-width "Our Guarantee" section (`#guarantee`) that appeared between the Hero and Featured Piece sections
 - The Hero section now flows directly into the Featured Piece section
 - Guarantee content is now accessible only via the header "Our Guarantee" button → centered floating modal
+
+### 5. Added guarantee link to mobile hamburger menu
+- Added an "Our Guarantee" link (`#mobileGuaranteeLink` with class `js-guarantee-trigger`) in the mobile nav, after the VD Transparency link
+- Opening the guarantee modal from the mobile menu also closes the hamburger menu
+- Updated the smooth-scroll handler to skip `js-guarantee-trigger` anchors
