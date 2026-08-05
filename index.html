@@ -45,7 +45,7 @@
                     </div>
                     <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener" aria-label="Instagram">
                         <svg viewBox="0 0 24 24" class="social-icon" aria-hidden="true">
-                            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Zm5.2-3.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2Z"/>
+<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Zm5.2-3.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2Z"/>
                         </svg>
                     </a>
                     <a href="https://wa.me/447594442577?text=Hi%20Victoria%20Diamonds!%20I%27d%20love%20to%20inquire%20about%20a%20jewelry%20piece.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -53,6 +53,7 @@
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                         </svg>
                     </a>
+                    <button class="header-guarantee-btn js-guarantee-trigger" aria-label="Our Guarantee" data-i18n="nav-our-guarantee">Our Guarantee</button>
                 </div>
                 
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
@@ -76,6 +77,9 @@
             <li>
                 <a href="view-catalogue.html" data-i18n="nav-view-catalogue">View Catalogue</a>
             </li>
+            <li>
+                <a href="#" id="mobileTransparencyLink" class="js-transparency-trigger" data-i18n="nav-transparency">VD Transparency</a>
+            </li>
         </ul>
         <div class="lang-selector">
             <select id="langSelectMobile">
@@ -88,79 +92,22 @@
         </div>
     </nav>
 
-    <button class="floating-transparency-btn" id="transparencyButton" type="button" aria-haspopup="dialog" aria-controls="transparencyModal">
-        <span class="floating-transparency-icon">✦</span>
-        <span>VD Transparency</span>
-    </button>
-
-    <div class="modal-overlay" id="transparencyModal" aria-hidden="true">
-        <div class="modal-popup transparency-popup" role="dialog" aria-modal="true" aria-labelledby="transparencyHeading">
-            <button class="modal-close-x" id="transparencyModalCloseX" type="button" aria-label="Close transparency modal">×</button>
-            <div class="transparency-modal-grid">
-                <div class="transparency-modal-body">
-                    <p class="text-label" style="margin-bottom:0.75rem;">Transparency</p>
-                    <h2 class="heading-display" id="transparencyHeading" style="font-size:2rem;margin-bottom:1rem;line-height:1.1;">Our Diamond Sourcing & Pricing Transparency</h2>
-                    <p class="text-body" style="font-size:0.97rem;margin-bottom:1rem;">
-                        At Victoria Diamonds, we believe transparency is the foundation of true luxury. We want you to know exactly what you are investing in and how we source the finest lab-grown diamonds directly for your bespoke pieces.
-                    </p>
-                    <p class="text-body" style="font-size:0.97rem;margin-bottom:1.5rem;">
-                        To maintain uncompromising standards, we work exclusively with high-quality stones, categorized into two carefully curated tiers to help you understand the value behind each selection.
-                    </p>
-
-                    <div class="transparency-tier-list">
-                        <div class="transparency-tier-card">
-                            <h3>Luxe</h3>
-                            <p><strong>Color:</strong> D</p>
-                            <p><strong>Clarity:</strong> IF / F</p>
-                            <p><strong>Ideal For:</strong> The top end of polish, rarity, and light performance.</p>
-                        </div>
-                        <div class="transparency-tier-card">
-                            <h3>Select</h3>
-                            <p><strong>Color:</strong> E / F / G</p>
-                            <p><strong>Clarity:</strong> VS+</p>
-                            <p><strong>Ideal For:</strong> Exceptional brilliance and striking value with beautiful near-colorless character.</p>
-                        </div>
-                    </div>
-
-                    <div class="transparency-source-copy">
-                        <h3>How We Source For You</h3>
-                        <p><strong>Direct Selection:</strong> We bypass traditional retail markups by hand-picking your stone directly from certified, sustainable lab-grown diamond creators.</p>
-                        <p><strong>Strict Grading:</strong> Every diamond must meet our strict requirements for cut, polish, and symmetry to ensure maximum light performance.</p>
-                        <p><strong>Custom Matching:</strong> Whether it is a 0.1 ct accent for our new silver collection or a major center stone, each diamond is meticulously matched to your design specifications.</p>
-                    </div>
-
-                    <div class="transparency-pricing-card">
-                        <div class="transparency-pricing-head">
-                            <h3>Pricing Guide</h3>
-                            <span>Starting from 1.0 ct</span>
-                        </div>
-                        <div class="transparency-pricing-table-wrap">
-                            <table class="transparency-pricing-table">
-                                <thead>
-                                    <tr>
-                                        <th>Karats</th>
-                                        <th>Luxe</th>
-                                        <th>Select</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>1.00</td><td>594</td><td>220</td></tr>
-                                    <tr><td>2.00</td><td>1063</td><td>500</td></tr>
-                                    <tr><td>3.00</td><td>1594</td><td>850</td></tr>
-                                    <tr><td>4.00</td><td>1688</td><td>1300</td></tr>
-                                    <tr><td>5.00</td><td>2313</td><td>1500</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <button class="modal-close-btn" id="transparencyModalCloseBtn" type="button">Close</button>
-                </div>
-            </div>
-        </div>
+    <div class="floating-buttons">
+        <a href="https://wa.me/447594442577?text=Hi%20Victoria%20Diamonds!%20I%27d%20love%20to%20inquire%20about%20a%20jewelry%20piece.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" rel="noopener" class="floating-btn floating-btn-whatsapp" aria-label="WhatsApp">
+            <span class="floating-btn-icon">
+                <svg viewBox="0 0 24 24" class="floating-btn-svg" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+            </span>
+            <span>WhatsApp</span>
+        </a>
+        <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="floating-btn floating-btn-book" aria-label="Book Appointment">
+            <span class="floating-btn-icon">✦</span>
+            <span>Book Appointment</span>
+        </a>
     </div>
-    
-    <!-- Hero Section -->
+
+<!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <p class="text-label hero-tagline" data-i18n="hero-tagline">Artisan Jewelry Since 2012</p>
@@ -222,8 +169,8 @@
             </div>
         </div>
     </section>
-    
-    <!-- Featured Piece -->
+
+<!-- Featured Piece -->
     <section class="featured-piece">
         <div class="container">
             <div class="featured-grid">
@@ -585,7 +532,128 @@
             </div>
         </div>
     </section>
+
+    <!-- Transparency Modal -->
+    <div class="modal-overlay" id="transparencyModal" aria-hidden="true">
+        <div class="modal-popup transparency-popup" role="dialog" aria-modal="true" aria-labelledby="transparencyHeading">
+            <button class="modal-close-x" id="transparencyModalCloseX" type="button" aria-label="Close transparency modal">×</button>
+            <div class="transparency-modal-grid">
+                <div class="transparency-modal-body">
+                    <p class="text-label" style="margin-bottom:0.75rem;">Transparency</p>
+                    <h2 class="heading-display" id="transparencyHeading" style="font-size:2rem;margin-bottom:1rem;line-height:1.1;">Our Diamond Sourcing & Pricing Transparency</h2>
+                    <p class="text-body" style="font-size:0.97rem;margin-bottom:1rem;">
+                        At Victoria Diamonds, we believe transparency is the foundation of true luxury. We want you to know exactly what you are investing in and how we source the finest lab-grown diamonds directly for your bespoke pieces.
+                    </p>
+                    <p class="text-body" style="font-size:0.97rem;margin-bottom:1.5rem;">
+                        To maintain uncompromising standards, we work exclusively with high-quality stones, categorized into two carefully curated tiers to help you understand the value behind each selection.
+                    </p>
+
+                    <div class="transparency-tier-list">
+                        <div class="transparency-tier-card">
+                            <h3>Luxe</h3>
+                            <p><strong>Color:</strong> D</p>
+                            <p><strong>Clarity:</strong> IF / F</p>
+                            <p><strong>Ideal For:</strong> The top end of polish, rarity, and light performance.</p>
+                        </div>
+                        <div class="transparency-tier-card">
+                            <h3>Select</h3>
+                            <p><strong>Color:</strong> E / F / G</p>
+                            <p><strong>Clarity:</strong> VS+</p>
+                            <p><strong>Ideal For:</strong> Exceptional brilliance and striking value with beautiful near-colorless character.</p>
+                        </div>
+                    </div>
+
+                    <div class="transparency-source-copy">
+                        <h3>How We Source For You</h3>
+                        <p><strong>Direct Selection:</strong> We bypass traditional retail markups by hand-picking your stone directly from certified, sustainable lab-grown diamond creators.</p>
+                        <p><strong>Strict Grading:</strong> Every diamond must meet our strict requirements for cut, polish, and symmetry to ensure maximum light performance.</p>
+                        <p><strong>Custom Matching:</strong> Whether it is a 0.1 ct accent for our new silver collection or a major center stone, each diamond is meticulously matched to your design specifications.</p>
+                    </div>
+
+                    <div class="transparency-pricing-card">
+                        <div class="transparency-pricing-head">
+                            <h3>Pricing Guide</h3>
+                            <span>Starting from 1.0 ct</span>
+                        </div>
+                        <div class="transparency-pricing-table-wrap">
+                            <table class="transparency-pricing-table">
+                                <thead>
+                                    <tr>
+                                        <th>Karats</th>
+                                        <th>Luxe</th>
+                                        <th>Select</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1.00</td><td>594</td><td>220</td></tr>
+                                    <tr><td>2.00</td><td>1063</td><td>500</td></tr>
+                                    <tr><td>3.00</td><td>1594</td><td>850</td></tr>
+                                    <tr><td>4.00</td><td>1688</td><td>1300</td></tr>
+                                    <tr><td>5.00</td><td>2313</td><td>1500</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <button class="modal-close-btn" id="transparencyModalCloseBtn" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
+<!-- Our Guarantee Modal -->
+    <div class="modal-overlay" id="guaranteeModal" aria-hidden="true">
+        <div class="modal-popup guarantee-popup" role="dialog" aria-modal="true" aria-labelledby="guaranteeHeading">
+            <button class="modal-close-x" id="guaranteeModalCloseX" type="button" aria-label="Close guarantee modal">×</button>
+            <div class="guarantee-modal-body">
+                <p class="text-label" style="margin-bottom:0.75rem;" data-i18n="guarantee-label">Our Promise</p>
+                <h2 class="heading-display" id="guaranteeHeading" style="font-size:2rem;margin-bottom:1rem;line-height:1.1;" data-i18n="guarantee-title">The Victoria Diamonds Promise</h2>
+                <p class="text-body" style="font-size:0.97rem;margin-bottom:1.5rem;" data-i18n="guarantee-subtitle">
+                    Every piece is crafted with uncompromising care, transparency, and attention to the details that matter most to you.
+                </p>
+                <div class="guarantee-modal-grid">
+                    <div class="guarantee-item">
+                        <h3 class="guarantee-item-title" data-i18n="guarantee-1-title">Complementary Personal Inscriptions</h3>
+                        <p class="guarantee-item-text" data-i18n="guarantee-1-text">
+                            Complementary bespoke engraving (name, date, or private message) crafted with precision onto your piece.
+                        </p>
+                    </div>
+                    <div class="guarantee-item">
+                        <h3 class="guarantee-item-title" data-i18n="guarantee-2-title">Personalized Design Approval</h3>
+                        <p class="guarantee-item-text" data-i18n="guarantee-2-text">
+                            Custom 2D designs shared for your review before any gemstone is set or metal cast; production starts only after your approval.
+                        </p>
+                    </div>
+                    <div class="guarantee-item">
+                        <h3 class="guarantee-item-title" data-i18n="guarantee-3-title">Tailored Precision Fit</h3>
+                        <p class="guarantee-item-text" data-i18n="guarantee-3-text">
+                            Each ring is individually crafted to your exact size for a balanced, comfortable fit.
+                        </p>
+                    </div>
+                    <div class="guarantee-item">
+                        <h3 class="guarantee-item-title" data-i18n="guarantee-4-title">Certified Excellence</h3>
+                        <p class="guarantee-item-text" data-i18n="guarantee-4-text">
+                            Every lab-grown diamond over 1.00 carat comes with an independent IGI grading report.
+                        </p>
+                    </div>
+                    <div class="guarantee-item">
+                        <h3 class="guarantee-item-title" data-i18n="guarantee-5-title">One-Year Complimentary Care & Resizing</h3>
+                        <p class="guarantee-item-text" data-i18n="guarantee-5-text">
+                            One free ring resizing within the first year of ownership.
+                        </p>
+                    </div>
+                    <div class="guarantee-item">
+                        <h3 class="guarantee-item-title" data-i18n="guarantee-6-title">Bespoke Creation Integrity</h3>
+                        <p class="guarantee-item-text" data-i18n="guarantee-6-text">
+                            Custom commissions are one-of-a-kind and final sale, as they can't be repurposed.
+                        </p>
+                    </div>
+                </div>
+                <button class="modal-close-btn" id="guaranteeModalCloseBtn" type="button" data-i18n="modal-close">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">

@@ -54,6 +54,7 @@ mobileNavLinks.forEach(link => {
 
 // ---------- Smooth scroll ----------
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+   if (anchor.classList.contains('js-transparency-trigger')) return;
    anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const href = this.getAttribute('href');
@@ -351,10 +352,10 @@ if (form) {
 }
 
 // ---------- Transparency Modal ----------
-const transparencyButton = document.getElementById('transparencyButton');
 const transparencyModal = document.getElementById('transparencyModal');
 const transparencyModalCloseX = document.getElementById('transparencyModalCloseX');
 const transparencyModalCloseBtn = document.getElementById('transparencyModalCloseBtn');
+const transparencyTriggers = document.querySelectorAll('.js-transparency-trigger');
 
 function openTransparencyModal() {
     if (transparencyModal) {
@@ -372,9 +373,18 @@ function closeTransparencyModal() {
     }
 }
 
-if (transparencyButton) {
-    transparencyButton.addEventListener('click', openTransparencyModal);
-}
+transparencyTriggers.forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
+        // Close the mobile nav if it's the trigger from the hamburger menu
+        if (typeof closeMobileNav === 'function') {
+            closeMobileNav();
+        }
+        if (this.getAttribute('href') === '#') {
+            e.preventDefault();
+        }
+        openTransparencyModal();
+    });
+});
 if (transparencyModalCloseX) {
     transparencyModalCloseX.addEventListener('click', closeTransparencyModal);
 }
@@ -421,12 +431,55 @@ if (artistModal) {
         if (e.target === this) closeArtistModal();
     });
 }
+
+// ---------- Guarantee Modal ----------
+const guaranteeModal = document.getElementById('guaranteeModal');
+const guaranteeModalCloseX = document.getElementById('guaranteeModalCloseX');
+const guaranteeModalCloseBtn = document.getElementById('guaranteeModalCloseBtn');
+const guaranteeTriggers = document.querySelectorAll('.js-guarantee-trigger');
+
+function openGuaranteeModal() {
+    if (guaranteeModal) {
+        guaranteeModal.classList.add('active');
+        guaranteeModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeGuaranteeModal() {
+    if (guaranteeModal) {
+        guaranteeModal.classList.remove('active');
+        guaranteeModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+}
+
+guaranteeTriggers.forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        openGuaranteeModal();
+    });
+});
+if (guaranteeModalCloseX) {
+    guaranteeModalCloseX.addEventListener('click', closeGuaranteeModal);
+}
+if (guaranteeModalCloseBtn) {
+    guaranteeModalCloseBtn.addEventListener('click', closeGuaranteeModal);
+}
+if (guaranteeModal) {
+    guaranteeModal.addEventListener('click', function(e) {
+        if (e.target === this) closeGuaranteeModal();
+    });
+}
+
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         if (transparencyModal && transparencyModal.classList.contains('active')) {
             closeTransparencyModal();
         } else if (artistModal && artistModal.classList.contains('active')) {
             closeArtistModal();
+        } else if (guaranteeModal && guaranteeModal.classList.contains('active')) {
+            closeGuaranteeModal();
         }
     }
 });

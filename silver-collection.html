@@ -621,22 +621,6 @@
             var price = item.price;
             var currency = item.currency || 'GBP';
             var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
-            var isBracelet = category === 'Bracelet';
-            var isBrooch = category === 'Brooch';
-            var isTiara = category === 'Tiara';
-            var hasStone = item.stone !== undefined && item.stone !== 'None' && item.stone !== '';
-            var hasWeight = item.totalWeight !== undefined && item.totalWeight !== '';
-            if (!isBracelet && !isBrooch && !isTiara && hasStone) {
-                html += '<span class="meta-stone-label">' + getLabel('label-center', 'Center Stone') + ':</span>';
-                html += '<span class="meta-stone">' + item.stone + '</span>';
-            }
-            if (hasWeight) {
-                html += '<span class="meta-stone-label">' + getLabel('label-diamond', 'Total Diamond Weight') + ':</span>';
-                html += '<span class="meta-stone">' + item.totalWeight + '</span>';
-            } else if (isBracelet && hasStone) {
-                html += '<span class="meta-stone-label">' + getLabel('label-diamond', 'Total Diamond Weight') + ':</span>';
-                html += '<span class="meta-stone">' + item.stone + '</span>';
-            }
             if (item.weight !== undefined && item.weight !== '') {
                 html += '<span class="meta-stone-label">' + getLabel('label-weight', 'Weight') + ':</span>';
                 html += '<span class="meta-stone">' + item.weight + ' g</span>';
@@ -644,7 +628,13 @@
             if (item.tag) {
                 html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
             }
-if (price === 'request') {
+            if (item.details && item.details.length) {
+                html += '<span class="meta-details-label">' + getLabel('label-details', 'Details') + '</span>';
+                item.details.forEach(function(d) {
+                    html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
+                });
+            }
+            if (price === 'request') {
                 html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
                 html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
             } else if (price !== undefined) {
@@ -653,6 +643,28 @@ if (price === 'request') {
                 html += '<span class="meta-price"><strong>' + formatPrice(price, currency) + '</strong></span>';
             }
             return html;
+        }
+
+        function getDetailLabel(key) {
+            var dKey = 'detail-' + key;
+            if (typeof translations !== 'undefined' && translations[catalogueCurrentLang] && translations[catalogueCurrentLang][dKey]) {
+                return translations[catalogueCurrentLang][dKey];
+            }
+            var fallback = {
+                centerStone: 'Center Stone Weight',
+                eachDiamond: 'Each Diamond Stone Weight',
+                mainSide: 'Main Side Stones Weight',
+                secondarySide: 'Secondary Side Stones Weight',
+                finishingSide: 'Finishing Side Stones Weight',
+                sideStone: 'Side Stones Weight',
+                totalKarat: 'Total Karat Weight',
+                mainDiamond: 'Main Diamond Stone Weight',
+                secondaryDiamond: 'Secondary Diamond Stone Weight',
+diamonds: 'Diamonds',
+                note: 'Note',
+                weight: 'Weight'
+            };
+            return fallback[key] || key;
         }
 
         function getProductName(englishName) {
@@ -683,9 +695,10 @@ if (price === 'request') {
                 card.setAttribute('data-total-weight', item.totalWeight !== undefined ? item.totalWeight : '');
                 card.setAttribute('data-weight', item.weight !== undefined ? item.weight : '');
                 card.setAttribute('data-metal', item.metal || '18K Gold');
-                card.setAttribute('data-currency', item.currency || 'GBP');
+card.setAttribute('data-currency', item.currency || 'GBP');
                 if (item.fixedPrice) card.setAttribute('data-fixed-price', 'true');
                 if (item.tag) card.setAttribute('data-tag', item.tag);
+                if (item.details) card.setAttribute('data-details', JSON.stringify(item.details));
                 var metal = item.metal || '18K Gold';
                 var displayName = getProductName(name);
                 card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name" data-product-name="' + name.replace(/"/g, '"') + '">' + displayName + '</p><p class="meta">' + getMetaHTML(item, category) + '</p></div>';
@@ -707,6 +720,7 @@ if (price === 'request') {
                     var totalWeight = card.getAttribute('data-total-weight');
                     var weight = card.getAttribute('data-weight');
 var currency = card.getAttribute('data-currency') || 'GBP';
+                    var details = card.getAttribute('data-details');
                     var item = { metal: metal, currency: currency };
                     if (card.getAttribute('data-fixed-price') === 'true') item.fixedPrice = true;
                     if (stone !== '') item.stone = stone;
@@ -714,6 +728,7 @@ var currency = card.getAttribute('data-currency') || 'GBP';
                     if (price !== '') item.price = price;
                     if (totalWeight !== '') item.totalWeight = totalWeight;
                     if (weight !== '') item.weight = weight;
+                    if (details) { try { item.details = JSON.parse(details); } catch(e) {} }
                     var metaEl = card.querySelector('.info .meta');
                     if (metaEl) metaEl.innerHTML = getMetaHTML(item, category);
                 });
@@ -771,38 +786,38 @@ var currency = card.getAttribute('data-currency') || 'GBP';
 
 // Silver Collection - Rings
         renderProducts('silverCollection', [
-            {name:'Everyday Silver Ring', image:'S1.png', metal:'Sterling 925', stone:'0.25 ct', price:59, fixedPrice:true},
-            {name:'Twisted Silver Band', image:'S2.png', metal:'Sterling 925', stone:'0.50 ct', price:142, fixedPrice:true},
-            {name:'Round Silver Ring', image:'S3.png', metal:'Sterling 925', stone:'0.25 ct', price:79, fixedPrice:true},
-            {name:'Classic Silver Ring', image:'S4.png', metal:'Sterling 925', totalWeight:'0.25 ct', price:87, fixedPrice:true},
-            {name:'Curved Silver Band', image:'S7.png', metal:'Sterling 925', totalWeight:'0.25 ct', price:103, fixedPrice:true},
-            {name:'Dainty Silver Ring', image:'S8.png', metal:'Sterling 925', stone:'0.25 ct', price:79, fixedPrice:true},
-            {name:'Crescent Silver Ring', image:'S9.png', metal:'Sterling 925', stone:'0.25 ct', totalWeight:'0.75 ct', price:180, fixedPrice:true},
-            {name:'Loop Silver Ring', image:'S10.png', metal:'Sterling 925', stone:'0.50 ct', price:134, fixedPrice:true}
+            {name:'Everyday Silver Ring', image:'S1.png', metal:'Sterling 925', price:59, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
+            {name:'Twisted Silver Band', image:'S2.png', metal:'Sterling 925', price:142, fixedPrice:true, details:[{key:'centerStone', value:'0.50 ct'}]},
+            {name:'Round Silver Ring', image:'S3.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
+            {name:'Classic Silver Ring', image:'S4.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'totalKarat', value:'0.25 ct'}]},
+            {name:'Curved Silver Band', image:'S7.png', metal:'Sterling 925', price:103, fixedPrice:true, details:[{key:'totalKarat', value:'0.25 ct'}]},
+            {name:'Dainty Silver Ring', image:'S8.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
+            {name:'Crescent Silver Ring', image:'S9.png', metal:'Sterling 925', price:167, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'},{key:'totalKarat', value:'0.75 ct'}]},
+            {name:'Loop Silver Ring', image:'S10.png', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centerStone', value:'0.50 ct'}]}
         ], 'Ring');
 
 // Silver Collection - Necklaces
         renderProducts('silverCollection', [
-            {name:'Simple Chain Necklace', image:'S5.png', metal:'Sterling 925', stone:'0.25 ct', price:79, fixedPrice:true},
-            {name:'Little Drop Necklace', image:'S6.png', metal:'Sterling 925', stone:'0.25 ct', price:87, fixedPrice:true},
-            {name:'Everyday Pendant Necklace', image:'S11.png', metal:'Sterling 925', stone:'0.25 ct', price:79, fixedPrice:true}
+            {name:'Simple Chain Necklace', image:'S5.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
+            {name:'Little Drop Necklace', image:'S6.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
+            {name:'Everyday Pendant Necklace', image:'S11.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]}
         ], 'Necklace');
 
         // Silver Collection - Bracelets
         renderProducts('silverCollection', [
-            {name:'Open Cuff Bracelet', image:'S13.png', metal:'Sterling 925', stone:'0.25 ct', price:79, fixedPrice:true},
-            {name:'Link Charm Bracelet', image:'S12.png', metal:'Sterling 925', stone:'0.25 ct', totalWeight:'0.50 ct', price:142, fixedPrice:true}
+            {name:'Open Cuff Bracelet', image:'S13.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
+            {name:'Link Charm Bracelet', image:'S12.png', metal:'Sterling 925', price:131, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'},{key:'totalKarat', value:'0.50 ct'}]}
         ], 'Bracelet');
 
         // Silver Collection - Earrings
         renderProducts('silverCollection', [
-            {name:'Round Stud Earrings', image:'S14.png', metal:'Sterling 925', stone:'0.25 ct (each)', price:87, fixedPrice:true},
-            {name:'Flower Drop Earrings', image:'S15.png', metal:'Sterling 925', stone:'0.25 ct (each)', price:103, fixedPrice:true}
+            {name:'Round Stud Earrings', image:'S14.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct (each)'}]},
+            {name:'Flower Drop Earrings', image:'S15.png', metal:'Sterling 925', price:103, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct (each)'}]}
         ], 'Earring');
 
         // Silver Collection - Anklet
         renderProducts('silverCollection', [
-            {name:'Everyday Silver Anklet', image:'S16.png', metal:'Sterling 925', totalWeight:'0.75 ct', price:34, fixedPrice:true}
+            {name:'Everyday Silver Anklet', image:'S16.png', metal:'Sterling 925', price:131, fixedPrice:true, details:[{key:'totalKarat', value:'0.75 ct'}]}
         ], 'Anklet');
 
         // ===== Translation Init =====
