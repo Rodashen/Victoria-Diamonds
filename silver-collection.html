@@ -271,8 +271,18 @@
         .product-card .info .meta .meta-price {
             display: block;
         }
-        .product-card .info .meta .meta-price strong {
+.product-card .info .meta .meta-price strong {
             font-weight: 700;
+            color: var(--charcoal);
+        }
+        .product-card .info .meta .meta-detail-row {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--charcoal-soft);
+            line-height: 1.5;
+        }
+        .product-card .info .meta .meta-detail-label {
+            font-weight: 600;
             color: var(--charcoal);
         }
         .catalogue-sort-wrapper {
@@ -348,10 +358,27 @@
             color: var(--gold-light);
             text-decoration: none;
         }
-        @media (max-width: 768px) {
+@media (max-width: 768px) {
             .product-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.85rem; }
             .collection-head { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
             .catalogue-hero { padding: 3rem 1.5rem 2rem; }
+            .product-card .info .meta .meta-metal,
+            .product-card .info .meta .meta-tag,
+            .product-card .info .meta .meta-stone-label,
+            .product-card .info .meta .meta-stone,
+            .product-card .info .meta .meta-price-label,
+            .product-card .info .meta .meta-price,
+            .product-card .info .meta .meta-detail-row,
+            .modal-popup .modal-meta .meta-metal,
+            .modal-popup .modal-meta .meta-tag,
+            .modal-popup .modal-meta .meta-stone-label,
+            .modal-popup .modal-meta .meta-stone,
+            .modal-popup .modal-meta .meta-price-label,
+            .modal-popup .modal-meta .meta-price,
+            .modal-popup .modal-meta .meta-detail-row {
+                display: block;
+                width: 100%;
+            }
         }
         @media (max-width: 480px) {
             .product-grid { grid-template-columns: repeat(2, 1fr); gap: 0.65rem; }
@@ -418,8 +445,13 @@
         .modal-popup .modal-meta .meta-stone-label,
         .modal-popup .modal-meta .meta-stone,
         .modal-popup .modal-meta .meta-price-label,
-        .modal-popup .modal-meta .meta-price {
+        .modal-popup .modal-meta .meta-price,
+        .modal-popup .modal-meta .meta-detail-row {
             display: block;
+        }
+        .modal-popup .modal-meta .meta-detail-label {
+            font-weight: 600;
+            color: var(--charcoal);
         }
         .modal-popup .modal-actions {
             display: flex;
@@ -714,8 +746,7 @@
             if (item.tag) {
                 html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
             }
-            if (item.details && item.details.length) {
-                html += '<span class="meta-details-label">' + getLabel('label-details', 'Details') + '</span>';
+if (item.details && item.details.length) {
                 item.details.forEach(function(d) {
                     html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
                 });
@@ -848,8 +879,8 @@ var currency = card.getAttribute('data-currency') || 'GBP';
                 if (img && nameEl && metaEl) {
                     document.getElementById('modalImg').src = img.src;
                     var englishName = nameEl.getAttribute('data-product-name') || nameEl.textContent;
-                    document.getElementById('modalName').textContent = getProductName(englishName);
-                    document.getElementById('modalMeta').textContent = metaEl.textContent;
+document.getElementById('modalName').textContent = getProductName(englishName);
+                    document.getElementById('modalMeta').innerHTML = metaEl.innerHTML;
                     document.getElementById('productModal').classList.add('active');
                     document.body.style.overflow = 'hidden';
                 }
@@ -872,7 +903,7 @@ var currency = card.getAttribute('data-currency') || 'GBP';
 
 // Silver Collection - Rings
         renderProducts('silverCollection', [
-            {name:'Everyday Silver Ring', image:'S1.png', metal:'Sterling 925', price:59, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
+            {name:'Everyday Silver Ring', image:'S1.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
             {name:'Twisted Silver Band', image:'S2.png', metal:'Sterling 925', price:142, fixedPrice:true, details:[{key:'centerStone', value:'0.50 ct'}]},
             {name:'Round Silver Ring', image:'S3.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
             {name:'Classic Silver Ring', image:'S4.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'totalKarat', value:'0.25 ct'}]},
