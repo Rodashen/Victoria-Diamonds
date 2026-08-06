@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="stylesheet" href="victoria-diamonds.css">
     <script src="translations.js"></script>
     <style>
         :root {
@@ -47,33 +46,6 @@
         .reveal.revealed {
             opacity: 1;
             transform: translateY(0);
-        }
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .reveal-left.revealed {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .reveal-scale {
-            opacity: 0;
-            transform: scale(0.92);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .reveal-scale.revealed {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        @keyframes fadeSlideUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
         }
 
         /* Staggered card entrance */
@@ -228,18 +200,6 @@
             align-items: center;
             justify-content: center;
         }
-        .product-card .image-wrap::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(212,168,83,0.06), transparent 40%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-        }
-        .product-card:hover .image-wrap::after {
-            opacity: 1;
-        }
         .product-card .image-wrap img {
             max-width: 100%;
             height: auto;
@@ -276,18 +236,9 @@
         .product-card .info .meta .meta-price {
             display: block;
         }
-.product-card .info .meta .meta-price strong {
+        .product-card .info .meta .meta-price strong {
             font-weight: 700;
             color: var(--charcoal);
-        }
-        .product-card .info .meta .meta-details-label {
-            display: block;
-            font-weight: 600;
-            color: var(--gold-dark);
-            margin-top: 0.4rem;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            font-size: 0.7rem;
         }
         .product-card .info .meta .meta-detail-row {
             display: block;
@@ -372,7 +323,7 @@
             color: var(--gold-light);
             text-decoration: none;
         }
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
             .product-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.85rem; }
             .collection-head { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
             .catalogue-hero { padding: 3rem 1.5rem 2rem; }
@@ -467,6 +418,27 @@
             font-weight: 600;
             color: var(--charcoal);
         }
+        .modal-popup .modal-meta .modal-details-extra {
+            display: none;
+        }
+        .modal-popup .modal-meta .modal-details-extra.is-expanded {
+            display: block;
+        }
+        .modal-popup .modal-meta .modal-details-toggle {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: var(--charcoal);
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 0.2em;
+        }
         .modal-popup .modal-actions {
             display: flex;
             flex-direction: column;
@@ -526,7 +498,7 @@
             flex-shrink: 0;
             margin-top: 0.75rem;
         }
-.modal-popup .modal-close-x:hover {
+        .modal-popup .modal-close-x:hover {
             background: var(--charcoal);
             color: var(--cream);
         }
@@ -610,7 +582,7 @@
             <span class="brand" data-i18n="brand-name">Victoria <span>Diamonds</span></span>
             <div style="display:flex;align-items:center;gap:0.75rem;">
                 <div class="lang-selector" style="position:relative;">
-                    <select id="langSelect" style="font-family:var(--font-body);font-size:0.7rem;font-weight:500;letter-spacing:0.05em;padding:0.35rem 1.4rem 0.35rem 0.5rem;border:1px solid rgba(28,28,28,0.15);border-radius:3px;background:rgba(255,251,245,0.85);color:var(--charcoal);cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1C1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 0.35rem center;background-size:0.7rem;">
+                    <select id="langSelect" style="font-family:var(--font-body);font-size:0.7rem;font-weight:500;letter-spacing:0.05em;padding:0.35rem 1.4rem 0.35rem 0.5rem;border:1px solid rgba(28,28,28,0.15);border-radius:3px;background:rgba(255,251,245,0.85);color:var(--charcoal);cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1C1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 0.35rem center;background-size:0.7rem;">
                         <option value="en">English</option>
                         <option value="zh-TW">繁體中文</option>
                     </select>
@@ -628,7 +600,7 @@
                 <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="back-link" style="font-weight:600;color:var(--charcoal);border:1px solid var(--charcoal);padding:0.5rem 1rem;text-transform:uppercase;font-size:0.7rem;letter-spacing:0.08em;" data-i18n="catalogue-book">Book Appointment</a>
             </div>
         </div>
-</header>
+    </header>
 
     <div class="floating-buttons">
         <a href="https://wa.me/447594442577?text=Hi%20Victoria%20Diamonds!%20I%27d%20love%20to%20inquire%20about%20a%20jewelry%20piece.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" rel="noopener" class="floating-btn floating-btn-whatsapp" aria-label="WhatsApp">
@@ -683,7 +655,7 @@
             <img class="modal-img" id="modalImg" src="" alt="">
             <div class="modal-body">
                 <p class="modal-name" id="modalName"></p>
-<p class="modal-meta" id="modalMeta"></p>
+                <p class="modal-meta" id="modalMeta"></p>
                 <div class="modal-actions">
                     <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="modal-book" data-i18n="catalogue-book">Book Appointment</a>
                     <button class="modal-close-btn" id="modalCloseBtn" data-i18n="catalogue-close">Close</button>
@@ -693,7 +665,6 @@
     </div>
 
     <script>
-        // ===== Reveal on Scroll Observer =====
         document.addEventListener('DOMContentLoaded', function() {
             var revealObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
@@ -706,12 +677,11 @@
                 threshold: 0.12,
                 rootMargin: '0px 0px -40px 0px'
             });
-            document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(function(el) {
+            document.querySelectorAll('.reveal').forEach(function(el) {
                 revealObserver.observe(el);
             });
         });
 
-        // Track current language globally for product name lookup
         var catalogueCurrentLang = 'en';
 
         function getCatLabel(category) {
@@ -746,7 +716,7 @@
             return '£' + Number(price).toLocaleString('en-GB');
         }
 
-function getMetaHTML(item, category) {
+        function getMetaHTML(item, category) {
             var metal = item.metal || '18K Gold';
             var price = item.price;
             var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
@@ -759,20 +729,71 @@ function getMetaHTML(item, category) {
             }
 if (item.details && item.details.length) {
                 item.details.forEach(function(d) {
-                    html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
+                    if (d.key === 'centerStone' || d.key === 'totalKarat') {
+                        html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
+                    }
                 });
             }
             if (price === 'request') {
                 html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
                 html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
-            } else if (price !== undefined) {
+            } else if (price !== undefined && price !== '') {
                 html += '<span class="meta-price-label">' + getLabel('label-price', 'Starts at') + ':</span>';
                 html += '<span class="meta-price"><strong>' + formatPrice(price) + '</strong></span>';
             }
             return html;
         }
 
-function getProductName(englishName) {
+        function getModalMetaHTML(item, category) {
+            var metal = item.metal || '18K Gold';
+            var price = item.price;
+            var currency = item.currency || 'GBP';
+            var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
+            if (item.weight !== undefined && item.weight !== '') {
+                html += '<span class="meta-stone-label">' + getLabel('label-weight', 'Weight') + ':</span>';
+                html += '<span class="meta-stone">' + item.weight + ' g</span>';
+            }
+            if (item.tag) {
+                html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
+            }
+
+            if (item.details && item.details.length) {
+                var visibleDetails = [];
+                var extraDetails = [];
+                item.details.forEach(function(d) {
+                    if (d.key === 'centerStone' || d.key === 'totalKarat') {
+                        visibleDetails.push(d);
+                    } else {
+                        extraDetails.push(d);
+                    }
+                });
+
+                visibleDetails.forEach(function(d) {
+                    html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
+                });
+
+                if (extraDetails.length > 0) {
+                    html += '<button type="button" class="modal-details-toggle" aria-expanded="false">View full details</button>';
+                    html += '<div class="modal-details-extra" style="display:none">';
+                    extraDetails.forEach(function(d) {
+                        html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
+                    });
+                    html += '</div>';
+                }
+            }
+
+            if (price === 'request') {
+                html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
+                html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
+            } else if (price !== undefined && price !== '') {
+                var priceLabel = item.fixedPrice ? getLabel('label-price-fixed', 'Price') : getLabel('label-price', 'Starts at');
+                html += '<span class="meta-price-label">' + priceLabel + ':</span>';
+                html += '<span class="meta-price"><strong>' + formatPrice(price) + '</strong></span>';
+            }
+            return html;
+        }
+
+        function getProductName(englishName) {
             var prodKey = 'product-' + englishName;
             if (typeof translations !== 'undefined' && translations[catalogueCurrentLang] && translations[catalogueCurrentLang][prodKey]) {
                 return translations[catalogueCurrentLang][prodKey];
@@ -786,16 +807,16 @@ function getProductName(englishName) {
                 return translations[catalogueCurrentLang][dKey];
             }
             var fallback = {
-                centerStone: 'Center Stone Weight',
-                eachDiamond: 'Each Diamond Stone Weight',
-                mainSide: 'Main Side Stones Weight',
-                secondarySide: 'Secondary Side Stones Weight',
-                finishingSide: 'Finishing Side Stones Weight',
-                sideStone: 'Side Stones Weight',
-totalKarat: 'Total Carat Weight',
-                mainDiamond: 'Main Diamond Stone Weight',
-                secondaryDiamond: 'Secondary Diamond Stone Weight',
-diamonds: 'Diamonds',
+                centerStone: 'Center Stone',
+                eachDiamond: 'Each Diamond Stone',
+                mainSide: 'Main Side Stones',
+                secondarySide: 'Secondary Side Stones',
+                finishingSide: 'Finishing Side Stones',
+                sideStone: 'Side Stones',
+                totalKarat: 'Total Carat',
+                mainDiamond: 'Main Diamond Stone',
+                secondaryDiamond: 'Secondary Diamond Stone',
+                diamonds: 'Diamonds',
                 note: 'Note',
                 weight: 'Weight'
             };
@@ -819,9 +840,9 @@ diamonds: 'Diamonds',
                 card.className = 'product-card reveal';
                 card.setAttribute('data-price', item.price !== undefined ? item.price : '');
                 card.setAttribute('data-stone', item.stone !== undefined ? item.stone : '');
-                card.setAttribute('data-total-weight', item.totalWeight !== undefined ? item.totalWeight : '');
+                card.setAttribute('data-total', item.total !== undefined ? item.total : '');
                 card.setAttribute('data-weight', item.weight !== undefined ? item.weight : '');
-card.setAttribute('data-metal', item.metal || '18K Gold');
+                card.setAttribute('data-metal', item.metal || '18K Gold');
                 if (item.tag) card.setAttribute('data-tag', item.tag);
                 if (item.details) card.setAttribute('data-details', JSON.stringify(item.details));
                 var metal = item.metal || '18K Gold';
@@ -842,14 +863,14 @@ card.setAttribute('data-metal', item.metal || '18K Gold');
                     var metal = card.getAttribute('data-metal') || '18K Gold';
                     var tag = card.getAttribute('data-tag');
                     var price = card.getAttribute('data-price');
-var totalWeight = card.getAttribute('data-total-weight');
+                    var total = card.getAttribute('data-total');
                     var weight = card.getAttribute('data-weight');
                     var details = card.getAttribute('data-details');
                     var item = { metal: metal };
                     if (stone !== '') item.stone = stone;
                     if (tag) item.tag = tag;
                     if (price !== '') item.price = price;
-                    if (totalWeight !== '') item.totalWeight = totalWeight;
+                    if (total !== '') item.total = total;
                     if (weight !== '') item.weight = weight;
                     if (details) { try { item.details = JSON.parse(details); } catch(e) {} }
                     var metaEl = card.querySelector('.info .meta');
@@ -877,17 +898,50 @@ var totalWeight = card.getAttribute('data-total-weight');
         }
 
         document.addEventListener('click', function(e) {
+            var detailToggle = e.target.closest('.modal-details-toggle');
+            if (detailToggle) {
+                var modalMeta = document.getElementById('modalMeta');
+                var extra = modalMeta ? modalMeta.querySelector('.modal-details-extra') : null;
+                var isExpanded = detailToggle.getAttribute('aria-expanded') === 'true';
+                if (extra) {
+                    extra.style.display = isExpanded ? 'none' : 'block';
+                    extra.classList.toggle('is-expanded', !isExpanded);
+                }
+                detailToggle.setAttribute('aria-expanded', String(!isExpanded));
+                detailToggle.textContent = isExpanded ? 'View full details' : 'Hide full details';
+                return;
+            }
             var card = e.target.closest('.product-card');
             if (card) {
                 var img = card.querySelector('.image-wrap img');
                 var nameEl = card.querySelector('.info .name');
-                var metaEl = card.querySelector('.info .meta');
-                if (img && nameEl && metaEl) {
+                if (img && nameEl) {
                     document.getElementById('modalImg').src = img.src;
-                    // Use the original English name stored in data-product-name to look up translation
-var englishName = nameEl.getAttribute('data-product-name') || nameEl.textContent;
+                    var englishName = nameEl.getAttribute('data-product-name') || nameEl.textContent;
                     document.getElementById('modalName').textContent = getProductName(englishName);
-                    document.getElementById('modalMeta').innerHTML = metaEl.innerHTML;
+
+                    var stone = card.getAttribute('data-stone');
+                    var metal = card.getAttribute('data-metal') || '18K Gold';
+                    var tag = card.getAttribute('data-tag');
+                    var price = card.getAttribute('data-price');
+                    var total = card.getAttribute('data-total');
+                    var weight = card.getAttribute('data-weight');
+                    var currency = card.getAttribute('data-currency') || 'GBP';
+                    var fixedPrice = card.getAttribute('data-fixed-price') === 'true';
+                    var details;
+                    try { details = JSON.parse(card.getAttribute('data-details') || '[]'); } catch(e) { details = []; }
+
+                    var item = { metal: metal, currency: currency, fixedPrice: fixedPrice, details: details };
+                    if (stone !== null && stone !== '') item.stone = stone;
+                    if (tag) item.tag = tag;
+                    if (price !== null && price !== '') item.price = price;
+                    if (total !== null && total !== '') item.total = total;
+                    if (weight !== null && weight !== '') item.weight = weight;
+
+                    var grid = card.closest('.product-grid');
+                    var category = grid ? (grid.getAttribute('data-category') || '') : '';
+
+                    document.getElementById('modalMeta').innerHTML = getModalMetaHTML(item, category);
                     document.getElementById('productModal').classList.add('active');
                     document.body.style.overflow = 'hidden';
                 }
@@ -908,10 +962,10 @@ var englishName = nameEl.getAttribute('data-product-name') || nameEl.textContent
             if (e.key === 'Escape') closeModal();
         });
 
-// Daily Sparkle - Rings (4–13, 29, 30) + New rings (75–80)
+        // Daily Sparkle - Rings (4–13, 29, 30) + New rings (75–80)
         renderProducts('dailySparkle', [
-{name:'Elara Ring', image:'4.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
-{name:'Nova Ring', image:'5.png', price:1485, details:[{key:'centerStone', value:'0.50 ct'}]},
+            {name:'Elara Ring', image:'4.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
+            {name:'Nova Ring', image:'5.png', price:1485, details:[{key:'centerStone', value:'0.50 ct'}]},
             {name:'Raya Ring', image:'6.jpeg', price:1475, details:[{key:'centerStone', value:'1.00 ct'}]},
             {name:'Solenne Ring', image:'7.png', price:1617, details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'1.50 ct'}]},
             {name:'Aria Ring', image:'8.png', price:1755, details:[{key:'centerStone', value:'2.00 ct'}]},
@@ -920,7 +974,7 @@ var englishName = nameEl.getAttribute('data-product-name') || nameEl.textContent
             {name:'\u00c9lan Ring', image:'11.png', price:1461, details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'1.75 ct'}]},
             {name:'Solitaire Ring', image:'12.png', price:1475, details:[{key:'centerStone', value:'1.00 ct'}]},
             {name:'Timeless Classic Ring', image:'13.png', price:1522, details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'1.50 ct'}]},
-{name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold', price:1601, details:[{key:'totalKarat', value:'2 ct'}]},
+            {name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold', price:1601, details:[{key:'totalKarat', value:'2 ct'}]},
             {name:'Splendor Stacking Ring', image:'30.png', metal:'18K White Gold', price:1734, details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'1.75 ct'}]},
             {name:'Aurelia Ring', image:'75.png', price:1365, details:[{key:'centerStone', value:'0.50 ct'}]},
             {name:'Diamond Dust Ring', image:'76.png', price:1485, details:[{key:'centerStone', value:'1.00 ct'}]},
@@ -930,28 +984,28 @@ var englishName = nameEl.getAttribute('data-product-name') || nameEl.textContent
             {name:'Cascade Ring', image:'80.png', price:1494, details:[{key:'centerStone', value:'1.00 ct'}]}
         ], 'Ring');
 
-// Daily Sparkle - Signature Necklaces / Bracelets / Earrings
+        // Daily Sparkle - Signature Necklaces / Bracelets / Earrings
         renderProducts('dailySparkle', [
-{name:'Solstice Necklace', image:'14.png', stone:'1.50 ct', totalWeight:'3.25 ct', price:2887, details:[{key:'centerStone', value:'1.50 ct'},{key:'totalKarat', value:'3.25 ct'}]},
-            {name:'Aurora Necklace', image:'15.png', stone:'1.00 ct', totalWeight:'2 ct', price:2659, details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'2 ct'}]},
-            {name:'Celeste Necklace', image:'16.png', stone:'1.00 ct', totalWeight:'1.75 ct', price:2525, details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'1.75 ct'}]},
-            {name:'Serenity Necklace', image:'17.png', stone:'1.00 ct', totalWeight:'4 ct', price:3424, details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'4 ct'}]},
-            {name:'Virelle Necklace', image:'18.png', totalWeight:'3 ct', price:3297, details:[{key:'eachDiamond', value:'0.75'},{key:'totalKarat', value:'3 ct'}]},
-            {name:'Luvia Necklace', image:'19.png', totalWeight:'3.5 ct', price:3500, details:[{key:'eachDiamond', value:'0.10 (35 in total)'},{key:'totalKarat', value:'3.5 ct'}]}
+            {name:'Solstice Necklace', image:'14.png', stone:'1.50 ct', total:'3.25 ct', price:2887, details:[{key:'centerStone', value:'1.50 ct'},{key:'totalKarat', value:'3.25 ct'}]},
+            {name:'Aurora Necklace', image:'15.png', stone:'1.00 ct', total:'2 ct', price:2659, details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'2 ct'}]},
+            {name:'Celeste Necklace', image:'16.png', stone:'1.00 ct', total:'1.75 ct', price:2525, details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'1.75 ct'}]},
+            {name:'Serenity Necklace', image:'17.png', stone:'1.00 ct', total:'4 ct', price:3424, details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'4 ct'}]},
+            {name:'Virelle Necklace', image:'18.png', total:'3 ct', price:3297, details:[{key:'eachDiamond', value:'0.75'},{key:'totalKarat', value:'3 ct'}]},
+            {name:'Luvia Necklace', image:'19.png', total:'3.5 ct', price:3500, details:[{key:'eachDiamond', value:'0.10 (35 in total)'},{key:'totalKarat', value:'3.5 ct'}]}
         ], 'Necklace');
 
-// Daily Sparkle - Earrings (21–22)
+        // Daily Sparkle - Earrings (21–22)
         renderProducts('dailySparkle', [
-{name:'Fiora Earrings', image:'21.png', totalWeight:'1.6 ct', price:1742, details:[{key:'mainDiamond', value:'0.25 (4 in total)'},{key:'secondaryDiamond', value:'0.15 (4 in total)'},{key:'totalKarat', value:'1.6 ct'}]},
-            {name:'Lumin\u00e9a Earrings', image:'22.png', totalWeight:'0.6 ct', price:1522, details:[{key:'eachDiamond', value:'0.10 (6 in total)'},{key:'totalKarat', value:'0.6 ct'}]}
+            {name:'Fiora Earrings', image:'21.png', total:'1.6 ct', price:1742, details:[{key:'mainDiamond', value:'0.25 (4 in total)'},{key:'secondaryDiamond', value:'0.15 (4 in total)'},{key:'totalKarat', value:'1.6 ct'}]},
+            {name:'Lumin\u00e9a Earrings', image:'22.png', total:'0.6 ct', price:1522, details:[{key:'eachDiamond', value:'0.10 (6 in total)'},{key:'totalKarat', value:'0.6 ct'}]}
         ], 'Earring');
 
         // Daily Sparkle - Earring Studs (28)
         renderProducts('dailySparkle', [
-{name:'Martini Studs', image:'28.png', totalWeight:'2 ct (pair)', price:1578, details:[{key:'eachDiamond', value:'1 (2 in total if pair)'},{key:'totalKarat', value:'2 ct (pair)'}]}
+            {name:'Martini Studs', image:'28.png', total:'2 ct (pair)', price:1578, details:[{key:'eachDiamond', value:'1 (2 in total if pair)'},{key:'totalKarat', value:'2 ct (pair)'}]}
         ], 'Earring Stud');
 
-// Daily Sparkle - Bracelets (23–27)
+        // Daily Sparkle - Bracelets (23–27)
         renderProducts('dailySparkle', [
             {name:'Solenne Bracelet', image:'23.png', price:1924, details:[{key:'centerStone', value:'0.75 ct'},{key:'mainSide', value:'0.25 x 4'},{key:'secondarySide', value:'0.10 x 4'},{key:'totalKarat', value:'2.15 ct'}]},
             {name:'Aur\u00e9a Bracelet', image:'24.png', price:1737, details:[{key:'centerStone', value:'0.50 ct'},{key:'sideStone', value:'0.10 x 8'},{key:'totalKarat', value:'1.3 ct'}]},
@@ -962,14 +1016,13 @@ var englishName = nameEl.getAttribute('data-product-name') || nameEl.textContent
 
         // ===== Translation Init =====
         (function() {
-            // Store original English text for all data-i18n elements
             document.querySelectorAll('[data-i18n]').forEach(function(el) {
                 if (!el.hasAttribute('data-i18n-original')) {
                     el.setAttribute('data-i18n-original', el.innerHTML);
                 }
             });
 
-function applyCatalogueTranslations(lang) {
+            function applyCatalogueTranslations(lang) {
                 catalogueCurrentLang = lang;
                 var dict = translations[lang] || {};
                 document.querySelectorAll('[data-i18n]').forEach(function(el) {
@@ -983,7 +1036,6 @@ function applyCatalogueTranslations(lang) {
                         el.innerHTML = dict[key];
                     }
                 });
-// Update product card names using data-product-name attribute
                 document.querySelectorAll('.product-card .info .name[data-product-name]').forEach(function(el) {
                     var englishName = el.getAttribute('data-product-name');
                     el.textContent = getProductName(englishName);
@@ -1017,4 +1069,3 @@ function applyCatalogueTranslations(lang) {
     </script>
 </body>
 </html>
-

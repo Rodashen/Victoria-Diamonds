@@ -1,15 +1,17 @@
-# Product Card/Modal Fixes — TODO
+# TODO
 
-## Plan Approved ✅
+## Task: Show only Center Stone / Total Carat on product cards; hide extra details behind popup toggle
 
-### Files to Edit:
-1. `view-catalogue.html`
-2. `silver-collection.html`
-3. `daily-sparkle.html`
-4. `occasional-wear.html`
-5. `forever-bond.html`
+**Goal:** Product cards should only display `Center Stone` and `Total Carat` detail rows. All other detail keys (mainSide, secondarySide, finishingSide, sideStone, eachDiamond, mainDiamond, secondaryDiamond, diamonds, note, weight) are hidden on the card and only appear in the product popup behind the "View full details" toggle.
 
-### Steps:
-- [ ] 1. **Remove "Details" label** — delete the `meta-details-label` line inside `getMetaHTML()` in all 5 pages (removes heading from product cards + modals, keeps detail rows)
-- [ ] 2. **Add mobile CSS** — add `@media (max-width: 768px)` block to each page's `<style>` forcing all meta spans (incl. `.meta-detail-row`) to `display: block` so each field stacks on its own line on mobile
-- [ ] 3. **Test/verify** — confirm on mobile each meta field is on its own line and no "Details" heading appears
+### Plan
+- [x] Understand the modal popup implementation across all 5 catalogue files
+- [x] `getMetaHTML` (product card): filter to only render `centerStone`/`totalKarat` rows in all 5 files
+  - [x] view-catalogue.html
+  - [x] silver-collection.html
+  - [x] daily-sparkle.html
+  - [x] occasional-wear.html
+  - [x] forever-bond.html
+- [x] view-catalogue.html & silver-collection.html: switch popup from `setModalMeta` (copies card HTML) to data-driven `getModalMetaHTML` so the popup still shows ALL details via the toggle
+- [x] Ensure the toggle handler sets inline `style.display` (overrides `style="display:none"` on `.modal-details-extra`) in `view-catalogue.html` and `silver-collection.html` so expansion works
+- [x] Verify popup behavior: Center Stone + Total Carat visible, "View full details" toggle reveals the rest, price last
