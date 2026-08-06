@@ -335,10 +335,79 @@
                 width: 100%;
             }
         }
-        @media (max-width: 480px) {
+@media (max-width: 480px) {
             .product-grid { grid-template-columns: repeat(2, 1fr); gap: 0.65rem; }
-            .catalogue-header .inner { padding: 0 1rem; }
             .collection-section { padding: 0 1rem 3rem; }
+        }
+        /* ===== Mobile Header ===== */
+        @media (max-width: 768px) {
+            .catalogue-header .inner {
+                flex-wrap: wrap;
+                gap: 0.5rem 0.75rem;
+                padding: 0 1rem;
+                justify-content: space-between;
+            }
+            .catalogue-header .brand {
+                font-size: 1.2rem;
+                order: 1;
+            }
+            .catalogue-header .back-link {
+                order: 0;
+            }
+            .catalogue-header .inner > div:last-child {
+                order: 2;
+                width: 100%;
+                justify-content: flex-start;
+                gap: 0.5rem;
+                padding-top: 0.25rem;
+                border-top: 1px solid rgba(28,28,28,0.06);
+            }
+            .catalogue-header .inner > div:last-child .lang-selector {
+                margin-right: auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .catalogue-header .inner > div:last-child a[aria-label="Instagram"],
+            .catalogue-header .inner > div:last-child a[aria-label="WhatsApp"] {
+                display: none;
+            }
+            .catalogue-header .inner > div:last-child a.back-link {
+                flex: 1;
+                justify-content: center;
+                padding: 0.5rem 0.75rem;
+                font-size: 0.65rem;
+            }
+        }
+        /* ===== Mobile Modal (bottom sheet) ===== */
+        @media (max-width: 600px) {
+            .modal-overlay {
+                align-items: flex-end;
+                padding: 0;
+            }
+            .modal-popup {
+                max-width: 100%;
+                width: 100%;
+                max-height: 92dvh;
+                border-radius: 18px 18px 0 0;
+                animation: modalSheetIn 0.35s ease;
+            }
+            @keyframes modalSheetIn {
+                from { opacity: 0.5; transform: translateY(40px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .modal-popup .modal-img {
+                max-height: 40vh;
+            }
+            .modal-popup .modal-body {
+                padding: 1.25rem 1.25rem 1.5rem;
+                overflow-y: auto;
+                flex-shrink: 1;
+            }
+            .modal-popup .modal-close-x {
+                top: 0.5rem;
+                margin-right: 0.5rem;
+                margin-top: 0.5rem;
+            }
         }
         /* Modal Overlay */
         .modal-overlay {
