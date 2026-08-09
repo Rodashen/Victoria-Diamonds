@@ -51,3 +51,23 @@
 - [x] Forever Bond Rings: Amour Éternel→1875 (0.50x5, total 2.5), Lumiere Eternity→request, Eternal Connection Set→2590 (r1 0.25, r2 1, total 1.25), Stellar Promise→1467 (0.10x4, total 2.4), Everlasting Embrace→1850 (0.05x18, total 2.9), Destiny Couple (Eternity values)→2296 set (0.10 each, total 0.2), Bound by Destiny→request, Eternal Promise Set→2760 (total 1.6), Eternal Harmony→1625 (0.05x20, total 2), Eternal Promise→1575 (total 1.25), Élégance Unie→1575 (0.05x16, total 1.8), Endless Devotion→1600 (0.05x18, total 1.9), The Knot→1375 (0.05x20, total 1), Moment to Shine→1850 (0.15x10 + 0.05x10, total 3), Celestial Embrace→2928 (0.25x6 + 0.05x25, total 4.75), Luminous Devotion→2305 (0.10x10, total 3), Ethereal Halo→2450 (0.05x30, total 3.5), Elysian→2875 (0.05x36, total 4.8)
 - [x] Verify no product names changed; no duplicate entries
 - [x] Restore Unbreakable Hearts Ring & Wedding Bands (not in change list)
+
+## Task: Sync mobile/dedicated collection pages with main catalogue (website)
+
+**Goal:** Ensure the dedicated collection pages (silver-collection.html, daily-sparkle.html, occasional-wear.html, forever-bond.html) show the exact same product info and prices as the main catalogue (view-catalogue.html), since the mobile menu links to these dedicated pages.
+
+### Plan
+- [x] Recreate missing/incomplete dedicated collection pages with full product data matching view-catalogue.html
+  - [x] daily-sparkle.html (31 products: rings, necklaces, earrings, studs, bracelets)
+  - [x] occasional-wear.html (22 products: rings, earrings, bracelets, brooches, tiara)
+  - [x] forever-bond.html (20 rings, incl. wedding bands)
+  - [x] silver-collection.html existed with correct data (16 products)
+- [x] Verify all prices, center stone, total carat, and gem-spec details match view-catalogue.html on every page
+  - [x] Silver Collection prices (Everyday 79, Simple Chain 98, Little Drop 87, Every Pendant 87, etc.)
+  - [x] Daily Sparkle rings (all 1375/1490/1515/1467/1955/1625/1516/1540)
+  - [x] Daily Sparkle necklaces (Luvia 1950, Virelle 2575, Serenity 2101, Celeste 1967, Aurora 2240, Solstice 2285)
+  - [x] Daily Sparkle bracelets (Auréa 2266, Solenne 1522, Liora 1735, Celeste 1832, Lumière 1401)
+  - [x] Occasional Wear (all rings, earrings, bracelets, brooches, tiara)
+  - [x] Forever Bond rings (all 20 rings)
+- [x] Confirm product counts match (view=89; silver=16, daily=31, occasional=22, forever=20)
+- [x] Confirm index.html links to all dedicated collection pages correctly
