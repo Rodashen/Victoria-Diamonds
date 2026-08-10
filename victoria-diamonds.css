@@ -374,6 +374,13 @@ html {
 	transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
 }
 
+/* Keep the full desktop header inside the viewport at normal browser zoom. */
+.site-header .container {
+	max-width: none;
+	padding-left: clamp(1.25rem, 2.75vw, 3.25rem);
+	padding-right: clamp(1.25rem, 2.75vw, 3.25rem);
+}
+
 .site-header::before {
 	content: '';
 	position: absolute;
@@ -400,7 +407,7 @@ html {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 3rem;
+	gap: clamp(1rem, 2vw, 2rem);
 }
 
 .logo {
@@ -422,7 +429,9 @@ html {
 .nav-main {
 	display: flex;
 	align-items: center;
-	gap: var(--space-lg);
+	justify-content: center;
+	gap: clamp(1rem, 2vw, 2.5rem);
+	min-width: 0;
 }
 
 .nav-main a:not(.nav-cta):not(.nav-catalog) {
@@ -580,6 +589,7 @@ html {
 	display: flex;
 	align-items: center;
 	gap: 0.6rem;
+	flex-shrink: 0;
 }
 
 .top-social-links a {
@@ -1107,6 +1117,13 @@ animation: dotProgress 2s linear forwards;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: var(--space-md);
+}
+
+/* Four cards always fit within the desktop viewport without clipping. */
+.collections-desktop .container {
+	max-width: 1800px;
+	padding-left: clamp(1.25rem, 2.75vw, 3.25rem);
+	padding-right: clamp(1.25rem, 2.75vw, 3.25rem);
 }
 
 .collection-item {
@@ -2547,6 +2564,17 @@ animation: dotProgress 2s linear forwards;
 
 	.collections-grid {
 		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* Remove secondary header controls before they can force horizontal overflow. */
+@media (max-width: 1540px) {
+	.top-social-links {
+		display: none;
+	}
+
+	.header-inner {
+		gap: var(--space-md);
 	}
 }
 
