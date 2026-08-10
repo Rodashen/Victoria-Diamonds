@@ -645,7 +645,7 @@
                 <div class="lang-selector" style="position:relative;">
                     <select id="langSelect" style="font-family:var(--font-body);font-size:0.7rem;font-weight:500;letter-spacing:0.05em;padding:0.35rem 1.4rem 0.35rem 0.5rem;border:1px solid rgba(28,28,28,0.15);border-radius:3px;background:rgba(255,251,245,0.85);color:var(--charcoal);cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1C1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 0.35rem center;background-size:0.7rem;">
                         <option value="en">English</option>
-                        <option value="zh-TW">繁體中文</option>
+                        <option value="zh-HK">繁體中文（香港）</option>
                     </select>
                 </div>
                 <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid rgba(28,28,28,0.12);transition:all 0.3s ease;color:#E4405F;">
@@ -1218,7 +1218,7 @@ function applyCatalogueTranslations(lang) {
                     el.textContent = getProductName(englishName);
                 });
                 refreshMeta();
-                document.documentElement.lang = lang === 'zh-TW' ? 'zh-Hant' : 'en';
+                document.documentElement.lang = lang === 'zh-HK' ? 'zh-Hant-HK' : 'en';
                 var selector = document.getElementById('langSelect');
                 if (selector) { selector.value = lang; }
             }

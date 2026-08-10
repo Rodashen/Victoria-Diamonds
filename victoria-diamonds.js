@@ -575,7 +575,7 @@ function applyTranslations(lang) {
             el.innerHTML = dict[key];
         }
     });
-    document.documentElement.lang = lang === 'zh-TW' ? 'zh-Hant' : 'en';
+    document.documentElement.lang = lang === 'zh-HK' ? 'zh-Hant-HK' : 'en';
     var selector = document.getElementById('langSelect');
     if (selector) { selector.value = lang; }
     var mobileSelector = document.getElementById('langSelectMobile');
@@ -584,13 +584,13 @@ function applyTranslations(lang) {
 
 function initLanguage() {
     storeOriginalText();
-    // A shared URL such as `/?lang=zh-TW` opens the site in Chinese and
+    // A shared URL such as `/?lang=zh-HK` opens the site in Chinese and
     // remembers that choice as visitors move through the catalogue.
     var langFromUrl = new URLSearchParams(window.location.search).get('lang');
-    var initialLang = langFromUrl && translations[langFromUrl] ? langFromUrl : getSavedLang();
-    if (langFromUrl && translations[langFromUrl]) {
-        saveLang(initialLang);
-    }
+    // The plain homepage always starts in English. Language-specific shared
+    // links (for example `?lang=zh-HK`) explicitly select and save a locale.
+    var initialLang = langFromUrl && translations[langFromUrl] ? langFromUrl : 'en';
+    saveLang(initialLang);
     applyTranslations(initialLang);
 
     var selector = document.getElementById('langSelect');

@@ -5,7 +5,7 @@
 
 const translations = {
     'en': {},
-    'zh-TW': {
+    'zh-HK': {
         // ===== Page Titles =====
         'page-title': '維多利亞鑽石 — 高級珠寶',
         'page-title-daily': '日常閃耀 — 維多利亞鑽石',
