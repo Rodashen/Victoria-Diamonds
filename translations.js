@@ -22,6 +22,7 @@ const translations = {
         'nav-craftsmanship': '工藝',
         'nav-visit-us': '造訪我們',
         'nav-view-catalogue': '瀏覽目錄',
+        'nav-download-catalogue': '下載產品目錄',
         'nav-book-appointment': '預約鑑賞',
         'nav-transparency': 'VD 透明價格',
         'nav-our-guarantee': '我們的保證',
@@ -379,4 +380,3 @@ const translations = {
         'product-Everyday Silver Anklet': '日常銀腳鏈',
     }
 };
-

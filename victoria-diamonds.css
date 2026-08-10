@@ -2935,6 +2935,45 @@ animation: dotProgress 2s linear forwards;
 	display: none;
 }
 
+/* Replaced by the collection landing section placed directly after the header. */
+.collections-original {
+	display: none;
+}
+
+.collections-desktop .section-header {
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-md);
+	text-align: center;
+}
+
+.collections-desktop .section-header-left {
+	max-width: 38rem;
+}
+
+.collections-desktop .btn-text,
+.collections-mobile-all {
+	justify-content: center;
+	border: 1px solid var(--color-charcoal);
+	border-radius: 0;
+	padding: 0.85rem 1.35rem;
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.collections-desktop .btn-text::after {
+	display: none;
+}
+
+.collections-desktop .btn-text:hover,
+.collections-mobile-all:hover {
+	background: var(--color-charcoal);
+	color: var(--color-cream);
+}
+
 /* The boutique collection landing experience is intentionally mobile-only. */
 @media (max-width: 860px) {
 	.collections-mobile {
@@ -3019,18 +3058,12 @@ animation: dotProgress 2s linear forwards;
 		display: block;
 		width: max-content;
 		margin: 1.75rem auto 0;
-		padding-bottom: 0.35rem;
-		border-bottom: 1px solid currentColor;
 		color: var(--color-charcoal);
-		font-size: 0.7rem;
-		font-weight: 600;
-		letter-spacing: 0.14em;
 		text-decoration: none;
-		text-transform: uppercase;
 	}
 
 	/* Keep the desktop collection block out of the mobile content flow. */
-	.collections#collections {
+	.collections-desktop#collections {
 		display: none;
 	}
 }
