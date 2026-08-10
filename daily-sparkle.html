@@ -837,7 +837,7 @@
             }
             if (item.details && item.details.length) {
                 item.details.forEach(function(d) {
-                    if (d.key === 'centerStone' || d.key === 'totalKarat') {
+                    if (d.key === 'centreStone' || d.key === 'totalKarat') {
                         html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
                     }
                 });
@@ -859,7 +859,7 @@
                 return translations[catalogueCurrentLang][dKey];
             }
             var fallback = {
-                centerStone: 'Center Stone',
+                centreStone: 'Centre Stone',
                 eachDiamond: 'Each Diamond Stone',
                 mainSide: 'Main Side Stones',
                 secondarySide: 'Secondary Side Stones',
@@ -978,7 +978,7 @@
                 var visibleDetails = [];
                 var extraDetails = [];
                 item.details.forEach(function(d) {
-                    if (d.key === 'centerStone' || d.key === 'totalKarat') {
+                    if (d.key === 'centreStone' || d.key === 'totalKarat') {
                         visibleDetails.push(d);
                     } else {
                         extraDetails.push(d);
@@ -1075,41 +1075,41 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        // Daily Sparkle - Rings
+// Daily Sparkle - Rings
         renderProducts('dailySparkle', [
-            {name:'Aurelia Ring', image:'75.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
-            {name:'Elara Ring', image:'4.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
-            {name:'Raya Ring', image:'6.jpeg', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
-            {name:'Gianna Ring', image:'78.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
-            {name:'Mirabelle Ring', image:'79.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
-            {name:'Nova Ring', image:'5.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
-            {name:'Solitaire Ring', image:'12.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
-            {name:'Diamond Dust Ring', image:'76.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
-{name:'Solenne Ring', image:'7.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
-            {name:'\u00c9lan Ring', image:'11.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 4'}]},
-            {name:'Timeless Classic Ring', image:'13.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 4'}]},
-            {name:'Princess Ring', image:'10.png', price:1625, details:[{key:'centerStone', value:'2.00 ct'},{key:'sideStone', value:'0.75 x 2'}]},
-            {name:'Aurelle Ring', image:'9.png', price:1625, details:[{key:'centerStone', value:'2.00 ct'}]},
-{name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold', price:1110, details:[{key:'eachDiamond', value:'0.10 x 17'}]},
-            {name:'Splendor Stacking Ring', image:'30.png', metal:'18K White Gold', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
-            {name:'Cascade Ring', image:'80.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]},
-            {name:'Nocturne Ring', image:'77.png', price:1375, details:[{key:'centerStone', value:'1.00 ct'}]}
+            {name:'Aurelia Ring', image:'75.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Elara Ring', image:'4.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Raya Ring', image:'6.jpeg', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Gianna Ring', image:'78.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Mirabelle Ring', image:'79.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Nova Ring', image:'5.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Solitaire Ring', image:'12.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Diamond Dust Ring', image:'76.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Solenne Ring', image:'7.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'\u00c9lan Ring', image:'11.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 4'}]},
+            {name:'Timeless Classic Ring', image:'13.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 4'}]},
+            {name:'Princess Ring', image:'10.png', price:1625, details:[{key:'centreStone', value:'2.00 ct'},{key:'sideStone', value:'0.75 x 2'}]},
+            {name:'Aurelle Ring', image:'9.png', price:1625, details:[{key:'centreStone', value:'2.00 ct'}]},
+            {name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold', price:1110, details:[{key:'eachDiamond', value:'0.10 x 17'}]},
+            {name:'Splendor Stacking Ring', image:'30.png', metal:'18K White Gold', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Cascade Ring', image:'80.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Nocturne Ring', image:'77.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]}
         ], 'Ring');
 
 // Daily Sparkle - Necklaces
         renderProducts('dailySparkle', [
             {name:'Luvia Necklace', image:'19.png', total:'1.5 ct', price:'request', details:[{key:'eachDiamond', value:'0.05 x 30'},{key:'totalKarat', value:'1.5 ct'}]},
             {name:'Virelle Necklace', image:'18.png', total:'4 ct', price:'request', details:[{key:'eachDiamond', value:'1'},{key:'totalKarat', value:'4 ct'}]},
-            {name:'Serenity Necklace', image:'17.png', stone:'1.00 ct', total:'2.2 ct', price:'request', details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'2.2 ct'},{key:'sideStone', value:'0.10 x 12'}]},
-            {name:'Celeste Necklace', image:'16.png', stone:'1.00 ct', total:'1.6 ct', price:'request', details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'1.6 ct'},{key:'mainSide', value:'0.10 x 4'},{key:'secondarySide', value:'0.05 x 4'}]},
-            {name:'Aurora Necklace', image:'15.png', stone:'1.00 ct', total:'2.7 ct', price:'request', details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'2.7 ct'},{key:'mainSide', value:'0.10 x 5'},{key:'secondarySide', value:'0.10 x 7'}]},
-            {name:'Solstice Necklace', image:'14.png', stone:'1.00 ct', total:'3 ct', price:'request', details:[{key:'centerStone', value:'1.00 ct'},{key:'totalKarat', value:'3 ct'},{key:'sideStone', value:'0.10 x 20'}]}
+            {name:'Serenity Necklace', image:'17.png', stone:'1.00 ct', total:'2.2 ct', price:'request', details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'2.2 ct'},{key:'sideStone', value:'0.10 x 12'}]},
+            {name:'Celeste Necklace', image:'16.png', stone:'1.00 ct', total:'1.6 ct', price:'request', details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'1.6 ct'},{key:'mainSide', value:'0.10 x 4'},{key:'secondarySide', value:'0.05 x 4'}]},
+            {name:'Aurora Necklace', image:'15.png', stone:'1.00 ct', total:'2.7 ct', price:'request', details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'2.7 ct'},{key:'mainSide', value:'0.10 x 5'},{key:'secondarySide', value:'0.10 x 7'}]},
+            {name:'Solstice Necklace', image:'14.png', stone:'1.00 ct', total:'3 ct', price:'request', details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'3 ct'},{key:'sideStone', value:'0.10 x 20'}]}
         ], 'Necklace');
 
         // Daily Sparkle - Earrings
         renderProducts('dailySparkle', [
             {name:'Lumin\u00e9a Earrings', image:'22.png', total:'1.2 ct', price:1421, details:[{key:'eachDiamond', value:'0.10 (6 in total)'},{key:'totalKarat', value:'1.2 ct'}]},
-            {name:'Fiora Earrings', image:'21.png', total:'1.6 ct', price:1513, details:[{key:'mainDiamond', value:'0.25 (4 in total)'},{key:'secondaryDiamond', value:'0.15 (4 in total)'},{key:'totalKarat', value:'1.6 ct'}]}
+            {name:'Fiora Earrings', image:'21.png', total:'1.8 ct', price:1354, details:[{key:'mainDiamond', value:'0.25 (4 in total)'},{key:'secondaryDiamond', value:'0.15 (4 in total)'},{key:'totalKarat', value:'1.8 ct'}]}
         ], 'Earring');
 
         // Daily Sparkle - Earring Studs
@@ -1119,10 +1119,10 @@
 
         // Daily Sparkle - Bracelets
         renderProducts('dailySparkle', [
-            {name:'Aur\u00e9a Bracelet', image:'24.png', price:2266, details:[{key:'centerStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 8'},{key:'totalKarat', value:'2.2 ct'}]},
-            {name:'Solenne Bracelet', image:'23.png', price:1522, details:[{key:'centerStone', value:'0.75 ct'},{key:'mainSide', value:'0.15 x 4'},{key:'secondarySide', value:'0.10 x 4'},{key:'totalKarat', value:'1.75 ct'}]},
-            {name:'Liora Bracelet', image:'25.png', price:1735, details:[{key:'centerStone', value:'1 ct'},{key:'sideStone', value:'0.25 x 4'},{key:'totalKarat', value:'2 ct'}]},
-            {name:'Celeste Bracelet', image:'26.png', price:1832, details:[{key:'mainDiamond', value:'0.50 x 3'},{key:'sideStone', value:'0.10 x 14'},{key:'totalKarat', value:'2.9 ct'}]},
+            {name:'Aur\u00e9a Bracelet', image:'24.png', price:1675, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 8'},{key:'totalKarat', value:'2.2 ct'}]},
+            {name:'Solenne Bracelet', image:'23.png', price:1522, details:[{key:'centreStone', value:'0.75 ct'},{key:'mainSide', value:'0.15 x 4'},{key:'secondarySide', value:'0.10 x 4'},{key:'totalKarat', value:'1.75 ct'}]},
+            {name:'Liora Bracelet', image:'25.png', price:1735, details:[{key:'centreStone', value:'1 ct'},{key:'sideStone', value:'0.25 x 4'},{key:'totalKarat', value:'2 ct'}]},
+            {name:'Celeste Bracelet', image:'26.png', price:1850, details:[{key:'mainDiamond', value:'0.50 x 3'},{key:'sideStone', value:'0.10 x 14'},{key:'totalKarat', value:'2.9 ct'}]},
             {name:'Lumi\u00e8re Bracelet', image:'27.png', price:1401, details:[{key:'eachDiamond', value:'0.10 x 12'},{key:'totalKarat', value:'1.2 ct'}]}
         ], 'Bracelet');
 

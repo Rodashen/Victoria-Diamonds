@@ -241,7 +241,7 @@ const translations = {
 'label-wedding': '結婚對戒',
         'label-set': '戒指套裝',
         'label-details': '詳細資料',
-        'detail-centerStone': '主石',
+        'detail-centreStone': '主石',
         'detail-eachDiamond': '每顆鑽石重量',
         'detail-mainSide': '主側鑽重量',
         'detail-secondarySide': '副側鑽重量',

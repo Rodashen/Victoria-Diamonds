@@ -837,7 +837,7 @@
             }
 if (item.details && item.details.length) {
                 item.details.forEach(function(d) {
-                    if (d.key === 'centerStone' || d.key === 'totalKarat') {
+                    if (d.key === 'centreStone' || d.key === 'totalKarat') {
                         html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
                     }
                 });
@@ -859,7 +859,7 @@ if (item.details && item.details.length) {
                 return translations[catalogueCurrentLang][dKey];
             }
             var fallback = {
-                centerStone: 'Center Stone',
+                centreStone: 'Centre Stone',
                 eachDiamond: 'Each Diamond Stone',
                 mainSide: 'Main Side Stones',
                 secondarySide: 'Secondary Side Stones',
@@ -978,7 +978,7 @@ function getModalMetaHTML(item, category) {
                 var visibleDetails = [];
                 var extraDetails = [];
                 item.details.forEach(function(d) {
-                    if (d.key === 'centerStone' || d.key === 'totalKarat') {
+                    if (d.key === 'centreStone' || d.key === 'totalKarat') {
                         visibleDetails.push(d);
                     } else {
                         extraDetails.push(d);
@@ -1077,33 +1077,33 @@ var detailToggle = e.target.closest('.modal-details-toggle');
 
 // Silver Collection - Rings
         renderProducts('silverCollection', [
-{name:'Everyday Silver Ring', image:'S1.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
-            {name:'Twisted Silver Band', image:'S2.png', metal:'Sterling 925', price:142, fixedPrice:true, details:[{key:'centerStone', value:'0.50 ct'}]},
-            {name:'Round Silver Ring', image:'S3.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
-{name:'Classic Silver Ring', image:'S4.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
-            {name:'Curved Silver Band', image:'S7.png', metal:'Sterling 925', price:97, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
-            {name:'Dainty Silver Ring', image:'S8.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
-            {name:'Crescent Silver Ring', image:'S9.png', metal:'Sterling 925', price:129, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'},{key:'sideStone', value:'0.05 x 4'}]},
-            {name:'Loop Silver Ring', image:'S10.png', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centerStone', value:'0.50 ct'}]}
+            {name:'Everyday Silver Ring', image:'S1.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Twisted Silver Band', image:'S2.png', metal:'Sterling 925', price:142, fixedPrice:true, details:[{key:'centreStone', value:'0.50 ct'}]},
+            {name:'Round Silver Ring', image:'S3.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Classic Silver Ring', image:'S4.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Curved Silver Band', image:'S7.png', metal:'Sterling 925', price:97, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Dainty Silver Ring', image:'S8.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Crescent Silver Ring', image:'S9.png', metal:'Sterling 925', price:129, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'sideStone', value:'0.05 x 4'}]},
+            {name:'Loop Silver Ring', image:'S10.png', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.50 ct'}]}
         ], 'Ring');
 
         // Silver Collection - Necklaces
         renderProducts('silverCollection', [
-            {name:'Simple Chain Necklace', image:'S5.png', metal:'Sterling 925', price:98, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
-            {name:'Little Drop Necklace', image:'S6.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
-            {name:'Everyday Pendant Necklace', image:'S11.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]}
+            {name:'Simple Chain Necklace', image:'S5.png', metal:'Sterling 925', price:98, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Little Drop Necklace', image:'S6.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Everyday Pendant Necklace', image:'S11.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]}
         ], 'Necklace');
 
         // Silver Collection - Bracelets
         renderProducts('silverCollection', [
-            {name:'Open Cuff Bracelet', image:'S13.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'}]},
-            {name:'Link Charm Bracelet', image:'S12.png', metal:'Sterling 925', price:131, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct'},{key:'totalKarat', value:'0.50 ct'}]}
+            {name:'Open Cuff Bracelet', image:'S13.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Link Charm Bracelet', image:'S12.png', metal:'Sterling 925', price:131, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'totalKarat', value:'0.50 ct'}]}
         ], 'Bracelet');
 
         // Silver Collection - Earrings
         renderProducts('silverCollection', [
-            {name:'Round Stud Earrings', image:'S14.png', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct (each)'}]},
-            {name:'Flower Drop Earrings', image:'S15.png', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centerStone', value:'0.25 ct (each)'}]}
+            {name:'Round Stud Earrings', image:'S14.png', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct (each)'}]},
+            {name:'Flower Drop Earrings', image:'S15.png', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct (each)'}]}
         ], 'Earring');
 
         // Silver Collection - Anklet

@@ -818,7 +818,7 @@
             }
             if (item.details && item.details.length) {
                 item.details.forEach(function(d) {
-                    if (d.key === 'centerStone' || d.key === 'totalKarat') {
+                    if (d.key === 'centreStone' || d.key === 'totalKarat') {
                         html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
                     }
                 });
@@ -840,7 +840,7 @@
                 return translations[catalogueCurrentLang][dKey];
             }
             var fallback = {
-                centerStone: 'Center Stone',
+                centreStone: 'Centre Stone',
                 eachDiamond: 'Each Diamond Stone',
                 mainSide: 'Main Side Stones',
                 secondarySide: 'Secondary Side Stones',
@@ -959,7 +959,7 @@
                 var visibleDetails = [];
                 var extraDetails = [];
                 item.details.forEach(function(d) {
-                    if (d.key === 'centerStone' || d.key === 'totalKarat') {
+                    if (d.key === 'centreStone' || d.key === 'totalKarat') {
                         visibleDetails.push(d);
                     } else {
                         extraDetails.push(d);
@@ -1057,23 +1057,23 @@
         });
 
         // Occasional Wear - Rings
-        renderProducts('occasionalWear', [
-            {name:'Elegance unie', image:'56.png', price:1375, details:[{key:'centerStone', value:'0.5 x 2'}]},
-            {name:'Unbreakable Hearts Ring', image:'65.png', price:1375},
-            {name:'Moment to Shine Ring', image:'64.png', price:1375},
-            {name:'Stellar Promise Ring', image:'55.png', price:1850},
-            {name:'Celestial Embrace Ring', image:'69.png', price:1850},
-            {name:'Luminous Devotion Ring', image:'59.png', price:1850},
-            {name:'Ethereal Halo Ring', image:'67.png', price:1850},
-            {name:'Elysian Ring', image:'74.png', price:2300},
-            {name:'Eternal Connection Ring', image:'62.png', price:1375, details:[{key:'centerStone', value:'1 ct'}]},
+renderProducts('occasionalWear', [
+            {name:'Elegance unie', image:'56.png', price:1375, details:[{key:'centreStone', value:'0.5 x 2'}]},
+            {name:'Unbreakable Hearts Ring', image:'65.png', price:1375, details:[{key:'centreStone', value:'1 Ct'}]},
+            {name:'Moment to Shine Ring', image:'64.png', price:1375, details:[{key:'centreStone', value:'1 Ct'}]},
+            {name:'Stellar Promise Ring', image:'55.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
+            {name:'Celestial Embrace Ring', image:'69.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
+            {name:'Luminous Devotion Ring', image:'59.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
+            {name:'Ethereal Halo Ring', image:'67.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
+            {name:'Elysian Ring', image:'74.png', price:2300, details:[{key:'centreStone', value:'3 Ct'}]},
+            {name:'Eternal Connection Ring', image:'62.png', price:1375, details:[{key:'centreStone', value:'1 ct'}]},
             {name:'Eternal Promise Ring Set', image:'70.png', tag:'set', price:2060}
         ], 'Ring');
 
         // Occasional Wear - Earrings
         renderProducts('occasionalWear', [
-            {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct (each)', total:'1.15 ct (each)', price:1410, details:[{key:'centerStone', value:'0.25 ct each'},{key:'sideStone', value:'0.10 x 9'},{key:'totalKarat', value:'1.15 ct each'}]},
-            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct (each)', total:'2.8 ct', price:1475, details:[{key:'centerStone', value:'0.50 ct each'},{key:'sideStone', value:'0.10 x 10'},{key:'totalKarat', value:'2.8 ct'}]}
+            {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct (each)', total:'1.15 ct (each)', price:1410, details:[{key:'centreStone', value:'0.25 ct each'},{key:'sideStone', value:'0.10 x 9'},{key:'totalKarat', value:'1.15 ct each'}]},
+            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct (each)', total:'1.8 ct', price:1354, details:[{key:'centreStone', value:'0.50 ct each'},{key:'sideStone', value:'0.10 x 10'},{key:'totalKarat', value:'1.8 ct'}]}
         ], 'Earring');
 
         // Occasional Wear - Bracelets
