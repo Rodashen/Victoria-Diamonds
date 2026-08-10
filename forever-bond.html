@@ -1102,8 +1102,12 @@
                 if (selector) { selector.value = lang; }
             }
 
-            var savedLang = localStorage.getItem('vd-lang') || 'en';
-            applyCatalogueTranslations(savedLang);
+            var langFromUrl = new URLSearchParams(window.location.search).get('lang');
+            var initialLang = langFromUrl && translations[langFromUrl] ? langFromUrl : (localStorage.getItem('vd-lang') || 'en');
+            if (langFromUrl && translations[langFromUrl]) {
+                localStorage.setItem('vd-lang', initialLang);
+            }
+            applyCatalogueTranslations(initialLang);
 
             var selector = document.getElementById('langSelect');
             if (selector) {
