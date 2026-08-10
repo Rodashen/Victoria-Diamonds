@@ -430,13 +430,13 @@ html {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: clamp(1rem, 2vw, 2.5rem);
+	gap: clamp(0.75rem, 1.25vw, 1.5rem);
 	min-width: 0;
 }
 
 .nav-main a:not(.nav-cta):not(.nav-catalog) {
 	font-family: var(--font-body);
-	font-size: 1.05rem;
+	font-size: 0.95rem;
 	font-weight: 500;
 	letter-spacing: 0.02em;
 	position: relative;
@@ -483,11 +483,11 @@ html {
 .nav-cta,
 .nav-catalog {
 	font-family: var(--font-body);
-	font-size: 0.75rem;
+	font-size: 0.7rem;
 	font-weight: 600;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	padding: 0.65rem 0.9rem;
+	padding: 0.6rem 0.75rem;
 	border: 1px solid var(--color-charcoal);
 	transition: all 0.3s ease;
 	display: inline-flex;
@@ -2567,10 +2567,14 @@ animation: dotProgress 2s linear forwards;
 	}
 }
 
-/* Remove secondary header controls before they can force horizontal overflow. */
-@media (max-width: 1540px) {
-	.top-social-links {
+/* Keep the language and social controls visible; use the menu before the header gets crowded. */
+@media (max-width: 1380px) {
+	.nav-main {
 		display: none;
+	}
+
+	.menu-toggle {
+		display: flex;
 	}
 
 	.header-inner {
