@@ -63,7 +63,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
          window.scrollTo({ top: 0, behavior: 'smooth' });
          return;
       }
-      const target = document.querySelector(href);
+      const target = href === '#collections' && window.matchMedia('(max-width: 860px)').matches
+         ? document.getElementById('collections-mobile')
+         : document.querySelector(href);
       if (target) {
          const headerHeight = header.offsetHeight;
          const targetPosition = target.offsetTop - headerHeight;
@@ -614,10 +616,26 @@ function initLanguage() {
     }
 }
 
+function restoreCollectionPosition() {
+    if (window.location.hash !== '#collections') { return; }
+    var target = window.matchMedia('(max-width: 860px)').matches
+        ? document.getElementById('collections-mobile')
+        : document.getElementById('collections');
+    if (target) {
+        window.requestAnimationFrame(function() {
+            target.scrollIntoView({ block: 'start' });
+        });
+    }
+}
+
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLanguage);
+    document.addEventListener('DOMContentLoaded', function() {
+        initLanguage();
+        restoreCollectionPosition();
+    });
 } else {
     initLanguage();
+    restoreCollectionPosition();
 }
 
 // ============================================

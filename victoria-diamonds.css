@@ -2931,6 +2931,110 @@ animation: dotProgress 2s linear forwards;
 }
 
 /* Mobile Navigation */
+.collections-mobile {
+	display: none;
+}
+
+/* The boutique collection landing experience is intentionally mobile-only. */
+@media (max-width: 860px) {
+	.collections-mobile {
+		display: block;
+		padding: 6.25rem 1rem 2.5rem;
+		background: #fffdf9;
+	}
+
+	.collections-mobile-heading {
+		padding: 0 0.5rem 1.5rem;
+		text-align: center;
+	}
+
+	.collections-mobile-kicker {
+		margin: 0 0 0.6rem;
+		font-size: 0.65rem;
+		font-weight: 600;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--color-gold-dark);
+	}
+
+	.collections-mobile-heading h1 {
+		margin: 0;
+		font-family: var(--font-display);
+		font-size: clamp(2rem, 9vw, 2.75rem);
+		font-weight: 400;
+		letter-spacing: -0.02em;
+	}
+
+	.collections-mobile-heading > p:last-child {
+		max-width: 23rem;
+		margin: 0.7rem auto 0;
+		font-size: 0.9rem;
+		line-height: 1.55;
+		color: var(--color-taupe);
+	}
+
+	.collections-mobile-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.65rem;
+	}
+
+	.collections-mobile-card {
+		display: block;
+		min-width: 0;
+		color: var(--color-charcoal);
+		text-decoration: none;
+		background: #f7f4ef;
+	}
+
+	.collections-mobile-card img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 3 / 4;
+		object-fit: cover;
+	}
+
+	.collections-mobile-card-copy {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding: 0.85rem 0.7rem 1rem;
+	}
+
+	.collections-mobile-card-copy strong {
+		font-family: var(--font-display);
+		font-size: 1.08rem;
+		font-weight: 500;
+		line-height: 1.15;
+	}
+
+	.collections-mobile-card-copy small {
+		font-size: 0.65rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-taupe);
+	}
+
+	.collections-mobile-all {
+		display: block;
+		width: max-content;
+		margin: 1.75rem auto 0;
+		padding-bottom: 0.35rem;
+		border-bottom: 1px solid currentColor;
+		color: var(--color-charcoal);
+		font-size: 0.7rem;
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	/* Keep the desktop collection block out of the mobile content flow. */
+	.collections#collections {
+		display: none;
+	}
+}
+
 .mobile-nav {
 	position: fixed;
 	top: 0;
@@ -3011,4 +3115,3 @@ animation: dotProgress 2s linear forwards;
 	opacity: 1;
 	visibility: visible;
 }
-
