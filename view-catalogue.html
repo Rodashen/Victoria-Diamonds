@@ -643,7 +643,7 @@
 <span class="brand" data-i18n="brand-name">Victoria <span>Diamonds</span></span>
             <div style="display:flex;align-items:center;gap:0.75rem;">
                 <div class="lang-selector" style="position:relative;">
-                    <select id="langSelect" style="font-family:var(--font-body);font-size:0.7rem;font-weight:500;letter-spacing:0.05em;padding:0.35rem 1.4rem 0.35rem 0.5rem;border:1px solid rgba(28,28,28,0.15);border-radius:3px;background:rgba(255,251,245,0.85);color:var(--charcoal);cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1C1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 0.35rem center;background-size:0.7rem;">
+                    <select id="langSelect" style="font-family:var(--font-body);font-size:0.7rem;font-weight:500;letter-spacing:0.05em;padding:0.35rem 1.4rem 0.35rem 0.5rem;border:1px solid rgba(28,28,28,0.15);border-radius:3px;background:rgba(255,251,245,0.85);color:var(--charcoal);cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1C1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 0.35rem center;background-size:0.7rem;">
                         <option value="en">English</option>
                         <option value="zh-HK">繁體中文（香港）</option>
                     </select>
@@ -735,31 +735,32 @@ function getMetaHTML(item, category) {
     var metal = item.metal || '18K Gold';
     var price = item.price;
     var currency = item.currency || 'GBP';
+    var isRing = category === 'Ring';
     var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
-            if (item.weight !== undefined && item.weight !== '') {
-                html += '<span class="meta-stone-label">' + getLabel('label-weight', 'Weight') + ':</span>';
-                html += '<span class="meta-stone">' + item.weight + ' g</span>';
+    if (item.weight !== undefined && item.weight !== '') {
+        html += '<span class="meta-stone-label">' + getLabel('label-weight', 'Weight') + ':</span>';
+        html += '<span class="meta-stone">' + item.weight + ' g</span>';
+    }
+    if (item.tag) {
+        html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
+    }
+    if (item.details && item.details.length) {
+        item.details.forEach(function(d) {
+            if ((isRing && d.key === 'centreStone') || (!isRing && d.key === 'totalKarat')) {
+                html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
             }
-            if (item.tag) {
-                html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
-            }
-if (item.details && item.details.length) {
-                item.details.forEach(function(d) {
-                    if (d.key === 'centreStone' || d.key === 'totalKarat') {
-                        html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
-                    }
-                });
-            }
-            if (price === 'request') {
-                html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
-                html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
-            } else if (price !== undefined) {
-                var priceLabel = item.fixedPrice ? getLabel('label-price-fixed', 'Price') : getLabel('label-price', 'Starts at');
-                html += '<span class="meta-price-label">' + priceLabel + ':</span>';
-                html += '<span class="meta-price"><strong>' + formatPrice(price, currency) + '</strong></span>';
-            }
-            return html;
-        }
+        });
+    }
+    if (price === 'request') {
+        html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
+        html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
+    } else if (price !== undefined && price !== '') {
+        var priceLabel = item.fixedPrice ? getLabel('label-price-fixed', 'Price') : getLabel('label-price', 'Starts at');
+        html += '<span class="meta-price-label">' + priceLabel + ':</span>';
+        html += '<span class="meta-price"><strong>' + formatPrice(price, currency) + '</strong></span>';
+    }
+    return html;
+}
 
         function getDetailLabel(key) {
             var dKey = 'detail-' + key;
@@ -940,6 +941,7 @@ function getModalMetaHTML(item, category) {
     var metal = item.metal || '18K Gold';
     var price = item.price;
     var currency = item.currency || 'GBP';
+    var isRing = category === 'Ring';
     var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
     if (item.weight !== undefined && item.weight !== '') {
         html += '<span class="meta-stone-label">' + getLabel('label-weight', 'Weight') + ':</span>';
@@ -948,22 +950,16 @@ function getModalMetaHTML(item, category) {
     if (item.tag) {
         html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
     }
-
     if (item.details && item.details.length) {
         var visibleDetails = [];
         var extraDetails = [];
         item.details.forEach(function(d) {
-            if (d.key === 'centreStone' || d.key === 'totalKarat') {
-                visibleDetails.push(d);
-            } else {
-                extraDetails.push(d);
-            }
+            if ((isRing && d.key === 'centreStone') || (!isRing && d.key === 'totalKarat')) visibleDetails.push(d);
+            else extraDetails.push(d);
         });
-
         visibleDetails.forEach(function(d) {
             html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
         });
-
         if (extraDetails.length > 0) {
             html += '<button type="button" class="modal-details-toggle" aria-expanded="false">View full details</button>';
             html += '<div class="modal-details-extra" style="display:none">';
@@ -973,7 +969,6 @@ function getModalMetaHTML(item, category) {
             html += '</div>';
         }
     }
-
     if (price === 'request') {
         html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
         html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
@@ -1088,25 +1083,44 @@ document.addEventListener('keydown', function(e) {
         ], 'Anklet');
 
 // Daily Sparkle - Rings (4–13, 29, 30) + New rings (75–80)
-        renderProducts('dailySparkle', [
-            {name:'Aurelia Ring', image:'75.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Elara Ring', image:'4.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Raya Ring', image:'6.jpeg', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Gianna Ring', image:'78.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Mirabelle Ring', image:'79.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Nova Ring', image:'5.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Solitaire Ring', image:'12.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Diamond Dust Ring', image:'76.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Solenne Ring', image:'7.png', price:1490, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'\u00c9lan Ring', image:'11.png', price:1515, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 4'}]},
-            {name:'Timeless Classic Ring', image:'13.png', price:1467, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 4'}]},
-            {name:'Princess Ring', image:'10.png', price:1955, details:[{key:'centreStone', value:'2.00 ct'},{key:'sideStone', value:'0.75 x 2'}]},
-            {name:'Aurelle Ring', image:'9.png', price:1625, details:[{key:'centreStone', value:'2.00 ct'}]},
-            {name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold', price:1516, details:[{key:'eachDiamond', value:'0.10 x 17'}]},
-            {name:'Splendor Stacking Ring', image:'30.png', metal:'18K White Gold', price:1540, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Cascade Ring', image:'80.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Nocturne Ring', image:'77.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]}
-        ], 'Ring');
+
+renderProducts('dailySparkle', [
+
+    {name:'Aurelia Ring', image:'75.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+
+    {name:'Elara Ring', image:'4.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+
+    {name:'Raya Ring', image:'6.jpeg', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+
+    {name:'Gianna Ring', image:'78.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+
+    {name:'Mirabelle Ring', image:'79.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+
+    {name:'Nova Ring', image:'5.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+
+    {name:'Solitaire Ring', image:'12.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+
+    {name:'Diamond Dust Ring', image:'76.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+
+    {name:'Solenne Ring', image:'7.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+
+    {name:'Élan Ring', image:'11.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 4'}]},
+
+    {name:'Timeless Classic Ring', image:'13.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 4'}]},
+
+    {name:'Princess Ring', image:'10.png', price:1625, details:[{key:'centreStone', value:'2.00 ct'},{key:'sideStone', value:'0.75 x 2'}]},
+
+    {name:'Aurelle Ring', image:'9.png', price:1625, details:[{key:'centreStone', value:'2.00 ct'}]},
+
+    {name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold', price:1110, details:[{key:'eachDiamond', value:'0.10 x 17'}]},
+
+    {name:'Splendor Stacking Ring', image:'30.png', metal:'18K White Gold', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+
+    {name:'Cascade Ring', image:'80.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+
+    {name:'Nocturne Ring', image:'77.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]}
+
+], 'Ring');
 
 // Daily Sparkle - Signature Necklaces / Bracelets / Earrings
         renderProducts('dailySparkle', [
@@ -1120,8 +1134,8 @@ document.addEventListener('keydown', function(e) {
 
 // Daily Sparkle - Earrings
         renderProducts('dailySparkle', [
-            {name:'Lumin\u00e9a Earrings', image:'22.png', total:'1.2 ct', price:1421, details:[{key:'eachDiamond', value:'0.10 (6 in total)'},{key:'totalKarat', value:'1.2 ct'}]},
-            {name:'Fiora Earrings', image:'21.png', total:'1.8 ct', price:1354, details:[{key:'mainDiamond', value:'0.25 (4 in total)'},{key:'secondaryDiamond', value:'0.15 (4 in total)'},{key:'totalKarat', value:'1.8 ct'}]}
+            {name:'Lumin\u00e9a Earrings', image:'22.png', total:'1.2 ct', price:1425, details:[{key:'eachDiamond', value:'0.10 (6 in total)'},{key:'totalKarat', value:'1.2 ct'}]},
+            {name:'Fiora Earrings', image:'21.png', total:'1.8 ct', price:1575, details:[{key:'mainDiamond', value:'0.25 (4 in total)'},{key:'secondaryDiamond', value:'0.15 (4 in total)'},{key:'totalKarat', value:'1.8 ct'}]}
         ], 'Earring');
 
         // Daily Sparkle - Earring Studs
@@ -1132,36 +1146,41 @@ document.addEventListener('keydown', function(e) {
 // Daily Sparkle - Bracelets
         renderProducts('dailySparkle', [
             {name:'Aur\u00e9a Bracelet', image:'24.png', price:1675, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 8'},{key:'totalKarat', value:'2.2 ct'}]},
-            {name:'Solenne Bracelet', image:'23.png', price:1522, details:[{key:'centreStone', value:'0.75 ct'},{key:'mainSide', value:'0.15 x 4'},{key:'secondarySide', value:'0.10 x 4'},{key:'totalKarat', value:'1.75 ct'}]},
-            {name:'Liora Bracelet', image:'25.png', price:1735, details:[{key:'centreStone', value:'1 ct'},{key:'sideStone', value:'0.25 x 4'},{key:'totalKarat', value:'2 ct'}]},
+            {name:'Solenne Bracelet', image:'23.png', price:1563, details:[{key:'centreStone', value:'0.75 ct'},{key:'mainSide', value:'0.15 x 4'},{key:'secondarySide', value:'0.10 x 4'},{key:'totalKarat', value:'1.75 ct'}]},
+            {name:'Liora Bracelet', image:'25.png', price:1625, details:[{key:'centreStone', value:'1 ct'},{key:'sideStone', value:'0.25 x 4'},{key:'totalKarat', value:'2 ct'}]},
             {name:'Celeste Bracelet', image:'26.png', price:1850, details:[{key:'mainDiamond', value:'0.50 x 3'},{key:'sideStone', value:'0.10 x 14'},{key:'totalKarat', value:'2.9 ct'}]},
-            {name:'Lumi\u00e8re Bracelet', image:'27.png', price:1401, details:[{key:'eachDiamond', value:'0.10 x 12'},{key:'totalKarat', value:'1.2 ct'}]}
+            {name:'Lumi\u00e8re Bracelet', image:'27.png', price:1425, details:[{key:'eachDiamond', value:'0.10 x 12'},{key:'totalKarat', value:'1.2 ct'}]}
         ], 'Bracelet');
 
 // Occasional Wear - Rings
         renderProducts('occasionalWear', [
-            {name:'Elegance unie', image:'56.png', price:1375, details:[{key:'centreStone', value:'0.5 x 2'}]},
-            {name:'Unbreakable Hearts Ring', image:'65.png', price:1375, details:[{key:'centreStone', value:'1 Ct'}]},
-            {name:'Moment to Shine Ring', image:'64.png', price:1375, details:[{key:'centreStone', value:'1 Ct'}]},
-            {name:'Stellar Promise Ring', image:'55.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
-            {name:'Celestial Embrace Ring', image:'69.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
-            {name:'Luminous Devotion Ring', image:'59.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
-            {name:'Ethereal Halo Ring', image:'67.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
-            {name:'Elysian Ring', image:'74.png', price:2300, details:[{key:'centreStone', value:'3 Ct'}]},
-            {name:'Eternal Connection Ring', image:'62.png', price:1375, details:[{key:'centreStone', value:'1 ct'}]},
-            {name:'Eternal Promise Ring Set', image:'70.png', tag:'set', price:2060}
+            {name:'Anora Ring', image:'42.png', stone:'2.00 ct', price:1625, details:[{key:'centreStone', value:'2.00 ct'}]},
+            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'3.00 ct', totalWeight:'5.5 ct', price:2675, details:[{key:'centreStone', value:'3.00 ct'},{key:'mainSide', value:'0.25 x 2'},{key:'secondarySide', value:'0.15 x 20'},{key:'finishingSide', value:'0.10 x 20'},{key:'totalKarat', value:'5.5 ct'}]},
+            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'1.8 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 8'},{key:'totalKarat', value:'1.8 ct'}]},
+            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'2.2 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 12'},{key:'totalKarat', value:'2.2 ct'}]},
+            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'3.56 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 16'},{key:'totalKarat', value:'3.56 ct'}]},
+            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'2.5 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.25 x 6'},{key:'totalKarat', value:'2.5 ct'}]},
+            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', totalWeight:'4 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.25 x 12'},{key:'totalKarat', value:'4 ct'}]},
+            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'3.25 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.25 x 9'},{key:'totalKarat', value:'3.25 ct'}]},
+            {name:'Ros\u00e9 Bloom Ring', image:'34.png', metal:'18K Rose Gold', stone:'1.00 ct', totalWeight:'6 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 50'},{key:'totalKarat', value:'6 ct'}]},
+            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', totalWeight:'1.75 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'1.75 ct'}]},
+            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', totalWeight:'5 ct', price:1525, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 40'},{key:'totalKarat', value:'5 ct'}]},
+            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'2.00 ct', totalWeight:'2.5 ct', price:1625, details:[{key:'centreStone', value:'2.00 ct'},{key:'mainSide', value:'0.15 x 2'},{key:'secondarySide', value:'0.10 x 2'},{key:'totalKarat', value:'2.5 ct'}]},
+            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', totalWeight:'12 ct', price:1300, details:[{key:'eachDiamond', value:'0.50 x 24'},{key:'totalKarat', value:'12 ct'}]},
+            {name:'Imperial Pav\u00e9 Ring', image:'43.png', price:'request'},
+            {name:'\u00c9ternelle Grande Ring', image:'33.png', totalWeight:'7 ct', price:1300, details:[{key:'eachDiamond', value:'0.50 x 14'},{key:'totalKarat', value:'7 ct'}]}
         ], 'Ring');
 
 // Occasional Wear - Earrings
         renderProducts('occasionalWear', [
             {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct (each)', total:'1.15 ct (each)', price:1410, details:[{key:'centreStone', value:'0.25 ct each'},{key:'sideStone', value:'0.10 x 9'},{key:'totalKarat', value:'1.15 ct each'}]},
-            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct (each)', total:'1.8 ct', price:1354, details:[{key:'centreStone', value:'0.50 ct each'},{key:'sideStone', value:'0.10 x 10'},{key:'totalKarat', value:'1.8 ct'}]}
+            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct (each)', total:'1.8 ct', price:1575, details:[{key:'centreStone', value:'0.50 ct each'},{key:'sideStone', value:'0.10 x 10'},{key:'totalKarat', value:'1.8 ct'}]}
         ], 'Earring');
 
         // Occasional Wear - Bracelets
         renderProducts('occasionalWear', [
-            {name:'Lumina Wedding Tennis', image:'49.png', total:'2.4 ct', price:1677, details:[{key:'diamonds', value:'24 diamonds of 0.10 ct'},{key:'totalKarat', value:'2.4 ct'}]},
-            {name:'Arabella', image:'53.png', total:'3 ct', price:1825, details:[{key:'diamonds', value:'20 diamonds of 0.15 ct'},{key:'totalKarat', value:'3 ct'}]}
+            {name:'Lumina Wedding Tennis', image:'49.png', price:'request'},
+            {name:'Arabella', image:'53.png', price:'request'}
         ], 'Bracelet');
 
 // Occasional Wear - Brooches
@@ -1175,19 +1194,30 @@ document.addEventListener('keydown', function(e) {
             {name:'Lunaria Tiara', image:'51.png', weight:'14.0', price:'request', details:[{key:'weight', value:'14.0 g'}]}
         ], 'Tiara');
 
-// Forever Bond - Rings
+  // Forever Bond - Rings (55–74)
         renderProducts('foreverBond', [
-            {name:'Elegance unie', image:'56.png', price:1375, details:[{key:'centreStone', value:'0.5 x 2'}]},
-            {name:'Unbreakable Hearts Ring', image:'65.png', price:1375, details:[{key:'centreStone', value:'1 Ct'}]},
-            {name:'Moment to Shine Ring', image:'64.png', price:1375, details:[{key:'centreStone', value:'1 Ct'}]},
-            {name:'Stellar Promise Ring', image:'55.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
-            {name:'Celestial Embrace Ring', image:'69.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
-            {name:'Luminous Devotion Ring', image:'59.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
-            {name:'Ethereal Halo Ring', image:'67.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
-            {name:'Elysian Ring', image:'74.png', price:2300, details:[{key:'centreStone', value:'3 Ct'}]},
-            {name:'Eternal Connection Ring', image:'62.png', price:1375, details:[{key:'centreStone', value:'1 ct'}]},
-            {name:'Eternal Promise Ring Set', image:'70.png', tag:'set', price:2060}
+            {name:'Stellar Promise', image:'55.png', stone:'2.00 ct', totalWeight:'1 ct', price:1850, details:[{key:'centreStone', value:'2.00 ct'},{key:'totalKarat', value:'1 ct'}]},
+            {name:'\u00c9l\u00e9gance Unie Ring', image:'56.png', totalWeight:'5 ct', price:1375, details:[{key:'centreStone', value:'0.5 ct x 2'},{key:'totalKarat', value:'5 ct'}]},
+            {name:'Lumi\u00e8re Eternity Ring', image:'57.png', price:'request'},
+            {name:'Endless Devotion Ring', image:'58.png', stone:'1.00 ct', totalWeight:'2.5 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 4'},{key:'totalKarat', value:'2.5 ct'}]},
+            {name:'Luminous Devotion Ring', image:'59.png', stone:'2.00 ct', totalWeight:'3 ct', price:1850, details:[{key:'centreStone', value:'2.00 ct'},{key:'sideStone', value:'0.15 x 4'},{key:'totalKarat', value:'3 ct'}]},
+            {name:'Everlasting Embrace Ring', image:'60.png', stone:'1.00 ct', totalWeight:'5.75 ct', price:1625, details:[{key:'centreStone', value:'1.00 ct'},{key:'mainSide', value:'0.25 x 15'},{key:'secondarySide', value:'0.10 x 10'},{key:'totalKarat', value:'5.75 ct'}]},
+            {name:'The Knot Ring', image:'61.png', price:'request'},
+            {name:'Eternal Connection', image:'62.png', stone:'1.00 ct', totalWeight:'3.4 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 16'},{key:'totalKarat', value:'3.4 ct'}]},
+            {name:'Eternal Promise', image:'63.png', stone:'1.00 ct', totalWeight:'3.7 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 18'},{key:'totalKarat', value:'3.7 ct'}]},
+            {name:'Moment to Shine Ring', image:'64.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'3.5 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'mainSide', value:'0.15 x 10'},{key:'secondarySide', value:'0.10 x 10'},{key:'totalKarat', value:'3.5 ct'}]},
+            {name:'Unbreakable Hearts', image:'65.png', stone:'1.00 ct', totalWeight:'6.94 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'mainSide', value:'0.25 x 10'},{key:'secondarySide', value:'0.25 x 4'},{key:'finishingSide', value:'0.10 x 12'},{key:'totalKarat', value:'6.94 ct'}]},
+            {name:'Bound by Destiny', image:'66.png', stone:'2.00 ct', totalWeight:'7 ct', price:1375, details:[{key:'centreStone', value:'2.00 ct'},{key:'mainSide', value:'0.50 x 10'},{key:'totalKarat', value:'7 ct'}]},
+            {name:'Ethereal Halo Ring', image:'67.png', stone:'2.00 ct', totalWeight:'13.8 ct', price:1850, details:[{key:'centreStone', value:'2.00 ct'},{key:'mainSide', value:'0.15 x 4'},{key:'totalKarat', value:'13.8 ct'}]},
+            {name:'Amour \u00c9ternel Ring', image:'68.png', stone:'3.00 ct', totalWeight:'6.6 ct', price:1575, details:[{key:'centreStone', value:'3.00 ct'},{key:'sideStone', value:'0.10 x 36'},{key:'totalKarat', value:'6.6 ct'}]},
+            {name:'Celestial Embrace', image:'69.png', stone:'2.00 ct', totalWeight:'5 ct', price:1850, details:[{key:'centreStone', value:'2.00 ct'},{key:'totalKarat', value:'5 ct'}]},
+            {name:'Destiny Couple Ring', image:'70.png', tag:'set', stone:'0.10 ct each', totalWeight:'2.5 ct', price:1080, details:[{key:'centreStone', value:'0.10 ct each'},{key:'sideStone', value:'0.15 x 4'},{key:'totalKarat', value:'2.5 ct'}]},
+            {name:'Eternal Harmony', image:'71.png', metal:'18K White Gold', tag:'set', stone:'1.00 ct (each)', totalWeight:'2 ct (set)', price:1375, details:[{key:'centreStone', value:'1.00 ct each'},{key:'totalKarat', value:'2 ct (set)'}]},
+            {name:'Wedding Bands', image:'72.png', tag:'wedding', price:980},
+            {name:'Eternal Promise Ring Set', image:'73.png', tag:'set', stone:'0.25 ct each', price:2060, details:[{key:'centreStone', value:'0.25 ct each'}]},
+            {name:'Elysian Ring', image:'74.png', metal:'18K White Gold', stone:'3.00 ct', totalWeight:'4 ct', price:2300, details:[{key:'centreStone', value:'3.00 ct'},{key:'totalKarat', value:'4 ct'}]}
         ], 'Ring');
+
 
 // ===== Translation Init =====
         (function() {

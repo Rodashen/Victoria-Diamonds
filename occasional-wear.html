@@ -47,24 +47,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .reveal-left.revealed {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .reveal-scale {
-            opacity: 0;
-            transform: scale(0.92);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .reveal-scale.revealed {
-            opacity: 1;
-            transform: scale(1);
-        }
 
         /* Staggered card entrance */
         .product-card.reveal:nth-child(1) { transition-delay: 0.00s; }
@@ -199,16 +181,14 @@
             background: var(--warm-white);
             border: 1px solid rgba(28,28,28,0.06);
             overflow: hidden;
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        box-shadow 0.5s ease,
-                        border-color 0.4s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
             cursor: pointer;
             position: relative;
         }
         .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(28,28,28,0.10);
-            border-color: rgba(212,168,83,0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(28,28,28,0.10);
+            border-color: rgba(212,168,83,0.2);
         }
         .product-card .image-wrap {
             background: var(--ivory);
@@ -223,10 +203,10 @@
             height: auto;
             display: block;
             object-fit: contain;
-            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: transform 0.6s ease;
         }
         .product-card:hover .image-wrap img {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
         .product-card .info {
             padding: 0.85rem 1rem;
@@ -305,9 +285,6 @@
             background-position: right 0.5rem center;
             background-size: 0.7rem;
         }
-        @media (max-width: 480px) {
-            .catalogue-sort-wrapper { padding: 0 1rem 1rem; }
-        }
         .product-card .badge-type {
             position: absolute;
             top: 0.6rem;
@@ -321,11 +298,6 @@
             backdrop-filter: blur(4px);
             color: var(--charcoal-soft);
             border: 1px solid rgba(28,28,28,0.06);
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-        .product-card:hover .badge-type {
-            background: var(--charcoal);
-            color: var(--cream);
         }
         .catalogue-footer {
             background: var(--charcoal);
@@ -365,77 +337,8 @@
         }
         @media (max-width: 480px) {
             .product-grid { grid-template-columns: repeat(2, 1fr); gap: 0.65rem; }
+            .catalogue-header .inner { padding: 0 1rem; }
             .collection-section { padding: 0 1rem 3rem; }
-        }
-        /* ===== Mobile Header ===== */
-        @media (max-width: 768px) {
-            .catalogue-header .inner {
-                flex-wrap: wrap;
-                gap: 0.5rem 0.75rem;
-                padding: 0 1rem;
-                justify-content: space-between;
-            }
-            .catalogue-header .brand {
-                font-size: 1.2rem;
-                order: 1;
-            }
-            .catalogue-header .back-link {
-                order: 0;
-            }
-            .catalogue-header .inner > div:last-child {
-                order: 2;
-                width: 100%;
-                justify-content: flex-start;
-                gap: 0.5rem;
-                padding-top: 0.25rem;
-                border-top: 1px solid rgba(28,28,28,0.06);
-            }
-            .catalogue-header .inner > div:last-child .lang-selector {
-                margin-right: auto;
-            }
-        }
-        @media (max-width: 480px) {
-            .catalogue-header .inner > div:last-child a[aria-label="Instagram"],
-            .catalogue-header .inner > div:last-child a[aria-label="WhatsApp"] {
-                display: none;
-            }
-            .catalogue-header .inner > div:last-child a.back-link {
-                flex: 1;
-                justify-content: center;
-                padding: 0.5rem 0.75rem;
-                font-size: 0.65rem;
-            }
-        }
-        /* ===== Mobile Modal (bottom sheet) ===== */
-        @media (max-width: 600px) {
-            .modal-overlay {
-                align-items: flex-end;
-                padding: 0;
-            }
-            .modal-popup {
-                max-width: 100%;
-                width: 100%;
-                max-height: 92dvh;
-                border-radius: 18px 18px 0 0;
-                animation: modalSheetIn 0.35s ease;
-            }
-            @keyframes modalSheetIn {
-                from { opacity: 0.5; transform: translateY(40px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-            .modal-popup .modal-img {
-                max-height: 40vh;
-            }
-            .modal-popup .modal-body {
-                padding: 1.25rem 1.25rem 1.5rem;
-                overflow-y: auto;
-                flex-shrink: 1;
-            }
-            .modal-popup .modal-close-x {
-                top: 0.5rem;
-                margin-right: 0.5rem;
-                margin-top: 0.5rem;
-            }
         }
         /* Modal Overlay */
         .modal-overlay {
@@ -515,6 +418,7 @@
             display: inline-flex;
             align-items: center;
             margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
             padding: 0;
             border: 0;
             background: transparent;
@@ -664,13 +568,13 @@
 <body>
     <header class="catalogue-header">
         <div class="inner">
-            <a href="index.html#collections" class="back-link" data-i18n="catalogue-back">← Back</a>
+            <a href="index.html" class="back-link" data-i18n="catalogue-back">← Back</a>
             <span class="brand" data-i18n="brand-name">Victoria <span>Diamonds</span></span>
             <div style="display:flex;align-items:center;gap:0.75rem;">
                 <div class="lang-selector" style="position:relative;">
                     <select id="langSelect" style="font-family:var(--font-body);font-size:0.7rem;font-weight:500;letter-spacing:0.05em;padding:0.35rem 1.4rem 0.35rem 0.5rem;border:1px solid rgba(28,28,28,0.15);border-radius:3px;background:rgba(255,251,245,0.85);color:var(--charcoal);cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1C1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 0.35rem center;background-size:0.7rem;">
                         <option value="en">English</option>
-                        <option value="zh-HK">繁體中文（香港）</option>
+                        <option value="zh-TW">繁體中文</option>
                     </select>
                 </div>
                 <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid rgba(28,28,28,0.12);transition:all 0.3s ease;color:#E4405F;">
@@ -722,10 +626,10 @@
     <section class="collection-section">
         <div class="collection-head">
             <div>
-                <h2 data-i18n="collection-occasional-wear">Occasional Wear</h2>
-                <p class="collection-sub" data-i18n="occasional-subtitle">Statement-making designs for life's special moments—celebrations, evenings, and milestones.</p>
+                <h2 data-i18n="occasional-hero-title">Occasional Wear</h2>
+                <p class="collection-sub" data-i18n="occasional-hero-subtitle">Statement-making designs for life's special moments—celebrations, evenings, and milestones.</p>
             </div>
-            <span class="count" data-i18n="occasional-count">17 pieces</span>
+            <span class="count" data-i18n="occasional-count">15 pieces</span>
         </div>
         <div id="occasionalWear"></div>
     </section>
@@ -763,7 +667,7 @@
                 threshold: 0.12,
                 rootMargin: '0px 0px -40px 0px'
             });
-            document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(function(el) {
+            document.querySelectorAll('.reveal').forEach(function(el) {
                 revealObserver.observe(el);
             });
         });
@@ -789,8 +693,7 @@
 
         function getMetalDisplay(metal) {
             var metaKey;
-            if (metal.indexOf('Sterling') !== -1 || metal.indexOf('925') !== -1) metaKey = 'meta-sterling';
-            else if (metal.indexOf('White') !== -1) metaKey = 'meta-18k-white';
+            if (metal.indexOf('White') !== -1) metaKey = 'meta-18k-white';
             else if (metal.indexOf('Rose') !== -1) metaKey = 'meta-18k-rose';
             else metaKey = 'meta-18k-gold';
             if (typeof translations !== 'undefined' && translations[catalogueCurrentLang] && translations[catalogueCurrentLang][metaKey]) {
@@ -799,41 +702,87 @@
             return metal;
         }
 
-        function formatPrice(price, currency) {
-            currency = currency || 'GBP';
-            return (currency === 'USD' ? '$' : '£') + Number(price).toLocaleString(currency === 'USD' ? 'en-US' : 'en-GB');
+        function formatPrice(price) {
+            return '£' + Number(price).toLocaleString('en-GB');
         }
 
         function getMetaHTML(item, category) {
             var metal = item.metal || '18K Gold';
             var price = item.price;
-            var currency = item.currency || 'GBP';
             var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
-            if (item.weight !== undefined && item.weight !== '') {
-                html += '<span class="meta-stone-label">' + getLabel('label-weight', 'Weight') + ':</span>';
-                html += '<span class="meta-stone">' + item.weight + ' g</span>';
-            }
-            if (item.tag) {
-                html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
-            }
-            if (item.details && item.details.length) {
-                item.details.forEach(function(d) {
-                    if (d.key === 'centreStone' || d.key === 'totalKarat') {
-                        html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
-                    }
-                });
-            }
+
+            // Price on Request pieces: show only the price.
             if (price === 'request') {
                 html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
                 html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
-            } else if (price !== undefined) {
-                var priceLabel = item.fixedPrice ? getLabel('label-price-fixed', 'Price') : getLabel('label-price', 'Starts at');
-                html += '<span class="meta-price-label">' + priceLabel + ':</span>';
-                html += '<span class="meta-price"><strong>' + formatPrice(price, currency) + '</strong></span>';
+                return html;
+            }
+
+            if (category === 'Ring') {
+                // Rings: Centre Stone only.
+                if (item.details && item.details.length) {
+                    item.details.forEach(function(d) {
+                        if (d.key === 'centreStone') {
+                            html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
+                        }
+                    });
+                }
+            } else {
+                // Other jewellery: Total Carat Weight only.
+                if (item.details && item.details.length) {
+                    item.details.forEach(function(d) {
+                        if (d.key === 'totalKarat') {
+                            html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
+                        }
+                    });
+                }
+            }
+
+            if (price !== undefined && price !== '') {
+                html += '<span class="meta-price-label">' + getLabel('label-price', 'Starts at') + ':</span>';
+                html += '<span class="meta-price"><strong>' + formatPrice(price) + '</strong></span>';
             }
             return html;
         }
+        function getModalMetaHTML(item, category) {
+            var metal = item.metal || '18K Gold';
+            var price = item.price;
+            var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
 
+            // Price on Request pieces: show only the price.
+            if (price === 'request') {
+                html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
+                html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
+                return html;
+            }
+
+            if (category === 'Ring') {
+                // Rings: Centre Stone only.
+                if (item.details && item.details.length) {
+                    item.details.forEach(function(d) {
+                        if (d.key === 'centreStone') {
+                            html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
+                        }
+                    });
+                }
+            } else {
+                // Other jewellery: Total Carat Weight only.
+                if (item.details && item.details.length) {
+                    item.details.forEach(function(d) {
+                        if (d.key === 'totalKarat') {
+                            html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
+                        }
+                    });
+                }
+            }
+
+            if (price !== undefined && price !== '') {
+                var priceLabel = item.fixedPrice ? getLabel('label-price-fixed', 'Price') : getLabel('label-price', 'Starts at');
+                html += '<span class="meta-price-label">' + priceLabel + ':</span>';
+                html += '<span class="meta-price"><strong>' + formatPrice(price) + '</strong></span>';
+            }
+            return html;
+        }
         function getDetailLabel(key) {
             var dKey = 'detail-' + key;
             if (typeof translations !== 'undefined' && translations[catalogueCurrentLang] && translations[catalogueCurrentLang][dKey]) {
@@ -841,14 +790,14 @@
             }
             var fallback = {
                 centreStone: 'Centre Stone',
-                eachDiamond: 'Each Diamond Stone',
-                mainSide: 'Main Side Stones',
-                secondarySide: 'Secondary Side Stones',
-                finishingSide: 'Finishing Side Stones',
-                sideStone: 'Side Stones',
-                totalKarat: 'Total Carat',
-                mainDiamond: 'Main Diamond Stone',
-                secondaryDiamond: 'Secondary Diamond Stone',
+                eachDiamond: 'Each Diamond Stone Weight',
+                mainSide: 'Main Side Stones Weight',
+                secondarySide: 'Secondary Side Stones Weight',
+                finishingSide: 'Finishing Side Stones Weight',
+                sideStone: 'Side Stones Weight',
+                totalKarat: 'Total Carat Weight',
+                mainDiamond: 'Main Diamond Stone Weight',
+                secondaryDiamond: 'Secondary Diamond Stone Weight',
                 diamonds: 'Diamonds',
                 note: 'Note',
                 weight: 'Weight'
@@ -881,11 +830,9 @@
                 card.className = 'product-card reveal';
                 card.setAttribute('data-price', item.price !== undefined ? item.price : '');
                 card.setAttribute('data-stone', item.stone !== undefined ? item.stone : '');
-                card.setAttribute('data-total', item.total !== undefined ? item.total : '');
+                card.setAttribute('data-total-weight', item.totalWeight !== undefined ? item.totalWeight : '');
                 card.setAttribute('data-weight', item.weight !== undefined ? item.weight : '');
                 card.setAttribute('data-metal', item.metal || '18K Gold');
-                card.setAttribute('data-currency', item.currency || 'GBP');
-                if (item.fixedPrice) card.setAttribute('data-fixed-price', 'true');
                 if (item.tag) card.setAttribute('data-tag', item.tag);
                 if (item.details) card.setAttribute('data-details', JSON.stringify(item.details));
                 var metal = item.metal || '18K Gold';
@@ -906,16 +853,14 @@
                     var metal = card.getAttribute('data-metal') || '18K Gold';
                     var tag = card.getAttribute('data-tag');
                     var price = card.getAttribute('data-price');
-                    var total = card.getAttribute('data-total');
+                    var totalWeight = card.getAttribute('data-total-weight');
                     var weight = card.getAttribute('data-weight');
-                    var currency = card.getAttribute('data-currency') || 'GBP';
                     var details = card.getAttribute('data-details');
-                    var item = { metal: metal, currency: currency };
-                    if (card.getAttribute('data-fixed-price') === 'true') item.fixedPrice = true;
+                    var item = { metal: metal };
                     if (stone !== '') item.stone = stone;
                     if (tag) item.tag = tag;
                     if (price !== '') item.price = price;
-                    if (total !== '') item.total = total;
+                    if (totalWeight !== '') item.totalWeight = totalWeight;
                     if (weight !== '') item.weight = weight;
                     if (details) { try { item.details = JSON.parse(details); } catch(e) {} }
                     var metaEl = card.querySelector('.info .meta');
@@ -940,55 +885,6 @@
                     grid.appendChild(card);
                 });
             });
-        }
-
-        function getModalMetaHTML(item, category) {
-            var metal = item.metal || '18K Gold';
-            var price = item.price;
-            var currency = item.currency || 'GBP';
-            var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
-            if (item.weight !== undefined && item.weight !== '') {
-                html += '<span class="meta-stone-label">' + getLabel('label-weight', 'Weight') + ':</span>';
-                html += '<span class="meta-stone">' + item.weight + ' g</span>';
-            }
-            if (item.tag) {
-                html += '<span class="meta-tag">' + getLabel(item.tag === 'wedding' ? 'label-wedding' : 'label-set', item.tag === 'wedding' ? 'Wedding Bands' : 'Ring Set') + '</span>';
-            }
-
-            if (item.details && item.details.length) {
-                var visibleDetails = [];
-                var extraDetails = [];
-                item.details.forEach(function(d) {
-                    if (d.key === 'centreStone' || d.key === 'totalKarat') {
-                        visibleDetails.push(d);
-                    } else {
-                        extraDetails.push(d);
-                    }
-                });
-
-                visibleDetails.forEach(function(d) {
-                    html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
-                });
-
-                if (extraDetails.length > 0) {
-                    html += '<button type="button" class="modal-details-toggle" aria-expanded="false">View full details</button>';
-                    html += '<div class="modal-details-extra" style="display:none">';
-                    extraDetails.forEach(function(d) {
-                        html += '<span class="meta-detail-row"><span class="meta-detail-label">' + getDetailLabel(d.key) + ':</span> <span class="meta-detail-value">' + d.value + '</span></span>';
-                    });
-                    html += '</div>';
-                }
-            }
-
-            if (price === 'request') {
-                html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
-                html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
-            } else if (price !== undefined && price !== '') {
-                var priceLabel = item.fixedPrice ? getLabel('label-price-fixed', 'Price') : getLabel('label-price', 'Starts at');
-                html += '<span class="meta-price-label">' + priceLabel + ':</span>';
-                html += '<span class="meta-price"><strong>' + formatPrice(price, currency) + '</strong></span>';
-            }
-            return html;
         }
 
         document.addEventListener('click', function(e) {
@@ -1016,11 +912,11 @@
 
                     var stone = card.getAttribute('data-stone');
                     var metal = card.getAttribute('data-metal') || '18K Gold';
-                    var currency = card.getAttribute('data-currency') || 'GBP';
                     var tag = card.getAttribute('data-tag');
                     var price = card.getAttribute('data-price');
-                    var total = card.getAttribute('data-total');
+                    var totalWeight = card.getAttribute('data-total-weight');
                     var weight = card.getAttribute('data-weight');
+                    var currency = card.getAttribute('data-currency') || 'GBP';
                     var fixedPrice = card.getAttribute('data-fixed-price') === 'true';
                     var details;
                     try { details = JSON.parse(card.getAttribute('data-details') || '[]'); } catch(e) { details = []; }
@@ -1029,7 +925,7 @@
                     if (stone !== null && stone !== '') item.stone = stone;
                     if (tag) item.tag = tag;
                     if (price !== null && price !== '') item.price = price;
-                    if (total !== null && total !== '') item.total = total;
+                    if (totalWeight !== null && totalWeight !== '') item.totalWeight = totalWeight;
                     if (weight !== null && weight !== '') item.weight = weight;
 
                     var grid = card.closest('.product-grid');
@@ -1056,33 +952,38 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        // Occasional Wear - Rings
-renderProducts('occasionalWear', [
-            {name:'Elegance unie', image:'56.png', price:1375, details:[{key:'centreStone', value:'0.5 x 2'}]},
-            {name:'Unbreakable Hearts Ring', image:'65.png', price:1375, details:[{key:'centreStone', value:'1 Ct'}]},
-            {name:'Moment to Shine Ring', image:'64.png', price:1375, details:[{key:'centreStone', value:'1 Ct'}]},
-            {name:'Stellar Promise Ring', image:'55.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
-            {name:'Celestial Embrace Ring', image:'69.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
-            {name:'Luminous Devotion Ring', image:'59.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
-            {name:'Ethereal Halo Ring', image:'67.png', price:1850, details:[{key:'centreStone', value:'2 Ct'}]},
-            {name:'Elysian Ring', image:'74.png', price:2300, details:[{key:'centreStone', value:'3 Ct'}]},
-            {name:'Eternal Connection Ring', image:'62.png', price:1375, details:[{key:'centreStone', value:'1 ct'}]},
-            {name:'Eternal Promise Ring Set', image:'70.png', tag:'set', price:2060}
+       // Occasional Wear - Rings
+        renderProducts('occasionalWear', [
+            {name:'Anora Ring', image:'42.png', stone:'2.00 ct', price:1625, details:[{key:'centreStone', value:'2.00 ct'}]},
+            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'3.00 ct', totalWeight:'5.5 ct', price:2675, details:[{key:'centreStone', value:'3.00 ct'},{key:'mainSide', value:'0.25 x 2'},{key:'secondarySide', value:'0.15 x 20'},{key:'finishingSide', value:'0.10 x 20'},{key:'totalKarat', value:'5.5 ct'}]},
+            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'1.8 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 8'},{key:'totalKarat', value:'1.8 ct'}]},
+            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'2.2 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 12'},{key:'totalKarat', value:'2.2 ct'}]},
+            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'3.56 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 16'},{key:'totalKarat', value:'3.56 ct'}]},
+            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'2.5 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.25 x 6'},{key:'totalKarat', value:'2.5 ct'}]},
+            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', totalWeight:'4 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.25 x 12'},{key:'totalKarat', value:'4 ct'}]},
+            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'3.25 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.25 x 9'},{key:'totalKarat', value:'3.25 ct'}]},
+            {name:'Ros\u00e9 Bloom Ring', image:'34.png', metal:'18K Rose Gold', stone:'1.00 ct', totalWeight:'6 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 50'},{key:'totalKarat', value:'6 ct'}]},
+            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', totalWeight:'1.75 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'1.75 ct'}]},
+            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', totalWeight:'5 ct', price:1525, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 40'},{key:'totalKarat', value:'5 ct'}]},
+            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'2.00 ct', totalWeight:'2.5 ct', price:1625, details:[{key:'centreStone', value:'2.00 ct'},{key:'mainSide', value:'0.15 x 2'},{key:'secondarySide', value:'0.10 x 2'},{key:'totalKarat', value:'2.5 ct'}]},
+            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', totalWeight:'12 ct', price:1300, details:[{key:'eachDiamond', value:'0.50 x 24'},{key:'totalKarat', value:'12 ct'}]},
+            {name:'Imperial Pav\u00e9 Ring', image:'43.png', price:'request'},
+            {name:'\u00c9ternelle Grande Ring', image:'33.png', totalWeight:'7 ct', price:1300, details:[{key:'eachDiamond', value:'0.50 x 14'},{key:'totalKarat', value:'7 ct'}]}
         ], 'Ring');
 
-        // Occasional Wear - Earrings
+// Occasional Wear - Earrings
         renderProducts('occasionalWear', [
             {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct (each)', total:'1.15 ct (each)', price:1410, details:[{key:'centreStone', value:'0.25 ct each'},{key:'sideStone', value:'0.10 x 9'},{key:'totalKarat', value:'1.15 ct each'}]},
-            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct (each)', total:'1.8 ct', price:1354, details:[{key:'centreStone', value:'0.50 ct each'},{key:'sideStone', value:'0.10 x 10'},{key:'totalKarat', value:'1.8 ct'}]}
+            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct (each)', total:'1.8 ct', price:1575, details:[{key:'centreStone', value:'0.50 ct each'},{key:'sideStone', value:'0.10 x 10'},{key:'totalKarat', value:'1.8 ct'}]}
         ], 'Earring');
 
         // Occasional Wear - Bracelets
         renderProducts('occasionalWear', [
-            {name:'Lumina Wedding Tennis', image:'49.png', total:'2.4 ct', price:1677, details:[{key:'diamonds', value:'24 diamonds of 0.10 ct'},{key:'totalKarat', value:'2.4 ct'}]},
-            {name:'Arabella', image:'53.png', total:'3 ct', price:1825, details:[{key:'diamonds', value:'20 diamonds of 0.15 ct'},{key:'totalKarat', value:'3 ct'}]}
+            {name:'Lumina Wedding Tennis', image:'49.png', price:'request'},
+            {name:'Arabella', image:'53.png', price:'request'}
         ], 'Bracelet');
 
-        // Occasional Wear - Brooches
+// Occasional Wear - Brooches
         renderProducts('occasionalWear', [
             {name:'Celestia Broche', image:'47.png', weight:'7.0', price:'request', details:[{key:'weight', value:'7.0 g'}]},
             {name:'\u00c9ternelle Broche', image:'48.png', weight:'7.5', price:'request', details:[{key:'weight', value:'7.5 g'}]}
@@ -1120,17 +1021,13 @@ renderProducts('occasionalWear', [
                     el.textContent = getProductName(englishName);
                 });
                 refreshMeta();
-                document.documentElement.lang = lang === 'zh-HK' ? 'zh-Hant-HK' : 'en';
+                document.documentElement.lang = lang === 'zh-TW' ? 'zh-Hant' : 'en';
                 var selector = document.getElementById('langSelect');
                 if (selector) { selector.value = lang; }
             }
 
-            var langFromUrl = new URLSearchParams(window.location.search).get('lang');
-            var initialLang = langFromUrl && translations[langFromUrl] ? langFromUrl : (localStorage.getItem('vd-lang') || 'en');
-            if (langFromUrl && translations[langFromUrl]) {
-                localStorage.setItem('vd-lang', initialLang);
-            }
-            applyCatalogueTranslations(initialLang);
+            var savedLang = localStorage.getItem('vd-lang') || 'en';
+            applyCatalogueTranslations(savedLang);
 
             var selector = document.getElementById('langSelect');
             if (selector) {
