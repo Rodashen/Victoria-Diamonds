@@ -162,7 +162,7 @@ const translations = {
         'footer-craftsmanship': '工藝',
         'footer-visit-us': '造訪我們',
         'footer-custom-design': '定制設計',
-        'footer-care-guide': '保養指南',
+        'footer-terms-conditions': '條款及細則',
         'footer-about': '關於本網站',
         'footer-about-text-1': '本網站展示維多利亞鑽石，一家位於倫敦的高級珠寶工作室，提供定制諮詢、私人預約和永恆黃金作品。',
         'footer-about-text-2': '在線探索我們的系列，然後蒞臨我們的倫敦展廳，與我們的設計團隊進行個人體驗。',
