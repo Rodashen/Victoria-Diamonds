@@ -820,6 +820,9 @@
 
         function formatPrice(price, currency) {
             currency = currency || 'GBP';
+            if (catalogueCurrentLang === 'zh-HK' && currency === 'GBP') {
+                return 'HK$' + (Number(price) * 10).toLocaleString('zh-HK');
+            }
             return (currency === 'USD' ? '$' : '£') + Number(price).toLocaleString(currency === 'USD' ? 'en-US' : 'en-GB');
         }
 

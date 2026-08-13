@@ -580,6 +580,9 @@ function applyTranslations(lang) {
     if (selector) { selector.value = lang; }
     var mobileSelector = document.getElementById('langSelectMobile');
     if (mobileSelector) { mobileSelector.value = lang; }
+    document.querySelectorAll('[data-i18n="footer-terms-conditions"]').forEach(function(link) {
+        link.href = lang === 'zh-HK' ? 'T&C-zh-HK.pdf' : 'T&C.pdf';
+    });
 }
 
 function initLanguage() {

@@ -664,6 +664,9 @@
         }
 
         function formatPrice(price) {
+            if (catalogueCurrentLang === 'zh-HK') {
+                return 'HK$' + (Number(price) * 10).toLocaleString('zh-HK');
+            }
             return '£' + Number(price).toLocaleString('en-GB');
         }
 
