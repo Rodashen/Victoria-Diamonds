@@ -12,3 +12,9 @@ Remove `{key:'totalKarat', value:'...'}` detail entries from RING data arrays on
 
 ## Additional Fix (forever-bond.html)
 - [x] Reconstructed the corrupted `renderProducts('foreverBond', [...])` ring data array. The original array had broken object braces, missing commas, and a partial 20th ring missing its name/image. Rebuilt all 20 rings into valid JS objects (matching the format used on the other collection pages), removed the `total:`/`totalKarat` data from ring entries, and restored the missing 20th entry as "Eternal Connection Ring Set" (image `62.png`).
+
+## FAQ Section Implementation
+- [x] Added FAQ dropdown section after "Visit Our Atelier" section
+- [x] Implemented accordion functionality for FAQ items
+- [x] Added styling for FAQ section to match Victoria Diamonds design
+- [x] Added English and Traditional Chinese translations for all FAQ questions and answers

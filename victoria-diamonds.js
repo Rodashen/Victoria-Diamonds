@@ -542,6 +542,53 @@ collectionItems.forEach((item, index) => {
    itemObserver.observe(item);
 });
 
+// ---------- FAQ section and item reveal ----------
+document.addEventListener('DOMContentLoaded', function() {
+    const faqSection = document.querySelector('.faq');
+    if (faqSection) {
+       const faqObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+             if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                faqObserver.unobserve(entry.target);
+             }
+          });
+       }, { threshold: 0.1 });
+
+       faqObserver.observe(faqSection);
+    }
+
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach((item, index) => {
+       item.style.opacity = '0';
+       item.style.transform = 'translateY(16px)';
+       item.style.transition = `opacity 0.6s ease ${index * 0.05 + 0.05}s, transform 0.6s ease ${index * 0.05 + 0.05}s`;
+
+       const itemObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+             if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                itemObserver.unobserve(entry.target);
+             }
+          });
+       }, { threshold: 0.1 });
+
+       itemObserver.observe(item);
+    });
+});
+
+// ============================================
+// FAQ Accordion
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach((question) => {
+        question.addEventListener('click', () => {
+            const item = question.closest('.faq-item');
+            item.classList.toggle('active');
+        });
+    });
+});
+
 // ============================================
 // Translation / Language Switching
 // ============================================

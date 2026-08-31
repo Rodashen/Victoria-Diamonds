@@ -169,6 +169,25 @@ const translations = {
         'footer-about-text-3': '如需私人預約，請通過以上方式或社交媒體直接聯繫我們。',
         'footer-copyright': '© 2026 維多利亞鑽石。',
 
+        // ===== FAQ Section =====
+        'faq-title': 'Frequently Asked Questions',
+        'faq-subtitle': 'Find answers to common questions about our bespoke jewelry services',
+        'faq-section-tag': 'Frequently Asked Questions',
+        'faq-question-1': 'Do you offer custom ring designs?',
+        'faq-question-2': 'How does the custom design process work step-by-step?',
+        'faq-question-3': 'How long does a custom order take?',
+        'faq-question-4': 'Can I supply my own gemstone or heirloom piece to re-set?',
+        'faq-question-5': 'Do you offer lab-grown or natural diamonds?',
+        'faq-question-6': 'What is the difference between lab-grown and natural diamonds?',
+        'faq-question-7': 'Are your diamonds certified?',
+        'faq-question-8': 'How much is the deposit for a custom piece?',
+        'faq-question-9': 'Can I transfer my deposit to a different design?',
+        'faq-question-10': 'Can I request a custom engraving?',
+        'faq-question-11': 'What if I order the wrong ring size?',
+        'faq-question-12': 'What is your return policy?',
+        'faq-question-13': 'Do you offer a manufacturing warranty?',
+        'faq-question-14': 'Do you ship internationally?',
+
         // ===== Catalogue Pages (Shared) =====
         'catalogue-back': '← 返回',
         'catalogue-back-main': '返回主頁',
@@ -378,5 +397,24 @@ const translations = {
         'product-Flower Drop Earrings': '花形銀耳墜',
         // Anklet
         'product-Everyday Silver Anklet': '日常銀腳鏈',
+
+        // ===== FAQ Section =====
+        'faq-title': '常見問題',
+        'faq-subtitle': '找到有關我們 bespoke 珠寶服務的常見問題答案',
+        'faq-section-tag': '常見問題',
+        'faq-question-1': '您提供定製戒指設計嗎？',
+        'faq-question-2': '定製設計流程是如何逐步進行的？',
+        'faq-question-3': '定製訂單需要多久時間？',
+        'faq-question-4': '我可以提供自己的寶石或家族傳家珠寶來重新鑲嵌嗎？',
+        'faq-question-5': '您提供實驗室培育或天然鑽石嗎？',
+        'faq-question-6': '實驗室培鑽和天然鑽石有什麼區別？',
+        'faq-question-7': '您的鑽石有證書嗎？',
+        'faq-question-8': '定製作品的訂金是多少？',
+        'faq-question-9': '我可以將訂金轉移到其他設計上嗎？',
+        'faq-question-10': '我可以請求定製刻字嗎？',
+        'faq-question-11': '如果我訂錯了戒指尺寸該怎麼辦？',
+        'faq-question-12': '您的退貨政策是什麼？',
+        'faq-question-13': '您提供製造保證嗎？',
+        'faq-question-14': '您提供國際運送嗎？',
     }
 };
