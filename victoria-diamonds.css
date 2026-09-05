@@ -1893,7 +1893,7 @@ animation: dotProgress 2s linear forwards;
            FAQ SECTION - LUXURY AGENCY STYLE
         ======================================== */
 .faq {
-    padding: var(--space-2xl) 0;
+    padding: var(--space-xl) 0;
     background-color: var(--color-cream);
     position: relative;
     overflow: hidden;
@@ -1912,7 +1912,7 @@ animation: dotProgress 2s linear forwards;
 
 .faq-grid {
     display: grid;
-    gap: 1.25rem;
+    gap: 0.5rem;
     /* Z-Axis Cascade: Stacked cards with varying depths */
 }
 
@@ -1980,7 +1980,7 @@ animation: dotProgress 2s linear forwards;
     position: relative;
     z-index: 1;
     background: var(--color-warm-white);
-    border-radius: 16px;
+    border-radius: 8px;
     overflow: hidden;
     border: 1px solid rgba(212, 168, 83, 0.05);
     transition: all var(--transition-lux);
@@ -1996,10 +1996,10 @@ animation: dotProgress 2s linear forwards;
 }
 
 .faq-question {
-    padding: calc(var(--space-lg) * 1.2);
+    padding: calc(var(--space-sm) * 1.2);
     background: transparent;
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: -0.01em;
     color: var(--color-charcoal);
@@ -2078,7 +2078,7 @@ animation: dotProgress 2s linear forwards;
     max-height: 800px; /* Increased for better content handling */
     margin-top: 0;
     margin-bottom: 0;
-    padding: 0 calc(var(--space-lg) * 1.2) var(--space-lg);
+    padding: 0 calc(var(--space-md) * 1.2) var(--space-md);
     /* Staggered reveal trigger */
     animation: faqAnswerReveal 0.6s ease-out;
 }
@@ -2097,10 +2097,10 @@ animation: dotProgress 2s linear forwards;
 
 .faq-answer p,
 .faq-answer ol {
-    margin-bottom: calc(var(--space-md) * 1.2);
+    margin-bottom: calc(var(--space-xs) * 1.2);
     color: var(--color-charcoal-soft);
-    line-height: 1.8;
-    font-size: 1.05rem;
+    line-height: 1.5;
+    font-size: 0.875rem;
 }
 
 .faq-answer ol {
@@ -2108,9 +2108,9 @@ animation: dotProgress 2s linear forwards;
 }
 
 .faq-answer li {
-    margin-bottom: calc(var(--space-xs) * 1.2);
+    margin-bottom: calc(var(--space-xs) * 0.8);
     position: relative;
-    padding-left: calc(var(--space-sm) * 1.2);
+    padding-left: calc(var(--space-xs) * 1.2);
 }
 
 .faq-answer li::before {
@@ -2154,13 +2154,13 @@ animation: dotProgress 2s linear forwards;
     background: rgba(212, 168, 83, 0.08);
     color: var(--color-gold);
     font-family: var(--font-body);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    padding: 0.35rem 0.8rem;
-    border-radius: 50px;
-    margin-bottom: calc(var(--space-sm) * 1.5);
+    padding: 0.25rem 0.6rem;
+    border-radius: 40px;
+    margin-bottom: calc(var(--space-xs) * 1.2);
     /* Subtle animation */
     animation: tagPulse 3s ease-in-out infinite;
 }
@@ -2247,6 +2247,710 @@ animation: dotProgress 2s linear forwards;
 .faq-item:nth-child(12) { transition-delay: 0.6s; }
 .faq-item:nth-child(13) { transition-delay: 0.65s; }
 .faq-item:nth-child(14) { transition-delay: 0.7s; }
+
+/* ========================================
+           EMAIL SUBSCRIPTION POPUP
+        ======================================== */
+#emailSubscriptionModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(6px);
+    z-index: 1500;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#emailSubscriptionModal.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+#emailSubscriptionPopup {
+    background: var(--color-warm-white);
+    max-width: min(900px, calc(100vw - 40px));
+    width: 100%;
+    max-height: min(90vh, 95dvh);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    display: block;
+    border-radius: 24px;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.15);
+    border: none;
+    animation: modalIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    transform-origin: center;
+    transform: scale(0.95);
+}
+
+#emailSubscriptionModal.active #emailSubscriptionPopup {
+    animation: modalIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    transform: scale(1);
+}
+
+@media (min-width: 768px) {
+    #emailSubscriptionPopup {
+        grid-template-columns: 1fr 1fr;
+        max-height: 560px;
+    }
+}
+
+/* Close X button */
+#emailSubscriptionPopup .modal-close-x {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-charcoal-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+#emailSubscriptionPopup .modal-close-x:hover {
+    background: rgba(255,255,255,0.95);
+    color: var(--color-charcoal);
+    transform: rotate(45deg);
+}
+
+/* Luxury content wrapper */
+.email-subscription-content {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .email-subscription-content {
+        padding: 4rem;
+        flex-direction: row; /* Changed to row for two-column layout */
+        align-items: stretch; /* Make columns equal height */
+    }
+}
+
+/* Image column styling */
+.email-subscription-image-column {
+    display: none;
+    overflow: hidden;
+    border-radius: 24px 0 0 24px;
+}
+
+@media (min-width: 768px) {
+    .email-subscription-image-column {
+        display: block;
+        flex: 0 0 50%; /* Take exactly 50% width */
+        max-width: 50%;
+    }
+
+    .email-subscription-image-column img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+/* Text content column */
+.email-subscription-text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem; /* Space between image and form */
+}
+
+/* Typography */
+.email-subscription-content h2 {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.email-subscription-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.email-subscription-content p {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    color: var(--color-charcoal-soft);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+/* Gold divider */
+.email-subscription-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--color-gold);
+    margin: 2rem auto 2.5rem;
+}
+
+/* Form styling - Override Zoho form styling */
+#emailSubscriptionForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Override Zoho form group styling */
+#emailSubscriptionForm .zcwf_row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 0;
+    width: 100%;
+}
+
+#emailSubscriptionForm .zcwf_col_lab,
+#emailSubscriptionForm .zcwf_col_fld {
+    width: 100% !important;
+    float: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#emailSubscriptionForm .zcwf_col_lab {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--color-charcoal);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+#emailSubscriptionForm .zcwf_col_fld {
+    position: relative;
+}
+
+#emailSubscriptionForm .zcwf_col_fld input[type="text"] {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    border: 1px solid rgba(28,28,28,0.1);
+    background-color: transparent;
+    color: var(--color-charcoal);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+#emailSubscriptionForm .zcwf_col_fld input[type="text"]:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(184,168,83,0.2);
+}
+
+#emailSubscriptionForm .zcwf_col_fld input[type="text"]::placeholder {
+    color: var(--color-taupe);
+    opacity: 0.7;
+}
+
+/* Hide Zoho form title */
+#emailSubscriptionForm .zcwf_title {
+    display: none !important;
+}
+
+/* Style Zoho submit button */
+#emailSubscriptionForm .formsubmit.zcwf_button,
+#emailSubscriptionForm input[type="submit"].formsubmit.zcwf_button {
+    width: 100%;
+    padding: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--color-warm-white);
+    background-color: var(--color-charcoal);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    box-sizing: border-box;
+    margin-top: 1rem;
+}
+
+#emailSubscriptionForm .formsubmit.zcwf_button:hover,
+#emailSubscriptionForm input[type="submit"].formsubmit.zcwf_button:hover {
+    background-color: var(--color-gold-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+#emailSubscriptionForm .formsubmit.zcwf_button:active,
+#emailSubscriptionForm input[type="submit"].formsubmit.zcwf_button:active {
+    transform: translateY(0);
+}
+
+/* Hide Zoho reset button */
+#emailSubscriptionForm input[type="reset"] {
+    display: none !important;
+}
+
+/* Override Zoho form container widths */
+#emailSubscriptionForm #crmWebToEntityForm.zcwf_lblLeft,
+#emailSubscriptionForm #crmWebToEntityForm.zcwf_lblLeft * {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Legal text */
+.email-subscription-legal {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-taupe);
+    text-align: center;
+    margin-top: 2rem;
+    line-height: 1.6;
+}
+
+/* Success state */
+.email-subscription-success {
+    display: none;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem;
+}
+
+.email-subscription-success.show {
+    display: flex;
+}
+
+.email-subscription-success h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.01em;
+}
+
+.email-subscription-success p {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    color: var(--color-charcoal-soft);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.email-subscription-code-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 60px;
+    background-color: rgba(212,168,83,0.05);
+    border: 1px solid var(--color-gold-light);
+    border-radius: 16px;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--color-gold);
+    margin: 2rem 0;
+}
+
+.email-subscription-code-label {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-taupe);
+}
+
+/* Error state */
+.email-subscription-error {
+    display: none;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem;
+}
+
+.email-subscription-error.show {
+    display: flex;
+}
+
+.email-subscription-error h3 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin: 0 0 1.5rem 0;
+}
+
+.email-subscription-error p {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    color: #ff6b6b;
+    line-height: 1.8;
+    max-width: 400px;
+}
+
+/* Position Zoho splash message container */
+#wf_splash {
+    position: relative;
+    margin-top: 1.5rem;
+    width: 100%;
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    #emailSubscriptionPopup {
+        max-width: calc(100vw - 32px);
+        margin: 0 16px;
+    }
+
+    .email-subscription-content {
+        padding: 2.5rem;
+        flex-direction: column; /* Stack vertically on mobile */
+    }
+
+    .email-subscription-image-column {
+        flex: 0 0 100%; /* Full width on mobile */
+        max-width: 100%;
+        border-radius: 24px 24px 0 0; /* Round top corners only */
+        margin-bottom: 1.5rem;
+    }
+
+    .email-subscription-text-column {
+        padding-left: 0; /* Remove horizontal padding on mobile */
+        padding-top: 1.5rem; /* Add vertical padding instead */
+    }
+
+    .email-subscription-content h2 {
+        font-size: 2rem;
+    }
+
+    .email-subscription-eyebrow {
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+    }
+
+    .email-subscription-content p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    #emailSubscriptionForm .zcwf_col_fld input[type="text"] {
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+    }
+
+    #emailSubscriptionForm .formsubmit.zcwf_button,
+    #emailSubscriptionForm input[type="submit"].formsubmit.zcwf_button {
+        padding: 1.25rem;
+        font-size: 1rem;
+    }
+
+    .email-subscription-divider {
+        width: 40px;
+        margin: 1.5rem auto 2rem;
+    }
+
+    .email-subscription-success,
+    .email-subscription-error {
+        padding: 3rem;
+    }
+
+    .email-subscription-success h3 {
+        font-size: 1.75rem;
+    }
+
+    .email-subscription-code-box {
+        width: 150px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Close X button */
+#emailSubscriptionPopup .modal-close-x {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-charcoal-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+#emailSubscriptionPopup .modal-close-x:hover {
+    background: var(--color-charcoal);
+    color: var(--color-cream);
+}
+
+/* Email Subscription Content */
+.email-subscription-content {
+    padding: 2.5rem;
+    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.email-subscription-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+}
+
+.email-subscription-content p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--color-charcoal-soft);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+/* Email subscription wrapper */
+.email-subscription-wrapper {
+    display: grid;
+    gap: 0;
+}
+
+/* Desktop: two column layout */
+@media (min-width: 768px) {
+    .email-subscription-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .email-subscription-content {
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Vertically center the content */
+    }
+
+    .email-subscription-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .email-subscription-logo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        max-width: none;
+        max-height: none;
+    }
+}
+
+
+
+
+/* Form styling */
+#emailSubscriptionForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+#emailSubscriptionForm .form-group {
+    text-align: left;
+    width: 100%;
+}
+
+#emailSubscriptionForm label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-xs);
+    color: var(--color-charcoal);
+}
+
+#emailSubscriptionForm input[type="email"] {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border: 1px solid var(--color-taupe-light);
+    background-color: transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#emailSubscriptionForm input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+}
+
+#emailSubscriptionForm button[type="submit"] {
+    width: 100%;
+    padding: 1.1rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background-color: var(--color-charcoal);
+    color: var(--color-cream);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#emailSubscriptionForm button[type="submit"]:hover {
+    background-color: var(--color-gold-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
+
+/* Status messages */
+.form-status {
+    min-height: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.form-status.success {
+    color: var(--color-gold);
+}
+
+.form-status.error {
+    color: #ff6b6b; /* Soft red for error */
+}
+
+/* Success state styling */
+.email-subscription-success {
+    text-align: center;
+    padding: 2.5rem;
+    display: none;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+.email-subscription-success.show {
+    display: flex;
+}
+
+.email-subscription-success h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin-bottom: 1rem;
+}
+
+.email-subscription-success p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--color-charcoal-soft);
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* Error state styling */
+.email-subscription-error {
+    text-align: center;
+    padding: 2.5rem;
+    display: none;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+.email-subscription-error.show {
+    display: flex;
+}
+
+.email-subscription-error h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin-bottom: 1rem;
+}
+
+.email-subscription-error p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--color-charcoal-soft);
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .email-subscription-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .email-subscription-content p {
+        font-size: 1rem;
+    }
+
+    #emailSubscriptionForm input[type="email"],
+    #emailSubscriptionForm button[type="submit"] {
+        padding: 0.75rem 0.875rem;
+        font-size: 0.875rem;
+    }
+}
 
 /* ========================================
            FOOTER
@@ -3488,4 +4192,312 @@ animation: dotProgress 2s linear forwards;
 .mobile-overlay.active {
 	opacity: 1;
 	visibility: visible;
+}
+
+
+/* ============================================================
+   VICTORIA DIAMONDS EMAIL POPUP — FINAL OVERRIDES
+   Keep this block LAST so it wins over the older popup/Zoho rules.
+   ============================================================ */
+
+#emailSubscriptionPopup {
+    display: block !important;
+    width: min(920px, calc(100vw - 32px)) !important;
+    max-width: 920px !important;
+    max-height: min(90vh, 680px) !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+}
+
+#emailSubscriptionPopup .email-subscription-wrapper {
+    display: block !important;
+    width: 100% !important;
+}
+
+#emailSubscriptionPopup .email-subscription-content {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    min-height: 520px !important;
+    padding: 0 !important;
+    text-align: left !important;
+    overflow: hidden !important;
+}
+
+#emailSubscriptionPopup .email-subscription-image-column {
+    display: block !important;
+    flex: 0 0 50% !important;
+    width: 50% !important;
+    max-width: 50% !important;
+    min-height: 520px !important;
+    overflow: hidden !important;
+    border-radius: 24px 0 0 24px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#emailSubscriptionPopup .email-subscription-image-column img,
+#emailSubscriptionPopup .email-subscription-logo {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+}
+
+#emailSubscriptionPopup .email-subscription-text-column {
+    flex: 1 1 50% !important;
+    width: 50% !important;
+    min-width: 0 !important;
+    padding: 4rem 3.25rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: left !important;
+    overflow: hidden !important;
+}
+
+#emailSubscriptionPopup .email-subscription-form-state {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+}
+
+#emailSubscriptionPopup .email-subscription-content h2 {
+    font-family: var(--font-display) !important;
+    font-size: clamp(1.8rem, 3vw, 2.35rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    color: var(--color-charcoal) !important;
+    margin: 0 0 1.15rem !important;
+    text-align: left !important;
+}
+
+#emailSubscriptionPopup .email-subscription-content > .email-subscription-text-column > .email-subscription-form-state > p,
+#emailSubscriptionPopup .email-subscription-content .email-subscription-form-state > p {
+    font-family: var(--font-body) !important;
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    color: var(--color-charcoal-soft) !important;
+    margin: 0 0 2rem !important;
+    text-align: left !important;
+}
+
+/* The actual Zoho form */
+#emailSubscriptionPopup #emailSubscriptionForm {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#emailSubscriptionPopup #emailSubscriptionForm .zcwf_row {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin: 0 0 1.15rem !important;
+    padding: 0 !important;
+    gap: 0 !important;
+}
+
+#emailSubscriptionPopup #emailSubscriptionForm .zcwf_col_lab,
+#emailSubscriptionPopup #emailSubscriptionForm .zcwf_col_fld {
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+#emailSubscriptionPopup #emailSubscriptionForm .zcwf_col_lab {
+    font-family: var(--font-body) !important;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    color: var(--color-charcoal) !important;
+    margin: 0 0 0.45rem !important;
+    min-height: 0 !important;
+}
+
+#emailSubscriptionPopup #emailSubscriptionForm .zcwf_col_lab label {
+    font: inherit !important;
+    color: inherit !important;
+}
+
+#emailSubscriptionPopup #emailSubscriptionForm .zcwf_col_fld {
+    position: relative !important;
+    margin-top: 0 !important;
+}
+
+#emailSubscriptionPopup #emailSubscriptionForm .zcwf_col_fld input[type="text"] {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 50px !important;
+    padding: 0.8rem 1rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.95rem !important;
+    color: var(--color-charcoal) !important;
+    background: transparent !important;
+    border: 1px solid var(--color-taupe-light) !important;
+    border-radius: 0 !important;
+    outline: none !important;
+    resize: none !important;
+}
+
+#emailSubscriptionPopup #emailSubscriptionForm .zcwf_col_fld input[type="text"]:focus {
+    border-color: var(--color-gold) !important;
+    box-shadow: 0 0 0 2px rgba(184, 134, 11, 0.08) !important;
+}
+
+#emailSubscriptionPopup #emailSubscriptionForm .zcwf_col_help {
+    display: none !important;
+}
+
+/* Remove Zoho's raw title and Reset button */
+#emailSubscriptionPopup #emailSubscriptionForm .zcwf_title,
+#emailSubscriptionPopup #emailSubscriptionForm input[type="reset"] {
+    display: none !important;
+}
+
+/* Zoho submit */
+#emailSubscriptionPopup #emailSubscriptionForm .zcwf_row:last-of-type {
+    margin-top: 0.35rem !important;
+    margin-bottom: 0 !important;
+}
+
+#emailSubscriptionPopup #emailSubscriptionForm .formsubmit.zcwf_button,
+#emailSubscriptionPopup #emailSubscriptionForm input[type="submit"].formsubmit.zcwf_button {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 52px !important;
+    padding: 0 1.25rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    color: var(--color-cream) !important;
+    background: var(--color-charcoal) !important;
+    border: 1px solid var(--color-charcoal) !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap !important;
+}
+
+#emailSubscriptionPopup #emailSubscriptionForm .formsubmit.zcwf_button:hover,
+#emailSubscriptionPopup #emailSubscriptionForm input[type="submit"].formsubmit.zcwf_button:hover {
+    background: var(--color-gold-dark) !important;
+    border-color: var(--color-gold-dark) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Hidden iframe/splash must never affect popup layout */
+#emailSubscriptionPopup #zohoSubmitIframe,
+#emailSubscriptionPopup #wf_splash {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    border: 0 !important;
+}
+
+/* Custom success/error states */
+#emailSubscriptionPopup .email-subscription-success,
+#emailSubscriptionPopup .email-subscription-error {
+    display: none !important;
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    text-align: left !important;
+}
+
+#emailSubscriptionPopup .email-subscription-success.show,
+#emailSubscriptionPopup .email-subscription-error.show {
+    display: flex !important;
+}
+
+#emailSubscriptionPopup .email-subscription-success h3,
+#emailSubscriptionPopup .email-subscription-error h3 {
+    font-family: var(--font-display) !important;
+    font-size: 2rem !important;
+    font-weight: 400 !important;
+    color: var(--color-charcoal) !important;
+    margin: 0 0 1rem !important;
+}
+
+#emailSubscriptionPopup .email-subscription-success p,
+#emailSubscriptionPopup .email-subscription-error p {
+    font-family: var(--font-body) !important;
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    color: var(--color-charcoal-soft) !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+/* Prevent the popup's own global paragraph rules from creating overflow */
+#emailSubscriptionPopup .email-subscription-text-column > p {
+    margin-bottom: 2rem !important;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    #emailSubscriptionPopup {
+        width: min(94vw, 520px) !important;
+        max-height: 90vh !important;
+        overflow-y: auto !important;
+        border-radius: 20px !important;
+    }
+
+    #emailSubscriptionPopup .email-subscription-content {
+        flex-direction: column !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+    }
+
+    #emailSubscriptionPopup .email-subscription-image-column {
+        flex: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 260px !important;
+        height: 260px !important;
+        border-radius: 20px 20px 0 0 !important;
+    }
+
+    #emailSubscriptionPopup .email-subscription-text-column {
+        flex: none !important;
+        width: 100% !important;
+        padding: 2.25rem 1.75rem 2.5rem !important;
+        overflow: visible !important;
+    }
+
+    #emailSubscriptionPopup .email-subscription-content h2 {
+        font-size: 1.8rem !important;
+    }
+
+    #emailSubscriptionPopup .email-subscription-content .email-subscription-form-state > p {
+        font-size: 0.95rem !important;
+    }
+
+    #emailSubscriptionPopup .email-subscription-success,
+    #emailSubscriptionPopup .email-subscription-error {
+        min-height: 260px !important;
+    }
 }

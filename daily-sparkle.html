@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/logo.png">
     <script src="translations.js"></script>
+    <script src="victoria-diamonds.js"></script>
     <style>
         :root {
             --cream: #FFFBF5;
@@ -1206,5 +1207,36 @@ renderProducts('dailySparkle', [
             });
         }
     </script>
+
+<!-- Email Subscription Popup -->
+<div class="modal-overlay" id="emailSubscriptionModal">
+    <div class="modal-popup" id="emailSubscriptionPopup">
+        <button class="modal-close-x" id="emailSubscriptionCloseX">×</button>
+        <div class="email-subscription-content">
+            <h2 data-i18n="email-subscription-title">GET 10% OFF YOUR FIRST ORDER</h2>
+            <p data-i18n="email-subscription-description">Subscribe to our newsletter for exclusive access to new collections, private events, and special offers.</p>
+            <form id="emailSubscriptionForm" action="https://crm.zoho.eu/crm/WebToLeadForm" method="POST" autocomplete="off">
+                <!-- Complete Zoho Web-to-Lead form fields -->
+                <input type="hidden" name="lead_source" value="Website Subscriber">
+                <input type="hidden" name="Last Name" value="Subscriber">
+                <input type="hidden" name="Company" value="Website Subscriber">
+                <input type="hidden" name="retURL" value="">
+                <input type="hidden" name="Email" id="subscriptionEmailActual">
+                <div class="form-group">
+                    <label for="subscriptionEmail" data-i18n="email-subscription-label">Email Address</label>
+                    <input type="email" id="subscriptionEmail" name="EmailTemp" required placeholder="you@example.com">
+                </div>
+                <button type="submit" class="btn-primary" data-i18n="email-subscription-submit">Subscribe</button>
+                <p class="form-status" id="emailSubscriptionStatus"></p>
+            </form>
+            <div class="email-subscription-success" data-i18n="email-subscription-success">
+                Thank you for subscribing! You'll receive a 10% off code shortly.
+            </div>
+            <div class="email-subscription-error" data-i18n="email-subscription-error">
+                Something went wrong. Please try again later.
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
