@@ -5,43 +5,150 @@
     // Victoria Diamonds - Main JavaScript
     // ============================================
 
-    // ---------- Header Scroll Effect ----------
-    const header = document.querySelector('.site-header');
+    // ---------- Header, Mobile Navigation, and Information Modals ----------
+    document.addEventListener('DOMContentLoaded', function() {
+        const header = document.querySelector('.site-header');
+        const mobileMenuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+        const transparencyModal = document.getElementById('transparencyModal');
+        const guaranteeModal = document.getElementById('guaranteeModal');
+        const managedModals = [
+            transparencyModal,
+            guaranteeModal
+        ].filter(Boolean);
+        const originalBodyOverflow = document.body.style.overflow;
 
-    if (header) {
-        let lastScrollY = window.scrollY;
+        function updateBodyScroll() {
+            const mobileNavIsOpen =
+                mobileNav && mobileNav.classList.contains('active');
+            const modalIsOpen = managedModals.some(function(modal) {
+                return modal.classList.contains('active');
+            });
 
-        window.addEventListener('scroll', function() {
-            const currentScrollY = window.scrollY;
+            document.body.style.overflow =
+                mobileNavIsOpen || modalIsOpen ? 'hidden' : originalBodyOverflow;
+        }
 
-            if (currentScrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        function setMobileNavigation(isOpen) {
+            if (!mobileMenuToggle || !mobileNav || !mobileOverlay) {
+                return;
             }
 
-            lastScrollY = currentScrollY;
-        });
-    }
+            mobileNav.classList.toggle('active', isOpen);
+            mobileOverlay.classList.toggle('active', isOpen);
+            mobileMenuToggle.classList.toggle('active', isOpen);
+            mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+            updateBodyScroll();
+        }
 
+        function openModal(modal) {
+            if (!modal) {
+                return;
+            }
 
-    // ---------- Mobile Navigation ----------
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
+            setMobileNavigation(false);
+            managedModals.forEach(function(managedModal) {
+                if (managedModal !== modal) {
+                    managedModal.classList.remove('active');
+                    managedModal.setAttribute('aria-hidden', 'true');
+                }
+            });
 
-    if (mobileMenuToggle && mainNav) {
-        mobileMenuToggle.addEventListener('click', function() {
-            mainNav.classList.toggle('mobile-open');
-            mobileMenuToggle.classList.toggle('active');
-        });
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            updateBodyScroll();
+        }
 
-        mainNav.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                mainNav.classList.remove('mobile-open');
-                mobileMenuToggle.classList.remove('active');
+        function closeModal(modal) {
+            if (!modal) {
+                return;
+            }
+
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            updateBodyScroll();
+        }
+
+        if (header) {
+            function updateHeaderState() {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+            }
+
+            updateHeaderState();
+            window.addEventListener('scroll', updateHeaderState);
+        }
+
+        if (mobileMenuToggle && mobileNav && mobileOverlay) {
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.addEventListener('click', function() {
+                setMobileNavigation(
+                    !mobileNav.classList.contains('active')
+                );
+            });
+
+            mobileOverlay.addEventListener('click', function() {
+                setMobileNavigation(false);
+            });
+
+            if (mobileNavClose) {
+                mobileNavClose.addEventListener('click', function() {
+                    setMobileNavigation(false);
+                });
+            }
+
+            mobileNav.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    setMobileNavigation(false);
+                });
+            });
+        }
+
+        document.querySelectorAll('.js-transparency-trigger').forEach(function(trigger) {
+            trigger.addEventListener('click', function(event) {
+                event.preventDefault();
+                openModal(transparencyModal);
             });
         });
-    }
+
+        document.querySelectorAll('.js-guarantee-trigger').forEach(function(trigger) {
+            trigger.addEventListener('click', function(event) {
+                event.preventDefault();
+                openModal(guaranteeModal);
+            });
+        });
+
+        managedModals.forEach(function(modal) {
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeModal(modal);
+                }
+            });
+
+            modal.querySelectorAll('.modal-close-x, .modal-close-btn').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    closeModal(modal);
+                });
+            });
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key !== 'Escape') {
+                return;
+            }
+
+            const activeModal = managedModals.find(function(modal) {
+                return modal.classList.contains('active');
+            });
+
+            if (activeModal) {
+                closeModal(activeModal);
+            } else if (mobileNav && mobileNav.classList.contains('active')) {
+                setMobileNavigation(false);
+            }
+        });
+    });
 
 
     // ---------- Smooth Scroll ----------
@@ -299,48 +406,6 @@
 
 
     // ---------- Reset Popup States ----------
-    function resetEmailSubscriptionStates() {
-        if (!emailSubscriptionPopup) {
-            return;
-        }
-
-        const formState =
-            emailSubscriptionPopup.querySelector(
-                '.email-subscription-form-state'
-            );
-
-        const successState =
-            emailSubscriptionPopup.querySelector(
-                '.email-subscription-success'
-            );
-
-        const errorState =
-            emailSubscriptionPopup.querySelector(
-                '.email-subscription-error'
-            );
-
-        if (formState) {
-            formState.style.display = 'flex';
-            formState.hidden = false;
-        }
-
-        if (successState) {
-            successState.classList.remove('show');
-            successState.style.display = 'none';
-        }
-
-        if (errorState) {
-            errorState.classList.remove('show');
-            errorState.style.display = 'none';
-        }
-
-        emailSubscriptionSubmissionPending = false;
-
-        if (emailSubscriptionSuccessTimer) {
-            clearTimeout(emailSubscriptionSuccessTimer);
-            emailSubscriptionSuccessTimer = null;
-        }
-    }
 function resetEmailSubscriptionStates() {
     if (!emailSubscriptionPopup) {
         return;
@@ -443,21 +508,21 @@ function resetEmailSubscriptionStates() {
                 </div>
 
                 <h2>
-                    THANK YOU!
+                    Thank You for Subscribing!
                 </h2>
 
                 <p class="success-main-text">
-                    You've successfully subscribed.
+                    Welcome to the Victoria Diamonds community. We're delighted to have you with us.
                 </p>
 
                 <p class="success-sub-text">
-                    Your 10% off code will be sent shortly.
+                    Follow us on Instagram to discover our latest creations, bespoke jewellery, and behind-the-scenes moments.
                 </p>
 
                 <a
                     href="https://www.instagram.com/victoriadiamondsco/"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
                     class="success-instagram-link"
                     aria-label="Follow Victoria Diamonds on Instagram"
                 >

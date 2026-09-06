@@ -1213,8 +1213,8 @@ renderProducts('dailySparkle', [
     <div class="modal-popup" id="emailSubscriptionPopup">
         <button class="modal-close-x" id="emailSubscriptionCloseX">×</button>
         <div class="email-subscription-content">
-            <h2 data-i18n="email-subscription-title">GET 10% OFF YOUR FIRST ORDER</h2>
-            <p data-i18n="email-subscription-description">Subscribe to our newsletter for exclusive access to new collections, private events, and special offers.</p>
+            <h2 data-i18n="email-subscription-title">JOIN THE VICTORIA DIAMONDS COMMUNITY</h2>
+            <p data-i18n="email-subscription-description">Subscribe to receive exclusive access to new collections, bespoke jewellery stories, private events, and the latest from Victoria Diamonds.</p>
             <form id="emailSubscriptionForm" action="https://crm.zoho.eu/crm/WebToLeadForm" method="POST" autocomplete="off">
                 <!-- Complete Zoho Web-to-Lead form fields -->
                 <input type="hidden" name="lead_source" value="Website Subscriber">
@@ -1230,7 +1230,13 @@ renderProducts('dailySparkle', [
                 <p class="form-status" id="emailSubscriptionStatus"></p>
             </form>
             <div class="email-subscription-success" data-i18n="email-subscription-success">
-                Thank you for subscribing! You'll receive a 10% off code shortly.
+                <h3>Thank You for Subscribing!</h3>
+                <p>Welcome to the Victoria Diamonds community. We're delighted to have you with us.</p>
+                <p>Follow us on Instagram to discover our latest creations, bespoke jewellery, and behind-the-scenes moments.</p>
+                <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener" class="email-subscription-instagram" aria-label="Follow Victoria Diamonds on Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Zm5.2-3.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1-1.2-1.2Z"/></svg>
+                    <span>@victoriadiamondsco</span>
+                </a>
             </div>
             <div class="email-subscription-error" data-i18n="email-subscription-error">
                 Something went wrong. Please try again later.

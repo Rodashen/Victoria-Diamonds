@@ -4452,6 +4452,40 @@ animation: dotProgress 2s linear forwards;
     text-align: left !important;
 }
 
+#emailSubscriptionPopup .email-subscription-success p + p {
+    margin-top: 1rem !important;
+}
+
+#emailSubscriptionPopup .email-subscription-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    width: fit-content;
+    margin-top: 1.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(184, 134, 11, 0.35);
+    color: var(--color-charcoal);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+#emailSubscriptionPopup .email-subscription-instagram:hover {
+    color: var(--color-gold-dark);
+    opacity: 0.72;
+}
+
+#emailSubscriptionPopup .email-subscription-instagram svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: currentColor;
+    flex: 0 0 1.15rem;
+}
+
 /* Prevent the popup's own global paragraph rules from creating overflow */
 #emailSubscriptionPopup .email-subscription-text-column > p {
     margin-bottom: 2rem !important;
