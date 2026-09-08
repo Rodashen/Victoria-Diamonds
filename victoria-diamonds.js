@@ -338,38 +338,210 @@
 
 
     // ---------- Language / Translation ----------
+    function getStoredLanguage() {
+        const savedLanguage = localStorage.getItem('victoriaLanguage');
+
+        if (savedLanguage) {
+            return savedLanguage;
+        }
+
+        return document.documentElement.getAttribute('lang') || 'en';
+    }
+
+    function applyLanguageSelection(language) {
+        if (!language) {
+            return;
+        }
+
+        document.documentElement.setAttribute('lang', language);
+        localStorage.setItem('victoriaLanguage', language);
+
+        const languageButtons =
+            document.querySelectorAll('[data-language]');
+
+        languageButtons.forEach(function(btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-language') === language);
+        });
+
+        const selects =
+            document.querySelectorAll('#langSelect, #langSelectMobile');
+
+        selects.forEach(function(select) {
+            select.value = language;
+        });
+    }
+
     function initializeLanguage() {
         const languageButtons =
             document.querySelectorAll('[data-language]');
 
-        if (!languageButtons.length) {
-            return;
+        const preferredLanguage = getStoredLanguage();
+
+        if (preferredLanguage) {
+            applyLanguageSelection(preferredLanguage);
         }
 
         languageButtons.forEach(function(button) {
             button.addEventListener('click', function() {
-                const language =
-                    this.getAttribute('data-language');
+                const language = this.getAttribute('data-language');
 
                 if (!language) {
                     return;
                 }
 
-                document.documentElement.setAttribute(
-                    'lang',
-                    language
-                );
+                applyLanguageSelection(language);
+            });
+        });
 
-                languageButtons.forEach(function(btn) {
-                    btn.classList.remove('active');
-                });
+        const selects = document.querySelectorAll('#langSelect, #langSelectMobile');
 
-                this.classList.add('active');
+        selects.forEach(function(select) {
+            select.addEventListener('change', function() {
+                applyLanguageSelection(this.value);
             });
         });
     }
 
     initializeLanguage();
+
+
+    // ---------- Consent Management ----------
+    let consentBanner = null;
+    let consentAcceptButton = null;
+    let consentEssentialButton = null;
+
+    function resolveConsentLanguage() {
+        const language = localStorage.getItem('victoriaLanguage') || document.documentElement.getAttribute('lang') || 'en';
+        return language === 'zh-HK' ? 'zh-HK' : 'en';
+    }
+
+    function updateConsentBannerCopy() {
+        if (!consentBanner) {
+            return;
+        }
+
+        const isZh = resolveConsentLanguage() === 'zh-HK';
+        const copy = isZh ? {
+            title: '我們使用 Cookie 來提升您的網站體驗',
+            description: '為了確保網站正常運作、保護帳戶安全及改善服務，我們使用必要 Cookie 及可選 Cookie。請選擇您的偏好。',
+            accept: '接受所有 Cookie',
+            essential: '只接受必要 Cookie',
+            policy: '查看 Cookie 政策',
+            privacy: '私隱政策'
+        } : {
+            title: 'We use cookies to improve your experience',
+            description: 'We use essential cookies to keep the site secure and functional, and optional cookies to support better browsing and service improvements.',
+            accept: 'Accept all cookies',
+            essential: 'Only essential cookies',
+            policy: 'Cookie policy',
+            privacy: 'Privacy policy'
+        };
+
+        const title = consentBanner.querySelector('[data-consent-title]');
+        const description = consentBanner.querySelector('[data-consent-description]');
+        const accept = consentBanner.querySelector('[data-consent-accept]');
+        const essential = consentBanner.querySelector('[data-consent-essential]');
+        const policy = consentBanner.querySelector('[data-consent-policy]');
+        const privacy = consentBanner.querySelector('[data-consent-privacy]');
+
+        if (title) title.textContent = copy.title;
+        if (description) description.textContent = copy.description;
+        if (accept) accept.textContent = copy.accept;
+        if (essential) essential.textContent = copy.essential;
+        if (policy) policy.textContent = copy.policy;
+        if (privacy) privacy.textContent = copy.privacy;
+    }
+
+    function hideConsentBanner() {
+        if (!consentBanner) {
+            return;
+        }
+
+        consentBanner.classList.add('hidden');
+        consentBanner.setAttribute('aria-hidden', 'true');
+    }
+
+    function scheduleNewsletterAfterConsent() {
+        const consentChoice = localStorage.getItem('vdCookieConsent');
+        const consentSource = localStorage.getItem('vdCookieConsentSource');
+
+        // Only schedule the newsletter if consent was explicitly saved from the preferences page
+        if (!consentChoice || consentSource !== 'preferences-page') {
+            return;
+        }
+
+        if (window.__newsletterPopupTimer) {
+            clearTimeout(window.__newsletterPopupTimer);
+        }
+
+        window.__newsletterPopupTimer = setTimeout(function() {
+            showEmailSubscriptionPopup();
+        }, 1800);
+    }
+
+    function storeConsentChoice(choice, preferences) {
+        localStorage.setItem('vdCookieConsent', choice);
+
+        if (preferences) {
+            localStorage.setItem('vdCookiePreferences', JSON.stringify(preferences));
+        }
+
+        // Only hide the banner automatically when consent was saved from the preferences page
+        const consentSource = localStorage.getItem('vdCookieConsentSource');
+        if (consentSource === 'preferences-page') {
+            hideConsentBanner();
+        }
+
+        updateConsentBannerCopy();
+        scheduleNewsletterAfterConsent();
+    }
+
+    function initializeConsentBanner() {
+        consentBanner = document.getElementById('cookieConsentBanner');
+        consentAcceptButton = document.getElementById('cookieConsentAccept');
+        consentEssentialButton = document.getElementById('cookieConsentEssential');
+
+        if (!consentBanner) {
+            return;
+        }
+
+        updateConsentBannerCopy();
+
+        const consentButtons = [
+            consentAcceptButton,
+            consentEssentialButton
+        ].filter(Boolean);
+
+        consentButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                const choice = this.getAttribute('data-consent-choice') || 'essential';
+                const preferences = {
+                    essential: true,
+                    analytics: choice === 'all',
+                    marketing: choice === 'all'
+                };
+
+                // Mark consent source as banner and store choice, but do NOT schedule newsletter
+                localStorage.setItem('vdCookieConsentSource', 'banner');
+                storeConsentChoice(choice, preferences);
+                // Important: do not schedule newsletter from banner clicks — banner-only consent should not trigger marketing popups
+                // Newsletter will be scheduled only if consentSource === 'preferences-page' in scheduleNewsletterAfterConsent()
+
+            });
+        });
+
+        const hasConsent = localStorage.getItem('vdCookieConsent');
+        const consentSource = localStorage.getItem('vdCookieConsentSource');
+
+        // Keep the banner visible until the user explicitly saves preferences on the preferences page.
+        // Only hide the banner automatically when consent was provided via the preferences page.
+        if (!hasConsent || consentSource !== 'preferences-page') {
+            consentBanner.classList.remove('hidden');
+            consentBanner.setAttribute('aria-hidden', 'false');
+        } else {
+            hideConsentBanner();
+        }
+    }
 
 
     // ============================================
@@ -1043,9 +1215,10 @@ if (document.readyState === 'loading') {
                 'emailPopupShown'
             );
 
-        if (!popupShown) {
+        const consentDecision =
+            localStorage.getItem('vdCookieConsent');
 
-            // Show after 5–8 seconds
+        if (!popupShown && consentDecision) {
             const delay =
                 5000 +
                 Math.floor(
@@ -1070,11 +1243,15 @@ if (document.readyState === 'loading') {
 
         document.addEventListener(
             'DOMContentLoaded',
-            initializeEmailSubscription
+            function() {
+                initializeConsentBanner();
+                initializeEmailSubscription();
+            }
         );
 
     } else {
 
+        initializeConsentBanner();
         initializeEmailSubscription();
 
     }

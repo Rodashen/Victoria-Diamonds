@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://crm.zoho.eu; frame-src https://crm.zoho.eu; object-src 'none'; base-uri 'self'; form-action 'self' https://crm.zoho.eu; upgrade-insecure-requests">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="permissions-policy" content="geolocation=(), microphone=(), camera=()">
     <title data-i18n="page-title">Victoria Diamonds — Fine Jewelry</title>
 
     <!-- Google Fonts -->
@@ -11,6 +15,90 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="victoria-diamonds.css">
+    <style>
+        .cookie-consent-banner {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1200;
+            background: rgba(28, 28, 28, 0.96);
+            color: #f6f1ea;
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .cookie-consent-banner.hidden {
+            display: none;
+        }
+        .cookie-consent-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+        .cookie-consent-copy {
+            flex: 1;
+        }
+        .cookie-consent-copy h3 {
+            margin: 0 0 0.35rem;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .cookie-consent-copy p {
+            margin: 0;
+            color: rgba(246, 241, 234, 0.8);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+        .cookie-consent-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .cookie-consent-button,
+        .cookie-policy-link {
+            border-radius: 999px;
+            padding: 0.72rem 1.15rem;
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .cookie-consent-button.primary {
+            background: #f5d7a3;
+            color: #1c1c1c;
+            border-color: #f5d7a3;
+        }
+        .cookie-consent-button.secondary {
+            background: transparent;
+            color: #f6f1ea;
+        }
+        .cookie-policy-link {
+            background: transparent;
+            color: #f6f1ea;
+        }
+        .cookie-consent-button:hover,
+        .cookie-policy-link:hover {
+            opacity: 0.9;
+        }
+        @media (max-width: 760px) {
+            .cookie-consent-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .cookie-consent-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+    </style>
     <script src="translations.js"></script>
     <script src="victoria-diamonds.js"></script>
 </head>
@@ -124,6 +212,10 @@
                 <img src="images/Silverhero1.png" alt="Silver Collection">
                 <span class="collections-mobile-card-copy"><strong data-i18n="collection-silver-casual">Silver Collection</strong><small>16 <span data-i18n="collection-pieces">pieces</span></small></span>
             </a>
+        <a href="single-lady.html" class="collections-mobile-card">
+            <img src="images/three-stone-round-classic-ring.png" alt="Single Lady collection">
+            <span class="collections-mobile-card-copy"><strong>Single Lady</strong><small>19 <span>pieces</span></small></span>
+        </a>
         </div>
         <a href="view-catalogue.html" class="collections-mobile-all" data-i18n="collections-view-all">View All Collections</a>
     </section>
@@ -154,6 +246,10 @@
                 <a href="silver-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
                     <div class="collection-image"><img src="images/Silverhero1.png" alt="Silver Collection"></div>
                     <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-silver-casual">Silver Collection</h3><p class="collection-count">16 <span data-i18n="collection-pieces">pieces</span></p></div>
+                </a>
+                <a href="single-lady.html" class="collection-item" style="text-decoration:none;color:inherit;">
+                    <div class="collection-image"><img src="images/three-stone-round-classic-ring.png" alt="Single Lady collection"></div>
+                    <div class="collection-overlay"><h3 class="collection-name">Single Lady</h3><p class="collection-count">19 <span>pieces</span></p></div>
                 </a>
             </div>
         </div>
@@ -339,6 +435,16 @@
                     <div class="collection-overlay">
                         <h3 class="collection-name" data-i18n="collection-silver-casual">Silver Collection</h3>
                         <p class="collection-count">16 <span data-i18n="collection-pieces">pieces</span></p>
+                    </div>
+                </a>
+                <a href="single-lady.html" class="collection-item" style="text-decoration:none;color:inherit;">
+                    <div class="collection-image">
+                        <img src="images/three-stone-round-classic-ring.png" 
+                             alt="Single Lady collection">
+                    </div>
+                    <div class="collection-overlay">
+                        <h3 class="collection-name">Single Lady</h3>
+                        <p class="collection-count">19 <span>pieces</span></p>
                     </div>
                 </a>
             </div>
@@ -878,6 +984,7 @@
                         <li><a href="daily-sparkle.html" data-i18n="collection-daily-sparkle">Daily Sparkle</a></li>
                         <li><a href="occasional-wear.html" data-i18n="collection-occasional-wear">Occasional Wear</a></li>
                         <li><a href="forever-bond.html" data-i18n="collection-forever-bond">Forever Bond</a></li>
+                        <li><a href="single-lady.html">Single Lady</a></li>
                     </ul>
                 </div>
                 
@@ -890,6 +997,8 @@
                         <li><a href="#contact" data-i18n="footer-visit-us">Visit Us</a></li>
                         <li><a href="#" data-i18n="footer-custom-design">Custom Design</a></li>
                         <li><a href="T&C.pdf" target="_blank" rel="noopener" data-i18n="footer-terms-conditions">Terms &amp; Conditions</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
                     </ul>
                 </div>
                 
@@ -926,6 +1035,22 @@
             </div>
         </div>
     </footer>
+
+   <div class="cookie-consent-banner hidden" id="cookieConsentBanner" aria-live="polite" aria-hidden="true">
+       <div class="cookie-consent-inner">
+           <div class="cookie-consent-copy">
+               <h3 data-consent-title>We use cookies to improve your experience</h3>
+               <p data-consent-description>We use essential cookies to keep the site secure and functional, and optional cookies to support better browsing and service improvements.</p>
+           </div>
+           <div class="cookie-consent-actions">
+               <button type="button" class="cookie-consent-button primary" id="cookieConsentAccept" data-consent-choice="all" data-consent-accept>Accept all cookies</button>
+               <button type="button" class="cookie-consent-button secondary" id="cookieConsentEssential" data-consent-choice="essential" data-consent-essential>Only essential cookies</button>
+               <a href="cookie-policy.html" class="cookie-policy-link" data-consent-policy>Cookie policy</a>
+               <a href="privacy-policy.html" class="cookie-policy-link" data-consent-privacy>Privacy policy</a>
+           </div>
+       </div>
+   </div>
+
    <!-- Email Subscription Popup -->
 <div class="modal-overlay" id="emailSubscriptionModal">
     <div class="modal-popup" id="emailSubscriptionPopup">
