@@ -472,7 +472,7 @@
 
         window.__newsletterPopupTimer = setTimeout(function() {
             showEmailSubscriptionPopup();
-        }, 1800);
+        }, 1200);
     }
 
     function storeConsentChoice(choice, preferences) {
@@ -1194,9 +1194,9 @@ if (document.readyState === 'loading') {
 
         if (!popupShown) {
             const delay =
-                5000 +
+                800 +
                 Math.floor(
-                    Math.random() * 3000
+                    Math.random() * 1000
                 );
 
             window.__newsletterPopupTimer = setTimeout(function() {
