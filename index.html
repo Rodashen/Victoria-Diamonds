@@ -42,6 +42,18 @@
         .cookie-consent-copy {
             flex: 1;
         }
+        .cookie-consent-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .cookie-consent-button,
+        .cookie-policy-link {
+            flex: 0 0 auto;
+            min-width: 0;
+        }
         .cookie-consent-copy h3 {
             margin: 0 0 0.35rem;
             font-size: 1rem;
@@ -91,11 +103,17 @@
         @media (max-width: 760px) {
             .cookie-consent-inner {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
             }
             .cookie-consent-actions {
                 width: 100%;
-                justify-content: flex-start;
+                justify-content: stretch;
+                flex-direction: column;
+            }
+            .cookie-consent-button,
+            .cookie-policy-link {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>

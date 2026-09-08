@@ -462,14 +462,6 @@
     }
 
     function scheduleNewsletterAfterConsent() {
-        const consentChoice = localStorage.getItem('vdCookieConsent');
-        const consentSource = localStorage.getItem('vdCookieConsentSource');
-
-        // Only schedule the newsletter if consent was explicitly saved from the preferences page
-        if (!consentChoice || consentSource !== 'preferences-page') {
-            return;
-        }
-
         if (window.__newsletterPopupTimer) {
             clearTimeout(window.__newsletterPopupTimer);
         }
@@ -486,14 +478,9 @@
             localStorage.setItem('vdCookiePreferences', JSON.stringify(preferences));
         }
 
-        // Only hide the banner automatically when consent was saved from the preferences page
-        const consentSource = localStorage.getItem('vdCookieConsentSource');
-        if (consentSource === 'preferences-page') {
-            hideConsentBanner();
-        }
-
+        localStorage.setItem('vdCookieConsentSource', 'banner');
+        hideConsentBanner();
         updateConsentBannerCopy();
-        scheduleNewsletterAfterConsent();
     }
 
     function initializeConsentBanner() {
@@ -503,6 +490,14 @@
 
         if (!consentBanner) {
             return;
+        }
+
+        const consentSource = localStorage.getItem('vdCookieConsentSource');
+        if (consentSource === 'preferences-page') {
+            hideConsentBanner();
+        } else {
+            consentBanner.classList.remove('hidden');
+            consentBanner.setAttribute('aria-hidden', 'false');
         }
 
         updateConsentBannerCopy();
@@ -521,28 +516,11 @@
                     marketing: choice === 'all'
                 };
 
-                // Mark consent source as banner and store choice, but do NOT schedule newsletter
                 localStorage.setItem('vdCookieConsentSource', 'banner');
                 storeConsentChoice(choice, preferences);
-                // Important: do not schedule newsletter from banner clicks — banner-only consent should not trigger marketing popups
-                // Newsletter will be scheduled only if consentSource === 'preferences-page' in scheduleNewsletterAfterConsent()
-
             });
         });
-
-        const hasConsent = localStorage.getItem('vdCookieConsent');
-        const consentSource = localStorage.getItem('vdCookieConsentSource');
-
-        // Keep the banner visible until the user explicitly saves preferences on the preferences page.
-        // Only hide the banner automatically when consent was provided via the preferences page.
-        if (!hasConsent || consentSource !== 'preferences-page') {
-            consentBanner.classList.remove('hidden');
-            consentBanner.setAttribute('aria-hidden', 'false');
-        } else {
-            hideConsentBanner();
-        }
     }
-
 
     // ============================================
     // Email Subscription Modal
@@ -1196,7 +1174,7 @@ if (document.readyState === 'loading') {
 
         document.body.style.overflow = '';
 
-        if (emailSubscriptionForm) {
+        if (emailSubscriptionForm && typeof emailSubscriptionForm.reset === 'function') {
             emailSubscriptionForm.reset();
         }
 
@@ -1215,10 +1193,7 @@ if (document.readyState === 'loading') {
                 'emailPopupShown'
             );
 
-        const consentDecision =
-            localStorage.getItem('vdCookieConsent');
-
-        if (!popupShown && consentDecision) {
+        if (!popupShown) {
             const delay =
                 5000 +
                 Math.floor(
