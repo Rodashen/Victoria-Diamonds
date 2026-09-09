@@ -1143,14 +1143,16 @@ var detailToggle = e.target.closest('.modal-details-toggle');
                     el.textContent = getProductName(englishName);
                 });
                 refreshMeta();
-                document.documentElement.lang = lang === 'zh-HK' ? 'zh-Hant-HK' : 'en';
+                document.documentElement.lang = lang === 'zh-HK' ? 'zh-HK' : 'en';
+                document.documentElement.setAttribute('lang', lang === 'zh-HK' ? 'zh-HK' : 'en');
                 var selector = document.getElementById('langSelect');
                 if (selector) { selector.value = lang; }
             }
 
             var langFromUrl = new URLSearchParams(window.location.search).get('lang');
-            var initialLang = langFromUrl && translations[langFromUrl] ? langFromUrl : (localStorage.getItem('vd-lang') || 'en');
+            var initialLang = langFromUrl && translations[langFromUrl] ? langFromUrl : (localStorage.getItem('victoriaLanguage') || localStorage.getItem('vd-lang') || 'en');
             if (langFromUrl && translations[langFromUrl]) {
+                localStorage.setItem('victoriaLanguage', initialLang);
                 localStorage.setItem('vd-lang', initialLang);
             }
             applyCatalogueTranslations(initialLang);
@@ -1159,6 +1161,7 @@ var detailToggle = e.target.closest('.modal-details-toggle');
             if (selector) {
                 selector.addEventListener('change', function() {
                     var lang = this.value;
+                    localStorage.setItem('victoriaLanguage', lang);
                     localStorage.setItem('vd-lang', lang);
                     applyCatalogueTranslations(lang);
                 });

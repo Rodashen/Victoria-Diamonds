@@ -339,7 +339,9 @@
 
     // ---------- Language / Translation ----------
     function getStoredLanguage() {
-        const savedLanguage = localStorage.getItem('victoriaLanguage');
+        const savedLanguage =
+            localStorage.getItem('victoriaLanguage') ||
+            localStorage.getItem('vd-lang');
 
         if (savedLanguage === 'en' || savedLanguage === 'zh-HK') {
             return savedLanguage;
@@ -355,6 +357,7 @@
         document.documentElement.setAttribute('lang', selectedLanguage);
         document.documentElement.lang = selectedLanguage;
         localStorage.setItem('victoriaLanguage', selectedLanguage);
+        localStorage.setItem('vd-lang', selectedLanguage);
 
         if (typeof updateConsentBannerCopy === 'function') {
             updateConsentBannerCopy();
