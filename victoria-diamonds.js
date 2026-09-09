@@ -341,11 +341,67 @@
     function getStoredLanguage() {
         const savedLanguage = localStorage.getItem('victoriaLanguage');
 
-        if (savedLanguage) {
+        if (savedLanguage === 'en' || savedLanguage === 'zh-HK') {
             return savedLanguage;
         }
 
-        return document.documentElement.getAttribute('lang') || 'en';
+        return document.documentElement.getAttribute('lang') === 'zh-HK' ? 'zh-HK' : 'en';
+    }
+
+    function applyTranslations(language) {
+        const selectedLanguage = language === 'zh-HK' ? 'zh-HK' : 'en';
+        const translationSet = typeof translations !== 'undefined' ? translations[selectedLanguage] : null;
+
+        document.documentElement.setAttribute('lang', selectedLanguage);
+        document.documentElement.lang = selectedLanguage;
+        localStorage.setItem('victoriaLanguage', selectedLanguage);
+
+        if (typeof updateConsentBannerCopy === 'function') {
+            updateConsentBannerCopy();
+        }
+
+        const titleElement = document.querySelector('title[data-i18n]');
+        if (titleElement) {
+            const titleKey = titleElement.getAttribute('data-i18n');
+            const titleText = translationSet && translationSet[titleKey];
+
+            if (titleText) {
+                titleElement.textContent = titleText;
+            } else {
+                titleElement.textContent = titleElement.dataset.originalText || titleElement.textContent;
+            }
+        }
+
+        document.querySelectorAll('[data-i18n]').forEach(function(element) {
+            const key = element.getAttribute('data-i18n');
+            if (!key) {
+                return;
+            }
+
+            if (!element.dataset.originalHtml) {
+                element.dataset.originalHtml = element.innerHTML;
+            }
+            if (!element.dataset.originalText) {
+                element.dataset.originalText = element.textContent;
+            }
+
+            const translatedText = translationSet && translationSet[key];
+
+            if (selectedLanguage === 'zh-HK' && translatedText) {
+                element.innerHTML = translatedText;
+            } else {
+                element.innerHTML = element.dataset.originalHtml;
+            }
+        });
+
+        const languageButtons = document.querySelectorAll('[data-language]');
+        languageButtons.forEach(function(btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-language') === selectedLanguage);
+        });
+
+        document.querySelectorAll('#langSelect, #langSelectMobile').forEach(function(select) {
+            select.value = selectedLanguage;
+        });
     }
 
     function applyLanguageSelection(language) {
@@ -353,28 +409,11 @@
             return;
         }
 
-        document.documentElement.setAttribute('lang', language);
-        localStorage.setItem('victoriaLanguage', language);
-
-        const languageButtons =
-            document.querySelectorAll('[data-language]');
-
-        languageButtons.forEach(function(btn) {
-            btn.classList.toggle('active', btn.getAttribute('data-language') === language);
-        });
-
-        const selects =
-            document.querySelectorAll('#langSelect, #langSelectMobile');
-
-        selects.forEach(function(select) {
-            select.value = language;
-        });
+        applyTranslations(language);
     }
 
     function initializeLanguage() {
-        const languageButtons =
-            document.querySelectorAll('[data-language]');
-
+        const languageButtons = document.querySelectorAll('[data-language]');
         const preferredLanguage = getStoredLanguage();
 
         if (preferredLanguage) {
