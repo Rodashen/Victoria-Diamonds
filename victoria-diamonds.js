@@ -402,7 +402,10 @@
         });
     }
 
-    initializeLanguage();
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeLanguage();
+        initializeConsentBanner();
+    });
 
 
     // ---------- Consent Management ----------
