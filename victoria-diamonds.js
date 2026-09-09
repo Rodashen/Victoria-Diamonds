@@ -1012,7 +1012,8 @@ if (document.readyState === 'loading') {
         }
 
         const email = emailField.value.trim();
-        const lastName = lastNameField.value.trim();
+        const lastName = lastNameField.value.trim() || 'Newsletter Subscriber';
+        lastNameField.value = lastName;
 
         // Validate email
         if (
@@ -1029,7 +1030,7 @@ if (document.readyState === 'loading') {
         if (!lastName) {
             event.preventDefault();
 
-            lastNameField.focus();
+            lastNameField.value = 'Newsletter Subscriber';
             return;
         }
 
