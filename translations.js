@@ -57,7 +57,7 @@ const translations = {
 'collection-silver-collection': '銀飾系列',
         'collection-silver-casual': '日常銀飾系列',
         'collection-daily-sparkle': '日常閃耀',
-        'collection-occasional-wear': '場合穿搭',
+        'collection-occasional-wear': '高音符系列',
         'collection-forever-bond': '永恆之約',
         'collection-pieces': '件作品',
         'collection-rings': '款戒指',
@@ -214,11 +214,11 @@ const translations = {
         'daily-hero-title': '日常閃耀',
         'daily-hero-subtitle': '日常的簡約優雅 — 精緻作品為您的節奏增添一抹光彩。',
 
-        // ===== Occasional Wear Page =====
-        'occasional-title': '場合穿搭',
+        // ===== High Note Collection Page =====
+        'occasional-title': '高音符系列',
         'occasional-subtitle': '為人生特別時刻打造的矚目設計 — 慶典、晚宴和里程碑。',
         'occasional-count': '22 件作品',
-        'occasional-hero-title': '場合穿搭',
+        'occasional-hero-title': '高音符系列',
         'occasional-hero-subtitle': '為人生特別時刻打造的矚目設計 — 慶典、晚宴和里程碑。',
 
         // ===== Forever Bond Page =====
@@ -280,7 +280,7 @@ const translations = {
         // ===== Page Titles =====
         'page-title': '維多利亞鑽石 — 高級珠寶',
         'page-title-daily': '日常閃耀 — 維多利亞鑽石',
-        'page-title-occasional': '場合穿搭 — 維多利亞鑽石',
+        'page-title-occasional': '高音符系列 — 維多利亞鑽石',
         'page-title-forever': '永恆之約 — 維多利亞鑽石',
         'page-title-catalogue': '系列 — 維多利亞鑽石',
 
