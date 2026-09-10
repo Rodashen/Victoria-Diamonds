@@ -345,8 +345,7 @@ const translations = {
         'product-Round Illusion Stud': '圓形幻象耳釘',
         'product-Fiora Earrings': '芙洛拉耳環',
         // Bracelets
-        'product-Lumina Wedding Tennis': '光韻婚禮手鏈',
-        'product-Arabella': '阿拉貝拉手鏈',
+        // removed Lumina and Arabella (moved/rolled back)
         // Brooches
         'product-Celestia Broche': '天界胸針',
         'product-Éternelle Broche': '永恆胸針',

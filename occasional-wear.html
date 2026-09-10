@@ -710,12 +710,79 @@
             return '£' + Number(price).toLocaleString('en-GB');
         }
 
+        function parseCurrencyValue(val) {
+            if (!val) return null;
+            var m = String(val).match(/([0-9,.]+)/);
+            if (!m) return null;
+            return Number(m[1].replace(/,/g, ''));
+        }
+
+        function computeTennisPrice(details) {
+            // details: array of {key,value}
+            var result = {metalPrice: null, diamondPrice: null, diamondOptions: null, totalPrice: null};
+            details.forEach(function(d) {
+                if (d.key === 'metalPrice') result.metalPrice = parseCurrencyValue(d.value);
+                if (d.key === 'diamondPrice') result.diamondPrice = parseCurrencyValue(d.value);
+                if (d.key === 'totalPrice') result.totalPrice = parseCurrencyValue(d.value);
+                if (d.key === 'diamondPriceOptions') result.diamondOptions = d.value; // e.g. '0.25:2200,0.5:2400'
+            });
+
+            if (result.totalPrice) return result;
+            if (result.metalPrice != null && result.diamondPrice != null) {
+                result.totalPrice = result.metalPrice + result.diamondPrice;
+                return result;
+            }
+            if (result.metalPrice != null && result.diamondOptions) {
+                var opts = String(result.diamondOptions).split(',');
+                var nums = opts.map(function(o) {
+                    var parts = o.split(':');
+                    return parseCurrencyValue(parts[1]);
+                }).filter(Boolean);
+                if (nums.length) {
+                    var lowest = Math.min.apply(null, nums);
+                    result.diamondPrice = lowest;
+                    result.totalPrice = result.metalPrice + lowest;
+                    return result;
+                }
+            }
+            return result;
+        }
+
+        function formatDiamondOptionLabel(size) {
+            var rawSize = Number(size);
+            if (!isFinite(rawSize)) {
+                return String(size).trim() + ' ct each';
+            }
+            if (rawSize === 1) {
+                return '1.00 ct each';
+            }
+            return rawSize.toFixed(2).replace(/\.00$/, '').replace(/(\.\d)0$/, '$1') + ' ct each';
+        }
+
+        function buildDiamondOptionBlock(diamondOptions, metalPrice) {
+            if (!diamondOptions) return '';
+            var html = '<div style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid rgba(0,0,0,0.06);">';
+            var optionParts = String(diamondOptions).split(',').filter(Boolean);
+            optionParts.forEach(function(option) {
+                var pair = option.split(':');
+                if (pair.length < 2) return;
+                var size = pair[0].trim();
+                var amount = parseCurrencyValue(pair[1]);
+                if (amount == null) return;
+                html += '<div style="margin-bottom:0.35rem;"><strong>' + formatDiamondOptionLabel(size) + '</strong> = ' + formatPrice(amount) + ' diamond price</div>';
+            });
+            if (metalPrice != null) {
+                html += '<div style="margin-top:0.5rem;"><strong>Metal price</strong>: ' + formatPrice(metalPrice) + '</div>';
+            }
+            html += '</div>';
+            return html;
+        }
+
         function getMetaHTML(item, category) {
             var metal = item.metal || '18K Gold';
             var price = item.price;
             var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
 
-            // Price on Request pieces: show only the price.
             if (price === 'request') {
                 html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
                 html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
@@ -723,7 +790,6 @@
             }
 
             if (category === 'Ring') {
-                // Rings: Centre Stone only.
                 if (item.details && item.details.length) {
                     item.details.forEach(function(d) {
                         if (d.key === 'centreStone') {
@@ -732,7 +798,6 @@
                     });
                 }
             } else {
-                // Other jewellery: Total Carat Weight only.
                 if (item.details && item.details.length) {
                     item.details.forEach(function(d) {
                         if (d.key === 'totalKarat') {
@@ -753,15 +818,27 @@
             var price = item.price;
             var html = '<span class="meta-metal">' + getMetalDisplay(metal) + '</span>';
 
-            // Price on Request pieces: show only the price.
-            if (price === 'request') {
+            if (price === 'request' && item.details && item.details.length) {
+                var comp = computeTennisPrice(item.details);
                 html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
                 html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
+                if (comp && comp.diamondOptions) {
+                    html += '<button type="button" class="modal-details-toggle" role="button" aria-expanded="false" tabindex="0">Click to see full price list info</button>';
+                    var extra = '<div class="modal-details-extra" style="display:none;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid rgba(0,0,0,0.06);">';
+                    if (item.details) {
+                        item.details.forEach(function(d) {
+                            if (d.key === 'totalKarat') extra += '<div><strong>Total carat</strong>: ' + d.value + '</div>';
+                            if (d.key === 'info') extra += '<div style="margin-top:0.5rem;color:#555">' + d.value + '</div>';
+                        });
+                    }
+                    extra += buildDiamondOptionBlock(comp.diamondOptions, comp.metalPrice);
+                    extra += '</div>';
+                    html += extra;
+                }
                 return html;
             }
 
             if (category === 'Ring') {
-                // Rings: Centre Stone only.
                 if (item.details && item.details.length) {
                     item.details.forEach(function(d) {
                         if (d.key === 'centreStone') {
@@ -770,7 +847,6 @@
                     });
                 }
             } else {
-                // Other jewellery: Total Carat Weight only.
                 if (item.details && item.details.length) {
                     item.details.forEach(function(d) {
                         if (d.key === 'totalKarat') {
@@ -902,7 +978,8 @@
                     extra.classList.toggle('is-expanded', !isExpanded);
                 }
                 detailToggle.setAttribute('aria-expanded', String(!isExpanded));
-                detailToggle.textContent = isExpanded ? 'View full details' : 'Hide full details';
+                var nextLabel = detailToggle.textContent.indexOf('Click to see full price list info') !== -1 ? (isExpanded ? 'Click to see full price list info' : 'Hide full price list info') : (isExpanded ? 'View full details' : 'Hide full details');
+                detailToggle.textContent = nextLabel;
                 return;
             }
             var card = e.target.closest('.product-card');
@@ -983,12 +1060,12 @@
 
         // Occasional Wear - Bracelets
         renderProducts('occasionalWear', [
-            {name:'Lumina Wedding Tennis', image:'49.png', price:'request'},
-                    {name:'Arabella', image:'53.png', price:'request'},
-                    {name:'Classic Round Tennis Bracelet (Gold)', image:'classic-round-tennis-bracelet-gold.png', price:'request', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
-                    {name:'Emerald-Cut Tennis Bracelet', image:'emerald-cut-tennis-bracelet.png', price:'request', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
-                    {name:'Marquise and Round Tennis Bracelet', image:'marquise-oval-alternating-tennis-bracelet.png', price:'request', details:[{key:'totalKarat', value:'12 ct'},{key:'diamondPrice', value:'3000 GBP'},{key:'metalPrice', value:'2520 GBP'},{key:'totalPrice', value:'5520 GBP'},{key:'info', value:'Large marquise stones ~0.5 ct each ×20 — total carat 12 ct'}]},
-                    {name:'Pear-Cut Tennis Bracelet (Gold)', image:'pear-cut-tennis-bracelet-gold.png', price:'request', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]}
+                    {name:'Lumina Wedding Tennis', image:'49.png', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
+                    {name:'Arabella', image:'53.png', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
+                    {name:'Classic Round Tennis Bracelet (Gold)', image:'classic-round-tennis-bracelet-gold.png', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
+                    {name:'Emerald-Cut Tennis Bracelet', image:'emerald-cut-tennis-bracelet.png', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
+                    {name:'Marquise and Round Tennis Bracelet', image:'marquise-oval-alternating-tennis-bracelet.png', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Large marquise stones ~0.5 ct each ×20 — total carat 12 ct'}]},
+                    {name:'Pear-Cut Tennis Bracelet (Gold)', image:'pear-cut-tennis-bracelet-gold.png', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]}
                 ], 'Bracelet');
 
 // Occasional Wear - Brooches
