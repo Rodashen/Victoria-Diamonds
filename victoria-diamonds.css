@@ -571,10 +571,13 @@ html {
 }
 
 /* Language Selector - Mobile (in header, direct child of header-inner) */
-.site-header .header-inner > .lang-selector {
+.site-header .header-inner > .lang-selector-mobile {
   display: none;
   align-items: center;
   flex-shrink: 0;
+  position: absolute;
+  right: 60px;
+  z-index: 10;
 }
 
 /* Language Selector - Desktop (inside top-social-links) */
@@ -585,8 +588,8 @@ html {
   position: relative;
 }
 
-/* Language Selector - Mobile (in header, direct child of header-inner) */
-.site-header .header-inner > .lang-selector select {
+/* Language Selector - Mobile styles */
+.site-header .header-inner > .lang-selector-mobile select {
 	font-family: var(--font-body);
 	font-size: 0.65rem;
 	font-weight: 500;
@@ -606,12 +609,12 @@ html {
 	background-size: 0.7rem;
 }
 
-.site-header .header-inner > .lang-selector select:hover {
+.site-header .header-inner > .lang-selector-mobile select:hover {
 	border-color: var(--color-gold-light);
 	background-color: rgba(255, 251, 245, 1);
 }
 
-.site-header .header-inner > .lang-selector select:focus {
+.site-header .header-inner > .lang-selector-mobile select:focus {
 	outline: none;
 	border-color: var(--color-gold);
 	box-shadow: 0 0 0 2px rgba(184, 134, 11, 0.1);
@@ -3663,7 +3666,7 @@ animation: dotProgress 2s linear forwards;
 		display: flex;
 	}
 
-	.site-header .header-inner > .lang-selector {
+	.site-header .header-inner > .lang-selector-mobile {
 		display: flex;
 	}
 
@@ -3673,6 +3676,7 @@ animation: dotProgress 2s linear forwards;
 
 	.header-inner {
 		gap: 0;
+		position: relative;
 	}
 
 	.logo {
