@@ -574,7 +574,7 @@
             <div style="display:flex;align-items:center;gap:0.75rem;">
                 <div class="lang-selector" style="position:relative;">
                     <select id="langSelect" style="font-family:var(--font-body);font-size:0.7rem;font-weight:500;letter-spacing:0.05em;padding:0.35rem 1.4rem 0.35rem 0.5rem;border:1px solid rgba(28,28,28,0.15);border-radius:3px;background:rgba(255,251,245,0.85);color:var(--charcoal);cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1C1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 0.35rem center;background-size:0.7rem;">
-                        <option value="en">English</option>
+                        <option value="en">ENG</option>
                         <option value="zh-HK">繁體中文（香港）</option>
                     </select>
                 </div>
@@ -772,7 +772,7 @@
                 html += '<div style="margin-bottom:0.35rem;"><strong>' + formatDiamondOptionLabel(size) + '</strong> = ' + formatPrice(amount) + ' diamond price</div>';
             });
             if (metalPrice != null) {
-                html += '<div style="margin-top:0.5rem;"><strong>Metal price</strong>: ' + formatPrice(metalPrice) + '</div>';
+                html += '<div style="margin-top:0.5rem;"><strong>18k Gold Setting</strong>: ' + formatPrice(metalPrice) + '</div>';
             }
             html += '</div>';
             return html;
@@ -1097,10 +1097,10 @@
         renderProducts('occasionalWear', [
                     {name:'Lumina Wedding Tennis', image:'49.png', price:'request', metal:'18K Gold', showPriceDetails:false, details:[{key:'totalKarat', value:'12 ct'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
                     {name:'Arabella', image:'53.png', price:'request', metal:'18K Gold', showPriceDetails:false, details:[{key:'totalKarat', value:'12 ct'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
-                    {name:'Classic Round Tennis Bracelet (Gold)', image:'classic-round-tennis-bracelet-gold.png', price:'varies', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
-                    {name:'Emerald-Cut Tennis Bracelet', image:'emerald-cut-tennis-bracelet.png', price:'varies', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
+                    {name:'Classic Round Tennis Bracelet (Gold)', image:'classic-round-tennis-bracelet-gold.png', price:'varies', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'metalPrice', value:'2520'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
+                    {name:'Emerald-Cut Tennis Bracelet', image:'emerald-cut-tennis-bracelet.png', price:'varies', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'metalPrice', value:'2520'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
                     {name:'Marquise and Round Tennis Bracelet', image:'marquise-oval-alternating-tennis-bracelet.png', price:'request', metal:'18K Gold', showPriceDetails:false, details:[{key:'totalKarat', value:'12 ct'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Large marquise stones ~0.5 ct each ×20 — total carat 12 ct'}]},
-                    {name:'Pear-Cut Tennis Bracelet (Gold)', image:'pear-cut-tennis-bracelet-gold.png', price:'varies', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]}
+                    {name:'Pear-Cut Tennis Bracelet (Gold)', image:'pear-cut-tennis-bracelet-gold.png', price:'varies', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'metalPrice', value:'2520'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]}
                 ], 'Bracelet');
 
 // Occasional Wear - Brooches

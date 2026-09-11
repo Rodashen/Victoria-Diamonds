@@ -181,24 +181,91 @@
 
 
     // ---------- Hero Slideshow ----------
-    const heroSlides = document.querySelectorAll('.hero-slide');
+    document.addEventListener('DOMContentLoaded', function() {
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroArrowPrev = document.getElementById('heroArrowPrev');
+        const heroArrowNext = document.getElementById('heroArrowNext');
+        const slideDots = document.querySelectorAll('.slide-dot');
+        const slideCurrent = document.getElementById('slideCurrent');
+        const slideTotal = document.getElementById('slideTotal');
+        const heroTitle = document.getElementById('heroTitle');
 
-    if (heroSlides.length > 1) {
-        let currentHeroSlide = 0;
+        if (heroSlides.length > 1) {
+            let currentHeroSlide = 0;
+            let heroSlideInterval = null;
 
-        heroSlides.forEach(function(slide, index) {
-            slide.classList.toggle('active', index === 0);
-        });
+            function updateSlide(index) {
+                heroSlides.forEach(function(slide, i) {
+                    slide.classList.toggle('active', i === index);
+                });
 
-        setInterval(function() {
-            heroSlides[currentHeroSlide].classList.remove('active');
+                slideDots.forEach(function(dot, i) {
+                    dot.classList.toggle('active', i === index);
+                });
 
-            currentHeroSlide =
-                (currentHeroSlide + 1) % heroSlides.length;
+                if (slideCurrent) {
+                    slideCurrent.textContent = String(index + 1).padStart(2, '0');
+                }
 
-            heroSlides[currentHeroSlide].classList.add('active');
-        }, 6000);
-    }
+                if (heroTitle && heroSlides[index]) {
+                    const title = heroSlides[index].getAttribute('data-title');
+                    if (title) {
+                        heroTitle.textContent = title;
+                    }
+                }
+
+                currentHeroSlide = index;
+            }
+
+            function nextSlide() {
+                const next = (currentHeroSlide + 1) % heroSlides.length;
+                updateSlide(next);
+            }
+
+            function prevSlide() {
+                const prev = (currentHeroSlide - 1 + heroSlides.length) % heroSlides.length;
+                updateSlide(prev);
+            }
+
+            function resetInterval() {
+                if (heroSlideInterval) {
+                    clearInterval(heroSlideInterval);
+                }
+                heroSlideInterval = setInterval(nextSlide, 6000);
+            }
+
+            heroSlides.forEach(function(slide, index) {
+                slide.classList.toggle('active', index === 0);
+            });
+
+            if (slideTotal) {
+                slideTotal.textContent = String(heroSlides.length).padStart(2, '0');
+            }
+
+            if (heroArrowNext) {
+                heroArrowNext.addEventListener('click', function() {
+                    nextSlide();
+                    resetInterval();
+                });
+            }
+
+            if (heroArrowPrev) {
+                heroArrowPrev.addEventListener('click', function() {
+                    prevSlide();
+                    resetInterval();
+                });
+            }
+
+            slideDots.forEach(function(dot, index) {
+                dot.addEventListener('click', function() {
+                    updateSlide(index);
+                    resetInterval();
+                });
+            });
+
+            heroSlideInterval = setInterval(nextSlide, 6000);
+        }
+    });
 
 
     // ---------- Cursor Shine Effect ----------
