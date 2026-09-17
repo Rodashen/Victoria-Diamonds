@@ -1262,7 +1262,7 @@ var detailToggle = e.target.closest('.modal-details-toggle');
                     var details;
                     try { details = JSON.parse(card.getAttribute('data-details') || '[]'); } catch(e) { details = []; }
 
-                    var item = { metal: metal, currency: currency, fixedPrice: fixedPrice, details: details };
+                    var item = { metal: metal, currency: currency, fixedPrice: fixedPrice, details: details, name: englishName };
                     if (stone !== null && stone !== '') item.stone = stone;
                     if (tag) item.tag = tag;
                     if (price !== null && price !== '') item.price = price;
@@ -1275,6 +1275,9 @@ var detailToggle = e.target.closest('.modal-details-toggle');
                     document.getElementById('modalMeta').innerHTML = getModalMetaHTML(item, category);
                     document.getElementById('productModal').classList.add('active');
                     document.body.style.overflow = 'hidden';
+
+                    // Store product data for Buy Now button
+                    currentProductData = item;
                 }
             }
         });
@@ -1282,6 +1285,7 @@ var detailToggle = e.target.closest('.modal-details-toggle');
         function closeModal() {
             document.getElementById('productModal').classList.remove('active');
             document.body.style.overflow = '';
+            currentProductData = null;
         }
 
         document.getElementById('modalCloseX').addEventListener('click', closeModal);
