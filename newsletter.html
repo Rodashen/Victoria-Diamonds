@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://crm.zoho.eu; frame-src https://crm.zoho.eu; object-src 'none'; base-uri 'self'; form-action 'self' https://crm.zoho.eu; upgrade-insecure-requests">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="permissions-policy" content="geolocation=(), microphone=(), camera=()">
+    <title data-i18n="email-subscription-title">Join the Victoria Diamonds Community</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="victoria-diamonds.css">
+    <script src="translations.js"></script>
+    <script src="victoria-diamonds.js"></script>
+    
+    <style>
+        /* Page-specific styles for newsletter landing page */
+        .newsletter-page {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            background: var(--color-warm-white);
+        }
+        
+        .newsletter-page .email-subscription-content {
+            max-width: min(900px, calc(100vw - 40px));
+            width: 100%;
+            max-height: min(90vh, 95dvh);
+            overflow-y: auto;
+            overflow-x: hidden;
+            border-radius: 24px;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.15);
+            border: none;
+            animation: modalIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            transform-origin: center;
+        }
+        
+        @media (min-width: 768px) {
+            .newsletter-page .email-subscription-content {
+                padding: 4rem;
+                flex-direction: row;
+                align-items: stretch;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .newsletter-page .email-subscription-content {
+                padding: 3rem;
+            }
+        }
+        
+        .newsletter-page .email-subscription-image-column {
+            display: none;
+            overflow: hidden;
+            border-radius: 24px 0 0 24px;
+        }
+        
+        @media (min-width: 768px) {
+            .newsletter-page .email-subscription-image-column {
+                display: block;
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+            
+            .newsletter-page .email-subscription-image-column img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+        
+        .newsletter-page .email-subscription-text-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .newsletter-page .email-subscription-text-column {
+                padding-left: 3rem;
+            }
+        }
+        
+        .newsletter-page .email-subscription-content h2 {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 300;
+            color: var(--color-charcoal);
+            margin: 0 0 1rem 0;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        
+        .newsletter-page .email-subscription-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .newsletter-page .email-subscription-content > p {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            color: var(--color-charcoal-soft);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+        
+        /* Form styling - Override Zoho form styling */
+        .newsletter-page #emailSubscriptionForm {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .newsletter-page #emailSubscriptionForm .zcwf_row {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin: 0;
+            width: 100%;
+        }
+        
+        .newsletter-page #emailSubscriptionForm .zcwf_col_lab,
+        .newsletter-page #emailSubscriptionForm .zcwf_col_fld {
+            width: 100% !important;
+            float: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        
+        .newsletter-page #emailSubscriptionForm .zcwf_col_lab {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            margin-bottom: 0.5rem !important;
+        }
+        
+        .newsletter-page #emailSubscriptionForm .zcwf_col_lab span {
+            color: var(--color-gold);
+        }
+        
+        .newsletter-page #emailSubscriptionForm input[type="text"],
+        .newsletter-page #emailSubscriptionForm input[type="email"] {
+            width: 100% !important;
+            padding: 1rem 1.25rem !important;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-charcoal);
+            background: var(--color-ivory);
+            border: 1px solid var(--color-taupe-light) !important;
+            border-radius: 8px !important;
+            transition: all 0.3s ease !important;
+            box-sizing: border-box !important;
+        }
+        
+        .newsletter-page #emailSubscriptionForm input[type="text"]:focus,
+        .newsletter-page #emailSubscriptionForm input[type="email"]:focus {
+            outline: none;
+            border-color: var(--color-gold) !important;
+            box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.2) !important;
+        }
+        
+        .newsletter-page #emailSubscriptionForm input[type="text"]::placeholder,
+        .newsletter-page #emailSubscriptionForm input[type="email"]::placeholder {
+            color: var(--color-charcoal-soft);
+            opacity: 0.5;
+        }
+        
+        .newsletter-page #emailSubscriptionForm .zcwf_col_fld_slt,
+        .newsletter-page #emailSubscriptionForm .zcwf_col_fld textarea {
+            width: 100% !important;
+        }
+        
+        .newsletter-page #emailSubscriptionForm .zcwf_row:last-child {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .newsletter-page #emailSubscriptionForm .formsubmit {
+            width: 100%;
+            padding: 1.125rem 2rem !important;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-warm-white) !important;
+            background: var(--color-charcoal) !important;
+            border: 1px solid var(--color-charcoal) !important;
+            border-radius: 999px !important;
+            cursor: pointer;
+            transition: all 0.3s ease !important;
+            margin: 0 !important;
+        }
+        
+        .newsletter-page #emailSubscriptionForm .formsubmit:hover {
+            background: transparent !important;
+            color: var(--color-charcoal) !important;
+        }
+        
+        .newsletter-page #emailSubscriptionForm .zcwf_button[name="reset"] {
+            display: none;
+        }
+        
+        .newsletter-page #emailSubscriptionForm .zcwf_title {
+            display: none;
+        }
+        
+        .newsletter-page .email-subscription-form-state {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .newsletter-page .email-subscription-success,
+        .newsletter-page .email-subscription-error {
+            display: none;
+        }
+        
+        .newsletter-page .email-subscription-success.show,
+        .newsletter-page .email-subscription-error.show {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 3rem;
+        }
+        
+        .newsletter-page .email-subscription-success-final {
+            width: 100%;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 60px 55px;
+        }
+        
+        .newsletter-page .email-subscription-success-final .success-content {
+            width: 100%;
+            max-width: 390px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            text-align: left;
+        }
+        
+        .newsletter-page .email-subscription-success-final .success-eyebrow {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+            opacity: 0.6;
+        }
+        
+        .newsletter-page .email-subscription-success-final h2 {
+            margin: 0 0 22px 0 !important;
+            padding: 0 !important;
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: clamp(42px, 4vw, 58px) !important;
+            line-height: 0.95 !important;
+            font-weight: 400 !important;
+            letter-spacing: -0.02em !important;
+            color: #1c1c1c !important;
+        }
+        
+        .newsletter-page .email-subscription-success-final .success-main-text {
+            margin: 0 0 7px 0 !important;
+            padding: 0 !important;
+            font-family: 'DM Sans', sans-serif !important;
+            font-size: 16px !important;
+            line-height: 1.6 !important;
+            color: #1c1c1c !important;
+        }
+        
+        .newsletter-page .email-subscription-success-final .success-sub-text {
+            margin: 0 !important;
+            padding: 0 !important;
+            font-family: 'DM Sans', sans-serif !important;
+            font-size: 14px !important;
+            line-height: 1.6 !important;
+            color: #777 !important;
+        }
+        
+        .newsletter-page .success-instagram-link {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            margin-top: 38px !important;
+            padding-top: 20px !important;
+            border-top: 1px solid rgba(28, 28, 28, 0.14) !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            text-decoration: none !important;
+            font-family: 'DM Sans', sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.03em !important;
+            color: #1c1c1c !important;
+            transition: opacity 0.25s ease !important;
+        }
+        
+        .newsletter-page .success-instagram-link:hover {
+            opacity: 0.55 !important;
+        }
+        
+        .newsletter-page .success-instagram-icon {
+            width: 21px !important;
+            height: 21px !important;
+            flex: 0 0 21px !important;
+            fill: #1c1c1c !important;
+        }
+        
+        @media (max-width: 700px) {
+            .newsletter-page .email-subscription-success-final {
+                padding: 45px 32px;
+            }
+            
+            .newsletter-page .email-subscription-success-final h2 {
+                font-size: 44px !important;
+            }
+        }
+        
+        .newsletter-page .email-subscription-error {
+            color: var(--color-charcoal);
+        }
+        
+        .newsletter-page .email-subscription-error p {
+            margin: 0;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .newsletter-page .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--color-charcoal-soft);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .newsletter-page .back-link:hover {
+            color: var(--color-gold);
+        }
+        
+        .newsletter-page .back-link svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="newsletter-page">
+        <div class="email-subscription-content" role="dialog" aria-labelledby="newsletter-title" aria-modal="true">
+            <div class="email-subscription-image-column">
+                <img src="images/victoria-diamonds-01.png" alt="Victoria Diamonds Luxury Jewelry" class="email-subscription-logo">
+            </div>
+            <div class="email-subscription-text-column">
+                <span class="email-subscription-eyebrow" data-i18n="email-subscription-eyebrow">Victoria Diamonds</span>
+                <h2 id="newsletter-title" data-i18n="email-subscription-title">JOIN THE VICTORIA DIAMONDS COMMUNITY</h2>
+                <p data-i18n="email-subscription-description">Subscribe to receive exclusive access to new collections, bespoke jewellery stories, private events, and the latest from Victoria Diamonds.</p>
+                
+                <div class="email-subscription-form-state">
+                    <form id='emailSubscriptionForm' name='WebToLeads1021550000000671011' action='https://crm.zoho.eu/crm/WebToLeadForm' method='POST' accept-charset='UTF-8' target='zohoSubmitIframe' autocomplete='off'>
+                        <input type='text' style='display:none;' name='xnQsjsdp' value='aff24f4463444aea01a92e57bb228902a032ac4f986c23ea75673595911226f3'>
+                        </input>
+                        <input type='hidden' name='zc_gad' id='zc_gad' value=''>
+                        </input>
+                        <input type='text' style='display:none;' name='xmIwtLD' value='42d93c277456fae61eade224c04151c3e40fe8b46fa7caf006e24ab0ae83068b97fdcd3abb550b2ed3f53db04a06223e'>
+                        </input>
+                        <input type='text' style='display:none;' name='actionType' value='TGVhZHM='>
+                        </input>
+                        <input type='text' style='display:none;' name='returnURL' value='null'>
+                        </input>
+                        <!-- Do not remove this code. -->
+                        <style>
+                            html,body{
+                                margin: 0px;
+                            }
+                            .formsubmit.zcwf_button{
+                                color: white !important;
+                                background: transparent linear-gradient(0deg, #0279FF 0%, #00A3F3 100%);
+                            }
+                            #crmWebToEntityForm.zcwf_lblLeft{
+                                width: 100%;
+                                padding: 25px;
+                                margin: 0 auto;
+                                box-sizing: border-box;
+                            }
+                            #crmWebToEntityForm.zcwf_lblLeft *{
+                                box-sizing: border-box;
+                            }
+                            #crmWebToEntityForm{
+                                text-align: left;
+                            }
+                            #crmWebToEntityForm *{
+                                direction: ltr;
+                            }
+                            .zcwf_lblLeft .zcwf_title{
+                                word-wrap: break-word;
+                                padding: 0px 6px 10px;
+                                font-weight: bold }
+                            .zcwf_lblLeft.cpT_primaryBtn:hover{
+                                background: linear-gradient(#02acff 0,#006be4 100%)no-repeat padding-box !important;
+                                box-shadow: 0 -2px 0 0  #0159b9 inset !important;
+                                border: 0 !important;
+                                color:  #fff !important;
+                                outline: 0 !important;
+                            }
+                            .zcwf_lblLeft .zcwf_col_fld input[ type  = text], input[ type  = password], .zcwf_lblLeft .zcwf_col_fld textarea{
+                                width: 60%;
+                                border: 1px solid  #c0c6cc !important;
+                                resize: vertical;
+                                border-radius: 2px;
+                                float: left;
+                            }
+                            .zcwf_lblLeft .zcwf_col_lab{
+                                width: 30%;
+                                word-break: break-word;
+                                padding: 0px 6px 0px;
+                                margin-right: 10px;
+                                margin-top: 5px;
+                                float: left;
+                                min-height: 1px;
+                            }
+                            .zcwf_lblLeft .zcwf_col_fld{
+                                float: left;
+                                width: 68%;
+                                padding: 0px 6px 0px;
+                                position: relative;
+                                margin-top: 5px;
+                            }
+                            .zcwf_lblLeft .zcwf_privacy{
+                                padding: 6px;
+                            }
+                            .dIB{
+                                display: inline-block;
+                            }
+                            .zcwf_lblLeft .zcwf_col_fld_slt{
+                                width: 60%;
+                                border: 1px solid  #ccc;
+                                background:  #fff;
+                                border-radius: 4px;
+                                font-size: 12px;
+                                float: left;
+                                resize: vertical;
+                                padding: 2px 5px;
+                            }
+                            .zcwf_lblLeft .zcwf_col_help{
+                                float: left;
+                                margin-left: 7px;
+                                font-size: 12px;
+                                max-width: 35%;
+                                word-break: break-word;
+                            }
+                            .zcwf_lblLeft .zcwf_help_icon{
+                                cursor: pointer;
+                                width: 16px;
+                                height: 16px;
+                                display: inline-block;
+                            background:  #fff;
+                            border: 1px solid  #c0c6cc;
+                            color:  #c1c1c1;
+                            text-align: center;
+                            font-size: 11px;
+                            line-height: 16px;
+                            font-weight: bold;
+                            border-radius: 50%;
+                            }
+                            .zcwf_lblLeft .zcwf_row{
+                                margin: 15px 0px;
+                            }
+                            .zcwf_lblLeft .formsubmit{
+                                margin-right: 5px;
+                                cursor: pointer;
+                                color:  #313949;
+                                font-size: 12px;
+                            }
+                            .zcwf_lblLeft .zcwf_privacy_txt{
+                                width: 90%;
+                                color: rgb(0, 0, 0);
+                                font-size: 12px;
+                                font-family: Arial;
+                                display: inline-block;
+                                vertical-align: top;
+                                color:  #313949;
+                                padding-top: 2px;
+                                margin-left: 6px;
+                            }
+                            .zcwf_lblLeft .zcwf_button{
+                                font-size: 12px;
+                                color:  #313949;
+                                border: 1px solid  #c0c6cc;
+                                padding: 3px 9px;
+                                border-radius: 4px;
+                                cursor: pointer;
+                                max-width: 120px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                            .zcwf_lblLeft .zcwf_tooltip_over{
+                                position: relative;
+                            }
+                            .zcwf_lblLeft .zcwf_tooltip_ctn{
+                                position: absolute;
+                                background:  #dedede;
+                                padding: 3px 6px;
+                                top: 3px;
+                                border-radius: 4px;
+                                word-break: break-word;
+                                min-width: 100px;
+                                max-width: 150px;
+                                color:  #313949;
+                                z-index: 100;
+                            }
+                            .zcwf_lblLeft .zcwf_ckbox{
+                                float: left;
+                            }
+                            .zcwf_lblLeft .zcwf_file{
+                                width: 55%;
+                                box-sizing: border-box;
+                                float: left;
+                            }
+                            .cBoth:after{
+                                content: '';
+                                display: block;
+                                clear: both;
+                            }
+                            @media all and  (max-width: 600px){
+                                .zcwf_lblLeft .zcwf_col_lab, .zcwf_lblLeft .zcwf_col_fld{
+                                    width: auto;
+                                    float: none !important;
+                                }
+                                .zcwf_lblLeft .zcwf_col_help{
+                                    width: 40%;
+                                }
+                            }
+                        </style>
+                        <div class = 'zcwf_title' style = 'max-width: 600px;color: black; font-family:Arial;'>Discount</div>
+                        <div class = 'zcwf_row'>
+                            <div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
+                                <label for = 'Email'>Email
+                                    <span style = 'color:red;'>*</span>
+                                </label>
+                            </div>
+                            <div class = 'zcwf_col_fld'>
+                                <input type = 'text' ftype = 'email' autocomplete = 'false' id = 'Email' aria-required = 'true' aria-label = 'Email' name = 'Email' aria-valuemax = '100' crmlabel = '' maxlength = '100'>
+                                        </input>
+                                <div class = 'zcwf_col_help'>
+                                </div>
+                            </div>
+                        </div>
+                        <input type = 'hidden' id = 'Last_Name' name = 'Last Name' value = 'Newsletter Subscriber' aria-required = 'true' aria-label = 'Last Name'>
+                        <input type = 'text' type = 'hidden' style = 'display: none;' name = 'aG9uZXlwb3Q' value = ''/>
+                        <div class = 'zcwf_row'>
+                            <div class = 'zcwf_col_lab'>
+                            </div>
+                            <div class = 'zcwf_col_fld'>
+                                <input type = 'submit' id = 'formsubmit' role = 'button' class = 'formsubmit zcwf_button' value = 'Submit' aria-label = 'Submit' title = 'Submit'>
+                                        <input type = 'reset' class = 'zcwf_button' role = 'button' name = 'reset' value = 'Reset' aria-label = 'Reset' title = 'Reset'>
+                                        </div>
+                            </div>
+                        </div>
+                    </form>
+                    <iframe name="zohoSubmitIframe" id="zohoSubmitIframe" style="display:none;"></iframe>
+                    <div id="wf_splash" style="display:none;">
+                        <div id="wf_splash_info"></div>
+                    </div>
+                </div>
+                
+                <div class="email-subscription-success" data-i18n="email-subscription-success">
+                    Thank You for Subscribing!<br><br>
+                    Welcome to the Victoria Diamonds community. We're delighted to have you with us.<br><br>
+                    Follow us on Instagram: <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener">@victoriadiamondsco</a>
+                </div>
+                
+                <div class="email-subscription-error" data-i18n="email-subscription-error">
+                    Something went wrong. Please try again later.
+                </div>
+                
+                <a href="index.html" class="back-link" aria-label="Back to home">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                    <span data-i18n="nav-back">Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Initialize email subscription on page load for the newsletter page
+        (function() {
+            'use strict';
+            
+            let emailSubscriptionForm = null;
+            let emailSubscriptionIframe = null;
+            let emailSubscriptionSubmissionPending = false;
+            let emailSubscriptionSuccessTimer = null;
+            
+            function initElements() {
+                emailSubscriptionForm = document.getElementById('emailSubscriptionForm');
+                emailSubscriptionIframe = document.getElementById('zohoSubmitIframe');
+            }
+            
+            function resetStates() {
+                const formState = document.querySelector('.email-subscription-form-state');
+                const successState = document.querySelector('.email-subscription-success');
+                const errorState = document.querySelector('.email-subscription-error');
+                const heading = document.querySelector('.email-subscription-text-column h2');
+                const description = document.querySelector('.email-subscription-text-column > p');
+                const eyebrow = document.querySelector('.email-subscription-eyebrow');
+                
+                if (formState) {
+                    formState.style.display = 'flex';
+                    formState.hidden = false;
+                }
+                if (heading) heading.style.display = '';
+                if (description) description.style.display = '';
+                if (eyebrow) eyebrow.style.display = '';
+                
+                if (successState) {
+                    successState.classList.remove('show');
+                    successState.style.display = 'none';
+                }
+                if (errorState) {
+                    errorState.classList.remove('show');
+                    errorState.style.display = 'none';
+                }
+                
+                emailSubscriptionSubmissionPending = false;
+                if (emailSubscriptionSuccessTimer) {
+                    clearTimeout(emailSubscriptionSuccessTimer);
+                    emailSubscriptionSuccessTimer = null;
+                }
+            }
+            
+            function showSuccess() {
+                const textColumn = document.querySelector('.email-subscription-text-column');
+                if (!textColumn) return;
+                
+                textColumn.innerHTML = `
+                    <div class="email-subscription-success-final">
+                        <div class="success-content">
+                            <div class="success-eyebrow">VICTORIA DIAMONDS</div>
+                            <h2>Thank You for Subscribing!</h2>
+                            <p class="success-main-text">Welcome to the Victoria Diamonds community. We're delighted to have you with us.</p>
+                            <p class="success-sub-text">Follow us on Instagram to discover our latest creations, bespoke jewellery, and behind-the-scenes moments.</p>
+                            <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener" class="success-instagram-link" aria-label="Follow Victoria Diamonds on Instagram">
+                                <svg viewBox="0 0 24 24" aria-hidden="true" class="success-instagram-icon">
+                                    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0 3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Zm5.2-3.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2Z"/>
+                                </svg>
+                                <span>@victoriadiamondsco</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                emailSubscriptionSubmissionPending = false;
+            }
+            
+            function showError() {
+                const formState = document.querySelector('.email-subscription-form-state');
+                const successState = document.querySelector('.email-subscription-success');
+                const errorState = document.querySelector('.email-subscription-error');
+                
+                if (formState) {
+                    formState.style.display = 'none';
+                    formState.hidden = true;
+                }
+                if (successState) {
+                    successState.classList.remove('show');
+                    successState.style.display = 'none';
+                }
+                if (errorState) {
+                    errorState.classList.add('show');
+                    errorState.style.display = 'flex';
+                }
+                
+                emailSubscriptionSubmissionPending = false;
+            }
+            
+            function handleSubmit(event) {
+                if (!emailSubscriptionForm) return;
+                
+                const emailField = emailSubscriptionForm.querySelector('input[name="Email"]');
+                const lastNameField = emailSubscriptionForm.querySelector('input[name="Last Name"]');
+                
+                if (!emailField || !lastNameField) {
+                    event.preventDefault();
+                    console.error('[Newsletter Page] Required Zoho fields are missing.');
+                    showError();
+                    return;
+                }
+                
+                const email = emailField.value.trim();
+                const lastName = lastNameField.value.trim() || 'Newsletter Subscriber';
+                lastNameField.value = lastName;
+                
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    event.preventDefault();
+                    emailField.focus();
+                    return;
+                }
+                
+                if (!lastName) {
+                    event.preventDefault();
+                    lastNameField.value = 'Newsletter Subscriber';
+                    return;
+                }
+                
+                emailSubscriptionSubmissionPending = true;
+                console.log('[Newsletter Page] Submitting to Zoho CRM:', email);
+            }
+            
+            function handleIframeLoad() {
+                if (!emailSubscriptionSubmissionPending) return;
+                
+                if (emailSubscriptionSuccessTimer) {
+                    clearTimeout(emailSubscriptionSuccessTimer);
+                }
+                
+                emailSubscriptionSuccessTimer = setTimeout(function() {
+                    showSuccess();
+                }, 350);
+            }
+            
+            function initialize() {
+                initElements();
+                resetStates();
+                
+                if (emailSubscriptionForm) {
+                    emailSubscriptionForm.addEventListener('submit', handleSubmit);
+                }
+                
+                if (emailSubscriptionIframe) {
+                    emailSubscriptionIframe.addEventListener('load', handleIframeLoad);
+                }
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initialize);
+            } else {
+                initialize();
+            }
+        })();
+    </script>
+</body>
+</html>
