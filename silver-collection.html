@@ -1301,14 +1301,27 @@ var detailToggle = e.target.closest('.modal-details-toggle');
         var currentProductData = null;
 
         function openCheckoutModal(productData) {
+            console.log('[Checkout] Opening with product:', productData);
             currentProductData = productData;
-            document.getElementById('checkoutForm').style.display = 'block';
-            document.getElementById('checkoutSuccess').style.display = 'none';
-            document.getElementById('checkoutStatus').textContent = '';
-            document.getElementById('checkoutStatus').className = 'form-status';
+            var checkoutModal = document.getElementById('checkoutModal');
+            var checkoutForm = document.getElementById('checkoutForm');
+            var checkoutSuccess = document.getElementById('checkoutSuccess');
+            var checkoutStatus = document.getElementById('checkoutStatus');
+            
+            if (!checkoutModal || !checkoutForm || !checkoutSuccess || !checkoutStatus) {
+                console.error('[Checkout] Required DOM elements not found');
+                return;
+            }
+            
+            checkoutForm.style.display = 'block';
+            checkoutSuccess.style.display = 'none';
+            checkoutStatus.textContent = '';
+            checkoutStatus.className = 'form-status';
 
             var englishName = productData.name || '';
-            document.getElementById('checkoutProductName').textContent = getProductName(englishName);
+            var nameEl = document.getElementById('checkoutProductName');
+            var metaEl = document.getElementById('checkoutProductMeta');
+            if (nameEl) nameEl.textContent = getProductName(englishName);
 
             var metal = productData.metal || 'Sterling 925';
             var currency = productData.currency || 'GBP';
@@ -1316,20 +1329,31 @@ var detailToggle = e.target.closest('.modal-details-toggle');
             var fixedPrice = productData.fixedPrice;
             var details = productData.details || [];
             var item = { metal: metal, currency: currency, fixedPrice: fixedPrice, details: details, price: price };
-            document.getElementById('checkoutProductMeta').innerHTML = getModalMetaHTML(item, '');
+            if (metaEl) metaEl.innerHTML = getModalMetaHTML(item, '');
 
-            document.getElementById('checkoutFirstName').value = '';
-            document.getElementById('checkoutLastName').value = '';
-            document.getElementById('checkoutEmail').value = '';
-            document.querySelector('input[name="paymentType"][value="100"]').checked = true;
+            var firstNameEl = document.getElementById('checkoutFirstName');
+            var lastNameEl = document.getElementById('checkoutLastName');
+            var emailEl = document.getElementById('checkoutEmail');
+            if (firstNameEl) firstNameEl.value = '';
+            if (lastNameEl) lastNameEl.value = '';
+            if (emailEl) emailEl.value = '';
+            
+            var paymentRadio = document.querySelector('input[name="paymentType"][value="100"]');
+            if (paymentRadio) paymentRadio.checked = true;
+            
             updateCheckoutSummary();
 
-            document.getElementById('checkoutModal').classList.add('active');
+            checkoutModal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            console.log('[Checkout] Modal opened');
         }
 
         function closeCheckoutModal() {
-            document.getElementById('checkoutModal').classList.remove('active');
+            console.log('[Checkout] Closing');
+            var checkoutModal = document.getElementById('checkoutModal');
+            if (checkoutModal) {
+                checkoutModal.classList.remove('active');
+            }
             document.body.style.overflow = '';
             currentProductData = null;
         }
@@ -1362,9 +1386,13 @@ var detailToggle = e.target.closest('.modal-details-toggle');
         });
 
         document.getElementById('modalBuyNow').addEventListener('click', function() {
+            console.log('[BuyNow] Clicked, currentProductData:', currentProductData);
             if (currentProductData) {
+                var productData = currentProductData;
                 closeModal();
-                openCheckoutModal(currentProductData);
+                openCheckoutModal(productData);
+            } else {
+                console.warn('[BuyNow] No currentProductData');
             }
         });
 
