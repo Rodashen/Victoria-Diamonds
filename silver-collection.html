@@ -1465,7 +1465,7 @@ var detailToggle = e.target.closest('.modal-details-toggle');
                 var englishName = currentProductData.name || '';
                 var productId = productIdMap[englishName] || englishName.toLowerCase().replace(/\s+/g, '_');
 
-                var response = await fetch('https://victoria-diamonds-calculator.onrender.com/create-payment-link', {
+                var response = await fetch('https://calculator-oofl.onrender.com/create-payment-link', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
