@@ -947,20 +947,6 @@
                                     <span data-i18n="checkout-full-desc">Pay 100% now</span>
                                 </span>
                             </label>
-                            <label class="payment-option">
-                                <input type="radio" name="paymentType" value="50">
-                                <span class="payment-option-text">
-                                    <strong data-i18n="checkout-deposit-50">50% Deposit</strong>
-                                    <span data-i18n="checkout-deposit-desc">Pay 50% now, balance later</span>
-                                </span>
-                            </label>
-                            <label class="payment-option">
-                                <input type="radio" name="paymentType" value="30">
-                                <span class="payment-option-text">
-                                    <strong data-i18n="checkout-deposit-30">30% Deposit</strong>
-                                    <span data-i18n="checkout-deposit-desc">Minimum deposit, balance later</span>
-                                </span>
-                            </label>
                         </div>
                     </div>
                     <div class="checkout-summary" id="checkoutSummary"></div>
@@ -1361,9 +1347,6 @@ var detailToggle = e.target.closest('.modal-details-toggle');
         function updateCheckoutSummary() {
             if (!currentProductData) return;
             var price = Number(currentProductData.price) || 0;
-            var paymentType = document.querySelector('input[name="paymentType"]:checked');
-            var percentage = paymentType ? Number(paymentType.value) : 100;
-            var amount = Math.round(price * (percentage / 100) * 100) / 100;
             var currency = currentProductData.currency || 'GBP';
             var formatPrice = function(p) {
                 if (catalogueCurrentLang === 'zh-HK' && currency === 'GBP') {
@@ -1372,18 +1355,11 @@ var detailToggle = e.target.closest('.modal-details-toggle');
                 return (currency === 'USD' ? '$' : '£') + Number(p).toLocaleString(currency === 'USD' ? 'en-US' : 'en-GB');
             };
             var fullLabel = getLabel('checkout-full-payment', 'Full Payment');
-            var depositLabel = getLabel('checkout-deposit-50', '50% Deposit');
             var summaryEl = document.getElementById('checkoutSummary');
-            var paymentTypeLabel = percentage === 100 ? fullLabel : (percentage + '% Deposit');
             summaryEl.innerHTML = '<div class="summary-row"><span class="label">' + getLabel('checkout-order-total', 'Order Total') + ':</span><span class="value">' + formatPrice(price) + '</span></div>' +
-                '<div class="summary-row"><span class="label">' + paymentTypeLabel + ':</span><span class="value">' + formatPrice(amount) + '</span></div>' +
-                (percentage < 100 ? '<div class="summary-row"><span class="label">' + getLabel('checkout-balance', 'Balance Remaining') + ':</span><span class="value">' + formatPrice(price - amount) + '</span></div>' : '') +
-                '<div class="summary-row total"><span class="label">' + getLabel('checkout-amount-due', 'Amount Due Today') + ':</span><span class="value">' + formatPrice(amount) + '</span></div>';
+                '<div class="summary-row"><span class="label">' + fullLabel + ':</span><span class="value">' + formatPrice(price) + '</span></div>' +
+                '<div class="summary-row total"><span class="label">' + getLabel('checkout-amount-due', 'Amount Due Today') + ':</span><span class="value">' + formatPrice(price) + '</span></div>';
         }
-
-        document.querySelectorAll('input[name="paymentType"]').forEach(function(radio) {
-            radio.addEventListener('change', updateCheckoutSummary);
-        });
 
         document.getElementById('modalBuyNow').addEventListener('click', function() {
             console.log('[BuyNow] Clicked, currentProductData:', currentProductData);
@@ -1415,8 +1391,6 @@ var detailToggle = e.target.closest('.modal-details-toggle');
             var firstName = document.getElementById('checkoutFirstName').value.trim();
             var lastName = document.getElementById('checkoutLastName').value.trim();
             var email = document.getElementById('checkoutEmail').value.trim();
-            var paymentType = document.querySelector('input[name="paymentType"]:checked');
-            var percentage = paymentType ? Number(paymentType.value) : 100;
 
             var statusEl = document.getElementById('checkoutStatus');
             statusEl.textContent = '';
@@ -1474,7 +1448,7 @@ var detailToggle = e.target.closest('.modal-details-toggle');
                         metal: 'silver',
                         customerName: firstName + ' ' + lastName,
                         customerEmail: email,
-                        paymentPercentage: percentage
+                        paymentPercentage: 100
                     })
                 });
 
