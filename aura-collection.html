@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Victoria Diamonds: fine jewellery, our five collections, and private appointments at our London atelier.">
     <title>Aura Collection — Victoria Diamonds</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -678,12 +679,14 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="prism.css">
+    <script src="prism.js" defer></script>
 </head>
-<body>
+<body class="prism-site prism-single">
     <header class="catalogue-header">
         <div class="inner">
             <a href="index.html#collections" class="back-link" data-i18n="catalogue-back">← Back</a>
-            <span class="brand" data-i18n="brand-name">Victoria <span>Diamonds</span></span>
+            <span class="brand">Victoria <span>Diamonds</span><small class="prism-atelier">London Atelier</small></span>
             <div style="display:flex;align-items:center;gap:0.75rem;">
                 <div class="lang-selector" style="position:relative;">
                     <select id="langSelect" style="font-family:var(--font-body);font-size:0.7rem;font-weight:500;letter-spacing:0.05em;padding:0.35rem 1.4rem 0.35rem 0.5rem;border:1px solid rgba(28,28,28,0.15);border-radius:3px;background:rgba(255,251,245,0.85);color:var(--charcoal);cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1C1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 0.35rem center;background-size:0.7rem;">
@@ -721,18 +724,19 @@
         </a>
     </div>
 
-    <section class="catalogue-hero">
-        <h1>Aura Collection</h1>
-        <p>Selected pieces from the Aura Collection — new uploads, details & pricing available on request.</p>
+    <nav class="prism-collection-nav" aria-label="Collections"><a href="view-catalogue.html" data-i18n="collections-view-all">All Collections</a><a href="daily-sparkle.html" data-i18n="collection-daily-sparkle">Daily Sparkle</a><a href="high-note-collection.html" data-i18n="collection-occasional-wear">High Note</a><a href="forever-bond.html" data-i18n="collection-forever-bond">Forever Bond</a><a href="silver-collection.html" data-i18n="collection-silver-casual">Silver Collection</a><a href="aura-collection.html" data-i18n="prism-aura" aria-current="page">Aura Collection</a></nav>
+<section class="catalogue-hero">
+        <h1 data-i18n="prism-aura">Aura Collection</h1>
+        <p data-i18n="prism-aura-copy">Sculptural forms and luminous details. Discover the Aura Collection.</p>
     </section>
 
     <div class="catalogue-sort-wrapper">
         <div class="inner">
-            <span class="sort-label">Sort</span>
+            <span class="sort-label" data-i18n="sort-label">Sort</span>
             <select id="sortSelect" class="sort-select">
-                <option value="default">Default</option>
-                <option value="price-asc">Price: Low → High</option>
-                <option value="price-desc">Price: High → Low</option>
+                <option value="default" data-i18n="sort-default">Default</option>
+                <option value="price-asc" data-i18n="sort-asc">Price: Low → High</option>
+                <option value="price-desc" data-i18n="sort-desc">Price: High → Low</option>
             </select>
         </div>
     </div>
@@ -740,8 +744,8 @@
     <section class="collection-section">
         <div class="collection-head">
             <div>
-                <h2>Aura Collection</h2>
-                <p class="collection-sub">Selected pieces from our latest Aura Collection upload. Contact us for full details and bespoke requests.</p>
+                <h2 data-i18n="prism-aura">Aura Collection</h2>
+                <p class="collection-sub">Sculptural forms and luminous details. Explore the Aura Collection.</p>
             </div>
             <span class="count">19 pieces</span>
         </div>
@@ -897,11 +901,13 @@
             var grid = document.createElement('div');
             grid.className = 'product-grid';
             grid.setAttribute('data-category', category);
-            items.forEach(function(item) {
+            items.forEach(function(item, originalOrder) {
                 var name = item.name;
-                var imgSrc = 'images/' + item.image;
+                var imgSrc = 'images/optimized/' + item.image.replace(/\.[^.]+$/, '.webp');
                 var card = document.createElement('div');
                 card.className = 'product-card reveal';
+                card.tabIndex = 0; card.setAttribute('role', 'button'); card.setAttribute('aria-haspopup', 'dialog');
+                card.setAttribute('data-original-order', originalOrder);
                 card.setAttribute('data-price', item.price !== undefined ? item.price : '');
                 card.setAttribute('data-stone', item.stone !== undefined ? item.stone : '');
                 card.setAttribute('data-total', item.total !== undefined ? item.total : '');
@@ -913,7 +919,8 @@
                 if (item.details) card.setAttribute('data-details', JSON.stringify(item.details));
                 var metal = item.metal || '18K Gold';
                 var displayName = getProductName(name);
-                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name" data-product-name="' + name.replace(/"/g, '"') + '">' + displayName + '</p><p class="meta">' + getMetaHTML(item, category) + '</p></div>';
+                card.setAttribute('data-original-image', 'images/' + item.image);
+                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img loading="lazy" decoding="async" src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name" data-product-name="' + name.replace(/"/g, '"') + '">' + displayName + '</p><p class="meta">' + getMetaHTML(item, category) + '</p></div>';
                 grid.appendChild(card);
             });
             container.appendChild(grid);
@@ -953,11 +960,14 @@
             grids.forEach(function(grid) {
                 var cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card'));
                 cards.sort(function(a, b) {
-                    var pa = parseFloat(a.getAttribute('data-price')) || 0;
-                    var pb = parseFloat(b.getAttribute('data-price')) || 0;
-                    if (sortVal === 'price-asc') return pa - pb;
-                    if (sortVal === 'price-desc') return pb - pa;
-                    return 0;
+                    var original = Number(a.dataset.originalOrder) - Number(b.dataset.originalOrder);
+                    if (sortVal === 'default') return original;
+                    var pa = parseFloat(a.getAttribute('data-price'));
+                    var pb = parseFloat(b.getAttribute('data-price'));
+                    if (!Number.isFinite(pa) && !Number.isFinite(pb)) return original;
+                    if (!Number.isFinite(pa)) return 1;
+                    if (!Number.isFinite(pb)) return -1;
+                    return sortVal === 'price-asc' ? pa - pb : pb - pa;
                 });
                 cards.forEach(function(card) {
                     grid.appendChild(card);
@@ -1033,7 +1043,7 @@
                 var img = card.querySelector('.image-wrap img');
                 var nameEl = card.querySelector('.info .name');
                 if (img && nameEl) {
-                    document.getElementById('modalImg').src = img.src;
+                    document.getElementById('modalImg').src = card.getAttribute('data-original-image') || img.src;
                     var englishName = nameEl.getAttribute('data-product-name') || nameEl.textContent;
                     document.getElementById('modalName').textContent = getProductName(englishName);
 
@@ -1177,38 +1187,45 @@ renderProducts('singleLady', [
 <!-- Email Subscription Popup -->
 <div class="modal-overlay" id="emailSubscriptionModal">
     <div class="modal-popup" id="emailSubscriptionPopup">
-        <button class="modal-close-x" id="emailSubscriptionCloseX">×</button>
-        <div class="email-subscription-content">
-            <h2 data-i18n="email-subscription-title">JOIN THE VICTORIA DIAMONDS COMMUNITY</h2>
-            <p data-i18n="email-subscription-description">Subscribe to receive exclusive access to new collections, bespoke jewellery stories, private events, and the latest from Victoria Diamonds.</p>
-            <form id="emailSubscriptionForm" action="https://crm.zoho.eu/crm/WebToLeadForm" method="POST" autocomplete="off">
-                <!-- Complete Zoho Web-to-Lead form fields -->
-                <input type="hidden" name="lead_source" value="Website Subscriber">
-                <input type="hidden" name="Last Name" value="Subscriber">
-                <input type="hidden" name="Company" value="Website Subscriber">
-                <input type="hidden" name="retURL" value="">
-                <input type="hidden" name="Email" id="subscriptionEmailActual">
-                <div class="form-group">
-                    <label for="subscriptionEmail" data-i18n="email-subscription-label">Email Address</label>
-                    <input type="email" id="subscriptionEmail" name="EmailTemp" required placeholder="you@example.com">
+        <button class="modal-close-x" id="emailSubscriptionCloseX" aria-label="Close newsletter">×</button>
+        <div class="email-subscription-wrapper">
+            <div class="email-subscription-content">
+                <div class="email-subscription-image-column">
+                    <img loading="lazy" decoding="async" src="images/optimized/victoria-diamonds-01.webp" alt="Victoria Diamonds Luxury Jewelry" class="email-subscription-logo">
                 </div>
-                <button type="submit" class="btn-primary" data-i18n="email-subscription-submit">Subscribe</button>
-                <p class="form-status" id="emailSubscriptionStatus"></p>
-            </form>
-            <div class="email-subscription-success" data-i18n="email-subscription-success">
-                <h3>Thank You for Subscribing!</h3>
-                <p>Welcome to the Victoria Diamonds community. We're delighted to have you with us.</p>
-                <p>Follow us on Instagram to discover our latest creations, bespoke jewellery, and behind-the-scenes moments.</p>
-                <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener" class="email-subscription-instagram" aria-label="Follow Victoria Diamonds on Instagram">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Zm5.2-3.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1-1.2-1.2Z"/></svg>
-                    <span>@victoriadiamondsco</span>
-                </a>
-            </div>
-            <div class="email-subscription-error" data-i18n="email-subscription-error">
-                Something went wrong. Please try again later.
+                <div class="email-subscription-text-column">
+<img loading="lazy" decoding="async" class="prism-monogram" src="images/logo.png" alt="Victoria Diamonds" width="58" height="53">
+                    <h2 data-i18n="email-subscription-title">A private invitation.</h2>
+                    <p data-i18n="email-subscription-description">Discover new collections, atelier stories, and invitations from Victoria Diamonds.</p>
+                    <div class="email-subscription-form-state">
+                    <form id="emailSubscriptionForm" name="WebToLeads1021550000000671011" action="https://crm.zoho.eu/crm/WebToLeadForm" method="POST" accept-charset="UTF-8" target="zohoSubmitIframe">
+<input type="hidden" name="xnQsjsdp" value="aff24f4463444aea01a92e57bb228902a032ac4f986c23ea75673595911226f3">
+<input type="hidden" name="zc_gad" value="">
+<input type="hidden" name="xmIwtLD" value="42d93c277456fae61eade224c04151c3e40fe8b46fa7caf006e24ab0ae83068b97fdcd3abb550b2ed3f53db04a06223e">
+<input type="hidden" name="actionType" value="TGVhZHM=">
+<input type="hidden" name="returnURL" value="null">
+<input type="hidden" name="Last Name" value="Newsletter Subscriber">
+<input type="hidden" name="aG9uZXlwb3Q" value="">
+<label for="newsletterEmail" data-i18n="email-subscription-label">Email address</label>
+<input type="email" id="newsletterEmail" name="Email" required maxlength="100" autocomplete="email" placeholder="you@example.com">
+<button type="submit" class="prism-subscribe" data-i18n="email-subscription-submit">Join our newsletter</button>
+</form>
+                    <iframe name="zohoSubmitIframe" id="zohoSubmitIframe" style="display:none;"></iframe>
+                    <div id="wf_splash" style="display:none;">
+                        <div id="wf_splash_info"></div>
+                    </div>
+                    </div>
+                    <div class="email-subscription-success" data-i18n="email-subscription-success">
+                        Thank You for Subscribing!<br><br>
+                        Welcome to the Victoria Diamonds community. We're delighted to have you with us.<br><br>
+                        Follow us on Instagram: <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener">@victoriadiamondsco</a>
+                    </div>
+                    <div class="email-subscription-error" data-i18n="email-subscription-error">
+                        Something went wrong. Please try again later.
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>

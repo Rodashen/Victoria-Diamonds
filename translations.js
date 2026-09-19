@@ -440,3 +440,9 @@ const translations = {
         'faq-question-14': '您提供國際運送嗎？',
     }
 };
+
+// Prism Gallery copy uses the existing language mechanism.
+Object.assign(translations.en, {'email-subscription-title':'A private invitation.','email-subscription-description':'Discover new collections, atelier stories, and invitations from Victoria Diamonds.','email-subscription-submit':'Join our newsletter','story-title':'From Hong Kong to London','story-text-1':'Founded in Hong Kong and now creating in London, Victoria Diamonds brings a personal perspective to fine jewellery. Our collections pair traditional craftsmanship with contemporary design.','story-text-2':'From everyday pieces to a bespoke creation, we help you find jewellery that feels entirely your own.','daily-count':'31 pieces','occasional-count':'26 pieces','forever-count':'20 rings'});
+Object.assign(translations['zh-HK'], {'email-subscription-title':'一份專屬邀請','email-subscription-description':'探索維多利亞鑽石的新系列、工坊故事及專屬邀請。','email-subscription-submit':'訂閱電子通訊','prism-newsletter-title':'一份專屬邀請','prism-newsletter-copy':'維多利亞鑽石的新系列、工坊故事及專屬邀請。','prism-aura':'Aura 系列','prism-aura-copy':'雕塑般的線條，璀璨的細節。','story-title':'從香港到倫敦','story-text-1':'維多利亞鑽石始於香港，現於倫敦創作，將傳統工藝與現代設計融入每一件珠寶。','story-text-2':'從日常佩戴到私人訂製，與您一起尋找展現個人風格的珠寶。','daily-count':'31 件作品','occasional-count':'26 件作品','forever-count':'20 款戒指'});
+
+Object.assign(translations['zh-HK'], {'prism-selected-kicker':'工坊精選','prism-selected-title':'為日常添上非凡光芒','prism-selected-copy':'細賞我們的精選作品，探索展現您個人風格的細節。','prism-view-piece':'探索這件作品 →'});
