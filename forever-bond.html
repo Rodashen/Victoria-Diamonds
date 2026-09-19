@@ -9,7 +9,102 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/logo.png">
     <script src="translations.js"></script>
+    <script src="victoria-diamonds.js"></script>
+    <link rel="stylesheet" href="victoria-diamonds.css">
     <style>
+        .cookie-consent-banner {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1200;
+            background: rgba(28, 28, 28, 0.96);
+            color: #f6f1ea;
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .cookie-consent-banner.hidden {
+            display: none;
+        }
+        .cookie-consent-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+        .cookie-consent-copy {
+            flex: 1;
+        }
+        .cookie-consent-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .cookie-consent-button,
+        .cookie-policy-link {
+            flex: 0 0 auto;
+            min-width: 0;
+        }
+        .cookie-consent-copy h3 {
+            margin: 0 0 0.35rem;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .cookie-consent-copy p {
+            margin: 0;
+            color: rgba(246, 241, 234, 0.8);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+        .cookie-consent-button,
+        .cookie-policy-link {
+            border-radius: 999px;
+            padding: 0.72rem 1.15rem;
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .cookie-consent-button.primary {
+            background: #f5d7a3;
+            color: #1c1c1c;
+            border-color: #f5d7a3;
+        }
+        .cookie-consent-button.secondary {
+            background: transparent;
+            color: #f6f1ea;
+        }
+        .cookie-policy-link {
+            background: transparent;
+            color: #f6f1ea;
+        }
+        .cookie-consent-button:hover,
+        .cookie-policy-link:hover {
+            opacity: 0.9;
+        }
+        @media (max-width: 760px) {
+            .cookie-consent-inner {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .cookie-consent-actions {
+                width: 100%;
+                justify-content: stretch;
+                flex-direction: column;
+            }
+            .cookie-consent-button,
+            .cookie-policy-link {
+                width: 100%;
+                text-align: center;
+            }
+        }
         :root {
             --cream: #FFFBF5;
             --ivory: #F7F3ED;
@@ -996,5 +1091,90 @@
             });
         }
     </script>
+
+<!-- Cookie Consent Banner -->
+<div class="cookie-consent-banner hidden" id="cookieConsentBanner" aria-live="polite" aria-hidden="true">
+    <div class="cookie-consent-inner">
+        <div class="cookie-consent-copy">
+            <h3 data-consent-title>We use cookies to improve your experience</h3>
+            <p data-consent-description>We use essential cookies to keep the site secure and functional, and optional cookies to support better browsing and service improvements.</p>
+        </div>
+        <div class="cookie-consent-actions">
+            <button type="button" class="cookie-consent-button primary" id="cookieConsentAccept" data-consent-choice="all" data-consent-accept>Accept all cookies</button>
+            <button type="button" class="cookie-consent-button secondary" id="cookieConsentEssential" data-consent-choice="essential" data-consent-essential>Only essential cookies</button>
+            <a href="cookie-policy.html" class="cookie-policy-link" data-consent-policy>Cookie policy</a>
+            <a href="privacy-policy.html" class="cookie-policy-link" data-consent-privacy>Privacy policy</a>
+        </div>
+    </div>
+</div>
+
+<!-- Email Subscription Popup -->
+<div class="modal-overlay" id="emailSubscriptionModal">
+    <div class="modal-popup" id="emailSubscriptionPopup">
+        <button class="modal-close-x" id="emailSubscriptionCloseX">×</button>
+        <div class="email-subscription-wrapper">
+            <div class="email-subscription-content">
+                <div class="email-subscription-image-column">
+                    <img src="images/victoria-diamonds-01.png" alt="Victoria Diamonds Luxury Jewelry" class="email-subscription-logo">
+                </div>
+                <div class="email-subscription-text-column">
+                    <h2 data-i18n="email-subscription-title">JOIN THE VICTORIA DIAMONDS COMMUNITY</h2>
+                    <p data-i18n="email-subscription-description">Subscribe to receive exclusive access to new collections, bespoke jewellery stories, private events, and the latest from Victoria Diamonds.</p>
+                    <div class="email-subscription-form-state">
+                    <form id='emailSubscriptionForm' name='WebToLeads1021550000000671011' action='https://crm.zoho.eu/crm/WebToLeadForm' method='POST' accept-charset='UTF-8' target='zohoSubmitIframe' autocomplete='off'>
+                        <input type='text' style='display:none;' name='xnQsjsdp' value='aff24f4463444aea01a92e57bb228902a032ac4f986c23ea75673595911226f3'>
+                        </input>
+                        <input type='hidden' name='zc_gad' id='zc_gad' value=''>
+                        </input>
+                        <input type='text' style='display:none;' name='xmIwtLD' value='42d93c277456fae61eade224c04151c3e40fe8b46fa7caf006e24ab0ae83068b97fdcd3abb550b2ed3f53db04a06223e'>
+                        </input>
+                        <input type='text' style='display:none;' name='actionType' value='TGVhZHM='>
+                        </input>
+                        <input type='text' style='display:none;' name='returnURL' value='null'>
+                        </input>
+                        <div class = 'zcwf_title' style = 'max-width: 600px;color: black; font-family:Arial;'>Discount</div>
+                        <div class = 'zcwf_row'>
+                            <div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
+                                <label for = 'Email'>Email
+                                    <span style = 'color:red;'>*</span>
+                                </label>
+                            </div>
+                            <div class = 'zcwf_col_fld'>
+                                <input type = 'text' ftype = 'email' autocomplete = 'false' id = 'Email' aria-required = 'true' aria-label = 'Email' name = 'Email' aria-valuemax = '100' crmlabel = '' maxlength = '100'>
+                                        </input>
+                                <div class = 'zcwf_col_help'>
+                                </div>
+                            </div>
+                        </div>
+                        <input type = 'hidden' id = 'Last_Name' name = 'Last Name' value = 'Newsletter Subscriber' aria-required = 'true' aria-label = 'Last Name'>
+                        <input type = 'text' type = 'hidden' style = 'display: none;' name = 'aG9uZXlwb3Q' value = ''/>
+                        <div class = 'zcwf_row'>
+                            <div class = 'zcwf_col_lab'>
+                            </div>
+                            <div class = 'zcwf_col_fld'>
+                                <input type = 'submit' id = 'formsubmit' role = 'button' class = 'formsubmit zcwf_button' value = 'Submit' aria-label = 'Submit' title = 'Submit'>
+                                        <input type = 'reset' class = 'zcwf_button' role = 'button' name = 'reset' value = 'Reset' aria-label = 'Reset' title = 'Reset'>
+                                        </div>
+                            </div>
+                        </div>
+                    </form>
+                    <iframe name="zohoSubmitIframe" id="zohoSubmitIframe" style="display:none;"></iframe>
+                    <div id="wf_splash" style="display:none;">
+                        <div id="wf_splash_info"></div>
+                    </div>
+                    </div>
+                    <div class="email-subscription-success" data-i18n="email-subscription-success">
+                        Thank You for Subscribing!<br><br>
+                        Welcome to the Victoria Diamonds community. We're delighted to have you with us.<br><br>
+                        Follow us on Instagram: <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener">@victoriadiamondsco</a>
+                    </div>
+                    <div class="email-subscription-error" data-i18n="email-subscription-error">
+                        Something went wrong. Please try again later.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

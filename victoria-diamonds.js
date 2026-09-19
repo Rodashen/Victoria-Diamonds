@@ -513,7 +513,6 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         initializeLanguage();
-        initializeConsentBanner();
     });
 
 
