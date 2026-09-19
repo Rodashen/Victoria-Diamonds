@@ -7,7 +7,6 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="permissions-policy" content="geolocation=(), microphone=(), camera=()">
-    <meta name="description" content="Explore Victoria Diamonds: fine jewellery, our five collections, and private appointments at our London atelier.">
     <title data-i18n="page-title">Victoria Diamonds — Fine Jewelry</title>
 
     <!-- Google Fonts -->
@@ -120,18 +119,16 @@
     </style>
     <script src="translations.js"></script>
     <script src="victoria-diamonds.js"></script>
-    <link rel="stylesheet" href="prism.css">
-    <script src="prism.js" defer></script>
 </head>
-<body class="prism-site">
+<body>
     <div class="progress-bar" id="progressBar"></div>
 
     <!-- Header -->
     <header class="site-header" id="header">
         <div class="container">
             <div class="header-inner">
-                <a href="#" class="logo">Victoria <span>Diamonds</span><small class="prism-atelier">London Atelier</small></a>
-
+                <a href="#" class="logo" data-i18n="brand-name">Victoria <span>Diamonds</span></a>
+                
                 <nav class="nav-main">
                     <a href="#collections" data-i18n="nav-collections">Collections</a>
                     <a href="#story" data-i18n="nav-our-story">Our Story</a>
@@ -141,7 +138,7 @@
                     <a href="Catalogue.pdf" download="Victoria-Diamonds-Catalogue.pdf" class="nav-catalog" data-i18n="nav-download-catalogue">Download Our Catalogue</a>
                     <a href="#" class="nav-catalog js-transparency-trigger" role="button" aria-haspopup="dialog" aria-controls="transparencyModal" data-i18n="nav-transparency">VD Price</a>
                 </nav>
-
+                
                 <div class="top-social-links">
                     <div class="lang-selector">
                         <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -166,7 +163,7 @@
                     </a>
                     <button class="header-guarantee-btn js-guarantee-trigger" aria-label="Our Guarantee" data-i18n="nav-our-guarantee">Our Guarantee</button>
                 </div>
-
+                
                 <!-- Mobile language selector (centered) -->
                 <div class="lang-selector lang-selector-mobile">
                     <select id="langSelectMobile">
@@ -174,7 +171,7 @@
                         <option value="zh-HK">繁體中文（香港）</option>
                     </select>
                 </div>
-
+                
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -211,7 +208,73 @@
         </ul>
     </nav>
 
-<section class="prism-gallery" id="collections" aria-labelledby="collectionsTitle"><div class="prism-gallery-heading"><h1 id="collectionsTitle" data-i18n="collections-title">Our Collections</h1><p data-i18n="collections-subtitle">Discover pieces crafted for every chapter of your story</p></div><div class="prism-worlds"><a class="prism-world" href="daily-sparkle.html"><div class="prism-stage"><img src="images/optimized/75.webp" alt="Daily Sparkle jewellery" width="480" height="480" fetchpriority="high"></div><h2 data-i18n="collection-daily-sparkle">Daily Sparkle</h2><p>31 <span data-i18n="collection-pieces">pieces</span></p></a><a class="prism-world" href="high-note-collection.html"><div class="prism-stage"><img src="images/optimized/42.webp" alt="High Note jewellery" width="480" height="480" fetchpriority="auto"></div><h2 data-i18n="collection-occasional-wear">High Note</h2><p>26 <span data-i18n="collection-pieces">pieces</span></p></a><a class="prism-world" href="forever-bond.html"><div class="prism-stage"><img src="images/optimized/55.webp" alt="Forever Bond jewellery" width="480" height="480" fetchpriority="auto"></div><h2 data-i18n="collection-forever-bond">Forever Bond</h2><p>20 <span data-i18n="collection-pieces">pieces</span></p></a><a class="prism-world" href="silver-collection.html"><div class="prism-stage"><img src="images/optimized/S1.webp" alt="Silver Collection jewellery" width="480" height="480" fetchpriority="auto"></div><h2 data-i18n="collection-silver-casual">Silver Collection</h2><p>16 <span data-i18n="collection-pieces">pieces</span></p></a><a class="prism-world" href="aura-collection.html"><div class="prism-stage"><img src="images/optimized/round-nature-vine-ring.webp" alt="Aura Collection jewellery" width="480" height="480" fetchpriority="auto"></div><h2 data-i18n="prism-aura">Aura Collection</h2><p>19 <span data-i18n="collection-pieces">pieces</span></p></a></div><a class="prism-gallery-all" href="view-catalogue.html" data-i18n="collections-view-all">View All Collections</a></section>
+    <!-- Mobile-only collection landing section -->
+    <section class="collections-mobile" id="collections-mobile" aria-labelledby="mobileCollectionsTitle">
+        <div class="collections-mobile-heading">
+            <p class="collections-mobile-kicker">Victoria Diamonds</p>
+            <h1 id="mobileCollectionsTitle" data-i18n="collections-title">Our Collections</h1>
+            <p data-i18n="collections-subtitle">Discover pieces crafted for every chapter of your story</p>
+        </div>
+        <div class="collections-mobile-grid">
+            <a href="daily-sparkle.html" class="collections-mobile-card">
+                <img src="images/victoria-diamonds-hero-03.png" alt="Daily Sparkle collection">
+                <span class="collections-mobile-card-copy"><strong data-i18n="collection-daily-sparkle">Daily Sparkle</strong><small>33 <span data-i18n="collection-pieces">pieces</span></small></span>
+            </a>
+            <a href="high-note-collection.html" class="collections-mobile-card">
+                <img src="images/victoria-diamonds-01.png" alt="High Note Collection">
+                <span class="collections-mobile-card-copy"><strong data-i18n="collection-occasional-wear">High Note Collection</strong><small>22 <span data-i18n="collection-pieces">pieces</span></small></span>
+            </a>
+            <a href="forever-bond.html" class="collections-mobile-card">
+                <img src="images/victoria-diamonds-02.png" alt="Forever Bond collection">
+                <span class="collections-mobile-card-copy"><strong data-i18n="collection-forever-bond">Forever Bond</strong><small>20 <span data-i18n="collection-rings">rings</span></small></span>
+            </a>
+            <a href="silver-collection.html" class="collections-mobile-card">
+                <img src="images/Silverhero1.png" alt="Silver Collection">
+                <span class="collections-mobile-card-copy"><strong data-i18n="collection-silver-casual">Silver Collection</strong><small>16 <span data-i18n="collection-pieces">pieces</span></small></span>
+            </a>
+        <a href="aura-collection.html" class="collections-mobile-card">
+            <img src="images/SL.png" alt="Aura Collection">
+            <span class="collections-mobile-card-copy"><strong>Aura Collection</strong><small>19 <span>pieces</span></small></span>
+        </a>
+        </div>
+        <a href="view-catalogue.html" class="collections-mobile-all" data-i18n="collections-view-all">View All Collections</a>
+    </section>
+
+    <!-- Desktop collection landing section -->
+    <section class="collections collections-desktop" id="collections">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <h2 class="heading-display section-title" data-i18n="collections-title">Our Collections</h2>
+                    <p class="text-body section-subtitle" data-i18n="collections-subtitle">Discover pieces crafted for every chapter of your story</p>
+                </div>
+                <a href="view-catalogue.html" class="btn-text" data-i18n="collections-view-all">View All Collections</a>
+            </div>
+            <div class="collections-grid">
+                <a href="daily-sparkle.html" class="collection-item" style="text-decoration:none;color:inherit;">
+                    <div class="collection-image"><img src="images/victoria-diamonds-hero-03.png" alt="Daily Sparkle collection"></div>
+                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-daily-sparkle">Daily Sparkle</h3><p class="collection-count">33 <span data-i18n="collection-pieces">pieces</span></p></div>
+                </a>
+                <a href="high-note-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
+                    <div class="collection-image"><img src="images/victoria-diamonds-01.png" alt="High Note Collection"></div>
+                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-occasional-wear">High Note Collection</h3><p class="collection-count">22 <span data-i18n="collection-pieces">pieces</span></p></div>
+                </a>
+                <a href="forever-bond.html" class="collection-item" style="text-decoration:none;color:inherit;">
+                    <div class="collection-image"><img src="images/victoria-diamonds-02.png" alt="Forever Bond collection"></div>
+                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-forever-bond">Forever Bond</h3><p class="collection-count">20 <span data-i18n="collection-rings">rings</span></p></div>
+                </a>
+                <a href="silver-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
+                    <div class="collection-image"><img src="images/Silverhero1.png" alt="Silver Collection"></div>
+                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-silver-casual">Silver Collection</h3><p class="collection-count">16 <span data-i18n="collection-pieces">pieces</span></p></div>
+                </a>
+                <a href="aura-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
+                    <div class="collection-image"><img src="images/SL.png" alt="Aura Collection"></div>
+                    <div class="collection-overlay"><h3 class="collection-name">Aura Collection</h3><p class="collection-count">19 <span>pieces</span></p></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <div class="floating-buttons">
         <a href="https://wa.me/447594442577?text=Hi%20Victoria%20Diamonds!%20I%27d%20love%20to%20inquire%20about%20a%20jewelry%20piece.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" rel="noopener" class="floating-btn floating-btn-whatsapp" aria-label="WhatsApp">
             <span class="floating-btn-icon">
@@ -228,27 +291,207 @@
     </div>
 
 <!-- Hero Section -->
-    <section class="prism-selected" id="selected-pieces" aria-labelledby="selectedTitle"><div class="prism-selected-intro"><p class="text-label" data-i18n="prism-selected-kicker">The atelier edit</p><h2 id="selectedTitle" data-i18n="prism-selected-title">Find your everyday extraordinary.</h2><p data-i18n="prism-selected-copy">A closer look at a few of our favourite pieces. Discover the details that make each one your own.</p></div><div class="prism-selected-grid">
-<a href="daily-sparkle.html?product=Solstice%20Necklace" class="prism-selected-piece"><img src="images/optimized/14.webp" alt="Solstice Necklace" loading="lazy" width="600" height="750"><span data-i18n="collection-daily-sparkle">Daily Sparkle</span><h3 data-i18n="product-Solstice Necklace">Solstice Necklace</h3><p data-i18n="prism-view-piece">Discover this piece →</p></a>
-<a href="forever-bond.html?product=Stellar%20Promise" class="prism-selected-piece"><img src="images/optimized/55.webp" alt="Stellar Promise ring" loading="lazy" width="600" height="750"><span data-i18n="collection-forever-bond">Forever Bond</span><h3 data-i18n="product-Stellar Promise">Stellar Promise</h3><p data-i18n="prism-view-piece">Discover this piece →</p></a>
-<a href="silver-collection.html?product=Everyday%20Silver%20Ring" class="prism-selected-piece"><img src="images/optimized/S1.webp" alt="Everyday Silver Ring" loading="lazy" width="600" height="750"><span data-i18n="collection-silver-casual">Silver Collection</span><h3 data-i18n="product-Everyday Silver Ring">Everyday Silver Ring</h3><p data-i18n="prism-view-piece">Discover this piece →</p></a>
-</div></section>
+    <section class="hero">
+        <div class="hero-content">
+            <p class="text-label hero-tagline" data-i18n="hero-tagline">Artisan Jewelry Since 2012</p>
+            <h1 class="heading-display hero-title" data-i18n="hero-title-full">
+                Where your story<br>Becomes <em>Art</em>
+            </h1>
+            <p class="text-body hero-description" data-i18n="hero-description">
+                Each piece in our collection is handcrafted by master artisans, 
+                transforming the finest gold into wearable works of art that 
+                tell your unique story.
+            </p>
+            <div class="hero-actions">
+                <a href="#collections" class="btn-primary" data-i18n="hero-explore">Explore Collections</a>
+                <a href="#story" class="btn-text" data-i18n="hero-heritage">Our Heritage</a>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <div class="hero-slide active" data-title="Solitaire Ring" data-price="Inquire for Price">
+                <img src="images/victoria-diamonds-hero-01.png" 
+                     alt="Solitaire ring">
+            </div>
+            <div class="hero-slide" data-title="Solstice Necklace" data-price="Inquire for Price">
+                <img src="images/victoria-diamonds-hero-02.png" 
+                     alt="Solstice necklace">
+            </div>
+<div class="hero-slide" data-title="Grande Ring" data-price="Inquire for Price">
+                <img src="images/victoria-diamonds-hero-03.png" 
+                     alt="Grand Ring collection">
+            </div>
+<div class="hero-slide" data-title="Silver Collection" data-price="Inquire for Price">
+                <img src="images/Silverhero1.png" 
+                     alt="Silver Collection">
+            </div>
+<div class="hero-image-overlay">
+                <p class="overlay-title" id="heroTitle">Solitaire Ring</p>
+             
+            </div>
+            
+            <!-- Carousel Arrows -->
+            <button class="hero-arrow hero-arrow-prev" id="heroArrowPrev" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <button class="hero-arrow hero-arrow-next" id="heroArrowNext" aria-label="Next slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+            
+<!-- Slide Indicators (Dots) -->
+<div class="hero-slide-indicators">
+                <span class="slide-dot active" data-index="0"></span>
+                <span class="slide-dot" data-index="1"></span>
+                <span class="slide-dot" data-index="2"></span>
+<span class="slide-dot" data-index="3"></span>
+            </div>
+            
+<!-- Slide Counter -->
+            <div class="hero-slide-counter">
+                <span id="slideCurrent">01</span>
+                <span class="hero-slide-counter-divider"></span>
+<span id="slideTotal">04</span>
+            </div>
+        </div>
+    </section>
 
 <!-- Featured Piece -->
+    <section class="featured-piece">
+        <div class="container">
+            <div class="featured-grid">
+                <div class="featured-image-wrapper">
+                    <div class="featured-image">
+                        <img src="images/victoria-diamonds-hero-02.png" 
+                             alt="Handcrafted gold necklace">
+                    </div>
+                    <div class="featured-badge" data-i18n="featured-new-arrival">New Arrival</div>
+                </div>
+                <div class="featured-content">
+                    <p class="text-label featured-label" data-i18n="featured-label">Featured Piece</p>
+                    <h2 class="heading-display featured-title" data-i18n="featured-celestial">
+                      Solstice Necklace
+                    </h2>
+                    <p class="text-body featured-description" data-i18n="featured-description">
+                      Inspired by the warmth of the golden hour, the Solstice Necklace celebrates the quiet brilliance of enduring elegance. 
+                      Expertly crafted in hand-finished 18-carat gold, its graceful silhouette is designed to catch the light from every angle, creating a soft, radiant glow that moves effortlessly with you. 
+                      A timeless expression of refinement, the Solstice Necklace embodies modern luxury with understated sophistication.
 
-
+                    </p>
+                    <div class="featured-details">
+                        <div class="detail-row">
+                            <span class="detail-label" data-i18n="featured-material">Material</span>
+                            <span class="detail-value" data-i18n="featured-material-val">18K Yellow Gold</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label" data-i18n="featured-weight">Total Diamond Karat</span>
+                            <span class="detail-value" data-i18n="featured-weight-val">4 ct</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label" data-i18n="featured-chain-length">Chain Length</span>
+                            <span class="detail-value" data-i18n="featured-chain-val">18 inches (adjustable)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Collections -->
-
-
+    <section class="collections collections-original" id="collections-original">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <h2 class="heading-display section-title" data-i18n="collections-title">Our Collections</h2>
+                    <p class="text-body section-subtitle" data-i18n="collections-subtitle">
+                        Discover pieces crafted for every chapter of your story
+                    </p>
+                </div>
+                <a href="view-catalogue.html" class="btn-text" data-i18n="collections-view-all">View All Collections</a>
+            </div>
+            
+<div class="collections-grid">
+                <a href="daily-sparkle.html" class="collection-item" style="text-decoration:none;color:inherit;">
+                    <div class="collection-image">
+                        <img src="images/victoria-diamonds-hero-03.png" 
+                             alt="Daily Sparkle collection">
+                    </div>
+                    <div class="collection-overlay">
+                        <h3 class="collection-name" data-i18n="collection-daily-sparkle">Daily Sparkle</h3>
+                        <p class="collection-count">33 <span data-i18n="collection-pieces">pieces</span></p>
+                    </div>
+                </a>
+                
+                <a href="high-note-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
+                    <div class="collection-image">
+                        <img src="images/victoria-diamonds-01.png" 
+                             alt="High Note Collection">
+                    </div>
+                    <div class="collection-overlay">
+                        <h3 class="collection-name" data-i18n="collection-occasional-wear">High Note Collection</h3>
+                        <p class="collection-count">22 <span data-i18n="collection-pieces">pieces</span></p>
+                    </div>
+                </a>
+                
+                <a href="forever-bond.html" class="collection-item" style="text-decoration:none;color:inherit;">
+                    <div class="collection-image">
+                        <img src="images/victoria-diamonds-02.png" 
+                             alt="Forever Bond collection">
+                    </div>
+                    <div class="collection-overlay">
+                        <h3 class="collection-name" data-i18n="collection-forever-bond">Forever Bond</h3>
+                        <p class="collection-count">20 <span data-i18n="collection-rings">rings</span></p>
+                    </div>
+                </a>
+                
+                <a href="silver-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
+                    <div class="collection-image">
+                        <img src="images/Silverhero1.png" 
+                             alt="Silver for Casual Wear collection">
+                    </div>
+                    <div class="collection-overlay">
+                        <h3 class="collection-name" data-i18n="collection-silver-casual">Silver Collection</h3>
+                        <p class="collection-count">16 <span data-i18n="collection-pieces">pieces</span></p>
+                    </div>
+                </a>
+                <a href="aura-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
+                    <div class="collection-image">
+                        <img src="images/three-stone-round-classic-ring.png" 
+                             alt="Single Lady collection">
+                    </div>
+                    <div class="collection-overlay">
+                        <h3 class="collection-name">Single Lady</h3>
+                        <p class="collection-count">19 <span>pieces</span></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
     <!-- Our Story -->
     <section class="story" id="story">
         <div class="container">
             <div class="story-grid">
                 <div class="story-content">
                     <p class="text-label story-label" data-i18n="story-label">Our Heritage</p>
-                    <h2 class="heading-display story-title" data-i18n="story-title">From Hong Kong to London</h2>
-                    <p class="text-body story-text" data-i18n="story-text-1">Founded in Hong Kong and now creating in London, Victoria Diamonds brings a personal perspective to fine jewellery. Our collections pair traditional craftsmanship with contemporary design.</p>
-                    <p class="text-body story-text" data-i18n="story-text-2">From everyday pieces to a bespoke creation, we help you find jewellery that feels entirely your own.</p>
+                    <h2 class="heading-display story-title" data-i18n="story-title">
+                        Generations of Golden Mastery
+                    </h2>
+                    <p class="text-body story-text" data-i18n="story-text-1">
+                        Established in the vibrant heart of Hong Kong, 
+                        Victoria Diamonds draws its inspiration from the city's centuries-old legacy as the crossroads of the East.
+                        Deeply rooted in the ancient traditions of Chinese metallurgy and the historic maritime trade routes that once brought the world's finest gems to the Pearl of the Orient, our atelier began as a humble goldsmithing workshop. 
+                        Today, our master artisans preserve these time-honored, dynastic techniques, ensuring that every piece crafted carries the weight of history and the enduring elegance of our heritage.
+                    </p>
+                    <p class="text-body story-text" data-i18n="story-text-2">
+                        Today, we bring this art in London to continue the 
+                        tradition, blending time-honored techniques with 
+                        contemporary design sensibilities. Every piece that 
+                        leaves our workshop carries the weight of this legacy.
+                    </p>
                     <div class="story-signature">
                         <p class="signature-name" data-i18n="story-signature-name">Jenny Pun</p>
                         <p class="signature-title" data-i18n="story-signature-title">CEO and Founder</p>
@@ -256,18 +499,18 @@
                 </div>
                 <div class="story-images">
                     <div class="story-image">
-                        <img loading="lazy" decoding="async" src="images/optimized/victoria-diamonds-05.webp"
+                        <img src="images/victoria-diamonds-05.jpeg" 
                              alt="Goldsmith at work">
                     </div>
                     <div class="story-image">
-                        <img loading="lazy" decoding="async" src="images/optimized/victoria-diamonds-06.webp"
+                        <img src="images/victoria-diamonds-06.png" 
                              alt="Jewelry crafting detail">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Meet the Artist (hidden, only accessible via modal) -->
     <section class="artist" id="artist" style="display:none;"></section>
 
@@ -277,7 +520,7 @@
             <button class="modal-close-x" id="artistModalCloseX">×</button>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
                 <div style="background:var(--color-ivory);display:flex;align-items:center;justify-content:center;padding:2rem;min-height:400px;">
-                    <img loading="lazy" decoding="async" src="images/optimized/arts.webp" alt="Master artisan at work" style="max-width:100%;max-height:100%;object-fit:contain;">
+                    <img src="images/arts.png" alt="Master artisan at work" style="max-width:100%;max-height:100%;object-fit:contain;">
                 </div>
                 <div style="padding:2rem;display:flex;flex-direction:column;justify-content:center;">
                     <p style="font-family:var(--font-body);font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);margin-bottom:0.75rem;" data-i18n="artist-label">Meet the Artisan</p>
@@ -320,10 +563,10 @@
                         Crafted by Hand, Treasured Forever
                     </h2>
                     <p class="text-body craft-text" data-i18n="craft-text">
-                        Each Victoria Diamonds piece undergoes a meticulous journey
-                        from concept to completion. Our artisans employ
-                        traditional goldsmithing techniques passed down through
-                        generations, ensuring every curve, texture, and finish
+                        Each Victoria Diamonds piece undergoes a meticulous journey 
+                        from concept to completion. Our artisans employ 
+                        traditional goldsmithing techniques passed down through 
+                        generations, ensuring every curve, texture, and finish 
                         meets our exacting standards.
                     </p>
                     <ul class="craft-list text-body">
@@ -339,7 +582,7 @@
                 </div>
                 <div class="craft-image-wrapper">
                     <div class="craft-image">
-                        <img loading="lazy" decoding="async" src="images/optimized/victoria-diamonds-07.webp"
+                        <img src="images/victoria-diamonds-07.png" 
                              alt="Jewelry craftsmanship workshop">
                     </div>
                     <div class="craft-stats">
@@ -357,10 +600,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>   
         </div>
     </section>
-
+    
     <!-- Testimonials -->
     <section class="testimonials">
         <div class="container">
@@ -369,7 +612,7 @@
                 <h2 class="heading-display testimonials-title" data-i18n="testimonials-title">Treasured by Many</h2>
                 <p class="text-body testimonials-subtitle" data-i18n="testimonials-subtitle">What our clients say about their Victoria Diamonds experience</p>
             </div>
-
+            
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-stars">
@@ -385,7 +628,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="testimonial-card">
                     <div class="testimonial-stars">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -400,7 +643,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="testimonial-card">
                     <div class="testimonial-stars">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -418,7 +661,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Contact -->
     <section class="contact" id="contact">
         <div class="container">
@@ -429,12 +672,12 @@
                         Experience Victoria Diamonds
                     </h2>
                     <p class="text-body contact-text" data-i18n="contact-text">
-                        We invite you to visit our atelier for a personal
-                        consultation. Discover our collections in an intimate
-                        setting and work with our designers to create something
+                        We invite you to visit our atelier for a personal 
+                        consultation. Discover our collections in an intimate 
+                        setting and work with our designers to create something 
                         truly unique.
                     </p>
-
+                    
                     <div class="contact-details">
                         <div class="contact-item">
                             <p class="contact-item-label" data-i18n="contact-address">Address</p>
@@ -463,7 +706,7 @@
                         <a href="https://wa.me/447594442577?text=Hi%20Victoria%20Diamonds!%20I%27d%20love%20to%20inquire%20about%20a%20jewelry%20piece.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" rel="noopener" class="btn-primary" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);" data-i18n="contact-whatsapp">WhatsApp Us</a>
                     </div>
                 </div>
-
+                
                 <div class="contact-form-wrapper">
                     <div class="booking-pill" data-i18n="contact-private-consultation">Private Consultation</div>
                     <h3 class="form-title" data-i18n="contact-appointment-title">Book an Appointment</h3>
@@ -679,7 +922,7 @@
             </div>
         </div>
     </div>
-
+    
 <!-- Our Guarantee Modal -->
     <div class="modal-overlay" id="guaranteeModal" aria-hidden="true">
         <div class="modal-popup guarantee-popup" role="dialog" aria-modal="true" aria-labelledby="guaranteeHeading">
@@ -734,8 +977,7 @@
     </div>
 
     <!-- Footer -->
-    <section class="prism-newsletter-strip"><div><h2 data-i18n="prism-newsletter-title">A private invitation.</h2><p data-i18n="prism-newsletter-copy">New collections, atelier stories, and invitations from Victoria Diamonds.</p></div><button type="button" data-newsletter-open data-i18n="email-subscription-submit">Join our newsletter</button></section>
-<footer class="site-footer">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <!-- Column 1: Brand & Contact -->
@@ -752,7 +994,7 @@
                         <p><a href="mailto:inquiry@victoria-diamonds.com">inquiry@victoria-diamonds.com</a></p>
                     </div>
                 </div>
-
+                
                 <!-- Column 2: Quick Links -->
                 <div class="footer-column">
                     <h4 class="footer-column-title" data-i18n="footer-collections">Collections</h4>
@@ -765,7 +1007,7 @@
                         <li><a href="aura-collection.html">Aura Collection</a></li>
                     </ul>
                 </div>
-
+                
                 <!-- Column 3: Company -->
                 <div class="footer-column">
                     <h4 class="footer-column-title" data-i18n="footer-company">Company</h4>
@@ -773,16 +1015,13 @@
                         <li><a href="#story" data-i18n="footer-our-story">Our Story</a></li>
                         <li><a href="#craftsmanship" data-i18n="footer-craftsmanship">Craftsmanship</a></li>
                         <li><a href="#contact" data-i18n="footer-visit-us">Visit Us</a></li>
-                        <li><a href="#contact" data-i18n="footer-custom-design">Custom Design</a></li>
-                        <li><a href="#" class="js-transparency-trigger" data-i18n="nav-transparency">VD Price</a></li>
-                        <li><a href="#" class="js-guarantee-trigger" data-i18n="nav-our-guarantee">Our Guarantee</a></li>
-                        <li><a href="Catalogue.pdf" download data-i18n="nav-download-catalogue">Download Our Catalogue</a></li>
+                        <li><a href="#" data-i18n="footer-custom-design">Custom Design</a></li>
                         <li><a href="T&C.pdf" target="_blank" rel="noopener" data-i18n="footer-terms-conditions">Terms &amp; Conditions</a></li>
                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
                         <li><a href="cookie-policy.html">Cookie Policy</a></li>
                     </ul>
                 </div>
-
+                
                 <!-- Column 4: About This Website -->
                 <div class="footer-column footer-about">
                     <h4 class="footer-column-title" data-i18n="footer-about">About This Website</h4>
@@ -797,7 +1036,7 @@
                     </p>
                 </div>
             </div>
-
+            
             <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <p class="footer-copyright" data-i18n="footer-copyright">© 2026 Victoria Diamonds.</p>
@@ -835,29 +1074,223 @@
    <!-- Email Subscription Popup -->
 <div class="modal-overlay" id="emailSubscriptionModal">
     <div class="modal-popup" id="emailSubscriptionPopup">
-        <button class="modal-close-x" id="emailSubscriptionCloseX" aria-label="Close newsletter">×</button>
+        <button class="modal-close-x" id="emailSubscriptionCloseX">×</button>
         <div class="email-subscription-wrapper">
             <div class="email-subscription-content">
                 <div class="email-subscription-image-column">
-                    <img loading="lazy" decoding="async" src="images/optimized/victoria-diamonds-01.webp" alt="Victoria Diamonds Luxury Jewelry" class="email-subscription-logo">
+                    <img src="images/victoria-diamonds-01.png" alt="Victoria Diamonds Luxury Jewelry" class="email-subscription-logo">
                 </div>
                 <div class="email-subscription-text-column">
-<img loading="lazy" decoding="async" class="prism-monogram" src="images/logo.png" alt="Victoria Diamonds" width="58" height="53">
-                    <h2 data-i18n="email-subscription-title">A private invitation.</h2>
-                    <p data-i18n="email-subscription-description">Discover new collections, atelier stories, and invitations from Victoria Diamonds.</p>
+                    <h2 data-i18n="email-subscription-title">JOIN THE VICTORIA DIAMONDS COMMUNITY</h2>
+                    <p data-i18n="email-subscription-description">Subscribe to receive exclusive access to new collections, bespoke jewellery stories, private events, and the latest from Victoria Diamonds.</p>
                     <div class="email-subscription-form-state">
-                    <form id="emailSubscriptionForm" name="WebToLeads1021550000000671011" action="https://crm.zoho.eu/crm/WebToLeadForm" method="POST" accept-charset="UTF-8" target="zohoSubmitIframe">
-<input type="hidden" name="xnQsjsdp" value="aff24f4463444aea01a92e57bb228902a032ac4f986c23ea75673595911226f3">
-<input type="hidden" name="zc_gad" value="">
-<input type="hidden" name="xmIwtLD" value="42d93c277456fae61eade224c04151c3e40fe8b46fa7caf006e24ab0ae83068b97fdcd3abb550b2ed3f53db04a06223e">
-<input type="hidden" name="actionType" value="TGVhZHM=">
-<input type="hidden" name="returnURL" value="null">
-<input type="hidden" name="Last Name" value="Newsletter Subscriber">
-<input type="hidden" name="aG9uZXlwb3Q" value="">
-<label for="newsletterEmail" data-i18n="email-subscription-label">Email address</label>
-<input type="email" id="newsletterEmail" name="Email" required maxlength="100" autocomplete="email" placeholder="you@example.com">
-<button type="submit" class="prism-subscribe" data-i18n="email-subscription-submit">Join our newsletter</button>
-</form>
+                    <form id='emailSubscriptionForm' name='WebToLeads1021550000000671011' action='https://crm.zoho.eu/crm/WebToLeadForm' method='POST' accept-charset='UTF-8' target='zohoSubmitIframe' autocomplete='off'>
+                        <input type='text' style='display:none;' name='xnQsjsdp' value='aff24f4463444aea01a92e57bb228902a032ac4f986c23ea75673595911226f3'>
+                        </input>
+                        <input type='hidden' name='zc_gad' id='zc_gad' value=''>
+                        </input>
+                        <input type='text' style='display:none;' name='xmIwtLD' value='42d93c277456fae61eade224c04151c3e40fe8b46fa7caf006e24ab0ae83068b97fdcd3abb550b2ed3f53db04a06223e'>
+                        </input>
+                        <input type='text' style='display:none;' name='actionType' value='TGVhZHM='>
+                        </input>
+                        <input type='text' style='display:none;' name='returnURL' value='null'>
+                        </input>
+                        <!-- Do not remove this code. -->
+                        <style>
+                            html,body{
+                                margin: 0px;
+                            }
+                            .formsubmit.zcwf_button{
+                                color: white !important;
+                                background: transparent linear-gradient(0deg, #0279FF 0%, #00A3F3 100%);
+                            }
+                            #crmWebToEntityForm.zcwf_lblLeft{
+                                width: 100%;
+                                padding: 25px;
+                                margin: 0 auto;
+                                box-sizing: border-box;
+                            }
+                            #crmWebToEntityForm.zcwf_lblLeft *{
+                                box-sizing: border-box;
+                            }
+                            #crmWebToEntityForm{
+                                text-align: left;
+                            }
+                            #crmWebToEntityForm *{
+                                direction: ltr;
+                            }
+                            .zcwf_lblLeft .zcwf_title{
+                                word-wrap: break-word;
+                                padding: 0px 6px 10px;
+                                font-weight: bold }
+                            .zcwf_lblLeft.cpT_primaryBtn:hover{
+                                background: linear-gradient(#02acff 0,#006be4 100%)no-repeat padding-box !important;
+                                box-shadow: 0 -2px 0 0  #0159b9 inset !important;
+                                border: 0 !important;
+                                color:  #fff !important;
+                                outline: 0 !important;
+                            }
+                            .zcwf_lblLeft .zcwf_col_fld input[ type  = text], input[ type  = password], .zcwf_lblLeft .zcwf_col_fld textarea{
+                                width: 60%;
+                                border: 1px solid  #c0c6cc !important;
+                                resize: vertical;
+                                border-radius: 2px;
+                                float: left;
+                            }
+                            .zcwf_lblLeft .zcwf_col_lab{
+                                width: 30%;
+                                word-break: break-word;
+                                padding: 0px 6px 0px;
+                                margin-right: 10px;
+                                margin-top: 5px;
+                                float: left;
+                                min-height: 1px;
+                            }
+                            .zcwf_lblLeft .zcwf_col_fld{
+                                float: left;
+                                width: 68%;
+                                padding: 0px 6px 0px;
+                                position: relative;
+                                margin-top: 5px;
+                            }
+                            .zcwf_lblLeft .zcwf_privacy{
+                                padding: 6px;
+                            }
+                            .dIB{
+                                display: inline-block;
+                            }
+                            .zcwf_lblLeft .zcwf_col_fld_slt{
+                                width: 60%;
+                                border: 1px solid  #ccc;
+                                background:  #fff;
+                                border-radius: 4px;
+                                font-size: 12px;
+                                float: left;
+                                resize: vertical;
+                                padding: 2px 5px;
+                            }
+                            .zcwf_lblLeft .zcwf_row:after, .zcwf_lblLeft .zcwf_col_fld:after{
+                                content: '';
+                                display: table;
+                                clear: both;
+                            }
+                            .zcwf_lblLeft .zcwf_col_help{
+                                float: left;
+                                margin-left: 7px;
+                                font-size: 12px;
+                                max-width: 35%;
+                                word-break: break-word;
+                            }
+                            .zcwf_lblLeft .zcwf_help_icon{
+                                cursor: pointer;
+                                width: 16px;
+                                height: 16px;
+                                display: inline-block;
+                            background:  #fff;
+                            border: 1px solid  #c0c6cc;
+                            color:  #c1c1c1;
+                            text-align: center;
+                            font-size: 11px;
+                            line-height: 16px;
+                            font-weight: bold;
+                            border-radius: 50%;
+                            }
+                            .zcwf_lblLeft .zcwf_row{
+                                margin: 15px 0px;
+                            }
+                            .zcwf_lblLeft .formsubmit{
+                                margin-right: 5px;
+                                cursor: pointer;
+                                color:  #313949;
+                                font-size: 12px;
+                            }
+                            .zcwf_lblLeft .zcwf_privacy_txt{
+                                width: 90%;
+                                color: rgb(0, 0, 0);
+                                font-size: 12px;
+                                font-family: Arial;
+                                display: inline-block;
+                                vertical-align: top;
+                                color:  #313949;
+                                padding-top: 2px;
+                                margin-left: 6px;
+                            }
+                            .zcwf_lblLeft .zcwf_button{
+                                font-size: 12px;
+                                color:  #313949;
+                                border: 1px solid  #c0c6cc;
+                                padding: 3px 9px;
+                                border-radius: 4px;
+                                cursor: pointer;
+                                max-width: 120px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                            .zcwf_lblLeft .zcwf_tooltip_over{
+                                position: relative;
+                            }
+                            .zcwf_lblLeft .zcwf_tooltip_ctn{
+                                position: absolute;
+                                background:  #dedede;
+                                padding: 3px 6px;
+                                top: 3px;
+                                border-radius: 4px;
+                                word-break: break-word;
+                                min-width: 100px;
+                                max-width: 150px;
+                                color:  #313949;
+                                z-index: 100;
+                            }
+                            .zcwf_lblLeft .zcwf_ckbox{
+                                float: left;
+                            }
+                            .zcwf_lblLeft .zcwf_file{
+                                width: 55%;
+                                box-sizing: border-box;
+                                float: left;
+                            }
+                            .cBoth:after{
+                                content: '';
+                                display: block;
+                                clear: both;
+                            }
+                            @media all and  (max-width: 600px){
+                                .zcwf_lblLeft .zcwf_col_lab, .zcwf_lblLeft .zcwf_col_fld{
+                                    width: auto;
+                                    float: none !important;
+                                }
+                                .zcwf_lblLeft .zcwf_col_help{
+                                    width: 40%;
+                                }
+                            }
+                        </style>
+                        <div class = 'zcwf_title' style = 'max-width: 600px;color: black; font-family:Arial;'>Discount</div>
+                        <div class = 'zcwf_row'>
+                            <div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
+                                <label for = 'Email'>Email
+                                    <span style = 'color:red;'>*</span>
+                                </label>
+                            </div>
+                            <div class = 'zcwf_col_fld'>
+                                <input type = 'text' ftype = 'email' autocomplete = 'false' id = 'Email' aria-required = 'true' aria-label = 'Email' name = 'Email' aria-valuemax = '100' crmlabel = '' maxlength = '100'>
+                                        </input>
+                                <div class = 'zcwf_col_help'>
+                                </div>
+                            </div>
+                        </div>
+                        <input type = 'hidden' id = 'Last_Name' name = 'Last Name' value = 'Newsletter Subscriber' aria-required = 'true' aria-label = 'Last Name'>
+                        <input type = 'text' type = 'hidden' style = 'display: none;' name = 'aG9uZXlwb3Q' value = ''/>
+                        <div class = 'zcwf_row'>
+                            <div class = 'zcwf_col_lab'>
+                            </div>
+                            <div class = 'zcwf_col_fld'>
+                                <input type = 'submit' id = 'formsubmit' role = 'button' class = 'formsubmit zcwf_button' value = 'Submit' aria-label = 'Submit' title = 'Submit'>
+                                        <input type = 'reset' class = 'zcwf_button' role = 'button' name = 'reset' value = 'Reset' aria-label = 'Reset' title = 'Reset'>
+                                        </div>
+                            </div>
+                        </div>
+                    </form>
                     <iframe name="zohoSubmitIframe" id="zohoSubmitIframe" style="display:none;"></iframe>
                     <div id="wf_splash" style="display:none;">
                         <div id="wf_splash_info"></div>

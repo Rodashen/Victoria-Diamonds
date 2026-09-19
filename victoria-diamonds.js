@@ -573,7 +573,19 @@
         consentBanner.setAttribute('aria-hidden', 'true');
     }
 
-    function scheduleNewsletterAfterConsent() { showEmailSubscriptionPopup(); }
+    function scheduleNewsletterAfterConsent() {
+        if (sessionStorage.getItem('emailPopupShown')) {
+            return;
+        }
+
+        if (window.__newsletterPopupTimer) {
+            clearTimeout(window.__newsletterPopupTimer);
+        }
+
+        window.__newsletterPopupTimer = setTimeout(function() {
+            showEmailSubscriptionPopup();
+        }, 1200);
+    }
 
     function storeConsentChoice(choice, preferences) {
         localStorage.setItem('vdCookieConsent', choice);
@@ -723,7 +735,6 @@ function resetEmailSubscriptionStates() {
 
     // ---------- Show Success ----------
    function showEmailSubscriptionSuccess() {
-    try { localStorage.setItem('vdNewsletterSubscribed', 'true'); } catch(e) {}
     if (!emailSubscriptionPopup) {
         return;
     }
@@ -1188,7 +1199,9 @@ if (document.readyState === 'loading') {
             !emailSubscriptionModal ||
             !emailSubscriptionPopup
         ) {
-
+            console.error(
+                '[Email Subscription] Popup elements not found.'
+            );
 
             return;
         }
@@ -1234,10 +1247,6 @@ if (document.readyState === 'loading') {
         }
 
 
-        document.addEventListener('click', function(event) {
-            if (event.target.closest('[data-newsletter-open]')) openEmailSubscription();
-        });
-
         // Show popup
         showEmailSubscriptionPopup();
     }
@@ -1269,7 +1278,6 @@ if (document.readyState === 'loading') {
         }
 
         emailSubscriptionModal.classList.remove('active');
-        try { localStorage.setItem('vdNewsletterDismissed', String(Date.now())); } catch(e) {}
 
         emailSubscriptionModal.setAttribute(
             'aria-hidden',
@@ -1288,31 +1296,32 @@ if (document.readyState === 'loading') {
 
     // ---------- Show Popup Once Per Session ----------
     function showEmailSubscriptionPopup() {
-        if (!emailSubscriptionModal || window.__prismNewsletterScheduled) return;
-        window.__prismNewsletterScheduled = true;
-        let dismissed = false;
-        try { dismissed = !!sessionStorage.getItem('emailPopupShown') || localStorage.getItem('vdNewsletterSubscribed') === 'true' || Date.now() - Number(localStorage.getItem('vdNewsletterDismissed') || 0) < 7 * 86400000; } catch(e) {}
-        if (dismissed) return;
-        let elapsed = false, explored = false;
-        const attempt = function() {
-            try {
-                if (sessionStorage.getItem('emailPopupShown') || localStorage.getItem('vdNewsletterSubscribed') === 'true' || Date.now() - Number(localStorage.getItem('vdNewsletterDismissed') || 0) < 7 * 86400000) {
-                    observer.disconnect(); clearInterval(retry); return;
-                }
-            } catch(e) {}
-            if (!elapsed || !explored || document.hidden || document.querySelector('.modal-overlay.active, .mobile-nav.active, #cookieConsentBanner:not(.hidden)')) return;
-            openEmailSubscription();
-            try { sessionStorage.setItem('emailPopupShown', 'true'); } catch(e) {}
-            observer.disconnect(); clearInterval(retry);
-        };
-        const observer = new IntersectionObserver(function(entries) {
-            if (entries.some(entry => entry.isIntersecting)) { explored = true; attempt(); }
-        }, {threshold:0.1});
-        const target = document.querySelector('.prism-selected') || document.querySelector('.product-card:nth-child(5)') || document.querySelector('.collection-head');
-        if (target) observer.observe(target);
-        window.__newsletterPopupTimer = setTimeout(function(){ elapsed = true; attempt(); }, 30000);
-        const retry = setInterval(attempt, 5000);
+        if (!emailSubscriptionModal) {
+            return;
+        }
+
+        const popupShown =
+            sessionStorage.getItem(
+                'emailPopupShown'
+            );
+
+        if (!popupShown) {
+            const delay =
+                800 +
+                Math.floor(
+                    Math.random() * 1000
+                );
+
+            window.__newsletterPopupTimer = setTimeout(function() {
+                openEmailSubscription();
+                sessionStorage.setItem(
+                    'emailPopupShown',
+                    'true'
+                );
+            }, delay);
+        }
     }
+
 
     // ---------- DOM Ready ----------
     if (document.readyState === 'loading') {
