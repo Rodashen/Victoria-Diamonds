@@ -513,7 +513,6 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         initializeLanguage();
-        initializeConsentBanner();
     });
 
 
@@ -597,6 +596,7 @@
         localStorage.setItem('vdCookieConsentSource', 'banner');
         hideConsentBanner();
         updateConsentBannerCopy();
+        scheduleNewsletterAfterConsent();
     }
 
     function initializeConsentBanner() {
@@ -1300,6 +1300,11 @@ if (document.readyState === 'loading') {
             return;
         }
 
+        // Let visitors make their cookie choice before covering the page.
+        if (consentBanner && !consentBanner.classList.contains('hidden')) {
+            return;
+        }
+
         const popupShown =
             sessionStorage.getItem(
                 'emailPopupShown'
@@ -1313,6 +1318,9 @@ if (document.readyState === 'loading') {
                 );
 
             window.__newsletterPopupTimer = setTimeout(function() {
+                if (consentBanner && !consentBanner.classList.contains('hidden')) {
+                    return;
+                }
                 openEmailSubscription();
                 sessionStorage.setItem(
                     'emailPopupShown',
