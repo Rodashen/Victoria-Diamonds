@@ -61,7 +61,7 @@ const translations = {
         'collection-forever-bond': '永恆之約',
         'collection-pieces': '件作品',
         'collection-rings': '款戒指',
-        'silver-count': '16 件作品',
+        'silver-count': '17 件作品',
 
         // ===== Story Section =====
         'story-label': '我們的傳承',
@@ -414,6 +414,7 @@ const translations = {
         // Bracelets
         'product-Open Cuff Bracelet': '開口銀手鐲',
         'product-Link Charm Bracelet': '鏈飾銀手鏈',
+        'product-Link Charm Bracelet II': '鏈飾銀手鏈 II',
         // Earrings
         'product-Round Stud Earrings': '圓形銀耳釘',
         'product-Flower Drop Earrings': '花形銀耳墜',
