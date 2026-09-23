@@ -25,6 +25,7 @@ const translations = {
         'nav-download-catalogue': '下載產品目錄',
         'nav-book-appointment': '預約鑑賞',
         'nav-transparency': 'VD 透明價格',
+        'nav-jewelry-care': '珠寶保養',
         'nav-our-guarantee': '我們的保證',
 
         // ===== Hero Section =====
