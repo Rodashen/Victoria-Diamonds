@@ -1222,7 +1222,7 @@ if (document.readyState === 'loading') {
             midAutumnModal.innerHTML = `
                 <div class="modal-popup mid-autumn-popup" role="dialog" aria-modal="true" aria-label="中秋節快樂" lang="zh-HK">
                     <button type="button" class="modal-close-x" aria-label="關閉中秋祝福">&times;</button>
-                    <img src="images/mid-autumn-greeting.png" width="1254" height="1254" alt="Jenny 祝你中秋節快樂。中秋佳節，月圓人團圓。維多利亞珠寶 Victoria Diamonds。" decoding="async">
+                    <img src="images/mid-autumn-greeting.png" width="1254" height="1254" alt="Jenny 祝您中秋節快樂。中秋佳節，月圓人團圓。維多利亞珠寶 Victoria Diamonds。" decoding="async">
                 </div>`;
             document.body.appendChild(midAutumnModal);
             midAutumnModal.querySelector('button').addEventListener('click', closeMidAutumnGreeting);
