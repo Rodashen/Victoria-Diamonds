@@ -3486,33 +3486,6 @@ animation: dotProgress 2s linear forwards;
     justify-content: center;
     padding: 1rem;
 }
-#midAutumnModal {
-    z-index: 10001;
-}
-#midAutumnModal .mid-autumn-popup {
-    width: min(640px, calc(100vw - 2rem), calc(100dvh - 2rem));
-    max-width: none;
-    max-height: none;
-    overflow: hidden;
-    background: var(--color-cream);
-}
-#midAutumnModal img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-#midAutumnModal .modal-close-x {
-    position: absolute;
-    top: 0.65rem;
-    right: 0.65rem;
-    margin: 0;
-    width: 44px;
-    height: 44px;
-}
-#midAutumnModal .modal-close-x:focus-visible {
-    outline: 2px solid var(--color-gold-dark);
-    outline-offset: 2px;
-}
 .modal-overlay.active {
     display: flex;
 }

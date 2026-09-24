@@ -1190,68 +1190,6 @@ if (document.readyState === 'loading') {
     }
 
 
-    // ---------- Mid-Autumn greeting before the newsletter ----------
-    let midAutumnModal = null;
-    let midAutumnPreviousFocus = null;
-    let midAutumnPreviousOverflow = '';
-
-    function isMidAutumnLanguage() {
-        return (document.documentElement.lang || '').toLowerCase() === 'zh-hk';
-    }
-
-    function needsMidAutumnGreeting() {
-        return isMidAutumnLanguage() && !sessionStorage.getItem('midAutumnGreetingShown');
-    }
-
-    function closeMidAutumnGreeting() {
-        if (!midAutumnModal || !midAutumnModal.classList.contains('active')) return;
-        midAutumnModal.classList.remove('active');
-        midAutumnModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = midAutumnPreviousOverflow;
-        if (midAutumnPreviousFocus && midAutumnPreviousFocus.isConnected) {
-            midAutumnPreviousFocus.focus();
-        }
-        showEmailSubscriptionPopup();
-    }
-
-    function openMidAutumnGreeting() {
-        if (!midAutumnModal) {
-            midAutumnModal = document.createElement('div');
-            midAutumnModal.id = 'midAutumnModal';
-            midAutumnModal.className = 'modal-overlay';
-            midAutumnModal.innerHTML = `
-                <div class="modal-popup mid-autumn-popup" role="dialog" aria-modal="true" aria-label="中秋節快樂" lang="zh-HK">
-                    <button type="button" class="modal-close-x" aria-label="關閉中秋祝福">&times;</button>
-                    <img src="images/mid-autumn-greeting.png" width="1254" height="1254" alt="Jenny 祝您中秋節快樂。中秋佳節，月圓人團圓。維多利亞珠寶 Victoria Diamonds。" decoding="async">
-                </div>`;
-            document.body.appendChild(midAutumnModal);
-            midAutumnModal.querySelector('button').addEventListener('click', closeMidAutumnGreeting);
-            midAutumnModal.addEventListener('click', function(event) {
-                if (event.target === midAutumnModal) closeMidAutumnGreeting();
-            });
-            midAutumnModal.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape') {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    closeMidAutumnGreeting();
-                } else if (event.key === 'Tab') {
-                    event.preventDefault();
-                    midAutumnModal.querySelector('button').focus();
-                }
-            });
-            midAutumnModal.querySelector('img').addEventListener('error', closeMidAutumnGreeting);
-        }
-        clearTimeout(window.__newsletterPopupTimer);
-        if (emailSubscriptionModal.classList.contains('active')) closeEmailSubscription();
-        midAutumnPreviousFocus = document.activeElement;
-        midAutumnPreviousOverflow = document.body.style.overflow;
-        midAutumnModal.classList.add('active');
-        midAutumnModal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        sessionStorage.setItem('midAutumnGreetingShown', 'true');
-        midAutumnModal.querySelector('button').focus();
-    }
-
     // ---------- Initialize Email Modal ----------
     function initializeEmailSubscription() {
         initEmailSubscriptionElements();
@@ -1308,12 +1246,6 @@ if (document.readyState === 'loading') {
         }
 
 
-        // Watch the shared language attribute, including collection-page selectors.
-        new MutationObserver(function() {
-            if (!isMidAutumnLanguage()) closeMidAutumnGreeting();
-            showEmailSubscriptionPopup();
-        }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
-
         // Show popup
         showEmailSubscriptionPopup();
     }
@@ -1368,12 +1300,6 @@ if (document.readyState === 'loading') {
         }
 
         clearTimeout(window.__newsletterPopupTimer);
-        if (midAutumnModal && midAutumnModal.classList.contains('active')) return;
-        if (needsMidAutumnGreeting()) {
-            openMidAutumnGreeting();
-            return;
-        }
-
         const popupShown =
             sessionStorage.getItem(
                 'emailPopupShown'
@@ -1387,11 +1313,6 @@ if (document.readyState === 'loading') {
                 );
 
             window.__newsletterPopupTimer = setTimeout(function() {
-                if (needsMidAutumnGreeting()) {
-                    openMidAutumnGreeting();
-                    return;
-                }
-                if (midAutumnModal && midAutumnModal.classList.contains('active')) return;
                 openEmailSubscription();
                 sessionStorage.setItem(
                     'emailPopupShown',
