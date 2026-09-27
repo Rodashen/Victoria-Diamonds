@@ -255,6 +255,7 @@ const translations = {
         'label-weight': '重量',
         'label-none': '無',
 'label-price': '起價',
+        'label-configured-price': '圖示配置價格',
         'label-price-fixed': '價格',
         'label-on-request': '請洽詢價格',
         'label-request': '價格',

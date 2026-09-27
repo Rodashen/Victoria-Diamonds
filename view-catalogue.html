@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/logo.png">
     <script src="translations.js"></script>
+    <link rel="stylesheet" href="daily-checkout.css">
+    <script src="daily-products.js" defer></script>
+    <script src="daily-checkout.js" defer></script>
     <style>
         :root {
             --cream: #FFFBF5;
@@ -791,7 +794,7 @@ function getMetaHTML(item, category) {
         html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
         html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
     } else if (price !== undefined && price !== '') {
-        var priceLabel = item.fixedPrice ? getLabel('label-price-fixed', 'Price') : getLabel('label-price', 'Starts at');
+        var priceLabel = item.configurationPrice ? getLabel('label-configured-price', 'Shown configuration') : item.fixedPrice ? getLabel('label-price-fixed', 'Price') : getLabel('label-price', 'Starts at');
         html += '<span class="meta-price-label">' + priceLabel + ':</span>';
         html += '<span class="meta-price"><strong>' + formatPrice(price, currency) + '</strong></span>';
     }
@@ -875,7 +878,7 @@ var stone = card.getAttribute('data-stone');
                     var weight = card.getAttribute('data-weight');
 var currency = card.getAttribute('data-currency') || 'GBP';
                     var details = card.getAttribute('data-details');
-                    var item = { metal: metal, currency: currency };
+                    var item = { metal: metal, currency: currency, configurationPrice: !!card.closest('#dailySparkle') };
                     if (card.getAttribute('data-fixed-price') === 'true') item.fixedPrice = true;
                     if (stone !== '') item.stone = stone;
                     if (tag) item.tag = tag;
@@ -1026,7 +1029,7 @@ function getModalMetaHTML(item, category) {
         html += '<span class="meta-price-label">' + getLabel('label-request', 'Price') + ':</span>';
         html += '<span class="meta-price"><strong>' + getLabel('label-on-request', 'On Request') + '</strong></span>';
     } else if (price !== undefined && price !== '') {
-        var priceLabel = item.fixedPrice ? getLabel('label-price-fixed', 'Price') : getLabel('label-price', 'Starts at');
+        var priceLabel = item.configurationPrice ? getLabel('label-configured-price', 'Shown configuration') : item.fixedPrice ? getLabel('label-price-fixed', 'Price') : getLabel('label-price', 'Starts at');
         html += '<span class="meta-price-label">' + priceLabel + ':</span>';
         html += '<span class="meta-price"><strong>' + formatPrice(price, currency) + '</strong></span>';
     }
@@ -1068,7 +1071,7 @@ var detailToggle = e.target.closest('.modal-details-toggle');
             var details;
             try { details = JSON.parse(card.getAttribute('data-details') || '[]'); } catch(e) { details = []; }
 
-            var item = { metal: metal, currency: currency, fixedPrice: fixedPrice, details: details };
+            var item = { metal: metal, currency: currency, fixedPrice: fixedPrice, details: details, configurationPrice: !!card.closest('#dailySparkle') };
             if (stone !== null && stone !== '') item.stone = stone;
             if (tag) item.tag = tag;
             if (price !== null && price !== '') item.price = price;
@@ -1189,8 +1192,8 @@ renderProducts('dailySparkle', [
 
 // Daily Sparkle - Earrings
         renderProducts('dailySparkle', [
-            {name:'Lumin\u00e9a Earrings', image:'22.png', total:'1.2 ct', price:1425, details:[{key:'eachDiamond', value:'0.10 (6 in total)'},{key:'totalKarat', value:'1.2 ct'}]},
-            {name:'Fiora Earrings', image:'21.png', total:'1.8 ct', price:1575, details:[{key:'mainDiamond', value:'0.25 (4 in total)'},{key:'secondaryDiamond', value:'0.15 (4 in total)'},{key:'totalKarat', value:'1.8 ct'}]}
+            {name:'Lumin\u00e9a Earrings', image:'22.png', total:'0.60 ct (pair)', price:1263, details:[{key:'eachDiamond', value:'0.10 (6 per pair)'},{key:'totalKarat', value:'0.60 ct (pair)'}]},
+            {name:'Fiora Earrings', image:'21.png', total:'1.60 ct (pair)', price:1625, details:[{key:'mainDiamond', value:'0.25 (4 per pair)'},{key:'secondaryDiamond', value:'0.15 (4 per pair)'},{key:'totalKarat', value:'1.60 ct (pair)'}]}
         ], 'Earring');
 
         // Daily Sparkle - Earring Studs
