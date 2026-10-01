@@ -1749,6 +1749,22 @@ var detailToggle = e.target.closest('.modal-details-toggle');
         </div>
     </div>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var card = Array.from(document.querySelectorAll('.product-card')).find(function (item) {
+        return item.querySelector('[data-product-name]')?.getAttribute('data-product-name') === 'Link Charm Bracelet';
+    });
+    if (!card) return;
+    card.id = 'link-charm-bracelet';
+    function openLinkedPiece() {
+        if (location.hash !== '#link-charm-bracelet') return;
+        card.scrollIntoView({block: 'center'});
+        card.click();
+    }
+    window.addEventListener('hashchange', openLinkedPiece);
+    openLinkedPiece();
+});
+</script>
 </body>
 </html>
 

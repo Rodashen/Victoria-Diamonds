@@ -4575,3 +4575,14 @@ animation: dotProgress 2s linear forwards;
         min-height: 260px !important;
     }
 }
+
+/* Customer photographs and individual atelier replies. */
+.testimonial-reply{margin-top:24px;padding-top:18px;border-top:1px solid #d9cbb7;font-size:14px;line-height:1.7;color:var(--color-taupe)}
+.testimonial-reply-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-charcoal);margin-bottom:8px;font-weight:600}
+.testimonial-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.testimonial-photos img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:4px}
+.testimonial-detail a{text-decoration:underline;text-underline-offset:3px;color:inherit}
+.testimonial-shop{display:inline-block;padding:12px 20px;border:1px solid currentColor;color:var(--color-charcoal);font-size:13px;text-decoration:none}
+.testimonial-shop:hover{background:var(--color-charcoal);color:var(--color-ivory)}
+.testimonial-shop:focus-visible,.testimonial-photos a:focus-visible{outline:2px solid #957238;outline-offset:4px}
+.testimonial-card-photo{grid-column:1/-1;max-width:760px;width:100%;justify-self:center}

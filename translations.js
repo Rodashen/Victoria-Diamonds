@@ -6,6 +6,14 @@
 const translations = {
     'en': {},
     'zh-HK': {
+        "review-reply-label": "Victoria Diamonds 回覆",
+        "review-purchased": "已購買：",
+        "testimonial-hideo": "戴在她手上很好看，簡約又優雅。👍",
+        "review-buy-yours": "選購同款 →",
+        "review-reply-1": "謝謝您，Christy。您的婚戒對您如此有意義，我們深感榮幸。願它陪伴您度過每個幸福時刻。",
+        "review-reply-2": "Michael，感謝您信任我們製作週年禮物。能與您一起將構思化為珠寶，是我們的榮幸。",
+        "review-reply-3": "Eleanor，得知我們的珠寶陪伴了您家族三代人，我們十分感動。感謝您與我們分享家族的故事。",
+        "review-reply-4": "謝謝您，Hideo。很高興這款 Link Charm Bracelet 戴在她手上如此好看，也感謝您分享這些照片。",
         // ===== Page Titles =====
         'page-title': '維多利亞鑽石 — 高級珠寶',
         'page-title-daily': '日常閃耀 — 維多利亞鑽石',
