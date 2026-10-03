@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/logo.png">
     <script src="translations.js"></script>
+    <link rel="stylesheet" href="daily-checkout.css">
+    <script src="high-note-products.js" defer></script>
+    <script src="daily-checkout.js" defer></script>
     <script src="victoria-diamonds.js"></script>
     <link rel="stylesheet" href="victoria-diamonds.css">
     <style>
@@ -659,6 +662,10 @@
             }
         }
     </style>
+    <script src="product-links.js" defer></script>
+<script src="catalogue-data.js" defer></script>
+<script src="daily-products.js" defer></script>
+<script src="remaining-products.js" defer></script><script src="product-registry.js" defer></script>
 </head>
 <body>
     <header class="catalogue-header">
@@ -724,8 +731,9 @@
                 <h2 data-i18n="occasional-hero-title">High Note Collection</h2>
                 <p class="collection-sub" data-i18n="occasional-hero-subtitle">Statement-making designs for life's special moments—celebrations, evenings, and milestones.</p>
             </div>
-            <span class="count" data-i18n="occasional-count">15 pieces</span>
+            <span class="count" data-i18n="occasional-count">26 pieces</span>
         </div>
+        <p data-i18n="high-note-online" style="margin:0 0 1.5rem;line-height:1.7;">Customise and order online with 30%, 50% or full payment. Celestia Broche, Éternelle Broche and Lunaria Tiara are available by appointment only.</p>
         <div id="occasionalWear"></div>
     </section>
 
@@ -1110,6 +1118,7 @@
                 return;
             }
             var card = e.target.closest('.product-card');
+            if (card?.matches('a[href]')) return;
             if (card) {
                 var img = card.querySelector('.image-wrap img');
                 var nameEl = card.querySelector('.info .name');

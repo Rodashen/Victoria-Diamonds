@@ -637,6 +637,11 @@
             }
         }
     </style>
+    <script src="product-links.js" defer></script>
+<script src="catalogue-data.js" defer></script>
+<script src="daily-products.js" defer></script>
+<script src="high-note-products.js" defer></script>
+<script src="remaining-products.js" defer></script><script src="product-registry.js" defer></script>
 </head>
 <body>
     <header class="catalogue-header">
@@ -962,6 +967,7 @@
                 return;
             }
             var card = e.target.closest('.product-card');
+            if (card?.matches('a[href]')) return;
             if (card) {
                 var img = card.querySelector('.image-wrap img');
                 var nameEl = card.querySelector('.info .name');

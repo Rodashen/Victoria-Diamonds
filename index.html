@@ -117,10 +117,18 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="landing-page.css?v=20261002">
+    <link rel="stylesheet" href="catalogue-browser.css">
+    <script src="catalogue-data.js" defer></script>
+    <script src="daily-products.js" defer></script>
+    <script src="catalogue-browser.js" defer></script>
+    <script src="landing-page.js?v=20261002" defer></script>
     <script src="translations.js"></script>
-    <script src="victoria-diamonds.js"></script>
+    <script src="victoria-diamonds.js?v=20261002"></script>
+<script src="high-note-products.js" defer></script>
+<script src="remaining-products.js" defer></script><script src="product-registry.js" defer></script>
 </head>
-<body>
+<body class="landing-page">
     <div class="progress-bar" id="progressBar"></div>
 
     <!-- Header -->
@@ -130,16 +138,17 @@
                 <a href="#" class="logo" data-i18n="brand-name">Victoria <span>Diamonds</span></a>
                 
                 <nav class="nav-main">
-                    <a href="#collections" data-i18n="nav-collections">Collections</a>
+                    <details class="collection-menu"><summary data-i18n="nav-collections">Collections</summary><div class="collection-menu-links">
+<a href="daily-sparkle.html">Daily Sparkle</a><a href="high-note-collection.html">High Note</a><a href="forever-bond.html">Forever Bond</a><a href="silver-collection.html">Silver Collection</a><a href="aura-collection.html">Aura</a><a href="view-catalogue.html" data-i18n="qol-browse-all">Browse all pieces →</a>
+</div></details>
                     <a href="#story" data-i18n="nav-our-story">Our Story</a>
                     <a href="#craftsmanship" data-i18n="nav-craftsmanship">Craftsmanship</a>
                     <a href="#contact" data-i18n="nav-visit-us">Visit Us</a>
                     <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav-book-appointment">Book Appointment</a>
-                    <a href="Catalogue.pdf" download="Victoria-Diamonds-Catalogue.pdf" class="nav-catalog" data-i18n="nav-download-catalogue">Download Our Catalogue</a>
-                    <a href="#" class="nav-catalog js-transparency-trigger" role="button" aria-haspopup="dialog" aria-controls="transparencyModal" data-i18n="nav-transparency">VD Price</a>
-                    <a href="Jewelry-Care.pdf" class="nav-catalog" target="_blank" rel="noopener" data-i18n="nav-jewelry-care">Jewelry Care</a>
+
                 </nav>
                 
+                <button type="button" class="search-trigger" data-search-open aria-haspopup="dialog" aria-label="Search jewellery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button>
                 <div class="top-social-links">
                     <div class="lang-selector">
                         <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -180,6 +189,7 @@
                 </button>
             </div>
         </div>
+<nav class="utility-nav" aria-label="Information"><a href="#" class="nav-catalog js-transparency-trigger" role="button" aria-haspopup="dialog" aria-controls="transparencyModal" data-i18n="nav-transparency">VD Price</a><a href="Jewelry-Care.pdf" class="nav-catalog" target="_blank" rel="noopener" data-i18n="nav-jewelry-care">Jewelry Care</a><a href="Catalogue.pdf" download="Victoria-Diamonds-Catalogue.pdf" class="nav-catalog" data-i18n="nav-download-catalogue">Download Our Catalogue</a><button class="js-guarantee-trigger" data-i18n="nav-our-guarantee">Our Guarantee</button></nav>
     </header>
 
     <!-- Mobile Navigation -->
@@ -212,44 +222,12 @@
         </ul>
     </nav>
 
-    <!-- Mobile-only collection landing section -->
-    <section class="collections-mobile" id="collections-mobile" aria-labelledby="mobileCollectionsTitle">
-        <div class="collections-mobile-heading">
-            <p class="collections-mobile-kicker">Victoria Diamonds</p>
-            <h1 id="mobileCollectionsTitle" data-i18n="collections-title">Our Collections</h1>
-            <p data-i18n="collections-subtitle">Discover pieces crafted for every chapter of your story</p>
-        </div>
-        <div class="collections-mobile-grid">
-            <a href="daily-sparkle.html" class="collections-mobile-card">
-                <img src="images/victoria-diamonds-hero-03.png" alt="Daily Sparkle collection">
-                <span class="collections-mobile-card-copy"><strong data-i18n="collection-daily-sparkle">Daily Sparkle</strong><small>33 <span data-i18n="collection-pieces">pieces</span></small></span>
-            </a>
-            <a href="high-note-collection.html" class="collections-mobile-card">
-                <img src="images/victoria-diamonds-01.png" alt="High Note Collection">
-                <span class="collections-mobile-card-copy"><strong data-i18n="collection-occasional-wear">High Note Collection</strong><small>22 <span data-i18n="collection-pieces">pieces</span></small></span>
-            </a>
-            <a href="forever-bond.html" class="collections-mobile-card">
-                <img src="images/victoria-diamonds-02.png" alt="Forever Bond collection">
-                <span class="collections-mobile-card-copy"><strong data-i18n="collection-forever-bond">Forever Bond</strong><small>20 <span data-i18n="collection-rings">rings</span></small></span>
-            </a>
-            <a href="silver-collection.html" class="collections-mobile-card">
-                <img src="images/Silverhero1.png" alt="Silver Collection">
-                <span class="collections-mobile-card-copy"><strong data-i18n="collection-silver-casual">Silver Collection</strong><small>16 <span data-i18n="collection-pieces">pieces</span></small></span>
-            </a>
-        <a href="aura-collection.html" class="collections-mobile-card">
-            <img src="images/SL.png" alt="Aura Collection">
-            <span class="collections-mobile-card-copy"><strong data-i18n="collection-aura">Aura Collection</strong><small>19 <span data-i18n="collection-pieces">pieces</span></small></span>
-        </a>
-        </div>
-        <a href="view-catalogue.html" class="collections-mobile-all" data-i18n="collections-view-all">View All Collections</a>
-    </section>
-
     <!-- Desktop collection landing section -->
     <section class="collections collections-desktop" id="collections">
         <div class="container">
             <div class="section-header">
                 <div class="section-header-left">
-                    <h2 class="heading-display section-title" data-i18n="collections-title">Our Collections</h2>
+                    <h1 class="heading-display section-title" data-i18n="collections-title">Our Collections</h1>
                     <p class="text-body section-subtitle" data-i18n="collections-subtitle">Discover pieces crafted for every chapter of your story</p>
                 </div>
                 <a href="view-catalogue.html" class="btn-text" data-i18n="collections-view-all">View All Collections</a>
@@ -257,28 +235,30 @@
             <div class="collections-grid">
                 <a href="daily-sparkle.html" class="collection-item" style="text-decoration:none;color:inherit;">
                     <div class="collection-image"><img src="images/victoria-diamonds-hero-03.png" alt="Daily Sparkle collection"></div>
-                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-daily-sparkle">Daily Sparkle</h3><p class="collection-count">33 <span data-i18n="collection-pieces">pieces</span></p></div>
+                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-daily-sparkle">Daily Sparkle</h3><p class="collection-count" data-i18n="qol-collection-desc-0">Everyday diamonds</p><span class="collection-cta" data-i18n="qol-shop">Shop collection →</span></div>
                 </a>
                 <a href="high-note-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
                     <div class="collection-image"><img src="images/victoria-diamonds-01.png" alt="High Note Collection"></div>
-                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-occasional-wear">High Note Collection</h3><p class="collection-count">22 <span data-i18n="collection-pieces">pieces</span></p></div>
+                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-occasional-wear">High Note Collection</h3><p class="collection-count" data-i18n="qol-collection-desc-1">Special occasions</p><span class="collection-cta" data-i18n="qol-explore">Explore collection →</span></div>
                 </a>
                 <a href="forever-bond.html" class="collection-item" style="text-decoration:none;color:inherit;">
                     <div class="collection-image"><img src="images/victoria-diamonds-02.png" alt="Forever Bond collection"></div>
-                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-forever-bond">Forever Bond</h3><p class="collection-count">20 <span data-i18n="collection-rings">rings</span></p></div>
+                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-forever-bond">Forever Bond</h3><p class="collection-count" data-i18n="qol-collection-desc-2">Meaningful moments</p><span class="collection-cta" data-i18n="qol-explore">Explore collection →</span></div>
                 </a>
                 <a href="silver-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
                     <div class="collection-image"><img src="images/Silverhero1.png" alt="Silver Collection"></div>
-                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-silver-casual">Silver Collection</h3><p class="collection-count">16 <span data-i18n="collection-pieces">pieces</span></p></div>
+                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-silver-casual">Silver Collection</h3><p class="collection-count" data-i18n="qol-collection-desc-3">Sterling silver</p><span class="collection-cta" data-i18n="qol-shop">Shop collection →</span></div>
                 </a>
                 <a href="aura-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
                     <div class="collection-image"><img src="images/SL.png" alt="Aura Collection"></div>
-                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-aura">Aura Collection</h3><p class="collection-count">19 <span data-i18n="collection-pieces">pieces</span></p></div>
+                    <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-aura">Aura Collection</h3><p class="collection-count" data-i18n="qol-collection-desc-4">Distinctive designs</p><span class="collection-cta" data-i18n="qol-explore">Explore collection →</span></div>
                 </a>
             </div>
         </div>
     </section>
 
+    <nav class="type-links container" aria-label="Browse by jewellery type"><span data-i18n="qol-by-type">Browse by jewellery type</span><a href="view-catalogue.html?type=Ring" data-i18n="qol-ring">Rings</a><a href="view-catalogue.html?type=Earring" data-i18n="qol-earring">Earrings</a><a href="view-catalogue.html?type=Necklace" data-i18n="qol-necklace">Necklaces</a><a href="view-catalogue.html?type=Bracelet" data-i18n="qol-bracelet">Bracelets</a><a href="view-catalogue.html?type=Anklet" data-i18n="qol-anklet">Anklets</a></nav>
+    <nav class="section-nav" aria-label="On this page"><a href="#collections" data-i18n="nav-collections">Collections</a><a href="#story" data-i18n="nav-our-story">Our Story</a><a href="#craftsmanship" data-i18n="nav-craftsmanship">Craftsmanship</a><a href="#reviews" data-i18n="qol-reviews">Reviews</a><a href="#contact" data-i18n="nav-visit-us">Visit Us</a><a href="#faq" data-i18n="qol-faq">FAQ</a></nav>
     <div class="floating-buttons">
         <a href="https://wa.me/447594442577?text=Hi%20Victoria%20Diamonds!%20I%27d%20love%20to%20inquire%20about%20a%20jewelry%20piece.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" rel="noopener" class="floating-btn floating-btn-whatsapp" aria-label="WhatsApp">
             <span class="floating-btn-icon">
@@ -294,75 +274,6 @@
         </a>
     </div>
 
-<!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <p class="text-label hero-tagline" data-i18n="hero-tagline">Artisan Jewelry Since 2012</p>
-            <h1 class="heading-display hero-title" data-i18n="hero-title-full">
-                Where your story<br>Becomes <em>Art</em>
-            </h1>
-            <p class="text-body hero-description" data-i18n="hero-description">
-                Each piece in our collection is handcrafted by master artisans, 
-                transforming the finest gold into wearable works of art that 
-                tell your unique story.
-            </p>
-            <div class="hero-actions">
-                <a href="#collections" class="btn-primary" data-i18n="hero-explore">Explore Collections</a>
-                <a href="#story" class="btn-text" data-i18n="hero-heritage">Our Heritage</a>
-            </div>
-        </div>
-        
-        <div class="hero-image">
-            <div class="hero-slide active" data-title="Solitaire Ring" data-price="Inquire for Price">
-                <img src="images/victoria-diamonds-hero-01.png" 
-                     alt="Solitaire ring">
-            </div>
-            <div class="hero-slide" data-title="Solstice Necklace" data-price="Inquire for Price">
-                <img src="images/victoria-diamonds-hero-02.png" 
-                     alt="Solstice necklace">
-            </div>
-<div class="hero-slide" data-title="Grande Ring" data-price="Inquire for Price">
-                <img src="images/victoria-diamonds-hero-03.png" 
-                     alt="Grand Ring collection">
-            </div>
-<div class="hero-slide" data-title="Silver Collection" data-price="Inquire for Price">
-                <img src="images/Silverhero1.png" 
-                     alt="Silver Collection">
-            </div>
-<div class="hero-image-overlay">
-                <p class="overlay-title" id="heroTitle">Solitaire Ring</p>
-             
-            </div>
-            
-            <!-- Carousel Arrows -->
-            <button class="hero-arrow hero-arrow-prev" id="heroArrowPrev" aria-label="Previous slide">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M15 18l-6-6 6-6"/>
-                </svg>
-            </button>
-            <button class="hero-arrow hero-arrow-next" id="heroArrowNext" aria-label="Next slide">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 18l6-6-6-6"/>
-                </svg>
-            </button>
-            
-<!-- Slide Indicators (Dots) -->
-<div class="hero-slide-indicators">
-                <span class="slide-dot active" data-index="0"></span>
-                <span class="slide-dot" data-index="1"></span>
-                <span class="slide-dot" data-index="2"></span>
-<span class="slide-dot" data-index="3"></span>
-            </div>
-            
-<!-- Slide Counter -->
-            <div class="hero-slide-counter">
-                <span id="slideCurrent">01</span>
-                <span class="hero-slide-counter-divider"></span>
-<span id="slideTotal">04</span>
-            </div>
-        </div>
-    </section>
-
 <!-- Featured Piece -->
     <section class="featured-piece">
         <div class="container">
@@ -372,19 +283,15 @@
                         <img src="images/victoria-diamonds-hero-02.png" 
                              alt="Handcrafted gold necklace">
                     </div>
-                    <div class="featured-badge" data-i18n="featured-new-arrival">New Arrival</div>
+
                 </div>
                 <div class="featured-content">
                     <p class="text-label featured-label" data-i18n="featured-label">Featured Piece</p>
                     <h2 class="heading-display featured-title" data-i18n="featured-celestial">
                       Solstice Necklace
                     </h2>
-                    <p class="text-body featured-description" data-i18n="featured-description">
-                      Inspired by the warmth of the golden hour, the Solstice Necklace celebrates the quiet brilliance of enduring elegance. 
-                      Expertly crafted in hand-finished 18-carat gold, its graceful silhouette is designed to catch the light from every angle, creating a soft, radiant glow that moves effortlessly with you. 
-                      A timeless expression of refinement, the Solstice Necklace embodies modern luxury with understated sophistication.
-
-                    </p>
+                    <p class="text-body featured-description" data-i18n="qol-featured-description">A floral diamond design in 18K yellow gold, created to catch the light. Discover the details of the Solstice Necklace.</p>
+                    <div class="featured-actions"><a class="btn-primary" href="https://wa.me/447594442577?text=Hello%20Victoria%20Diamonds%2C%20I%20would%20like%20to%20enquire%20about%20the%20Solstice%20Necklace." target="_blank" rel="noopener" data-i18n="qol-enquire">Enquire about this piece →</a><a class="btn-text" href="high-note-collection.html" data-i18n="qol-explore">Explore collection →</a></div>
                     <div class="featured-details">
                         <div class="detail-row">
                             <span class="detail-label" data-i18n="featured-material">Material</span>
@@ -404,87 +311,17 @@
         </div>
     </section>
     
-    <!-- Collections -->
-    <section class="collections collections-original" id="collections-original">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-header-left">
-                    <h2 class="heading-display section-title" data-i18n="collections-title">Our Collections</h2>
-                    <p class="text-body section-subtitle" data-i18n="collections-subtitle">
-                        Discover pieces crafted for every chapter of your story
-                    </p>
-                </div>
-                <a href="view-catalogue.html" class="btn-text" data-i18n="collections-view-all">View All Collections</a>
-            </div>
-            
-<div class="collections-grid">
-                <a href="daily-sparkle.html" class="collection-item" style="text-decoration:none;color:inherit;">
-                    <div class="collection-image">
-                        <img src="images/victoria-diamonds-hero-03.png" 
-                             alt="Daily Sparkle collection">
-                    </div>
-                    <div class="collection-overlay">
-                        <h3 class="collection-name" data-i18n="collection-daily-sparkle">Daily Sparkle</h3>
-                        <p class="collection-count">33 <span data-i18n="collection-pieces">pieces</span></p>
-                    </div>
-                </a>
-                
-                <a href="high-note-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
-                    <div class="collection-image">
-                        <img src="images/victoria-diamonds-01.png" 
-                             alt="High Note Collection">
-                    </div>
-                    <div class="collection-overlay">
-                        <h3 class="collection-name" data-i18n="collection-occasional-wear">High Note Collection</h3>
-                        <p class="collection-count">22 <span data-i18n="collection-pieces">pieces</span></p>
-                    </div>
-                </a>
-                
-                <a href="forever-bond.html" class="collection-item" style="text-decoration:none;color:inherit;">
-                    <div class="collection-image">
-                        <img src="images/victoria-diamonds-02.png" 
-                             alt="Forever Bond collection">
-                    </div>
-                    <div class="collection-overlay">
-                        <h3 class="collection-name" data-i18n="collection-forever-bond">Forever Bond</h3>
-                        <p class="collection-count">20 <span data-i18n="collection-rings">rings</span></p>
-                    </div>
-                </a>
-                
-                <a href="silver-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
-                    <div class="collection-image">
-                        <img src="images/Silverhero1.png" 
-                             alt="Silver for Casual Wear collection">
-                    </div>
-                    <div class="collection-overlay">
-                        <h3 class="collection-name" data-i18n="collection-silver-casual">Silver Collection</h3>
-                        <p class="collection-count">16 <span data-i18n="collection-pieces">pieces</span></p>
-                    </div>
-                </a>
-                <a href="aura-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
-                    <div class="collection-image">
-                        <img src="images/three-stone-round-classic-ring.png" 
-                             alt="Single Lady collection">
-                    </div>
-                    <div class="collection-overlay">
-                        <h3 class="collection-name" data-i18n="collection-aura">Single Lady</h3>
-                        <p class="collection-count">19 <span data-i18n="collection-pieces">pieces</span></p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    
     <!-- Our Story -->
     <section class="story" id="story">
         <div class="container">
             <div class="story-grid">
                 <div class="story-content">
                     <p class="text-label story-label" data-i18n="story-label">Our Heritage</p>
-                    <h2 class="heading-display story-title" data-i18n="story-title">
-                        Generations of Golden Mastery
+                    <h2 class="heading-display story-title" data-i18n="qol-story-title">
+                        From Hong Kong to London
                     </h2>
-                    <p class="text-body story-text" data-i18n="story-text-1">
+                    <p class="text-body story-intro" data-i18n="qol-story-intro">Our story brings together heritage, thoughtful design and a love of fine jewellery, from Hong Kong to London.</p>
+                    <details class="story-disclosure"><summary data-i18n="qol-read-story">Read our full story</summary>                    <p class="text-body story-text" data-i18n="story-text-1">
                         Established in the vibrant heart of Hong Kong, 
                         Victoria Diamonds draws its inspiration from the city's centuries-old legacy as the crossroads of the East.
                         Deeply rooted in the ancient traditions of Chinese metallurgy and the historic maritime trade routes that once brought the world's finest gems to the Pearl of the Orient, our atelier began as a humble goldsmithing workshop. 
@@ -496,6 +333,7 @@
                         contemporary design sensibilities. Every piece that 
                         leaves our workshop carries the weight of this legacy.
                     </p>
+</details>
                     <div class="story-signature">
                         <p class="signature-name" data-i18n="story-signature-name">Jenny Pun</p>
                         <p class="signature-title" data-i18n="story-signature-title">CEO and Founder</p>
@@ -504,7 +342,7 @@
                 <div class="story-images">
                     <div class="story-image">
                         <img src="images/victoria-diamonds-05.jpeg" 
-                             alt="Goldsmith at work">
+                             alt="Close-up of a gold solitaire ring setting">
                     </div>
                     <div class="story-image">
                         <img src="images/victoria-diamonds-06.png" 
@@ -587,7 +425,7 @@
                 <div class="craft-image-wrapper">
                     <div class="craft-image">
                         <img src="images/victoria-diamonds-07.png" 
-                             alt="Jewelry craftsmanship workshop">
+                             alt="Detail of a diamond solitaire ring">
                     </div>
                     <div class="craft-stats">
                         <div class="stat-item">
@@ -617,6 +455,16 @@
                 <p class="text-body testimonials-subtitle" data-i18n="testimonials-subtitle">What our clients say about their Victoria Diamonds experience</p>
             </div>
             
+<article class="testimonial-card testimonial-card-photo testimonial-featured">
+                    <p class="testimonial-text" data-i18n="testimonial-hideo">It looks lovely on her—simple and elegant. 👍</p>
+                    <div class="testimonial-author"><div class="testimonial-info"><p class="testimonial-name">Hideo U</p><p class="testimonial-detail"><span data-i18n="review-purchased">Purchased:</span> <a href="product.html?item=silver_link_charm" target="_blank" rel="noopener">Link Charm Bracelet</a></p></div></div>
+                    <div class="testimonial-photos">
+                        <a href="images/hideo-link-charm-closeup.png" target="_blank" rel="noopener" aria-label="Open Hideo’s close-up bracelet photo"><img src="images/hideo-link-charm-closeup.png" alt="Hideo’s photo of the Link Charm Bracelet on a wrist" width="1536" height="2048" loading="lazy"></a>
+                        <a href="images/hideo-link-charm-worn.png" target="_blank" rel="noopener" aria-label="Open Hideo’s bracelet styling photo"><img src="images/hideo-link-charm-worn.png" alt="Hideo’s photo showing the Link Charm Bracelet worn with rings" width="1536" height="2048" loading="lazy"></a>
+                    </div>
+                    <a class="testimonial-shop" href="product.html?item=silver_link_charm" target="_blank" rel="noopener" data-i18n="review-buy-yours">Buy yours too →</a>
+                    <div class="testimonial-reply"><p class="testimonial-reply-label" data-i18n="review-reply-label">Reply from Victoria Diamonds</p><p data-i18n="review-reply-4">Thank you, Hideo. We’re so pleased the Link Charm Bracelet looks lovely on her, and we appreciate you sharing these photos with us.</p></div>
+                </article>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-stars">
@@ -666,81 +514,17 @@
                     <div class="testimonial-reply"><p class="testimonial-reply-label" data-i18n="review-reply-label">Reply from Victoria Diamonds</p><p data-i18n="review-reply-3">Eleanor, hearing that our pieces are part of three generations of your family is deeply special. Thank you for sharing your family’s story with us.</p></div>
                 </div>
 
-                <article class="testimonial-card testimonial-card-photo">
-                    <p class="testimonial-text" data-i18n="testimonial-hideo">It looks lovely on her—simple and elegant. 👍</p>
-                    <div class="testimonial-author"><div class="testimonial-info"><p class="testimonial-name">Hideo U</p><p class="testimonial-detail"><span data-i18n="review-purchased">Purchased:</span> <a href="silver-collection.html#link-charm-bracelet">Link Charm Bracelet</a></p></div></div>
-                    <div class="testimonial-photos">
-                        <a href="images/hideo-link-charm-closeup.png" target="_blank" rel="noopener" aria-label="Open Hideo’s close-up bracelet photo"><img src="images/hideo-link-charm-closeup.png" alt="Hideo’s photo of the Link Charm Bracelet on a wrist" width="1536" height="2048" loading="lazy"></a>
-                        <a href="images/hideo-link-charm-worn.png" target="_blank" rel="noopener" aria-label="Open Hideo’s bracelet styling photo"><img src="images/hideo-link-charm-worn.png" alt="Hideo’s photo showing the Link Charm Bracelet worn with rings" width="1536" height="2048" loading="lazy"></a>
-                    </div>
-                    <a class="testimonial-shop" href="silver-collection.html#link-charm-bracelet" data-i18n="review-buy-yours">Buy yours too →</a>
-                    <div class="testimonial-reply"><p class="testimonial-reply-label" data-i18n="review-reply-label">Reply from Victoria Diamonds</p><p data-i18n="review-reply-4">Thank you, Hideo. We’re so pleased the Link Charm Bracelet looks lovely on her, and we appreciate you sharing these photos with us.</p></div>
-                </article>
+
             </div>
         </div>
     </section>
     
     <!-- Contact -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-content">
-                    <p class="text-label" data-i18n="contact-label">Visit Our Atelier</p>
-                    <h2 class="heading-display contact-title" data-i18n="contact-title">
-                        Experience Victoria Diamonds
-                    </h2>
-                    <p class="text-body contact-text" data-i18n="contact-text">
-                        We invite you to visit our atelier for a personal 
-                        consultation. Discover our collections in an intimate 
-                        setting and work with our designers to create something 
-                        truly unique.
-                    </p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <p class="contact-item-label" data-i18n="contact-address">Address</p>
-                            <p class="contact-item-value">
-                                <span data-i18n="contact-address-val-1">London Shangrila Hotel (Appointment)</span><br>
-                                <span data-i18n="contact-address-val-2">31 St Thomas Street</span><br>
-                                <span data-i18n="contact-address-val-3">London SE1 9QU, United Kingdom</span>
-                            </p>
-                        </div>
-                        <div class="contact-item">
-                            <p class="contact-item-label" data-i18n="contact-hours">Hours</p>
-                            <p class="contact-item-value" data-i18n="contact-hours-val">
-                                Monday to Sunday 11am to 9pm (Appointment)
-                            </p>
-                        </div>
-                        <div class="contact-item">
-                            <p class="contact-item-label" data-i18n="contact-phone">Contact</p>
-                            <p class="contact-item-value">
-                                <a href="tel:+447594442577">+44 7594 442577</a><br>
-                                <a href="mailto:inquiry@victoria-diamonds.com">inquiry@victoria-diamonds.com</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem;">
-                        <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="btn-primary" data-i18n="contact-book">Book Appointment with us</a>
-                        <a href="https://wa.me/447594442577?text=Hi%20Victoria%20Diamonds!%20I%27d%20love%20to%20inquire%20about%20a%20jewelry%20piece.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" rel="noopener" class="btn-primary" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);" data-i18n="contact-whatsapp">WhatsApp Us</a>
-                    </div>
-                </div>
-                
-                <div class="contact-form-wrapper">
-                    <div class="booking-pill" data-i18n="contact-private-consultation">Private Consultation</div>
-                    <h3 class="form-title" data-i18n="contact-appointment-title">Book an Appointment</h3>
-                    <p class="booking-copy" data-i18n="contact-appointment-text">
-                        Reserve a personal viewing, custom design conversation, or collection consultation with our London atelier. Contact us directly to schedule your private appointment.
-                    </p>
-                    <div class="booking-actions" style="flex-direction:column;">
-                        <a href="tel:+447594442577" class="btn-primary" data-i18n="contact-call">Call +44 7594 442577</a>
-                        <a href="mailto:inquiry@victoria-diamonds.com" class="btn-primary" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);" data-i18n="contact-email">Email Us</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="contact" id="contact"><div class="container contact-grid">
+        <div class="contact-content"><p class="text-label" data-i18n="contact-label">Visit Our Atelier</p><h2 class="heading-display contact-title" data-i18n="qol-appointment-title">A personal appointment in London</h2><p class="text-body contact-text" data-i18n="qol-appointment-copy">Discover the collection with us, by appointment. Explore your favourite pieces and discuss a design of your own.</p><div class="contact-details"><p class="contact-item-value"><span data-i18n="contact-address-val-1">London Shangrila Hotel (Appointment)</span><br><span data-i18n="contact-address-val-2">31 St Thomas Street</span><br><span data-i18n="contact-address-val-3">London SE1 9QU, United Kingdom</span></p><p class="contact-item-value" data-i18n="contact-hours-val">Monday to Sunday 11am to 9pm (Appointment)</p></div></div>
+        <div class="appointment-actions"><a class="btn-primary" href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" data-i18n="nav-book-appointment">Book Appointment</a><a class="btn-text" href="https://wa.me/447594442577?text=Hello%20Victoria%20Diamonds%2C%20I%20would%20like%20to%20arrange%20a%20consultation." target="_blank" rel="noopener" data-i18n="contact-whatsapp">WhatsApp us</a><a class="btn-text" href="https://www.google.com/maps/search/?api=1&amp;query=31+St+Thomas+Street+London+SE1+9QU" target="_blank" rel="noopener" data-i18n="qol-directions">Get directions →</a><a href="tel:+447594442577">+44 7594 442577</a><a href="mailto:inquiry@victoria-diamonds.com">inquiry@victoria-diamonds.com</a></div>
+    </div></section>
 
-    <!-- FAQ Section -->
     <section class="faq revealed" id="faq">
         <div class="container">
             <!-- Eyebrow Tag -->
@@ -751,10 +535,11 @@
                     <p class="text-body section-subtitle" data-i18n="faq-subtitle">Find answers to common questions about our bespoke jewelry services</p>
                 </div>
             </div>
+            <div class="faq-topics" role="group" aria-label="Question topics"><button type="button" data-faq-topic="all" aria-pressed="true" data-i18n="qol-topic-all">All questions</button><button type="button" data-faq-topic="shopping" aria-pressed="false" data-i18n="qol-topic-shopping">Shopping</button><button type="button" data-faq-topic="bespoke" aria-pressed="false" data-i18n="qol-topic-bespoke">Bespoke</button><button type="button" data-faq-topic="delivery" aria-pressed="false" data-i18n="qol-topic-delivery">Delivery</button><button type="button" data-faq-topic="care" aria-pressed="false" data-i18n="qol-topic-care">Care</button></div>
             <div class="faq-grid">
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-1">Do you offer custom ring designs?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-1">Do you offer custom ring designs?</button>
                         <div class="faq-answer">
                             <p>Yes! You can work directly with our design team to create a bespoke setting, choose your center stone (natural or lab-grown), and approve a 3D preview before crafting begins.</p>
                         </div>
@@ -762,7 +547,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-2">How does the custom design process work step-by-step?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-2">How does the custom design process work step-by-step?</button>
                         <div class="faq-answer">
                         <ol class="text-body faq-list">
                             <li>Initial Consultation: We discuss your ideas, preferred metals, gemstone choices, and budget.</li>
@@ -775,7 +560,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-3">How long does a custom order take?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-3">How long does a custom order take?</button>
                         <div class="faq-answer">
                         <p>Custom pieces typically take 2 to 4 weeks from final design approval to delivery.</p>
                         </div>
@@ -783,7 +568,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-4">Can I supply my own gemstone or heirloom piece to re-set?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-4">Can I supply my own gemstone or heirloom piece to re-set?</button>
                         <div class="faq-answer">
                         <p>Yes. We can incorporate family heirloom stones into new custom settings, subject to a physical inspection by our jeweler to verify the stone's structural integrity before setting.</p>
                         </div>
@@ -791,7 +576,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-5">Do you offer lab-grown or natural diamonds?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-5">Do you offer lab-grown or natural diamonds?</button>
                         <div class="faq-answer">
                         <p>We offer both certified ethically sourced natural diamonds and high-grade lab-grown diamonds, allowing you to choose the option that aligns best with your values and budget.</p>
                         </div>
@@ -799,7 +584,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-6">What is the difference between lab-grown and natural diamonds?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-6">What is the difference between lab-grown and natural diamonds?</button>
                         <div class="faq-answer">
                         <p>Chemically, physically, and optically, lab-grown and natural diamonds are identical—both are pure crystallized carbon. Natural diamonds are formed over billions of years deep within the Earth, whereas lab-grown diamonds are created in controlled laboratory environments. We offer both so you can choose the stone that best aligns with your preferences and budget.</p>
                         </div>
@@ -807,7 +592,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-7">Are your diamonds certified?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-7">Are your diamonds certified?</button>
                         <div class="faq-answer">
                             <p>Yes. All center stones above 1 carat come with an independent grading certificate from accredited gemological laboratories such as GIA or IGI.</p>
                         </div>
@@ -815,7 +600,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-8">How much is the deposit for a custom piece?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-8">How much is the deposit for a custom piece?</button>
                         <div class="faq-answer">
                             <p>We require a 50% deposit of the total estimated cost upon approval of the initial quote and design direction. The remaining 50% balance is due upon final completion, prior to dispatch or collection.</p>
                         </div>
@@ -823,7 +608,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-9">Can I transfer my deposit to a different design?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-9">Can I transfer my deposit to a different design?</button>
                         <div class="faq-answer">
                             <p>If you decide to modify your design concept before manufacturing begins, your deposit can be applied toward the new design. However, additional costs may apply if new 3D CAD renders or different gemstones are required.</p>
                         </div>
@@ -831,7 +616,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-10">Can I request a custom engraving?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-10">Can I request a custom engraving?</button>
                         <div class="faq-answer">
                             <p>Complimentary text engraving is available on most standard wedding bands and ring shanks (up to 20 characters), depending on the band width and setting design.</p>
                         </div>
@@ -839,7 +624,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-11">What if I order the wrong ring size?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-11">What if I order the wrong ring size?</button>
                         <div class="faq-answer">
                             <p>We offer one complimentary ring resizing within 30 days of delivery for most standard band designs.</p>
                         </div>
@@ -847,7 +632,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-12">What is your return policy?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-12">What is your return policy?</button>
                         <div class="faq-answer">
                             <p>In-stock jewelry can be returned or exchanged within 30 days in its original, unworn condition. Custom or personalized items are final sale.</p>
                         </div>
@@ -855,7 +640,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-13">Do you offer a manufacturing warranty?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-13">Do you offer a manufacturing warranty?</button>
                         <div class="faq-answer">
                             <p>Yes. Every Victoria Diamonds piece comes with a lifetime manufacturing warranty covering structural defects in craftsmanship. It does not cover normal wear and tear, accidental loss, or unauthorized third-party alterations.</p>
                         </div>
@@ -863,12 +648,14 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-item-inner">
-                        <div class="faq-question" data-i18n="faq-question-14">Do you ship internationally?</div>
+                        <button type="button" class="faq-question" aria-expanded="false" data-i18n="faq-question-14">Do you ship internationally?</button>
                         <div class="faq-answer">
                             <p>Yes, we provide fully insured express international shipping to select destinations worldwide via specialized high-value carriers (such as FedEx Express or DHL Express).</p>
                         </div>
                     </div>
                 </div>
+<div class="faq-item"><div class="faq-item-inner"><button type="button" class="faq-question" aria-expanded="false" data-i18n="qol-payment-question">How do online payments work?</button><div class="faq-answer"><p data-i18n="qol-payment-answer">Silver Collection pieces are paid in full. Daily Sparkle offers customisation and a choice of full payment or a deposit. Your final configuration and price are confirmed before payment.</p></div></div></div>
+                <div class="faq-item"><div class="faq-item-inner"><button type="button" class="faq-question" aria-expanded="false" data-i18n="qol-care-question">How should I care for silver jewellery?</button><div class="faq-answer"><p><a href="Jewelry-Care.pdf" target="_blank" rel="noopener" data-i18n="qol-care-answer">Read our Jewelry Care guide for silver care, cleaning and storage advice →</a></p></div></div></div>
             </div>
         </div>
     </section>
@@ -995,6 +782,7 @@
     </div>
 
     <!-- Footer -->
+    <section class="newsletter-inline" aria-labelledby="newsletterInlineTitle"><div class="container newsletter-inline-inner"><div><h2 id="newsletterInlineTitle" data-i18n="qol-newsletter-title">Stay close to the collection</h2><p data-i18n="qol-newsletter-copy">New pieces and stories from Victoria Diamonds.</p></div><form id="newsletterInlineForm"><label for="newsletterInlineEmail" data-i18n="qol-email">Your email address</label><div class="newsletter-inline-fields"><input id="newsletterInlineEmail" type="email" autocomplete="email" required><button class="btn-primary" type="submit" data-i18n="qol-subscribe">Subscribe</button></div></form></div></section>
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
@@ -1028,12 +816,11 @@
                 
                 <!-- Column 3: Company -->
                 <div class="footer-column">
-                    <h4 class="footer-column-title" data-i18n="footer-company">Company</h4>
+                    <h4 class="footer-column-title" data-i18n="qol-customer-care">Customer care</h4>
                     <ul class="footer-links">
-                        <li><a href="#story" data-i18n="footer-our-story">Our Story</a></li>
-                        <li><a href="#craftsmanship" data-i18n="footer-craftsmanship">Craftsmanship</a></li>
-                        <li><a href="#contact" data-i18n="footer-visit-us">Visit Us</a></li>
-                        <li><a href="#" data-i18n="footer-custom-design">Custom Design</a></li>
+                        <li><a href="#faq" data-i18n="qol-faq">FAQ</a></li>
+                        <li><a href="Jewelry-Care.pdf" target="_blank" rel="noopener" data-i18n="nav-jewelry-care">Jewelry Care</a></li>
+                        <li><a href="#contact" data-i18n="footer-custom-design">Custom Design</a></li>
                         <li><a href="T&C.pdf" target="_blank" rel="noopener" data-i18n="footer-terms-conditions">Terms &amp; Conditions</a></li>
                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
                         <li><a href="cookie-policy.html">Cookie Policy</a></li>
@@ -1042,22 +829,21 @@
                 
                 <!-- Column 4: About This Website -->
                 <div class="footer-column footer-about">
-                    <h4 class="footer-column-title" data-i18n="footer-about">About This Website</h4>
-                    <p data-i18n="footer-about-text-1">
-                        This website presents Victoria Diamonds, a London-based fine jewelry atelier offering bespoke consultations, private appointments, and timeless gold pieces.
-                    </p>
-                    <p data-i18n="footer-about-text-2">
-                        Explore our collections online, then visit our London showroom for a personal experience with our design team.
-                    </p>
-                    <p data-i18n="footer-about-text-3">
-                        For private appointments, contact us directly through the details above or our social channels.
-                    </p>
+                    <h4 class="footer-column-title" data-i18n="qol-visit-connect">Visit &amp; connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="#contact" data-i18n="footer-visit-us">Visit Us</a></li>
+                        <li><a href="#story" data-i18n="footer-our-story">Our Story</a></li>
+                        <li><a href="#craftsmanship" data-i18n="footer-craftsmanship">Craftsmanship</a></li>
+                        <li><a href="#reviews" data-i18n="qol-reviews">Customer reviews</a></li>
+                        <li><button type="button" data-newsletter-open data-i18n="qol-newsletter-link">Newsletter</button></li>
+                    </ul>
                 </div>
             </div>
             
             <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <p class="footer-copyright" data-i18n="footer-copyright">© 2026 Victoria Diamonds.</p>
+                <a class="footer-back" href="#collections" data-i18n="qol-back-collections">Back to collections ↑</a>
                 <div class="footer-social" aria-label="Social media links">
                     <a href="https://www.facebook.com/profile.php?id=61590599627658" target="_blank" rel="noopener" aria-label="Facebook">
                         <svg viewBox="0 0 24 24" class="social-icon" aria-hidden="true">
@@ -1090,9 +876,9 @@
    </div>
 
    <!-- Email Subscription Popup -->
-<div class="modal-overlay" id="emailSubscriptionModal">
+<div class="modal-overlay" id="emailSubscriptionModal" role="dialog" aria-modal="true" aria-label="Newsletter" aria-hidden="true">
     <div class="modal-popup" id="emailSubscriptionPopup">
-        <button class="modal-close-x" id="emailSubscriptionCloseX">×</button>
+        <button class="modal-close-x" id="emailSubscriptionCloseX" aria-label="Close newsletter">×</button>
         <div class="email-subscription-wrapper">
             <div class="email-subscription-content">
                 <div class="email-subscription-image-column">

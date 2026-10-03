@@ -152,6 +152,8 @@
 
 
     // ---------- Smooth Scroll ----------
+    document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.site-header');
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
@@ -165,7 +167,8 @@
             if (target) {
                 e.preventDefault();
 
-                const headerHeight = header ? header.offsetHeight : 0;
+                const sectionNav = document.querySelector('.landing-page .section-nav');
+                const headerHeight = (header ? header.offsetHeight : 0) + (sectionNav ? sectionNav.offsetHeight : 0);
                 const targetPosition =
                     target.getBoundingClientRect().top +
                     window.pageYOffset -
@@ -173,12 +176,14 @@
 
                 window.scrollTo({
                     top: targetPosition,
-                    behavior: 'smooth'
+                    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
                 });
             }
         });
     });
 
+
+    });
 
     // ---------- Hero Slideshow ----------
     document.addEventListener('DOMContentLoaded', function() {
@@ -337,7 +342,7 @@
 
     if (sections.length) {
         const navLinks = document.querySelectorAll(
-            '.main-nav a[href^="#"]'
+            '.nav-main a[href^="#"]'
         );
 
         const sectionObserver = new IntersectionObserver(function(entries) {
@@ -607,6 +612,7 @@
             return;
         }
 
+        if (document.body.classList.contains('landing-page') && ['all', 'essential'].includes(localStorage.getItem('vdCookieConsent'))) { hideConsentBanner(); return; }
         consentBanner.classList.remove('hidden');
         consentBanner.setAttribute('aria-hidden', 'false');
 
@@ -734,195 +740,13 @@ function resetEmailSubscriptionStates() {
 
     // ---------- Show Success ----------
    function showEmailSubscriptionSuccess() {
-    if (!emailSubscriptionPopup) {
-        return;
+        if (!emailSubscriptionPopup) return;
+        const formState = emailSubscriptionPopup.querySelector('.email-subscription-form-state');
+        const success = emailSubscriptionPopup.querySelector('.email-subscription-success');
+        if (formState) { formState.hidden = true; formState.style.display = 'none'; }
+        if (success) { success.classList.add('show'); success.style.display = 'block'; success.setAttribute('role', 'status'); }
+        emailSubscriptionSubmissionPending = false;
     }
-
-    const textColumn =
-        emailSubscriptionPopup.querySelector(
-            '.email-subscription-text-column'
-        );
-
-    if (!textColumn) {
-        return;
-    }
-
-    /*
-     * Replace the ENTIRE right side of the popup.
-     * This removes:
-     * - Email field
-     * - Last Name field
-     * - Submit button
-     * - Original heading
-     * - Original description
-     * - Any leftover form elements
-     */
-
-    textColumn.innerHTML = `
-        <div class="email-subscription-success-final">
-
-            <div class="success-content">
-
-                <div class="success-eyebrow">
-                    VICTORIA DIAMONDS
-                </div>
-
-                <h2>
-                    Thank You for Subscribing!
-                </h2>
-
-                <p class="success-main-text">
-                    Welcome to the Victoria Diamonds community. We're delighted to have you with us.
-                </p>
-
-                <p class="success-sub-text">
-                    Follow us on Instagram to discover our latest creations, bespoke jewellery, and behind-the-scenes moments.
-                </p>
-
-                <a
-                    href="https://www.instagram.com/victoriadiamondsco/"
-                    target="_blank"
-                    rel="noopener"
-                    class="success-instagram-link"
-                    aria-label="Follow Victoria Diamonds on Instagram"
-                >
-                    <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        class="success-instagram-icon"
-                    >
-                        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Zm5.2-3.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2Z"/>
-                    </svg>
-
-                    <span>@victoriadiamondsco</span>
-                </a>
-
-            </div>
-
-        </div>
-    `;
-
-    /*
-     * Add the styling directly so existing popup CSS
-     * cannot interfere with the success screen.
-     */
-
-    const styleId = 'victoria-success-screen-styles';
-
-    if (!document.getElementById(styleId)) {
-
-        const style = document.createElement('style');
-
-        style.id = styleId;
-
-        style.textContent = `
-            .email-subscription-success-final {
-                width: 100%;
-                height: 100%;
-                min-height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-sizing: border-box;
-                padding: 60px 55px;
-            }
-
-            .email-subscription-success-final .success-content {
-                width: 100%;
-                max-width: 390px;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: center;
-                text-align: left;
-            }
-
-            .email-subscription-success-final .success-eyebrow {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 10px;
-                font-weight: 600;
-                letter-spacing: 0.22em;
-                text-transform: uppercase;
-                margin-bottom: 22px;
-                opacity: 0.6;
-            }
-
-            .email-subscription-success-final h2 {
-                margin: 0 0 22px 0 !important;
-                padding: 0 !important;
-                font-family: 'Cormorant Garamond', serif !important;
-                font-size: clamp(42px, 4vw, 58px) !important;
-                line-height: 0.95 !important;
-                font-weight: 400 !important;
-                letter-spacing: -0.02em !important;
-                color: #1c1c1c !important;
-            }
-
-            .email-subscription-success-final .success-main-text {
-                margin: 0 0 7px 0 !important;
-                padding: 0 !important;
-                font-family: 'DM Sans', sans-serif !important;
-                font-size: 16px !important;
-                line-height: 1.6 !important;
-                color: #1c1c1c !important;
-            }
-
-            .email-subscription-success-final .success-sub-text {
-                margin: 0 !important;
-                padding: 0 !important;
-                font-family: 'DM Sans', sans-serif !important;
-                font-size: 14px !important;
-                line-height: 1.6 !important;
-                color: #777 !important;
-            }
-
-            .success-instagram-link {
-                display: inline-flex !important;
-                align-items: center !important;
-                gap: 12px !important;
-                margin-top: 38px !important;
-                padding-top: 20px !important;
-                border-top: 1px solid rgba(28, 28, 28, 0.14) !important;
-                width: 100% !important;
-                box-sizing: border-box !important;
-                text-decoration: none !important;
-                font-family: 'DM Sans', sans-serif !important;
-                font-size: 13px !important;
-                font-weight: 500 !important;
-                letter-spacing: 0.03em !important;
-                color: #1c1c1c !important;
-                transition: opacity 0.25s ease !important;
-            }
-
-            .success-instagram-link:hover {
-                opacity: 0.55 !important;
-            }
-
-            .success-instagram-icon {
-                width: 21px !important;
-                height: 21px !important;
-                flex: 0 0 21px !important;
-                fill: #1c1c1c !important;
-            }
-
-            @media (max-width: 700px) {
-
-                .email-subscription-success-final {
-                    padding: 45px 32px;
-                }
-
-                .email-subscription-success-final h2 {
-                    font-size: 44px !important;
-                }
-
-            }
-        `;
-
-        document.head.appendChild(style);
-    }
-
-    emailSubscriptionSubmissionPending = false;
-}
 // ============================================
 // FAQ Accordion
 // ============================================
@@ -944,6 +768,7 @@ function initializeFAQAccordion() {
             }
 
             item.classList.toggle('active');
+            this.setAttribute('aria-expanded', String(item.classList.contains('active')));
 
         });
 
@@ -1295,6 +1120,7 @@ if (document.readyState === 'loading') {
 
     // ---------- Show Popup Once Per Session ----------
     function showEmailSubscriptionPopup() {
+        if (document.body.classList.contains('landing-page')) { window.vdNewsletterReady = true; return; }
         if (!emailSubscriptionModal) {
             return;
         }
@@ -1343,6 +1169,14 @@ if (document.readyState === 'loading') {
 
     }
 
+
+    window.openVictoriaNewsletter = function(email, submit) {
+        openEmailSubscription();
+        sessionStorage.setItem('emailPopupShown', 'true');
+        const input = emailSubscriptionForm && emailSubscriptionForm.querySelector('[name=Email]');
+        if (input) { if (email) input.value = email; input.focus(); }
+        if (submit && emailSubscriptionForm) emailSubscriptionForm.requestSubmit();
+    };
 
     // ---------- Escape Key ----------
     document.addEventListener(

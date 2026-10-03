@@ -920,6 +920,11 @@
             }
         }
     </style>
+    <script src="product-links.js" defer></script>
+<script src="catalogue-data.js" defer></script>
+<script src="daily-products.js" defer></script>
+<script src="high-note-products.js" defer></script>
+<script src="remaining-products.js" defer></script><script src="product-registry.js" defer></script>
 </head>
 <body>
     <header class="catalogue-header">
@@ -1323,6 +1328,7 @@ var detailToggle = e.target.closest('.modal-details-toggle');
                 return;
             }
             var card = e.target.closest('.product-card');
+            if (card?.matches('a[href]')) return;
             if (card) {
                 var img = card.querySelector('.image-wrap img');
                 var nameEl = card.querySelector('.info .name');
@@ -1756,13 +1762,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     if (!card) return;
     card.id = 'link-charm-bracelet';
-    function openLinkedPiece() {
-        if (location.hash !== '#link-charm-bracelet') return;
-        card.scrollIntoView({block: 'center'});
-        card.click();
-    }
-    window.addEventListener('hashchange', openLinkedPiece);
-    openLinkedPiece();
+    // Legacy deep links are handled centrally by product-links.js.
 });
 </script>
 </body>
