@@ -1,7 +1,7 @@
 /* Customer customization; the payment server confirms all prices. */
 (() => {
  'use strict';
- const API=location.hostname==='127.0.0.1'||location.hostname==='localhost' ? (document.querySelector('meta[name=checkout-api]')?.content || 'http://127.0.0.1:8884') : 'https://calculator-oofl.onrender.com';
+ const API=document.querySelector('meta[name=checkout-api]')?.content || 'https://calculator-oofl.onrender.com';
  const sources=[['dailySparkle','daily-sparkle',window.DailyProducts],['occasionWear','high-note',window.HighNoteProducts]];
  const catalogue={carats:(window.DailyProducts||window.HighNoteProducts)?.carats,products:sources.flatMap(([collection,route,data])=>(data?.products||[]).map(p=>({...p,collection,route})))};
  catalogue.products.push(...(window.RemainingProducts?.products||[]));
@@ -43,7 +43,6 @@
   status(t('Checking your price…','正在核對價格…'));
   field('dailyCaratTotal').textContent=read().diamonds.reduce((sum,d)=>sum+Number(d.carat)*d.qty,0).toFixed(2)+' ct';
   field('dailyKaratWrap').hidden=field('dailyMetal').value!=='gold';field('dailyPurityWrap').hidden=field('dailyMetal').value!=='silver';
-  for(let i=0;i<4;i++){const off=field('dailyCarat'+i).value==='0';field('dailyQuality'+i).disabled=off;field('dailyQty'+i).disabled=off;}
   clearTimeout(timer);timer=setTimeout(refreshQuote,250);
  }
  function open(p){

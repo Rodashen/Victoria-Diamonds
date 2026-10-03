@@ -22,7 +22,7 @@ Homepage featured Solstice retains its enquiry link because its description diff
 
 ## Local preview and release
 
-From the parent workspace run `node design-review/highnote-preview.cjs 8884` for real local calculator quotes with all payment/email POST requests blocked. Static preview on port 8882 uses this local quote server; the preview server permits only loopback origins on 8882–8884. A `checkout-api` meta tag can override the local API. Production uses the existing Render API.
+From the parent workspace run `node design-review/highnote-preview.cjs 8882` to serve the website and local calculator quotes together on one port, with all payment/email POST requests blocked. The preview adds a `checkout-api` meta tag pointing at its own origin. A plain static server uses the hosted calculator, whose CORS settings may reject a local browser origin. Production uses the existing Render API.
 
 Calculator changes in `../calculator/daily-checkout.js` and `../calculator/server.js` are local and must be deployed before publishing the website: new quote/payment routes are `/high-note`, `/forever-bond`, `/aura` alongside `/daily-sparkle`. No changes to pricing tables were made.
 

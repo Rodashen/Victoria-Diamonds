@@ -40,7 +40,7 @@
    e.preventDefault();const form=e.currentTarget,controls=document.getElementById('fixedControls'),status=document.getElementById('fixedStatus');if(controls.disabled)return;
    const data=new FormData(form),customerName=data.get('name').trim(),customerEmail=data.get('email').trim();if(!customerName){status.textContent=t('Please enter your name.','請輸入姓名。');return;}
    controls.disabled=true;status.textContent=t('Preparing your payment link…','正在準備付款連結…');const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),45000);
-   const api=['localhost','127.0.0.1'].includes(location.hostname)?document.querySelector('meta[name=checkout-api]')?.content||'http://127.0.0.1:8884':'https://calculator-oofl.onrender.com';
+   const api=document.querySelector('meta[name=checkout-api]')?.content||'https://calculator-oofl.onrender.com';
    try{const response=await fetch(api+'/create-payment-link',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({productId:p.id,collection:'silver',metal:'silver',quantity:1,paymentPercentage:100,customerName,customerEmail})});const result=await response.json();if(!response.ok||result.success!==true)throw Error('Unconfirmed');form.hidden=true;const success=document.createElement('p');success.setAttribute('role','status');success.textContent=t('Your payment link has been sent to '+customerEmail+'. Check your inbox and spam folder.','付款連結已發送至 '+customerEmail+'。請查看收件箱及垃圾郵件。');host.append(success);}catch{status.textContent=t('We could not confirm the payment link. Check your email before trying again, or contact us for help.','未能確認付款連結。再次嘗試前請先查看電郵，或聯絡我們。');}finally{clearTimeout(timeout);controls.disabled=false;}
   });
  }
