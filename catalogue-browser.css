@@ -7,7 +7,7 @@
 .catalogue-search input { width: 100%; padding: 15px; border: 1px solid #A69080; background: #FEFCF9; color: #1C1C1C; font: 16px 'DM Sans',sans-serif; }
 .search-status { font-size: 13px; margin: 16px 0; color: #3A3A3A; }
 .search-result { display: flex; align-items: center; gap: 18px; padding: 14px 0; border-bottom: 1px solid #C4B5A5; color: #1C1C1C; text-decoration: none; }
-.search-result img { width: 65px; height: 75px; object-fit: cover; }
+.search-result img { width: 65px; height: 75px; object-fit: contain; background:#fff; }
 .search-result>span:nth-child(2) { flex: 1; }
 .search-result strong { font: 23px/1.2 'Cormorant Garamond',Georgia,serif; display: block; }
 .search-result small { display: block; font-size: 12px; line-height: 1.6; color: #3A3A3A; margin-top: 5px; }

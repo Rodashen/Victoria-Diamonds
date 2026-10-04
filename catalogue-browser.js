@@ -25,9 +25,8 @@
  }
  function inventory() {
   return (window.VDCatalogueGroups || []).flatMap(group => group.items.map(item => {
-   const daily = group.collection === 'dailySparkle' && window.DailyProducts?.products.find(p => p.name === item.name);
-   const mens = group.collection === 'mensCollection' && window.MensProducts?.products.find(p => p.name === item.name);
-   return {...item, price: daily ? daily.price : mens ? mens.price : item.price, collection: group.collection, category: group.category};
+   const registered=window.VDProducts?.find(group.collection,item.name);
+   return {...item, price: registered?.mode==='enquiry'?null:registered?.preset?.price??item.price, mode:registered?.mode, collection: group.collection, category: group.category};
   }));
  }
  function matches(product, query) {
@@ -35,14 +34,17 @@
   return normal(query).trim().split(/\s+/).every(word => text.includes(word));
  }
  function money(product) {
-  if (!Number.isFinite(Number(product.price)) || product.price === '') return t('Price on request','價格請洽詢');
+  if (product.mode==='enquiry' || product.price===null || !Number.isFinite(Number(product.price)) || product.price === '') return t('Price on request','價格請洽詢');
   const amount = new Intl.NumberFormat('en-GB', {style:'currency',currency:product.currency || 'GBP', maximumFractionDigits:0}).format(Number(product.price));
   return (product.collection==='dailySparkle' ? t('Shown configuration: ','所示配置：') : product.fixedPrice ? '' : t('From ','起價 ')) + amount;
  }
  function element(tag, text, className) { const el=document.createElement(tag); if(text!==undefined)el.textContent=text; if(className)el.className=className; return el; }
+ function filterProduct(product,filters={}) {
+  return (!filters.collection||product.collection===filters.collection)&&(!filters.type||typeOf(product.category)===filters.type)&&matches(product,filters.query||'')&&(!filters.max||(product.price!==null&&product.price!==''&&Number.isFinite(Number(product.price))&&(!product.currency||product.currency==='GBP')&&Number(product.price)<=Number(filters.max)));
+ }
  document.addEventListener('DOMContentLoaded', () => {
   const products=inventory();
-  window.VDCatalogueBrowser={products, matches, productURL};
+  window.VDCatalogueBrowser={products, matches, productURL,filterProduct};
   const openers=document.querySelectorAll('[data-search-open]');
   if(openers.length) {
    const dialog=document.createElement('dialog'); dialog.className='catalogue-search'; dialog.id='catalogueSearch'; dialog.setAttribute('aria-labelledby','catalogueSearchTitle');
@@ -55,23 +57,24 @@
     dialog.querySelector('.search-close').textContent=t('Close ×','關閉 ×');
     dialog.querySelector('label').textContent=t('Search by piece, collection or jewellery type','搜尋作品、系列或珠寶類別');
     input.placeholder=t('Try “link charm” or “bracelets”','例如「link charm」或「手鏈」');
-    const query=input.value.trim(), found=query ? products.filter(p=>matches(p,query)) : [];
+    const query=input.value.trim(),filters={query,collection:document.getElementById('landingCollection')?.value||'',type:document.getElementById('landingType')?.value||'',max:document.getElementById('landingPrice')?.value||''};
+    const active=!!(filters.collection||filters.type||filters.max), found=query||active ? products.filter(p=>filterProduct(p,filters)) : [];
     results.replaceChildren();
-    status.textContent=query ? found.length ? t(found.length+' matching pieces','找到 '+found.length+' 件作品') : t('No pieces found. Try a collection or a shorter name.','未找到作品，請嘗試系列名稱或較短的名稱。') : t('Start typing to explore all six collections.','輸入關鍵字以探索六個系列。');
+    status.textContent=query||active ? found.length ? t(found.length+' matching pieces','找到 '+found.length+' 件作品') : t('No pieces found. Try a collection or a shorter name.','未找到作品，請嘗試系列名稱或較短的名稱。') : t('Start typing to explore all six collections.','輸入關鍵字以探索六個系列。');
     found.slice(0,8).forEach(p=>{
      const a=element('a',undefined,'search-result'); a.href=productURL(p); a.target='_blank'; a.rel='noopener';
      const img=new Image(); img.src='images/'+p.image; img.alt=''; img.loading='lazy'; img.width=70; img.height=80;
      const copy=element('span'); copy.append(element('strong',translatedName(p.name)),element('small',collections[p.collection][zh()?2:0]+' · '+money(p)));
      a.append(img,copy,element('span','→')); results.append(a);
     });
-    const all=dialog.querySelector('.search-all'); all.href='view-catalogue.html?q='+encodeURIComponent(query); all.textContent=t('Browse all matching pieces →','瀏覽所有符合的作品 →');
+    const all=dialog.querySelector('.search-all'),params=new URLSearchParams();[['q',query],['collection',filters.collection],['type',filters.type],['max',filters.max]].forEach(([key,value])=>{if(value)params.set(key,value);});all.href='view-catalogue.html?'+params; all.textContent=t('Browse all matching pieces →','瀏覽所有符合的作品 →');
    }
    openers.forEach(button=>button.addEventListener('click',()=>{opener=button;document.querySelectorAll('.collection-menu[open]').forEach(d=>d.open=false);render();dialog.showModal();input.focus();}));
    dialog.querySelector('.search-close').addEventListener('click',()=>dialog.close());
    dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
    dialog.addEventListener('close',()=>opener?.focus());
    input.addEventListener('input',render);
-   input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();location.href='view-catalogue.html?q='+encodeURIComponent(input.value.trim());}});
+   input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();render();location.href=dialog.querySelector('.search-all').href;}});
   }
   const sort=document.getElementById('sortSelect');
   if(!sort) return;
@@ -99,7 +102,7 @@
     cards.forEach(card=>{
      const name=card.querySelector('[data-product-name]').dataset.productName;
      const p=products.find(p=>p.collection===group&&p.name===name);
-     const show=!!p&&(!collection.value||group===collection.value)&&(!type.value||typeOf(category)===type.value)&&matches(p,query.value)&&(!price.value||(Number.isFinite(Number(p.price))&&p.price!==''&&(!p.currency||p.currency==='GBP')&&Number(p.price)<=Number(price.value)));
+     const show=!!p&&filterProduct(p,{collection:collection.value,type:type.value,query:query.value,max:price.value});
      card.hidden=!show;if(show)count++;
     });
     cards.sort((a,b)=>{

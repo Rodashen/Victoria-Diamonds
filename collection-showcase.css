@@ -1,0 +1,36 @@
+/* Shared collection grids preserve the existing collection-page brand tokens. */
+.collection-browsing{zoom:1}
+.collection-browsing [hidden]{display:none!important}
+.collection-browsing .collection-showcase{max-width:1260px;margin:0 auto;padding:0 24px 40px}
+.showcase-jumps{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:0 0 30px}
+.showcase-jumps a{padding:9px 16px;border:1px solid var(--taupe-light);text-decoration:none;font:12px var(--font-body);color:var(--charcoal)}
+.showcase-jumps span{margin-left:6px;color:var(--charcoal-soft)}
+.showcase-toolbar{display:grid;grid-template-columns:auto minmax(160px,1fr) auto minmax(120px,.65fr) auto minmax(145px,.75fr);gap:10px;align-items:center;scroll-margin-top:110px}
+.showcase-toolbar label{font:11px var(--font-body);letter-spacing:.06em;text-transform:uppercase;color:var(--charcoal-soft)}
+.showcase-toolbar input,.showcase-toolbar select{box-sizing:border-box;min-width:0;width:100%;padding:11px 12px;background:var(--warm-white);color:var(--charcoal);border:1px solid var(--taupe-light);border-radius:0;font:13px var(--font-body)}
+.showcase-count{grid-column:1/-1;font:12px/1.6 var(--font-body);margin:3px 0 8px;color:var(--charcoal-soft)}
+.showcase-category{padding-top:28px;margin-bottom:52px;scroll-margin-top:110px}
+.showcase-category h2{margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid var(--taupe-light);font:400 clamp(32px,4vw,44px)/1.1 var(--font-display);color:var(--charcoal)}
+.showcase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.showcase-card{min-width:0;display:flex;flex-direction:column;text-decoration:none;color:var(--charcoal);background:var(--warm-white);border:1px solid var(--taupe-light);transition:border-color .2s,transform .25s}
+.showcase-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.showcase-image{position:relative;aspect-ratio:1.15/1;overflow:hidden;background:#fff;flex:none}
+.showcase-image img{position:absolute;inset:0;box-sizing:border-box;width:100%;height:100%;min-width:0;min-height:0;padding:12px;object-fit:contain;display:block;transition:transform .35s}
+.showcase-card:hover img{transform:scale(1.025)}
+.showcase-copy{padding:16px 17px 18px;flex:1;display:flex;flex-direction:column}
+.showcase-kicker{margin:0 0 5px;color:var(--gold-dark,#8B6914);font:10px var(--font-body);letter-spacing:.15em;text-transform:uppercase}
+.showcase-copy h3{margin:0 0 5px;font:500 27px/1.1 var(--font-display);color:var(--charcoal)}
+.showcase-metal,.showcase-stones{margin:3px 0;color:var(--charcoal-soft);font:12px/1.6 var(--font-body)}
+.showcase-bottom{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-top:auto;padding-top:15px}
+.showcase-price,.showcase-cta{border-top:1px solid var(--taupe-light);padding-top:11px}
+.showcase-price{flex:1}.showcase-price small{display:block;font:10px/1.5 var(--font-body);text-transform:uppercase;letter-spacing:.05em;color:var(--charcoal-soft)}
+.showcase-price strong{font:600 16px/1.5 var(--font-body)}
+.showcase-cta{font:11px/1.5 var(--font-body);text-align:right;text-decoration:underline;text-underline-offset:4px}
+.showcase-empty{padding:45px 0;text-align:center;font:14px var(--font-body)}
+.showcase-empty button{padding:10px 18px;border:1px solid var(--taupe-light);background:var(--warm-white);color:var(--charcoal);cursor:pointer}
+.collection-showcase :is(a,button,input,select):focus-visible{outline:2px solid var(--gold-dark,#8B6914);outline-offset:4px}
+@media(max-width:800px){.showcase-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.showcase-toolbar{grid-template-columns:auto 1fr}.showcase-jumps{gap:8px}.showcase-jumps a{padding:9px 12px}}
+@media(max-width:768px){.collection-browsing .catalogue-header .inner{flex-wrap:wrap;gap:8px 12px;padding:0 16px;justify-content:space-between}.collection-browsing .catalogue-header .brand{font-size:1.2rem;order:1}.collection-browsing .catalogue-header .back-link{order:0}.collection-browsing .catalogue-header .inner>div:last-child{order:2;width:100%;justify-content:flex-start;gap:8px!important;padding-top:4px;border-top:1px solid var(--taupe-light)}.collection-browsing .catalogue-header .lang-selector{margin-right:auto}}
+@media(max-width:480px){.collection-browsing .catalogue-header .inner>div:last-child a[aria-label="Instagram"],.collection-browsing .catalogue-header .inner>div:last-child a[aria-label="WhatsApp"]{display:none!important}.collection-browsing .catalogue-header .inner>div:last-child a.back-link{flex:1;justify-content:center;padding:8px 12px!important;font-size:10px!important}}
+@media(max-width:520px){.collection-browsing .collection-showcase{padding-inline:16px}.showcase-grid{grid-template-columns:1fr}.showcase-image{aspect-ratio:1.3/1}.showcase-category{margin-bottom:35px}}
+@media(prefers-reduced-motion:reduce){.showcase-card,.showcase-image img{transition:none}}

@@ -43,7 +43,7 @@ window.VDCatalogueGroups = [
 
     {name:'Solitaire Ring', image:'12.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Diamond Dust Ring', image:'76.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Diamond Dust Ring', image:'diamond-dust-ring-white.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
     {name:'Solenne Ring', image:'7.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 

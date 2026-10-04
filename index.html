@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://crm.zoho.eu; frame-src https://crm.zoho.eu; object-src 'none'; base-uri 'self'; form-action 'self' https://crm.zoho.eu; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://crm.zoho.eu; frame-src https://crm.zoho.eu https://www.google.com/maps/embed;  object-src 'none'; base-uri 'self'; form-action 'self' https://crm.zoho.eu; upgrade-insecure-requests">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="permissions-policy" content="geolocation=(), microphone=(), camera=()">
@@ -117,17 +117,18 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="landing-page.css?v=20261002">
-    <link rel="stylesheet" href="catalogue-browser.css">
-    <script src="catalogue-data.js" defer></script>
+    <link rel="stylesheet" href="landing-page.css?v=20261004g">
+    <link rel="stylesheet" href="catalogue-browser.css?v=20261004e">
+    <script src="catalogue-data.js?v=20261004e" defer></script>
     <script src="mens-products.js" defer></script>
     <script src="daily-products.js" defer></script>
-    <script src="catalogue-browser.js" defer></script>
+    <script src="catalogue-browser.js?v=20261004e" defer></script>
     <script src="landing-page.js?v=20261002" defer></script>
     <script src="translations.js"></script>
     <script src="victoria-diamonds.js?v=20261002"></script>
 <script src="high-note-products.js" defer></script>
 <script src="remaining-products.js" defer></script><script src="product-registry.js" defer></script>
+<link rel="stylesheet" href="collection-showcase.css?v=20261004e">
 </head>
 <body class="landing-page">
     <div class="progress-bar" id="progressBar"></div>
@@ -148,8 +149,6 @@
                     <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav-book-appointment">Book Appointment</a>
 
                 </nav>
-                
-                <button type="button" class="search-trigger" data-search-open aria-haspopup="dialog" aria-label="Search jewellery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button>
                 <div class="top-social-links">
                     <div class="lang-selector">
                         <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -231,9 +230,17 @@
                     <h1 class="heading-display section-title" data-i18n="collections-title">Our Collections</h1>
                     <p class="text-body section-subtitle" data-i18n="collections-subtitle">Discover pieces crafted for every chapter of your story</p>
                 </div>
-                <a href="view-catalogue.html" class="btn-text" data-i18n="collections-view-all">View All Collections</a>
+                <div class="collection-browse-actions"><a href="view-catalogue.html" class="btn-text" data-i18n="collections-view-all">View All Collections</a><button type="button" class="search-trigger" data-search-open aria-haspopup="dialog" aria-label="Search jewellery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button></div>
             </div>
-            <div class="collections-grid">
+            <section class="landing-collection-filters" aria-label="Filter jewellery">
+                <label for="landingCollection"><span>Collection</span><select id="landingCollection"></select></label>
+                <label for="landingType"><span>Jewellery type</span><select id="landingType"></select></label>
+                <label for="landingPrice"><span>Starting price</span><select id="landingPrice"></select></label>
+                <button type="button" id="landingClear" hidden>Clear filters</button>
+            </section>
+            <p id="landingFilterStatus" role="status" aria-live="polite" hidden></p>
+            <div id="landingProductResults" class="landing-product-results" hidden><div class="showcase-grid"></div><a id="landingBrowseMatches" class="btn-text" href="view-catalogue.html">Browse matching pieces →</a></div>
+            <div class="collections-grid collection-carousel" id="collectionCarousel" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Browse collections">
                 <a href="daily-sparkle.html" class="collection-item" style="text-decoration:none;color:inherit;">
                     <div class="collection-image"><img src="images/victoria-diamonds-hero-03.png" alt="Daily Sparkle collection"></div>
                     <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-daily-sparkle">Daily Sparkle</h3><p class="collection-count" data-i18n="qol-collection-desc-0">Everyday diamonds</p><span class="collection-cta" data-i18n="qol-shop">Shop collection →</span></div>
@@ -255,9 +262,13 @@
                     <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-aura">Aura Collection</h3><p class="collection-count" data-i18n="qol-collection-desc-4">Distinctive designs</p><span class="collection-cta" data-i18n="qol-explore">Explore collection →</span></div>
                 </a>
                 <a href="mens-collection.html" class="collection-item" style="text-decoration:none;color:inherit;">
-                    <div class="collection-image"><img src="images/mens-bastion-signet-ring.jpg" alt="Men’s Collection signet ring"></div>
+                    <div class="collection-image"><img src="images/mens-collection-hero.jpg" alt="Men’s Collection signet ring"></div>
                     <div class="collection-overlay"><h3 class="collection-name" data-i18n="collection-mens">Men’s Collection</h3><p class="collection-count" data-i18n="qol-collection-desc-5">Men’s diamond jewellery</p><span class="collection-cta" data-i18n="qol-shop">Shop collection →</span></div>
                 </a>
+            </div>
+            <div class="collection-carousel-controls">
+                <p id="collectionCarouselStatus" role="status" aria-live="polite"></p>
+                <div><button type="button" id="collectionPrevious" aria-label="Previous collection" aria-controls="collectionCarousel">←</button><button type="button" id="collectionNext" aria-label="Next collection" aria-controls="collectionCarousel">→</button></div>
             </div>
         </div>
     </section>
@@ -528,6 +539,7 @@
     <section class="contact" id="contact"><div class="container contact-grid">
         <div class="contact-content"><p class="text-label" data-i18n="contact-label">Visit Our Atelier</p><h2 class="heading-display contact-title" data-i18n="qol-appointment-title">A personal appointment in London</h2><p class="text-body contact-text" data-i18n="qol-appointment-copy">Discover the collection with us, by appointment. Explore your favourite pieces and discuss a design of your own.</p><div class="contact-details"><p class="contact-item-value"><span data-i18n="contact-address-val-1">London Shangrila Hotel (Appointment)</span><br><span data-i18n="contact-address-val-2">31 St Thomas Street</span><br><span data-i18n="contact-address-val-3">London SE1 9QU, United Kingdom</span></p><p class="contact-item-value" data-i18n="contact-hours-val">Monday to Sunday 11am to 9pm (Appointment)</p></div></div>
         <div class="appointment-actions"><a class="btn-primary" href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" data-i18n="nav-book-appointment">Book Appointment</a><a class="btn-text" href="https://wa.me/447594442577?text=Hello%20Victoria%20Diamonds%2C%20I%20would%20like%20to%20arrange%20a%20consultation." target="_blank" rel="noopener" data-i18n="contact-whatsapp">WhatsApp us</a><a class="btn-text" href="https://www.google.com/maps/search/?api=1&amp;query=31+St+Thomas+Street+London+SE1+9QU" target="_blank" rel="noopener" data-i18n="qol-directions">Get directions →</a><a href="tel:+447594442577">+44 7594 442577</a><a href="mailto:inquiry@victoria-diamonds.com">inquiry@victoria-diamonds.com</a></div>
+        <div class="visit-map"><iframe title="Map: Shangri-La The Shard, 31 St Thomas Street, London" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.4854116179918!2d-0.09129061114503856!3d51.50431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876035aec559b97%3A0x39d8bfb462bd7070!2sShangri-La%20The%20Shard%2C%20London!5e0!3m2!1sen!2sph!4v1791122630528!5m2!1sen!2sph" width="100%" height="340" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><a href="https://www.google.com/maps/search/?api=1&amp;query=31+St+Thomas+Street+London+SE1+9QU" target="_blank" rel="noopener" data-i18n="qol-directions">Get directions →</a></div>
     </div></section>
 
     <section class="faq revealed" id="faq">
@@ -1119,5 +1131,8 @@
         </div>
     </div>
 </div>
+<script src="product-cards.js?v=20261004e" defer></script>
+<script src="landing-filters.js?v=20261004e" defer></script>
+<script src="collection-carousel.js?v=1" defer></script>
 </body>
 </html>
