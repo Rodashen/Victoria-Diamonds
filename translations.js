@@ -68,6 +68,10 @@ const translations = {
         'collection-daily-sparkle': '日常閃耀',
         'collection-occasional-wear': '高雅系列',
         'collection-aura': '光華系列',
+        'collection-mens': '男士系列',
+        'mens-subtitle': '精緻鑽石珠寶，可按您喜好選擇金屬與鑽石規格。',
+        'mens-count': '20 件作品',
+        'mens-price-note': '所示價格為計算器的起始規格。自選配置會在結帳前報價；部分設計的重量及鑽石數量須於生產前確認。',
         'page-title-aura': '光華系列 — 維多利亞鑽石',
         'aura-hero-description': '光華系列精選作品 — 最新款式、詳情及價格，歡迎查詢。',
         'aura-collection-description': '精選最新光華系列作品。歡迎聯絡我們了解詳情及訂製服務。',
@@ -248,6 +252,7 @@ const translations = {
 
         // ===== Category Labels =====
         'category-Ring': '戒指',
+        'category-Pendant': '吊墜',
         'category-Necklace': '項鏈',
         'category-Earring': '耳環',
         'category-Earring Stud': '耳釘',
@@ -436,6 +441,28 @@ const translations = {
         // Anklet
         'product-Everyday Silver Anklet': '日常銀腳鏈',
 
+        // ===== Men's Collection =====
+        'product-Atlas Band': 'Atlas 鑽石戒指',
+        'product-Sterling Signet Ring': 'Sterling 印章戒指',
+        'product-Sentinel Band': 'Sentinel 鑽石戒指',
+        'product-Bastion Signet Ring': 'Bastion 印章戒指',
+        'product-Current Band': 'Current 鑽石戒指',
+        'product-Regent Band': 'Regent 鑽石戒指',
+        'product-Helios Signet Ring': 'Helios 印章戒指',
+        'product-Citadel Band': 'Citadel 鑽石戒指',
+        'product-Axis Band': 'Axis 鑽石戒指',
+        'product-Sovereign Signet Ring': 'Sovereign 印章戒指',
+        'product-Apex Tennis Bracelet': 'Apex 網球手鏈',
+        'product-Pillar Tennis Bracelet': 'Pillar 網球手鏈',
+        'product-Anchor Link Bracelet': 'Anchor 鏈節手鏈',
+        'product-Vanguard Cuff': 'Vanguard 手鐲',
+        'product-Foundry Link Bracelet': 'Foundry 鏈節手鏈',
+        'product-Obelisk Pendant': 'Obelisk 吊墜',
+        'product-Horizon Pendant': 'Horizon 吊墜',
+        'product-Shield Pendant': 'Shield 吊墜',
+        'product-Solstice Medallion Pendant': 'Solstice 圓章吊墜',
+        'product-Keystone Link Pendant': 'Keystone 鏈節吊墜',
+
         // ===== FAQ Section =====
         'faq-title': '常見問題',
         'faq-subtitle': '找到有關我們 bespoke 珠寶服務的常見問題答案',
@@ -468,11 +495,13 @@ Object.assign(translations['zh-HK'], {
   "qol-collection-desc-2": "珍貴情感",
   "qol-collection-desc-3": "純銀珠寶",
   "qol-collection-desc-4": "獨特設計",
+  "qol-collection-desc-5": "男士鑽石珠寶",
   "qol-by-type": "按珠寶類別瀏覽",
   "qol-ring": "戒指",
   "qol-earring": "耳環",
   "qol-necklace": "項鏈",
   "qol-bracelet": "手鏈",
+  "qol-pendant": "吊墜",
   "qol-anklet": "腳鏈",
   "qol-reviews": "顧客分享",
   "qol-customer-care": "客戶服務",
@@ -498,7 +527,7 @@ Object.assign(translations['zh-HK'], {
   "qol-appointment-title": "倫敦私人預約",
   "qol-appointment-copy": "預約與我們一起探索系列，欣賞心儀作品，或商討您的個人設計。",
   "qol-payment-question": "網上付款如何進行？",
-  "qol-payment-answer": "純銀系列須全額付款。Daily Sparkle 提供訂製及全額或訂金付款選擇。付款前會確認您的最終配置及價格。",
+  "qol-payment-answer": "純銀系列須全額付款。Daily Sparkle、Forever Bond、Aura 及男士系列可網上訂製並選擇全額或訂金付款。High Note 大部分作品亦可網上訂購，僅限預約的作品會另行註明。付款前會確認您的最終配置及價格。",
   "qol-care-question": "應如何保養純銀珠寶？",
   "qol-care-answer": "閱讀珠寶保養指南，了解純銀保養、清潔與存放建議 →"
 });

@@ -32,6 +32,7 @@
 .landing-page .collections-desktop .btn-text { padding: 10px 0; border: 0; white-space: nowrap; color: var(--color-gold-dark); }
 .landing-page .collections-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 18px; }
 .landing-page .collections-grid .collection-item:nth-child(n) { grid-column: auto; grid-row: auto; background: none; overflow: visible; display: block; aspect-ratio: auto; }
+.landing-page .collections-grid .collection-item:nth-child(6) { grid-column: 3; }
 .landing-page .collections-grid .collection-item:nth-child(n) .collection-image { height: auto; min-height: 0; aspect-ratio: 3 / 4; overflow: hidden; }
 .landing-page .collection-image img { width: 100%; height: 100%; object-fit: cover; }
 .landing-page .collection-overlay { position: static; background: none; padding: 15px 0 0; opacity: 1; transform: none; display: block; color: var(--color-charcoal); }
@@ -155,6 +156,7 @@
  .landing-page .collections-desktop .section-header { align-items: start; flex-direction: column; gap: 10px; margin-bottom: 20px; }
  .landing-page .section-title { font-size: 38px; }
  .landing-page .collections-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px 14px; }
+ .landing-page .collections-grid .collection-item:nth-child(6) { grid-column: auto; }
  .landing-page .collection-name { font-size: 24px; }
  .landing-page .collection-count { font-size: 12px; }
  .landing-page .collection-cta { font-size: 12px; }

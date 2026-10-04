@@ -6,9 +6,10 @@
   occasionalWear: ['High Note', 'high-note-collection.html', '華麗樂章'],
   foreverBond: ['Forever Bond', 'forever-bond.html', '永恆之約'],
   silverCollection: ['Silver Collection', 'silver-collection.html', '純銀系列'],
-  singleLady: ['Aura', 'aura-collection.html', 'Aura 系列']
+  singleLady: ['Aura', 'aura-collection.html', 'Aura 系列'],
+  mensCollection: ["Men’s Collection", 'mens-collection.html', '男士系列']
  };
- const types = {Ring:['Rings','戒指'], Earring:['Earrings','耳環'], Necklace:['Necklaces','項鏈'], Bracelet:['Bracelets','手鏈'], Anklet:['Anklets','腳鏈'], Brooch:['Brooches','胸針'], Tiara:['Tiaras','冠冕']};
+ const types = {Ring:['Rings','戒指'], Earring:['Earrings','耳環'], Necklace:['Necklaces','項鏈'], Bracelet:['Bracelets','手鏈'], Anklet:['Anklets','腳鏈'], Pendant:['Pendants','吊墜'], Brooch:['Brooches','胸針'], Tiara:['Tiaras','冠冕']};
  const typeOf = category => category === 'Earring Stud' ? 'Earring' : category;
  const zh = () => document.documentElement.lang.startsWith('zh');
  const t = (en, cn) => zh() ? cn : en;
@@ -25,7 +26,8 @@
  function inventory() {
   return (window.VDCatalogueGroups || []).flatMap(group => group.items.map(item => {
    const daily = group.collection === 'dailySparkle' && window.DailyProducts?.products.find(p => p.name === item.name);
-   return {...item, price: daily ? daily.price : item.price, collection: group.collection, category: group.category};
+   const mens = group.collection === 'mensCollection' && window.MensProducts?.products.find(p => p.name === item.name);
+   return {...item, price: daily ? daily.price : mens ? mens.price : item.price, collection: group.collection, category: group.category};
   }));
  }
  function matches(product, query) {
@@ -55,7 +57,7 @@
     input.placeholder=t('Try “link charm” or “bracelets”','例如「link charm」或「手鏈」');
     const query=input.value.trim(), found=query ? products.filter(p=>matches(p,query)) : [];
     results.replaceChildren();
-    status.textContent=query ? found.length ? t(found.length+' matching pieces','找到 '+found.length+' 件作品') : t('No pieces found. Try a collection or a shorter name.','未找到作品，請嘗試系列名稱或較短的名稱。') : t('Start typing to explore all five collections.','輸入關鍵字以探索五個系列。');
+    status.textContent=query ? found.length ? t(found.length+' matching pieces','找到 '+found.length+' 件作品') : t('No pieces found. Try a collection or a shorter name.','未找到作品，請嘗試系列名稱或較短的名稱。') : t('Start typing to explore all six collections.','輸入關鍵字以探索六個系列。');
     found.slice(0,8).forEach(p=>{
      const a=element('a',undefined,'search-result'); a.href=productURL(p); a.target='_blank'; a.rel='noopener';
      const img=new Image(); img.src='images/'+p.image; img.alt=''; img.loading='lazy'; img.width=70; img.height=80;
