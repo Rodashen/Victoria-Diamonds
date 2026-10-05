@@ -65,7 +65,7 @@
     const input=document.createElement('input');input.type='radio';input.name=select.id+'Choice';input.value=option.value;input.dataset.select=select.id;input.checked=option.selected;input.disabled=option.disabled;
     const face=document.createElement('span');face.className='choice-face';
     if(metal){const swatch=document.createElement('span');swatch.className='metal-swatch metal-'+option.value;swatch.setAttribute('aria-hidden','true');const badge=document.createElement('span');badge.dataset.metalBadge=option.value;badge.textContent=option.value==='platinum'?'Pt950':option.value==='gold'?field('dailyKarat').value+'K':field('dailyPurity').value;swatch.append(badge);face.append(swatch);}
-    if(diamond&&Number(option.value)>0){const illustration=document.createElement('span');illustration.className='diamond-size';illustration.setAttribute('aria-hidden','true');const size=14+22*Math.cbrt(Number(option.value)/5);illustration.style.setProperty('--stone-size',size+'px');illustration.innerHTML='<svg viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 13 12 2h24l10 11-22 25Z M2 13h44 M12 2l6 11L24 38l6-25 6-11 M18 13l6-11 6 11"/></svg>';face.append(illustration);}
+    if(diamond&&Number(option.value)>0){const illustration=document.createElement('span');illustration.className='diamond-size';illustration.setAttribute('aria-hidden','true');const size=60*Math.cbrt(Number(option.value)/5);illustration.style.setProperty('--stone-size',size+'px');illustration.innerHTML='<svg viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="1.1"><path vector-effect="non-scaling-stroke" d="M2 13 12 2h24l10 11-22 25Z M2 13h44 M12 2l6 11L24 38l6-25 6-11 M18 13l6-11 6 11"/></svg>';face.append(illustration);}
     const text=document.createElement('span');text.textContent=metal?{gold:t('Yellow gold','黃金'),silver:t('Silver','白銀'),platinum:t('Platinum','鉑金')}[option.value]:option.textContent;
     face.append(text);
     if(metal&&option.value==='platinum'){const purity=document.createElement('small');purity.textContent=t('950 purity','950 純度');face.append(purity);}
@@ -74,7 +74,7 @@
     input.addEventListener('change',()=>{if(input.checked){select.value=input.value;select.dispatchEvent(new Event('input',{bubbles:true}));}});
    });
    select.hidden=true;group.append(select,choices);original.replaceWith(group);
-   if(diamond){const note=document.createElement('p');note.className='choice-note';note.textContent=t('Illustrative sizes, not to scale. Carat is the weight of each stone; this design’s cut is fixed.','大小僅供示意，並非實際比例。克拉為每顆鑽石的重量；此設計的切工固定。');group.append(note);}
+   if(diamond){const note=document.createElement('p');note.className='choice-note';note.textContent=t('Relative size guide, not actual dimensions. Carat is the weight of each stone; this design’s cut is fixed.','相對大小僅供參考，並非實際尺寸。克拉為每顆鑽石的重量；此設計的切工固定。');group.append(note);}
   });
  }
  function open(p){
