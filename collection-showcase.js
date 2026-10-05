@@ -2,7 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
  'use strict';
  const registry=window.VDProducts;
- const collection=Object.keys(registry?.collections||{}).find(key=>registry.collections[key][1]===location.pathname.split('/').pop());
+ const page=location.pathname.split('/').filter(Boolean).pop();
+ const collection=Object.keys(registry?.collections||{}).find(key=>{const file=registry.collections[key][1];return file===page||file.slice(0,-5)===page;});
  if(!collection)return;
  const host=collection==='mensCollection'?document.getElementById('mensProducts'):document.querySelector('.collection-section');
  if(!host)return;
