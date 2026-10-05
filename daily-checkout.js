@@ -12,7 +12,7 @@
  const find=card=>catalogue.products.find(p=>p.collection===(card.closest('#occasionalWear')?'occasionWear':'dailySparkle')&&p.name===card.querySelector('[data-product-name]')?.dataset.productName);
  const name=p=>typeof getProductName==='function'?getProductName(p.name):p.name;
  let selected=null,lastFocus=null,quote=null,controller=null,timer=null,version=0,busy=false;
- const inline=location.pathname.endsWith('/product.html');
+ const inline=['product','product.html'].includes(location.pathname.split('/').filter(Boolean).pop());
  const dialog=document.createElement(inline?'div':'dialog');
  dialog.id='dailyCheckout';dialog.className='daily-checkout';dialog.setAttribute('aria-labelledby','dailyCheckoutTitle');if(!inline)document.body.append(dialog);
  const close=()=>{if(busy)return;controller?.abort();clearTimeout(timer);version++;dialog.close();lastFocus?.focus();};
@@ -43,7 +43,39 @@
   status(t('Checking your price…','正在核對價格…'));
   field('dailyCaratTotal').textContent=read().diamonds.reduce((sum,d)=>sum+Number(d.carat)*d.qty,0).toFixed(2)+' ct';
   field('dailyKaratWrap').hidden=field('dailyMetal').value!=='gold';field('dailyPurityWrap').hidden=field('dailyMetal').value!=='silver';
+  syncChoices();
   clearTimeout(timer);timer=setTimeout(refreshQuote,250);
+ }
+ function syncChoices(){
+  dialog.querySelectorAll('.configuration-choice input').forEach(input=>{input.checked=field(input.dataset.select).value===input.value;});
+  const gold=dialog.querySelector('[data-metal-badge="gold"]'),silver=dialog.querySelector('[data-metal-badge="silver"]');
+  if(gold)gold.textContent=field('dailyKarat').value+'K';
+  if(silver)silver.textContent=field('dailyPurity').value;
+ }
+ function visualChoices(){
+  dialog.querySelectorAll('#dailyControls select').forEach(select=>{
+   const original=select.parentElement,group=document.createElement('fieldset'),legend=document.createElement('legend');
+   group.className='configuration-options';if(original.id)group.id=original.id;group.hidden=original.hidden;
+   legend.textContent=original.firstChild.textContent.trim();group.append(legend);
+   const choices=document.createElement('div');choices.className='configuration-choices';
+   const metal=select.id==='dailyMetal',diamond=select.id.startsWith('dailyCarat');
+   if(metal)group.classList.add('metal-options');if(diamond)group.classList.add('diamond-options');
+   [...select.options].filter(option=>option.value!=='').forEach(option=>{
+    const label=document.createElement('label');label.className='configuration-choice';
+    const input=document.createElement('input');input.type='radio';input.name=select.id+'Choice';input.value=option.value;input.dataset.select=select.id;input.checked=option.selected;input.disabled=option.disabled;
+    const face=document.createElement('span');face.className='choice-face';
+    if(metal){const swatch=document.createElement('span');swatch.className='metal-swatch metal-'+option.value;swatch.setAttribute('aria-hidden','true');const badge=document.createElement('span');badge.dataset.metalBadge=option.value;badge.textContent=option.value==='platinum'?'Pt950':option.value==='gold'?field('dailyKarat').value+'K':field('dailyPurity').value;swatch.append(badge);face.append(swatch);}
+    if(diamond&&Number(option.value)>0){const illustration=document.createElement('span');illustration.className='diamond-size';illustration.setAttribute('aria-hidden','true');const size=14+22*Math.cbrt(Number(option.value)/5);illustration.style.setProperty('--stone-size',size+'px');illustration.innerHTML='<svg viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 13 12 2h24l10 11-22 25Z M2 13h44 M12 2l6 11L24 38l6-25 6-11 M18 13l6-11 6 11"/></svg>';face.append(illustration);}
+    const text=document.createElement('span');text.textContent=metal?{gold:t('Yellow gold','黃金'),silver:t('Silver','白銀'),platinum:t('Platinum','鉑金')}[option.value]:option.textContent;
+    face.append(text);
+    if(metal&&option.value==='platinum'){const purity=document.createElement('small');purity.textContent=t('950 purity','950 純度');face.append(purity);}
+    if(select.id==='dailyKarat'){const purity=document.createElement('small');purity.textContent=({9:'375',14:'585',18:'750',22:'916'})[option.value]+' '+t('purity','純度');face.append(purity);}
+    label.append(input,face);choices.append(label);
+    input.addEventListener('change',()=>{if(input.checked){select.value=input.value;select.dispatchEvent(new Event('input',{bubbles:true}));}});
+   });
+   select.hidden=true;group.append(select,choices);original.replaceWith(group);
+   if(diamond){const note=document.createElement('p');note.className='choice-note';note.textContent=t('Illustrative sizes, not to scale. Carat is the weight of each stone; this design’s cut is fixed.','大小僅供示意，並非實際比例。克拉為每顆鑽石的重量；此設計的切工固定。');group.append(note);}
+  });
  }
  function open(p){
   selected=p;lastFocus=document.activeElement;quote=null;busy=false;
@@ -66,8 +98,9 @@
   if(p.diamonds.length>1)field('dailyAdditional').open=true;
   if(p.needsStoneSelection){const option=document.createElement('option');option.value='';option.textContent=t('Choose a stone size','選擇鑽石大小');option.disabled=true;field('dailyCarat0').prepend(option);field('dailyCarat0').value='';}
   if(p.needsReview){const label=document.createElement('label');label.className='configuration-confirm';label.innerHTML='<input type="checkbox" required id="configurationConfirm">'+t('I have checked the stone sizes and counts above for my custom order.','我已確認此訂製訂單的鑽石大小及數量。');field('dailySubmit').before(label);}
+  visualChoices();
   field('dailyClose').onclick=close;field('dailyRetry').onclick=()=>{field('dailyRetry').hidden=true;refreshQuote();};
-  field('dailyControls').addEventListener('input',e=>{if(!['dailyCustomer','dailyEmail','configurationConfirm'].includes(e.target.id))changed();});
+  field('dailyControls').addEventListener('input',e=>{if(!e.target.dataset.select&&!['dailyCustomer','dailyEmail','configurationConfirm'].includes(e.target.id))changed();});
   field('dailyForm').addEventListener('submit',submit);if(!inline){dialog.showModal();field('dailyClose').focus();}changed();
  }
  async function submit(e){

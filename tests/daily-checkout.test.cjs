@@ -62,7 +62,7 @@ test('invalid products, diamonds, quantities, and deposits fail closed',()=>{
 });
 test('HTML inline and new scripts parse; both collection pages include checkout',()=>{
  for(const file of ['daily-sparkle.html','view-catalogue.html']){
-  const source=fs.readFileSync(path.join(site,file),'utf8');assert.match(source,/src="daily-checkout.js"/);assert.match(source,/src="daily-products.js"/);
+  const source=fs.readFileSync(path.join(site,file),'utf8');assert.match(source,/src="daily-checkout\.js(?:\?v=[^"]+)?"/);assert.match(source,/src="daily-products.js"/);
   for(const m of source.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi))new vm.Script(m[1]);
  }
  new vm.Script(fs.readFileSync(path.join(site,'daily-checkout.js'),'utf8'));
