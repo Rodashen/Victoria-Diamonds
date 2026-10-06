@@ -578,6 +578,9 @@
     }
 
     function scheduleNewsletterAfterConsent() {
+        if (consentBanner && !consentBanner.classList.contains('hidden')) {
+            return;
+        }
         if (sessionStorage.getItem('emailPopupShown')) {
             return;
         }
@@ -601,6 +604,7 @@
         localStorage.setItem('vdCookieConsentSource', 'banner');
         hideConsentBanner();
         updateConsentBannerCopy();
+        scheduleNewsletterAfterConsent();
     }
 
     function initializeConsentBanner() {
@@ -612,7 +616,7 @@
             return;
         }
 
-        if (document.body.classList.contains('landing-page') && ['all', 'essential'].includes(localStorage.getItem('vdCookieConsent'))) { hideConsentBanner(); return; }
+        if (['all', 'essential'].includes(localStorage.getItem('vdCookieConsent'))) { hideConsentBanner(); return; }
         consentBanner.classList.remove('hidden');
         consentBanner.setAttribute('aria-hidden', 'false');
 
@@ -1132,11 +1136,7 @@ if (document.readyState === 'loading') {
             );
 
         if (!popupShown) {
-            const delay =
-                800 +
-                Math.floor(
-                    Math.random() * 1000
-                );
+            const delay = 1800;
 
             window.__newsletterPopupTimer = setTimeout(function() {
                 openEmailSubscription();

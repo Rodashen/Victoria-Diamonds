@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="daily-checkout.css?v=20261005c">
     <script src="high-note-products.js" defer></script>
     <script src="daily-checkout.js?v=20261005c" defer></script>
-    <script src="victoria-diamonds.js"></script>
+    <script src="victoria-diamonds.js?v=20261006a"></script>
     <link rel="stylesheet" href="victoria-diamonds.css">
     <style>
         .cookie-consent-banner {
@@ -1291,6 +1291,9 @@
 </div>
 
 <!-- Email Subscription Popup -->
+<script>
+(function(){var banner=document.getElementById('cookieConsentBanner');if(!banner)return;var saved=false;try{saved=['all','essential'].includes(localStorage.getItem('vdCookieConsent'));}catch{}banner.classList.toggle('hidden',saved);banner.setAttribute('aria-hidden',String(saved));})();
+</script>
 <div class="modal-overlay" id="emailSubscriptionModal">
     <div class="modal-popup" id="emailSubscriptionPopup">
         <button class="modal-close-x" id="emailSubscriptionCloseX">×</button>
