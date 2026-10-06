@@ -17,7 +17,7 @@ window.VDCatalogueGroups = [
         ]},
 {collection:"silverCollection", category:"Bracelet", items:[
             {name:'Open Cuff Bracelet', image:'S13.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Link Charm Bracelet', image:'S12.png', metal:'Sterling 925', price:113, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'totalKarat', value:'0.31 ct'}]},
+            {name:'Link Charm Bracelet', image:'S12.png', metal:'Sterling 925', price:113, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'totalKarat', value:'0.3 ct'}]},
             {name:'Link Charm Bracelet II', image:'link-charm-bracelet.png', metal:'Sterling 925', price:159, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'totalKarat', value:'0.50 ct'}]}
         ]},
 {collection:"silverCollection", category:"Earring", items:[

@@ -221,3 +221,26 @@
 @media(max-width:600px){.landing-page .collection-browse-actions{justify-content:flex-start;width:100%;gap:12px}.landing-page .landing-collection-filters{gap:12px}.landing-page .landing-collection-filters label{min-width:120px}.landing-page .landing-collection-filters label:first-child{flex-basis:100%}}
 
 @media(max-width:760px){.landing-page .visit-map{grid-column:1;grid-row:auto;max-width:none;justify-self:stretch}}
+
+/* Keep the desktop browsing tools comfortable on a touch screen. */
+@media(max-width:760px){
+ .landing-page .header-inner>.lang-selector-mobile{margin-left:auto}
+ .landing-page .menu-toggle{flex-basis:44px;width:44px;min-height:44px;align-items:center;justify-content:center}
+ .landing-page .menu-toggle span{width:24px}
+ .landing-page .mobile-nav{padding:64px 24px max(24px,env(safe-area-inset-bottom));scrollbar-width:thin}
+ .landing-page .mobile-nav-links{margin-top:0}
+ .landing-page .mobile-nav-links li{margin-bottom:12px}
+ .landing-page .mobile-nav-links a{min-height:44px;display:flex;align-items:center}
+ .landing-page .mobile-collections{padding-bottom:0}
+ .landing-page .mobile-nav-close{width:44px;height:44px;top:12px;right:12px}
+ .landing-page .landing-collection-filters select{font-size:16px;min-height:44px}
+ .landing-page .utility-nav{scrollbar-width:none}
+ .landing-page .utility-nav::-webkit-scrollbar{display:none}
+ .landing-page .utility-nav :is(a,button){min-height:44px;display:flex;align-items:center;flex-shrink:0}
+ .landing-page .section-nav a{min-height:44px;display:flex;align-items:center}
+ .landing-page .section-nav{padding-block:4px;scrollbar-width:none}
+ .landing-page .faq-topics button{min-height:44px}
+ .landing-page .newsletter-inline-fields{flex-wrap:wrap;gap:10px}
+ .landing-page .newsletter-inline-fields input{flex-basis:180px}
+ .landing-page .newsletter-inline-fields button{min-height:48px}
+}
