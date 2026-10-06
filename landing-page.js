@@ -61,19 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
  document.getElementById('newsletterInlineForm').addEventListener('submit',event=>{
   event.preventDefault();window.openVictoriaNewsletter(document.getElementById('newsletterInlineEmail').value,true);
  });
- // Show promptly after a cookie choice, without requiring scrolling.
- let consentReadyAt=null;
+ // Five seconds from page opening, independent of the cookie choice.
  const read=(store,key)=>{try{return store.getItem(key);}catch{return null;}};
- const timer=setInterval(()=>{
-  if(read(sessionStorage,'emailPopupShown')){clearInterval(timer);return;}
-  if(!['all','essential'].includes(read(localStorage,'vdCookieConsent'))){consentReadyAt=null;return;}
-  if(consentReadyAt===null)consentReadyAt=Date.now();
-  if(!window.vdNewsletterReady||Date.now()-consentReadyAt<3000||document.visibilityState!=='visible')return;
-  if(document.querySelector('.modal-overlay.active,dialog[open],.mobile-nav.active,.collection-menu[open]'))return;
-  if(document.activeElement?.matches('input,textarea,select'))return;
-  window.openVictoriaNewsletter();clearInterval(timer);
- },250);
- window.addEventListener('pagehide',()=>clearInterval(timer),{once:true});
+ const timer=setTimeout(()=>{
+  if(!read(sessionStorage,'emailPopupShown'))window.openVictoriaNewsletter();
+ },Math.max(0,5000-performance.now()));
+ window.addEventListener('pagehide',()=>clearTimeout(timer),{once:true});
  // Defer offscreen imagery, retaining immediate collection photo loading.
  document.querySelectorAll('section:not(#collections) img').forEach(img=>{img.loading='lazy';img.decoding='async';});
 });

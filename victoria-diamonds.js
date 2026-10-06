@@ -578,9 +578,6 @@
     }
 
     function scheduleNewsletterAfterConsent() {
-        if (consentBanner && !consentBanner.classList.contains('hidden')) {
-            return;
-        }
         if (sessionStorage.getItem('emailPopupShown')) {
             return;
         }
@@ -589,9 +586,7 @@
             clearTimeout(window.__newsletterPopupTimer);
         }
 
-        window.__newsletterPopupTimer = setTimeout(function() {
-            showEmailSubscriptionPopup();
-        }, 1200);
+        showEmailSubscriptionPopup();
     }
 
     function storeConsentChoice(choice, preferences) {
@@ -1136,7 +1131,7 @@ if (document.readyState === 'loading') {
             );
 
         if (!popupShown) {
-            const delay = 1800;
+            const delay = Math.max(0, 5000 - performance.now());
 
             window.__newsletterPopupTimer = setTimeout(function() {
                 openEmailSubscription();
