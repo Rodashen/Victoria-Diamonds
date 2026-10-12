@@ -9,7 +9,7 @@ for (const file of ['catalogue-data.js', 'daily-products.js', 'high-note-product
 }
 const base = 'https://victoria-diamonds.com/';
 const registry = context.window.VDProducts;
-const pages = ['', 'view-catalogue.html', ...Object.values(registry.collections).map(collection => collection[1]), 'newsletter.html', 'privacy-policy.html', 'cookie-policy.html'];
+const pages = ['', 'view-catalogue.html', ...Object.values(registry.collections).map(collection => collection[1]), 'newsletter.html', 'privacy-policy.html', 'cookie-policy.html', 'journal.html', 'journal-natural-vs-lab-grown-diamonds.html', 'journal-diamond-jewellery-care.html', 'journal-choosing-diamond-carat-size.html'];
 const urls = [...pages.map(page => base + page), ...registry.products.map(product => base + 'product.html?item=' + encodeURIComponent(product.id))];
 if (new Set(urls).size !== urls.length) throw Error('Duplicate sitemap URLs');
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
