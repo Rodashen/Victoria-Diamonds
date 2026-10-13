@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
     <script src="translations.js"></script>
-    <script src="catalogue-data.js?v=20261013a"></script>
-    <script src="mens-products.js?v=20261013a" defer></script>
-    <script src="catalogue-browser.js?v=20261004e" defer></script>
+    <script src="catalogue-data.js?v=20261014a"></script>
+    <script src="mens-products.js?v=20261014a" defer></script>
+    <script src="catalogue-browser.js?v=20261014a" defer></script>
     <link rel="stylesheet" href="catalogue-browser.css?v=20261004e">
     <link rel="stylesheet" href="daily-checkout.css?v=20261013a">
-    <script src="daily-products.js?v=20261013a" defer></script>
-    <script src="high-note-products.js?v=20261013a" defer></script>
-    <script src="daily-checkout.js?v=20261013a" defer></script>
+    <script src="daily-products.js?v=20261014a" defer></script>
+    <script src="high-note-products.js?v=20261014a" defer></script>
+    <script src="daily-checkout.js?v=20261014a" defer></script>
     <style>
         :root {
             --cream: #FFFBF5;
@@ -654,9 +654,9 @@
         }
     </style>
     <script src="product-links.js" defer></script>
-<script src="remaining-products.js?v=20261013a" defer></script><script src="product-registry.js" defer></script>
+<script src="remaining-products.js?v=20261014a" defer></script><script src="product-registry.js" defer></script>
     <link rel="canonical" href="https://victoria-diamonds.com/view-catalogue.html">
-<link rel="icon" href="images/favicon.ico?v=20261013a" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=20261013a"><link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=20261013a">
+<link rel="icon" href="images/favicon.ico?v=20261014b" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=20261014b"><link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=20261014b">
 </head>
 <body>
     <header class="catalogue-header">
@@ -863,7 +863,7 @@ function renderProducts(containerId, items, category) {
             grid.setAttribute('data-category', category);
             items.forEach(function(item) {
                 var name = item.name;
-                var imgSrc = 'images/' + item.image;
+                var imgSrc = 'images/' + (item.thumbnail || item.image);
                 var card = document.createElement('div');
                 card.className = 'product-card';
 card.setAttribute('data-price', item.price !== undefined ? item.price : '');

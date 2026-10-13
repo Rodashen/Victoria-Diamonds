@@ -17,7 +17,7 @@ window.HighNoteProducts = {
     {
       "name": "Anora Ring",
       "id": "ow_s_anora",
-      "image": "42.png",
+      "image": "products/ow_s_anora.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -30,12 +30,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_s_anora-960.webp"
     },
     {
       "name": "Venus Ring",
       "id": "ow_l_venus",
-      "image": "35.png",
+      "image": "products/ow_l_venus.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -48,12 +49,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 2125,
       "needsStoneSelection": false,
-      "designFee": 300
+      "designFee": 300,
+      "thumbnail": "products/ow_l_venus-960.webp"
     },
     {
       "name": "Tranquility Ring",
       "id": "ow_s_tranquility",
-      "image": "40.png",
+      "image": "products/ow_s_tranquility.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -66,12 +68,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1475,
       "needsStoneSelection": false,
-      "designFee": 100
+      "designFee": 100,
+      "thumbnail": "products/ow_s_tranquility-960.webp"
     },
     {
       "name": "Athena Ring",
       "id": "ow_m_athena",
-      "image": "44.png",
+      "image": "products/ow_m_athena.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -84,12 +87,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1475,
       "needsStoneSelection": false,
-      "designFee": 100
+      "designFee": 100,
+      "thumbnail": "products/ow_m_athena-960.webp"
     },
     {
       "name": "Fae Ring",
       "id": "ow_m_fae",
-      "image": "38.png",
+      "image": "products/ow_m_fae.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -102,12 +106,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1575,
       "needsStoneSelection": false,
-      "designFee": 200
+      "designFee": 200,
+      "thumbnail": "products/ow_m_fae-960.webp"
     },
     {
       "name": "Skylar Ring",
       "id": "ow_m_skylar",
-      "image": "37.png",
+      "image": "products/ow_m_skylar.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -120,12 +125,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1575,
       "needsStoneSelection": false,
-      "designFee": 200
+      "designFee": 200,
+      "thumbnail": "products/ow_m_skylar-960.webp"
     },
     {
       "name": "Promise of Forever Ring",
       "id": "ow_s_promise",
-      "image": "36.png",
+      "image": "products/ow_s_promise.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -138,12 +144,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_s_promise-960.webp"
     },
     {
       "name": "Celestia Ring",
       "id": "ow_m_celestia",
-      "image": "39.png",
+      "image": "products/ow_m_celestia.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -156,12 +163,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1575,
       "needsStoneSelection": false,
-      "designFee": 200
+      "designFee": 200,
+      "thumbnail": "products/ow_m_celestia-960.webp"
     },
     {
       "name": "Rosé Bloom Ring",
       "id": "ow_m_rosebloom",
-      "image": "34.png",
+      "image": "products/ow_m_rosebloom.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -174,12 +182,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1575,
       "needsStoneSelection": false,
-      "designFee": 200
+      "designFee": 200,
+      "thumbnail": "products/ow_m_rosebloom-960.webp"
     },
     {
       "name": "Elysia Ring",
       "id": "ow_m_elysia",
-      "image": "32.png",
+      "image": "products/ow_m_elysia.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -192,12 +201,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1575,
       "needsStoneSelection": false,
-      "designFee": 200
+      "designFee": 200,
+      "thumbnail": "products/ow_m_elysia-960.webp"
     },
     {
       "name": "Lunelle Ring",
       "id": "ow_m_lunelle",
-      "image": "46.png",
+      "image": "products/ow_m_lunelle.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -210,12 +220,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1575,
       "needsStoneSelection": false,
-      "designFee": 200
+      "designFee": 200,
+      "thumbnail": "products/ow_m_lunelle-960.webp"
     },
     {
       "name": "Victorian Ring",
       "id": "ow_m_victorian",
-      "image": "45.png",
+      "image": "products/ow_m_victorian.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -228,12 +239,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_m_victorian-960.webp"
     },
     {
       "name": "Amour Ring",
       "id": "ow_s_amour",
-      "image": "41.png",
+      "image": "products/ow_s_amour.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -246,12 +258,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_s_amour-960.webp"
     },
     {
       "name": "Imperial Pavé Ring",
       "id": "ow_l_imperial",
-      "image": "43.png",
+      "image": "products/ow_l_imperial.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -264,12 +277,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1825,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_l_imperial-960.webp"
     },
     {
       "name": "Éternelle Grande Ring",
       "id": "ow_m_eternelle",
-      "image": "33.png",
+      "image": "products/ow_m_eternelle.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -282,12 +296,13 @@ window.HighNoteProducts = {
       "soldAsPair": false,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_m_eternelle-960.webp"
     },
     {
       "name": "Round Illusion Stud",
       "id": "ow_m_illusion",
-      "image": "50.png",
+      "image": "products/ow_m_illusion.webp",
       "type": "earrings",
       "diamonds": [
         {
@@ -299,12 +314,13 @@ window.HighNoteProducts = {
       "braceletMetalTier": "essential",
       "soldAsPair": true,
       "price": 1305,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_m_illusion-960.webp"
     },
     {
       "name": "Fiora Earrings",
       "id": "ow_m_fiora",
-      "image": "52.png",
+      "image": "products/ow_m_fiora.webp",
       "type": "earrings",
       "diamonds": [
         {
@@ -316,12 +332,13 @@ window.HighNoteProducts = {
       "braceletMetalTier": "essential",
       "soldAsPair": true,
       "price": 1725,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_m_fiora-960.webp"
     },
     {
       "name": "Lumina Wedding Tennis",
       "id": "ow_l_lumina",
-      "image": "49.png",
+      "image": "products/ow_l_lumina.webp",
       "type": "bracelet",
       "diamonds": [
         {
@@ -333,12 +350,13 @@ window.HighNoteProducts = {
       "braceletMetalTier": "essential",
       "soldAsPair": false,
       "price": 2175,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_l_lumina-960.webp"
     },
     {
       "name": "Arabella",
       "id": "ow_l_arabella",
-      "image": "53.png",
+      "image": "products/ow_l_arabella.webp",
       "type": "bracelet",
       "diamonds": [
         {
@@ -350,12 +368,13 @@ window.HighNoteProducts = {
       "braceletMetalTier": "essential",
       "soldAsPair": false,
       "price": 2325,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_l_arabella-960.webp"
     },
     {
       "name": "Classic Round Tennis Bracelet (Gold)",
       "id": "ow_l_classic_round_tennis_gold",
-      "image": "classic-round-tennis-bracelet-gold.png",
+      "image": "products/ow_l_classic_round_tennis_gold.webp",
       "type": "bracelet",
       "diamonds": [
         {
@@ -367,12 +386,13 @@ window.HighNoteProducts = {
       "braceletMetalTier": "premium",
       "soldAsPair": false,
       "price": 2770,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_l_classic_round_tennis_gold-960.webp"
     },
     {
       "name": "Emerald-Cut Tennis Bracelet",
       "id": "ow_l_emerald_cut_tennis",
-      "image": "emerald-cut-tennis-bracelet.png",
+      "image": "products/ow_l_emerald_cut_tennis.webp",
       "type": "bracelet",
       "diamonds": [
         {
@@ -384,12 +404,13 @@ window.HighNoteProducts = {
       "braceletMetalTier": "premium",
       "soldAsPair": false,
       "price": 2770,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_l_emerald_cut_tennis-960.webp"
     },
     {
       "name": "Pear-Cut Tennis Bracelet (Gold)",
       "id": "ow_l_pear_cut_tennis_gold",
-      "image": "pear-cut-tennis-bracelet-gold.png",
+      "image": "products/ow_l_pear_cut_tennis_gold.webp",
       "type": "bracelet",
       "diamonds": [
         {
@@ -401,7 +422,8 @@ window.HighNoteProducts = {
       "braceletMetalTier": "premium",
       "soldAsPair": false,
       "price": 2770,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ow_l_pear_cut_tennis_gold-960.webp"
     }
   ]
 };

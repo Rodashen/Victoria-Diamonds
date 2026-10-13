@@ -1,198 +1,198 @@
 /* Shared browsing inventory. Checkout remains authoritative for payment quotes. */
 window.VDCatalogueGroups = [
 {collection:"silverCollection", category:"Ring", items:[
-            {name:'Everyday Silver Ring', image:'S1.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Twisted Silver Band', image:'S2.png', metal:'Sterling 925', price:142, fixedPrice:true, details:[{key:'centreStone', value:'0.50 ct'}]},
-            {name:'Round Silver Ring', image:'S3.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Classic Silver Ring', image:'S4.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Curved Silver Band', image:'S7.png', metal:'Sterling 925', price:97, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Dainty Silver Ring', image:'S8.png', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Crescent Silver Ring', image:'S9.png', metal:'Sterling 925', price:129, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'sideStone', value:'0.05 x 4'}]},
-            {name:'Loop Silver Ring', image:'S10.png', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.50 ct'}]}
+            {name:'Everyday Silver Ring', image:'products/silver_everyday_ring.webp', thumbnail:'products/silver_everyday_ring-960.webp', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Twisted Silver Band', image:'products/silver_twisted_band.webp', thumbnail:'products/silver_twisted_band-960.webp', metal:'Sterling 925', price:142, fixedPrice:true, details:[{key:'centreStone', value:'0.50 ct'}]},
+            {name:'Round Silver Ring', image:'products/silver_round_ring.webp', thumbnail:'products/silver_round_ring-960.webp', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Classic Silver Ring', image:'products/silver_classic_ring.webp', thumbnail:'products/silver_classic_ring-960.webp', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Curved Silver Band', image:'products/silver_curved_band.webp', thumbnail:'products/silver_curved_band-960.webp', metal:'Sterling 925', price:97, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Dainty Silver Ring', image:'products/silver_dainty_ring.webp', thumbnail:'products/silver_dainty_ring-960.webp', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Crescent Silver Ring', image:'products/silver_crescent_ring.webp', thumbnail:'products/silver_crescent_ring-960.webp', metal:'Sterling 925', price:129, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'sideStone', value:'0.05 x 4'}]},
+            {name:'Loop Silver Ring', image:'products/silver_loop_ring.webp', thumbnail:'products/silver_loop_ring-960.webp', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.50 ct'}]}
         ]},
 {collection:"silverCollection", category:"Necklace", items:[
-            {name:'Simple Chain Necklace', image:'S5.png', metal:'Sterling 925', price:98, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Little Drop Necklace', image:'S6.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Everyday Pendant Necklace', image:'S11.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]}
+            {name:'Simple Chain Necklace', image:'products/silver_simple_chain.webp', thumbnail:'products/silver_simple_chain-960.webp', metal:'Sterling 925', price:98, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Little Drop Necklace', image:'products/silver_little_drop.webp', thumbnail:'products/silver_little_drop-960.webp', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Everyday Pendant Necklace', image:'products/silver_everyday_pendant.webp', thumbnail:'products/silver_everyday_pendant-960.webp', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]}
         ]},
 {collection:"silverCollection", category:"Bracelet", items:[
-            {name:'Open Cuff Bracelet', image:'S13.png', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Link Charm Bracelet', image:'S12.png', metal:'Sterling 925', price:113, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'totalKarat', value:'0.3 ct'}]},
-            {name:'Link Charm Bracelet II', image:'link-charm-bracelet.png', metal:'Sterling 925', price:159, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'totalKarat', value:'0.50 ct'}]}
+            {name:'Open Cuff Bracelet', image:'products/silver_open_cuff.webp', thumbnail:'products/silver_open_cuff-960.webp', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Link Charm Bracelet', image:'products/silver_link_charm.webp', thumbnail:'products/silver_link_charm-960.webp', metal:'Sterling 925', price:113, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'totalKarat', value:'0.3 ct'}]},
+            {name:'Link Charm Bracelet II', image:'products/silver_link_charm_ii.webp', thumbnail:'products/silver_link_charm_ii-960.webp', metal:'Sterling 925', price:159, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'totalKarat', value:'0.50 ct'}]}
         ]},
 {collection:"silverCollection", category:"Earring", items:[
-            {name:'Round Stud Earrings', image:'S14.png', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct (each)'}]},
-            {name:'Flower Drop Earrings', image:'S15.png', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct (each)'}]}
+            {name:'Round Stud Earrings', image:'products/silver_round_studs.webp', thumbnail:'products/silver_round_studs-960.webp', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct (each)'}]},
+            {name:'Flower Drop Earrings', image:'products/silver_flower_drop.webp', thumbnail:'products/silver_flower_drop-960.webp', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct (each)'}]}
         ]},
 {collection:"silverCollection", category:"Anklet", items:[
-            {name:'Everyday Silver Anklet', image:'S16.png', metal:'Sterling 925', price:179, fixedPrice:true, details:[{key:'totalKarat', value:'0.75 ct'}]}
+            {name:'Everyday Silver Anklet', image:'products/silver_anklet.webp', thumbnail:'products/silver_anklet-960.webp', metal:'Sterling 925', price:179, fixedPrice:true, details:[{key:'totalKarat', value:'0.75 ct'}]}
         ]},
 {collection:"dailySparkle", category:"Ring", items:[
 
-    {name:'Aurelia Ring', image:'75.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Aurelia Ring', image:'products/ds_s_aurelia.webp', thumbnail:'products/ds_s_aurelia-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Elara Ring', image:'4.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Elara Ring', image:'products/ds_s_elara.webp', thumbnail:'products/ds_s_elara-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Raya Ring', image:'6.jpeg', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Raya Ring', image:'products/ds_s_raya.webp', thumbnail:'products/ds_s_raya-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Gianna Ring', image:'78.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Gianna Ring', image:'products/ds_s_gianna.webp', thumbnail:'products/ds_s_gianna-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Mirabelle Ring', image:'79.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Mirabelle Ring', image:'products/ds_s_mirabelle.webp', thumbnail:'products/ds_s_mirabelle-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Nova Ring', image:'5.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Nova Ring', image:'products/ds_s_nova.webp', thumbnail:'products/ds_s_nova-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Solitaire Ring', image:'12.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Solitaire Ring', image:'products/ds_s_solitaire.webp', thumbnail:'products/ds_s_solitaire-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Diamond Dust Ring', image:'diamond-dust-ring-white.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Diamond Dust Ring', image:'products/ds_s_diamond_dust.webp', thumbnail:'products/ds_s_diamond_dust-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Solenne Ring', image:'7.png', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Solenne Ring', image:'products/ds_s_solenne.webp', thumbnail:'products/ds_s_solenne-960.webp', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Élan Ring', image:'11.png', price:1715, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Élan Ring', image:'products/ds_s_elan.webp', thumbnail:'products/ds_s_elan-960.webp', price:1715, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Timeless Classic Ring', image:'13.png', price:1667, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Timeless Classic Ring', image:'products/ds_s_timeless.webp', thumbnail:'products/ds_s_timeless-960.webp', price:1667, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Princess Ring', image:'10.png', price:1951, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Princess Ring', image:'products/ds_s_princess.webp', thumbnail:'products/ds_s_princess-960.webp', price:1951, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Aurelle Ring', image:'9.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Aurelle Ring', image:'products/ds_s_aurelle.webp', thumbnail:'products/ds_s_aurelle-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Eternity Stacking Ring', image:'29.png', metal:'18K White Gold', price:1110, details:[{key:'eachDiamond', value:'0.10 x 17'}]},
+    {name:'Eternity Stacking Ring', image:'products/ds_m_eternity.webp', thumbnail:'products/ds_m_eternity-960.webp', metal:'18K White Gold', price:1110, details:[{key:'eachDiamond', value:'0.10 x 17'}]},
 
-    {name:'Splendor Stacking Ring', image:'30.png', metal:'18K White Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Splendor Stacking Ring', image:'products/ds_m_splendor.webp', thumbnail:'products/ds_m_splendor-960.webp', metal:'18K White Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Cascade Ring', image:'80.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Cascade Ring', image:'products/ds_s_cascade.webp', thumbnail:'products/ds_s_cascade-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Nocturne Ring', image:'77.png', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]}
+    {name:'Nocturne Ring', image:'products/ds_s_nocturne.webp', thumbnail:'products/ds_s_nocturne-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]}
 
 ]},
 {collection:"dailySparkle", category:"Necklace", items:[
-            {name:'Luvia Necklace', image:'19.png', total:'1.5 ct', price:1950, details:[{key:'eachDiamond', value:'0.05 x 30'},{key:'totalKarat', value:'1.5 ct'}]},
-            {name:'Virelle Necklace', image:'18.png', total:'4 ct', price:2575, details:[{key:'eachDiamond', value:'1'},{key:'totalKarat', value:'4 ct'}]},
-            {name:'Serenity Necklace', image:'17.png', stone:'1.00 ct', total:'2.2 ct', price:2101, details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'2.2 ct'},{key:'sideStone', value:'0.10 x 12'}]},
-            {name:'Celeste Necklace', image:'16.png', stone:'1.00 ct', total:'1.6 ct', price:1967, details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'1.6 ct'},{key:'mainSide', value:'0.10 x 4'},{key:'secondarySide', value:'0.05 x 4'}]},
-            {name:'Aurora Necklace', image:'15.png', stone:'1.00 ct', total:'2.7 ct', price:2240, details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'2.7 ct'},{key:'mainSide', value:'0.10 x 5'},{key:'secondarySide', value:'0.10 x 7'}]},
-            {name:'Solstice Necklace', image:'14.png', stone:'1.00 ct', total:'3 ct', price:2285, details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'3 ct'},{key:'sideStone', value:'0.10 x 20'}]}
+            {name:'Luvia Necklace', image:'products/ds_l_luvia.webp', thumbnail:'products/ds_l_luvia-960.webp', detailImage:'products/ds_l_luvia-detail.webp', total:'1.5 ct', price:1950, details:[{key:'eachDiamond', value:'0.05 x 30'},{key:'totalKarat', value:'1.5 ct'}]},
+            {name:'Virelle Necklace', image:'products/ds_l_virelle.webp', thumbnail:'products/ds_l_virelle-960.webp', detailImage:'products/ds_l_virelle-detail.webp', total:'4 ct', price:2575, details:[{key:'eachDiamond', value:'1'},{key:'totalKarat', value:'4 ct'}]},
+            {name:'Serenity Necklace', image:'products/ds_l_serenity.webp', thumbnail:'products/ds_l_serenity-960.webp', detailImage:'products/ds_l_serenity-detail.webp', stone:'1.00 ct', total:'2.2 ct', price:2101, details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'2.2 ct'},{key:'sideStone', value:'0.10 x 12'}]},
+            {name:'Celeste Necklace', image:'products/ds_m_celeste.webp', thumbnail:'products/ds_m_celeste-960.webp', detailImage:'products/ds_m_celeste-detail.webp', stone:'1.00 ct', total:'1.6 ct', price:1967, details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'1.6 ct'},{key:'mainSide', value:'0.10 x 4'},{key:'secondarySide', value:'0.05 x 4'}]},
+            {name:'Aurora Necklace', image:'products/ds_m_aurora.webp', thumbnail:'products/ds_m_aurora-960.webp', detailImage:'products/ds_m_aurora-detail.webp', stone:'1.00 ct', total:'2.7 ct', price:2240, details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'2.7 ct'},{key:'mainSide', value:'0.10 x 5'},{key:'secondarySide', value:'0.10 x 7'}]},
+            {name:'Solstice Necklace', image:'products/ds_m_solstice.webp', thumbnail:'products/ds_m_solstice-960.webp', detailImage:'products/ds_m_solstice-detail.webp', stone:'1.00 ct', total:'3 ct', price:2285, details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'3 ct'},{key:'sideStone', value:'0.10 x 20'}]}
         ]},
 {collection:"dailySparkle", category:"Earring", items:[
-            {name:'Lumin\u00e9a Earrings', image:'22.png', total:'0.60 ct (pair)', price:1263, details:[{key:'eachDiamond', value:'0.10 (6 per pair)'},{key:'totalKarat', value:'0.60 ct (pair)'}]},
-            {name:'Fiora Earrings', image:'21.png', total:'1.60 ct (pair)', price:1625, details:[{key:'mainDiamond', value:'0.25 (4 per pair)'},{key:'secondaryDiamond', value:'0.15 (4 per pair)'},{key:'totalKarat', value:'1.60 ct (pair)'}]}
+            {name:'Lumin\u00e9a Earrings', image:'products/ds_s_luminea.webp', thumbnail:'products/ds_s_luminea-960.webp', total:'0.60 ct (pair)', price:1263, details:[{key:'eachDiamond', value:'0.10 (6 per pair)'},{key:'totalKarat', value:'0.60 ct (pair)'}]},
+            {name:'Fiora Earrings', image:'products/ds_s_fiora.webp', thumbnail:'products/ds_s_fiora-960.webp', total:'1.60 ct (pair)', price:1625, details:[{key:'mainDiamond', value:'0.25 (4 per pair)'},{key:'secondaryDiamond', value:'0.15 (4 per pair)'},{key:'totalKarat', value:'1.60 ct (pair)'}]}
         ]},
 {collection:"dailySparkle", category:"Earring Stud", items:[
-            {name:'Martini Studs', image:'28.png', total:'2 ct (pair)', price:1625, details:[{key:'eachDiamond', value:'1 (2 in total if pair)'},{key:'totalKarat', value:'2 ct (pair)'}]}
+            {name:'Martini Studs', image:'products/ds_s_martini.webp', thumbnail:'products/ds_s_martini-960.webp', total:'2 ct (pair)', price:1625, details:[{key:'eachDiamond', value:'1 (2 in total if pair)'},{key:'totalKarat', value:'2 ct (pair)'}]}
         ]},
 {collection:"dailySparkle", category:"Bracelet", items:[
-            {name:'Aur\u00e9a Bracelet', image:'24.png', price:1675, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 8'},{key:'totalKarat', value:'2.2 ct'}]},
-            {name:'Solenne Bracelet', image:'23.png', price:1563, details:[{key:'centreStone', value:'0.75 ct'},{key:'mainSide', value:'0.15 x 4'},{key:'secondarySide', value:'0.10 x 4'},{key:'totalKarat', value:'1.75 ct'}]},
-            {name:'Liora Bracelet', image:'25.png', price:1625, details:[{key:'centreStone', value:'1 ct'},{key:'sideStone', value:'0.25 x 4'},{key:'totalKarat', value:'2 ct'}]},
-            {name:'Celeste Bracelet', image:'26.png', price:1850, details:[{key:'mainDiamond', value:'0.50 x 3'},{key:'sideStone', value:'0.10 x 14'},{key:'totalKarat', value:'2.9 ct'}]},
-            {name:'Lumi\u00e8re Bracelet', image:'27.png', price:1425, details:[{key:'eachDiamond', value:'0.10 x 12'},{key:'totalKarat', value:'1.2 ct'}]}
+            {name:'Aur\u00e9a Bracelet', image:'products/ds_m_aurea_bracelet.webp', thumbnail:'products/ds_m_aurea_bracelet-960.webp', price:1675, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 8'},{key:'totalKarat', value:'2.2 ct'}]},
+            {name:'Solenne Bracelet', image:'products/ds_m_solenne_bracelet.webp', thumbnail:'products/ds_m_solenne_bracelet-960.webp', price:1563, details:[{key:'centreStone', value:'0.75 ct'},{key:'mainSide', value:'0.15 x 4'},{key:'secondarySide', value:'0.10 x 4'},{key:'totalKarat', value:'1.75 ct'}]},
+            {name:'Liora Bracelet', image:'products/ds_m_liora_bracelet.webp', thumbnail:'products/ds_m_liora_bracelet-960.webp', price:1625, details:[{key:'centreStone', value:'1 ct'},{key:'sideStone', value:'0.25 x 4'},{key:'totalKarat', value:'2 ct'}]},
+            {name:'Celeste Bracelet', image:'products/ds_m_celeste_bracelet.webp', thumbnail:'products/ds_m_celeste_bracelet-960.webp', price:1850, details:[{key:'mainDiamond', value:'0.50 x 3'},{key:'sideStone', value:'0.10 x 14'},{key:'totalKarat', value:'2.9 ct'}]},
+            {name:'Lumi\u00e8re Bracelet', image:'products/ds_m_lumiere_bracelet.webp', thumbnail:'products/ds_m_lumiere_bracelet-960.webp', price:1425, details:[{key:'eachDiamond', value:'0.10 x 12'},{key:'totalKarat', value:'1.2 ct'}]}
         ]},
 {collection:"occasionalWear", category:"Ring", items:[
-            {name:'Anora Ring', image:'42.png', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'1.00 ct', price:2125, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', price:1475, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', price:1475, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Ros\u00e9 Bloom Ring', image:'34.png', metal:'18K Rose Gold', stone:'1.00 ct', totalWeight:'6 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 50'},{key:'totalKarat', value:'6 ct'}]},
-            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Imperial Pav\u00e9 Ring', image:'43.png', price:'request'},
-            {name:'\u00c9ternelle Grande Ring', image:'33.png', totalWeight:'7 ct', price:1300, details:[{key:'eachDiamond', value:'0.50 x 14'},{key:'totalKarat', value:'7 ct'}]}
+            {name:'Anora Ring', image:'products/ow_s_anora.webp', thumbnail:'products/ow_s_anora-960.webp', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Venus Ring', image:'products/ow_l_venus.webp', thumbnail:'products/ow_l_venus-960.webp', metal:'18K Rose Gold', stone:'1.00 ct', price:2125, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Tranquility Ring', image:'products/ow_s_tranquility.webp', thumbnail:'products/ow_s_tranquility-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1475, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Athena Ring', image:'products/ow_m_athena.webp', thumbnail:'products/ow_m_athena-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1475, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Fae Ring', image:'products/ow_m_fae.webp', thumbnail:'products/ow_m_fae-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Skylar Ring', image:'products/ow_m_skylar.webp', thumbnail:'products/ow_m_skylar-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Promise of Forever Ring', image:'products/ow_s_promise.webp', thumbnail:'products/ow_s_promise-960.webp', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Celestia Ring', image:'products/ow_m_celestia.webp', thumbnail:'products/ow_m_celestia-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Ros\u00e9 Bloom Ring', image:'products/ow_m_rosebloom.webp', thumbnail:'products/ow_m_rosebloom-960.webp', metal:'18K Rose Gold', stone:'1.00 ct', totalWeight:'6 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 50'},{key:'totalKarat', value:'6 ct'}]},
+            {name:'Elysia Ring', image:'products/ow_m_elysia.webp', thumbnail:'products/ow_m_elysia-960.webp', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Lunelle Ring', image:'products/ow_m_lunelle.webp', thumbnail:'products/ow_m_lunelle-960.webp', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Victorian Ring', image:'products/ow_m_victorian.webp', thumbnail:'products/ow_m_victorian-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Amour Ring', image:'products/ow_s_amour.webp', thumbnail:'products/ow_s_amour-960.webp', metal:'18K White Gold', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Imperial Pav\u00e9 Ring', image:'products/ow_l_imperial.webp', thumbnail:'products/ow_l_imperial-960.webp', price:'request'},
+            {name:'\u00c9ternelle Grande Ring', image:'products/ow_m_eternelle.webp', thumbnail:'products/ow_m_eternelle-960.webp', totalWeight:'7 ct', price:1300, details:[{key:'eachDiamond', value:'0.50 x 14'},{key:'totalKarat', value:'7 ct'}]}
         ]},
 {collection:"occasionalWear", category:"Earring", items:[
-            {name:'Round Illusion Stud', image:'50.png', stone:'0.25 ct (each)', total:'1.15 ct (each)', price:1410, details:[{key:'centreStone', value:'0.25 ct each'},{key:'sideStone', value:'0.10 x 9'},{key:'totalKarat', value:'1.15 ct each'}]},
-            {name:'Fiora Earrings', image:'52.png', stone:'0.50 ct (each)', total:'1.8 ct', price:1575, details:[{key:'centreStone', value:'0.50 ct each'},{key:'sideStone', value:'0.10 x 10'},{key:'totalKarat', value:'1.8 ct'}]}
+            {name:'Round Illusion Stud', image:'products/ow_m_illusion.webp', thumbnail:'products/ow_m_illusion-960.webp', stone:'0.25 ct (each)', total:'1.15 ct (each)', price:1410, details:[{key:'centreStone', value:'0.25 ct each'},{key:'sideStone', value:'0.10 x 9'},{key:'totalKarat', value:'1.15 ct each'}]},
+            {name:'Fiora Earrings', image:'products/ow_m_fiora.webp', thumbnail:'products/ow_m_fiora-960.webp', stone:'0.50 ct (each)', total:'1.8 ct', price:1575, details:[{key:'centreStone', value:'0.50 ct each'},{key:'sideStone', value:'0.10 x 10'},{key:'totalKarat', value:'1.8 ct'}]}
         ]},
 {collection:"occasionalWear", category:"Bracelet", items:[
-            {name:'Lumina Wedding Tennis', image:'49.png', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
-            {name:'Arabella', image:'53.png', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
-            {name:'Classic Round Tennis Bracelet (Gold)', image:'classic-round-tennis-bracelet-gold.png', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
-            {name:'Emerald-Cut Tennis Bracelet', image:'emerald-cut-tennis-bracelet.png', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
-            {name:'Marquise and Round Tennis Bracelet', image:'marquise-oval-alternating-tennis-bracelet.png', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Large marquise stones ~0.5 ct each ×20 — total carat 12 ct'}]},
-            {name:'Pear-Cut Tennis Bracelet (Gold)', image:'pear-cut-tennis-bracelet-gold.png', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]}
+            {name:'Lumina Wedding Tennis', image:'products/ow_l_lumina.webp', thumbnail:'products/ow_l_lumina-960.webp', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
+            {name:'Arabella', image:'products/ow_l_arabella.webp', thumbnail:'products/ow_l_arabella-960.webp', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
+            {name:'Classic Round Tennis Bracelet (Gold)', image:'products/ow_l_classic_round_tennis_gold.webp', thumbnail:'products/ow_l_classic_round_tennis_gold-960.webp', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
+            {name:'Emerald-Cut Tennis Bracelet', image:'products/ow_l_emerald_cut_tennis.webp', thumbnail:'products/ow_l_emerald_cut_tennis-960.webp', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]},
+            {name:'Marquise and Round Tennis Bracelet', image:'products/ow_l_marquise_round_alternating_tennis.webp', thumbnail:'products/ow_l_marquise_round_alternating_tennis-960.webp', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Large marquise stones ~0.5 ct each ×20 — total carat 12 ct'}]},
+            {name:'Pear-Cut Tennis Bracelet (Gold)', image:'products/ow_l_pear_cut_tennis_gold.webp', thumbnail:'products/ow_l_pear_cut_tennis_gold-960.webp', price:'request', metal:'18K Gold', details:[{key:'totalKarat', value:'12 ct'},{key:'metalPrice', value:'2520 GBP'},{key:'diamondPriceOptions', value:'0.25:2200,0.5:2400,0.75:2700,1:3000'},{key:'info', value:'Total carat 12 ct — diamond price varies by chosen per-stone size; metal price shown'}]}
         ]},
 {collection:"occasionalWear", category:"Brooch", items:[
-            {name:'Celestia Broche', image:'47.png', weight:'7.0', price:'request', details:[{key:'weight', value:'7.0 g'}]},
-            {name:'\u00c9ternelle Broche', image:'48.png', weight:'7.5', price:'request', details:[{key:'weight', value:'7.5 g'}]}
+            {name:'Celestia Broche', image:'products/occasionalWear-celestia-broche.webp', thumbnail:'products/occasionalWear-celestia-broche-960.webp', weight:'7.0', price:'request', details:[{key:'weight', value:'7.0 g'}]},
+            {name:'\u00c9ternelle Broche', image:'products/occasionalWear-eternelle-broche.webp', thumbnail:'products/occasionalWear-eternelle-broche-960.webp', weight:'7.5', price:'request', details:[{key:'weight', value:'7.5 g'}]}
         ]},
 {collection:"occasionalWear", category:"Tiara", items:[
-            {name:'Lunaria Tiara', image:'51.png', weight:'14.0', price:'request', details:[{key:'weight', value:'14.0 g'}]}
+            {name:'Lunaria Tiara', image:'products/occasionalWear-lunaria-tiara.webp', thumbnail:'products/occasionalWear-lunaria-tiara-960.webp', weight:'14.0', price:'request', details:[{key:'weight', value:'14.0 g'}]}
         ]},
 {collection:"foreverBond", category:"Ring", items:[
-            {name:'Stellar Promise', image:'55.png', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'\u00c9l\u00e9gance Unie Ring', image:'56.png', totalWeight:'5 ct', price:1375, details:[{key:'centreStone', value:'0.5 ct x 2'},{key:'totalKarat', value:'5 ct'}]},
-            {name:'Lumi\u00e8re Eternity Ring', image:'57.png', price:'request'},
-            {name:'Endless Devotion Ring', image:'58.png', stone:'1.00 ct', price:1715, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Luminous Devotion Ring', image:'59.png', stone:'1.00 ct', price:2165, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Everlasting Embrace Ring', image:'60.png', stone:'1.00 ct', price:3155, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'The Knot Ring', image:'61.png', price:1375},
-            {name:'Eternal Connection', image:'62.png', metal:'18k White Gold', stone:'1.00 ct', price:1935, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Eternal Promise', image:'63.png', price:1375},
-            {name:'Moment to Shine Ring', image:'64.png', metal:'18K White Gold', stone:'1.00 ct', price:1955, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Unbreakable Hearts', image:'65.png', stone:'1.00 ct', price:2911, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Bound by Destiny', image:'66.png', stone:'1.00 ct', price:2875, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Ethereal Halo Ring', image:'67.png', stone:'1.00 ct', price:2165, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Amour \u00c9ternel Ring', image:'68.png', price:1120},
-            {name:'Celestial Embrace', image:'69.png', stone:'1.00 ct', price:2025, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Destiny Couple Ring', image:'70.png',metal:'18k White Gold', tag:'set', stone:'1.00 ct', price:1515, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Eternal Harmony', image:'71.png', metal:'18K Gold', tag:'set', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Wedding Bands', image:'72.png', tag:'wedding', price:980},
-            {name:'Eternal Promise Ring Set', image:'73.png', tag:'set', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Elysian Ring', image:'74.png', metal:'18K Gold', stone:'1.00 ct', price:2025, details:[{key:'centreStone', value:'1.00 ct'}]}
+            {name:'Stellar Promise', image:'products/fb_m_stellar.webp', thumbnail:'products/fb_m_stellar-960.webp', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'\u00c9l\u00e9gance Unie Ring', image:'products/fb_m_elegance.webp', thumbnail:'products/fb_m_elegance-960.webp', totalWeight:'5 ct', price:1375, details:[{key:'centreStone', value:'0.5 ct x 2'},{key:'totalKarat', value:'5 ct'}]},
+            {name:'Lumi\u00e8re Eternity Ring', image:'products/fb_m_lumiere_eternity.webp', thumbnail:'products/fb_m_lumiere_eternity-960.webp', price:'request'},
+            {name:'Endless Devotion Ring', image:'products/fb_m_endless.webp', thumbnail:'products/fb_m_endless-960.webp', stone:'1.00 ct', price:1715, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Luminous Devotion Ring', image:'products/fb_m_luminous.webp', thumbnail:'products/fb_m_luminous-960.webp', stone:'1.00 ct', price:2165, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Everlasting Embrace Ring', image:'products/fb_m_everlasting.webp', thumbnail:'products/fb_m_everlasting-960.webp', stone:'1.00 ct', price:3155, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'The Knot Ring', image:'products/fb_m_knot.webp', thumbnail:'products/fb_m_knot-960.webp', price:1375},
+            {name:'Eternal Connection', image:'products/fb_m_eternal_connection.webp', thumbnail:'products/fb_m_eternal_connection-960.webp', metal:'18k White Gold', stone:'1.00 ct', price:1935, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Eternal Promise', image:'products/fb_s_eternal_promise.webp', thumbnail:'products/fb_s_eternal_promise-960.webp', price:1375},
+            {name:'Moment to Shine Ring', image:'products/fb_s_moment_to_shine.webp', thumbnail:'products/fb_s_moment_to_shine-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1955, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Unbreakable Hearts', image:'products/fb_s_unbreakable_hearts.webp', thumbnail:'products/fb_s_unbreakable_hearts-960.webp', stone:'1.00 ct', price:2911, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Bound by Destiny', image:'products/fb_s_bound_by_destiny.webp', thumbnail:'products/fb_s_bound_by_destiny-960.webp', stone:'1.00 ct', price:2875, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Ethereal Halo Ring', image:'products/fb_l_ethereal_halo.webp', thumbnail:'products/fb_l_ethereal_halo-960.webp', stone:'1.00 ct', price:2165, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Amour \u00c9ternel Ring', image:'products/fb_s_amour_eternel.webp', thumbnail:'products/fb_s_amour_eternel-960.webp', price:1120},
+            {name:'Celestial Embrace', image:'products/fb_l_celestial_embrace.webp', thumbnail:'products/fb_l_celestial_embrace-960.webp', stone:'1.00 ct', price:2025, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Destiny Couple Ring', image:'products/fb_m_destiny_couple.webp', thumbnail:'products/fb_m_destiny_couple-960.webp',metal:'18k White Gold', tag:'set', stone:'1.00 ct', price:1515, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Eternal Harmony', image:'products/fb_m_eternal_harmony.webp', thumbnail:'products/fb_m_eternal_harmony-960.webp', metal:'18K Gold', tag:'set', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Wedding Bands', image:'products/fb_s_wedding_bands.webp', thumbnail:'products/fb_s_wedding_bands-960.webp', tag:'wedding', price:980},
+            {name:'Eternal Promise Ring Set', image:'products/fb_l_eternal_promise_set.webp', thumbnail:'products/fb_l_eternal_promise_set-960.webp', tag:'set', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Elysian Ring', image:'products/fb_m_elysian.webp', thumbnail:'products/fb_m_elysian-960.webp', metal:'18K Gold', stone:'1.00 ct', price:2025, details:[{key:'centreStone', value:'1.00 ct'}]}
         ]},
 {collection:"singleLady", category:"Ring", items:[
-    {name:'Curved Chevron Pavé Band', image:'curved-chevron-pave-band.png', metal:'18K Gold', price:1313, details:[{key:'info', value:'Curved chevron pavé band, 18K gold'}]},
-    {name:'Cushion Bypass Swirl Ring', image:'cushion-bypass-swirl-ring.png', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Marquise Bypass Pavé Ring', image:'marquise-bypass-pave-ring.png', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Marquise Crown Cluster Ring', image:'marquise-crown-cluster-ring.png', metal:'18K White Gold', price:1675, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Marquise Halo Infinity Twist Ring', image:'marquise-halo-infinity-twist-ring.png', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Marquise & Pear Three-Stone Ring', image:'marquise-pear-three-stone-ring.png', metal:'18K Gold', price:1875, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Marquise & Round Alternating Band', image:'marquise-round-alternating-band.png', metal:'18K Gold', price:1803, details:[{key:'totalKarat', value:'2.1 ct'},{key:'info', value:'Marquise & round alternating band'}]},
-    {name:'Oval East-West Solitaire Ring', image:'oval-east-west-solitaire-ring.png', metal:'18K Gold', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Oval Halo Pavé Ring', image:'oval-halo-pave-ring.png', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Oval Halo Twist Petite Ring', image:'oval-halo-twist-petite-ring.png', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Pear Solitaire Chevron Ring', image:'pear-solitaire-chevron-ring.png', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Pear Solitaire Tapered Ring', image:'pear-solitaire-tapered-ring.png', metal:'18K White Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Round Nature Vine Ring', image:'round-nature-vine-ring.png', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Round Vintage Milgrain Ring', image:'round-vintage-milgrain-ring.png', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Three-Stone Round Classic Ring II', image:'three-stone-round-classic-ring-ii.png', metal:'18K Gold', price:1875, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Three-Stone Round Classic Ring', image:'three-stone-round-classic-ring.png', metal:'18K Gold', price:1875, details:[{key:'centreStone', value:'1.00 ct'}]}
+    {name:'Curved Chevron Pavé Band', image:'products/sl_r_curved_chevron_pave_band.webp', thumbnail:'products/sl_r_curved_chevron_pave_band-960.webp', metal:'18K Gold', price:1313, details:[{key:'info', value:'Curved chevron pavé band, 18K gold'}]},
+    {name:'Cushion Bypass Swirl Ring', image:'products/sl_r_cushion_bypass_swirl.webp', thumbnail:'products/sl_r_cushion_bypass_swirl-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Marquise Bypass Pavé Ring', image:'products/sl_r_marquise_bypass_pave.webp', thumbnail:'products/sl_r_marquise_bypass_pave-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Marquise Crown Cluster Ring', image:'products/sl_r_marquise_crown_cluster.webp', thumbnail:'products/sl_r_marquise_crown_cluster-960.webp', metal:'18K White Gold', price:1675, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Marquise Halo Infinity Twist Ring', image:'products/sl_r_marquise_halo_infinity_twist.webp', thumbnail:'products/sl_r_marquise_halo_infinity_twist-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Marquise & Pear Three-Stone Ring', image:'products/sl_r_marquise_pear_three_stone.webp', thumbnail:'products/sl_r_marquise_pear_three_stone-960.webp', metal:'18K Gold', price:1875, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Marquise & Round Alternating Band', image:'products/sl_r_marquise_round_alternating_band.webp', thumbnail:'products/sl_r_marquise_round_alternating_band-960.webp', metal:'18K Gold', price:1803, details:[{key:'totalKarat', value:'2.1 ct'},{key:'info', value:'Marquise & round alternating band'}]},
+    {name:'Oval East-West Solitaire Ring', image:'products/sl_r_oval_east_west_solitaire.webp', thumbnail:'products/sl_r_oval_east_west_solitaire-960.webp', metal:'18K Gold', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Oval Halo Pavé Ring', image:'products/sl_r_oval_halo_pave.webp', thumbnail:'products/sl_r_oval_halo_pave-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Oval Halo Twist Petite Ring', image:'products/sl_r_oval_halo_twist_petite.webp', thumbnail:'products/sl_r_oval_halo_twist_petite-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Pear Solitaire Chevron Ring', image:'products/sl_r_pear_solitaire_chevron.webp', thumbnail:'products/sl_r_pear_solitaire_chevron-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Pear Solitaire Tapered Ring', image:'products/sl_r_pear_solitaire_tapered.webp', thumbnail:'products/sl_r_pear_solitaire_tapered-960.webp', metal:'18K White Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Round Nature Vine Ring', image:'products/sl_r_round_nature_vine.webp', thumbnail:'products/sl_r_round_nature_vine-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Round Vintage Milgrain Ring', image:'products/sl_r_round_vintage_milgrain.webp', thumbnail:'products/sl_r_round_vintage_milgrain-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Three-Stone Round Classic Ring II', image:'products/sl_r_three_stone_round_classic_ii.webp', thumbnail:'products/sl_r_three_stone_round_classic_ii-960.webp', metal:'18K Gold', price:1875, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Three-Stone Round Classic Ring', image:'products/sl_r_three_stone_round_classic.webp', thumbnail:'products/sl_r_three_stone_round_classic-960.webp', metal:'18K Gold', price:1875, details:[{key:'centreStone', value:'1.00 ct'}]}
 ]},
 {collection:"singleLady", category:"Bracelet", items:[
-    {name:'Diamond Paperclip Link Bracelet', image:'diamond-paperclip-link-bracelet.png', metal:'18K Gold', price:3150, details:[{key:'eachDiamond', value:'0.25 x 7'},{key:'diamondPrice', value:'630 GBP'},{key:'metalPrice', value:'2520 GBP'},{key:'info', value:'Total price = 3150 GBP (diamond + metal)'}]}
+    {name:'Diamond Paperclip Link Bracelet', image:'products/sl_b_diamond_paperclip_link_bracelet.webp', thumbnail:'products/sl_b_diamond_paperclip_link_bracelet-960.webp', metal:'18K Gold', price:3150, details:[{key:'eachDiamond', value:'0.25 x 7'},{key:'diamondPrice', value:'630 GBP'},{key:'metalPrice', value:'2520 GBP'},{key:'info', value:'Total price = 3150 GBP (diamond + metal)'}]}
 ]},
 {collection:"singleLady", category:"Necklace", items:[
-    {name:'Pear Cluster Drop Necklace', image:'pear-cluster-drop-necklace.png', metal:'18K Gold', total:'10 ct', price:4275, details:[{key:'totalKarat', value:'10 ct'},{key:'diamondPrice', value:'2700 GBP'},{key:'metalPrice', value:'1575 GBP'}]},
-    {name:'Pear Drop Station Necklace', image:'pear-drop-station-necklace.png', metal:'18K Gold', total:'15 ct', price:5325, details:[{key:'totalKarat', value:'15 ct'},{key:'diamondPrice', value:'3750 GBP'},{key:'metalPrice', value:'1575 GBP'}]}
+    {name:'Pear Cluster Drop Necklace', image:'products/sl_n_pear_cluster_drop_necklace.webp', thumbnail:'products/sl_n_pear_cluster_drop_necklace-960.webp', metal:'18K Gold', total:'10 ct', price:4275, details:[{key:'totalKarat', value:'10 ct'},{key:'diamondPrice', value:'2700 GBP'},{key:'metalPrice', value:'1575 GBP'}]},
+    {name:'Pear Drop Station Necklace', image:'products/sl_n_pear_drop_station_necklace.webp', thumbnail:'products/sl_n_pear_drop_station_necklace-960.webp', metal:'18K Gold', total:'15 ct', price:5325, details:[{key:'totalKarat', value:'15 ct'},{key:'diamondPrice', value:'3750 GBP'},{key:'metalPrice', value:'1575 GBP'}]}
 ]},
 {collection:"mensCollection", category:"Ring", items:[
-    {name:'Atlas Band', image:'mens-atlas-band.jpg', metal:'18K Yellow Gold', price:1575, configurationPrice:true, details:[{key:'centreStone',value:'0.25 ct × 5'},{key:'totalKarat',value:'1.25 ct'},{key:'info',value:'Satin-finish 18K yellow gold with five flush-set round diamonds. Final weights to be confirmed in production.'}]},
-    {name:'Sterling Signet Ring', image:'mens-sterling-signet-ring.jpg', metal:'Platinum', price:825, configurationPrice:true, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Sentinel Band', image:'mens-sentinel-band.jpg', metal:'18K Yellow Gold', price:1575, configurationPrice:true, details:[{key:'centreStone',value:'0.50 ct × 3'},{key:'totalKarat',value:'1.50 ct'},{key:'info',value:'Chevron shoulders with three step-cut diamonds. Final weights to be confirmed in production.'}]},
-    {name:'Bastion Signet Ring', image:'mens-bastion-signet-ring.jpg', metal:'18K Yellow Gold', price:1375, configurationPrice:true, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Current Band', image:'mens-current-band.jpg', metal:'18K Yellow Gold', price:1613, configurationPrice:true, details:[{key:'centreStone',value:'0.75 ct'},{key:'sideStone',value:'0.50 ct × 2'},{key:'totalKarat',value:'1.75 ct'},{key:'info',value:'Wave band with a round centre diamond and two outer diamonds. Final weights to be confirmed in production.'}]},
-    {name:'Regent Band', image:'mens-regent-band.jpg', metal:'18K Yellow Gold', price:3075, configurationPrice:true, details:[{key:'centreStone',value:'0.50 ct × 13'},{key:'info',value:'Two-tone band with channel-set diamonds. Thirteen stones are shown; full band count to be confirmed in production.'}]},
-    {name:'Helios Signet Ring', image:'mens-helios-signet-ring.jpg', metal:'18K Yellow Gold', price:1375, configurationPrice:true, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Citadel Band', image:'mens-citadel-band.jpg', metal:'18K Yellow Gold', price:1875, configurationPrice:true, details:[{key:'centreStone',value:'1 ct × 3'},{key:'info',value:'Three diamonds are visible in the design. Listed weights are estimates and require production confirmation.'}]},
-    {name:'Axis Band', image:'mens-axis-band.jpg', metal:'18K Yellow Gold', price:1575, configurationPrice:true, details:[{key:'centreStone',value:'0.50 ct × 3'},{key:'totalKarat',value:'1.50 ct'},{key:'info',value:'Raised polished ribbon with three square diamonds. Final weights to be confirmed in production.'}]},
-    {name:'Sovereign Signet Ring', image:'mens-sovereign-signet-ring.jpg', metal:'18K Yellow Gold', price:1751, configurationPrice:true, details:[{key:'centreStone', value:'1.00 ct'}]}
+    {name:'Atlas Band', image:'products/mens_atlas_band.webp', thumbnail:'products/mens_atlas_band-960.webp', metal:'18K Yellow Gold', price:1575, configurationPrice:true, details:[{key:'centreStone',value:'0.25 ct × 5'},{key:'totalKarat',value:'1.25 ct'},{key:'info',value:'Satin-finish 18K yellow gold with five flush-set round diamonds. Final weights to be confirmed in production.'}]},
+    {name:'Sterling Signet Ring', image:'products/mens_sterling_signet_ring.webp', thumbnail:'products/mens_sterling_signet_ring-960.webp', metal:'Platinum', price:825, configurationPrice:true, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Sentinel Band', image:'products/mens_sentinel_band.webp', thumbnail:'products/mens_sentinel_band-960.webp', metal:'18K Yellow Gold', price:1575, configurationPrice:true, details:[{key:'centreStone',value:'0.50 ct × 3'},{key:'totalKarat',value:'1.50 ct'},{key:'info',value:'Chevron shoulders with three step-cut diamonds. Final weights to be confirmed in production.'}]},
+    {name:'Bastion Signet Ring', image:'products/mens_bastion_signet_ring.webp', thumbnail:'products/mens_bastion_signet_ring-960.webp', metal:'18K Yellow Gold', price:1375, configurationPrice:true, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Current Band', image:'products/mens_current_band.webp', thumbnail:'products/mens_current_band-960.webp', metal:'18K Yellow Gold', price:1613, configurationPrice:true, details:[{key:'centreStone',value:'0.75 ct'},{key:'sideStone',value:'0.50 ct × 2'},{key:'totalKarat',value:'1.75 ct'},{key:'info',value:'Wave band with a round centre diamond and two outer diamonds. Final weights to be confirmed in production.'}]},
+    {name:'Regent Band', image:'products/mens_regent_band.webp', thumbnail:'products/mens_regent_band-960.webp', metal:'18K Yellow Gold', price:3075, configurationPrice:true, details:[{key:'centreStone',value:'0.50 ct × 13'},{key:'info',value:'Two-tone band with channel-set diamonds. Thirteen stones are shown; full band count to be confirmed in production.'}]},
+    {name:'Helios Signet Ring', image:'products/mens_helios_signet_ring.webp', thumbnail:'products/mens_helios_signet_ring-960.webp', metal:'18K Yellow Gold', price:1375, configurationPrice:true, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Citadel Band', image:'products/mens_citadel_band.webp', thumbnail:'products/mens_citadel_band-960.webp', metal:'18K Yellow Gold', price:1875, configurationPrice:true, details:[{key:'centreStone',value:'1 ct × 3'},{key:'info',value:'Three diamonds are visible in the design. Listed weights are estimates and require production confirmation.'}]},
+    {name:'Axis Band', image:'products/mens_axis_band.webp', thumbnail:'products/mens_axis_band-960.webp', metal:'18K Yellow Gold', price:1575, configurationPrice:true, details:[{key:'centreStone',value:'0.50 ct × 3'},{key:'totalKarat',value:'1.50 ct'},{key:'info',value:'Raised polished ribbon with three square diamonds. Final weights to be confirmed in production.'}]},
+    {name:'Sovereign Signet Ring', image:'products/mens_sovereign_signet_ring.webp', thumbnail:'products/mens_sovereign_signet_ring-960.webp', metal:'18K Yellow Gold', price:1751, configurationPrice:true, details:[{key:'centreStone', value:'1.00 ct'}]}
 ]},
 {collection:"mensCollection", category:"Bracelet", items:[
-    {name:'Apex Tennis Bracelet', image:'mens-apex-tennis-bracelet.jpg', metal:'18K Yellow Gold', price:7972, configurationPrice:true, details:[{key:'eachDiamond',value:'0.75 ct × 29'},{key:'info',value:'Provisional bracelet tier and stone count; confirm construction before production.'}]},
-    {name:'Pillar Tennis Bracelet', image:'mens-pillar-tennis-bracelet.jpg', metal:'18K Yellow Gold', price:9484, configurationPrice:true, details:[{key:'eachDiamond',value:'0.75 ct × 29'},{key:'info',value:'Provisional bracelet tier and stone count; confirm construction before production.'}]},
-    {name:'Anchor Link Bracelet', image:'mens-anchor-link-bracelet.jpg', metal:'18K Yellow Gold', price:4596, configurationPrice:true, details:[{key:'eachDiamond',value:'0.75 ct × 3'},{key:'info',value:'Provisional bracelet tier; confirm construction before production.'}]},
-    {name:'Vanguard Cuff', image:'mens-vanguard-cuff.jpg', metal:'18K Yellow Gold', price:4596, configurationPrice:true, details:[{key:'eachDiamond',value:'0.75 ct × 3'},{key:'info',value:'Provisional bracelet tier; confirm construction before production.'}]},
-    {name:'Foundry Link Bracelet', image:'mens-foundry-link-bracelet.jpg', metal:'18K Yellow Gold', price:4220, configurationPrice:true, details:[{key:'eachDiamond',value:'0.75 ct'},{key:'info',value:'Provisional bracelet tier; confirm construction before production.'}]}
+    {name:'Apex Tennis Bracelet', image:'products/mens_apex_tennis_bracelet.webp', thumbnail:'products/mens_apex_tennis_bracelet-960.webp', metal:'18K Yellow Gold', price:7972, configurationPrice:true, details:[{key:'eachDiamond',value:'0.75 ct × 29'},{key:'info',value:'Provisional bracelet tier and stone count; confirm construction before production.'}]},
+    {name:'Pillar Tennis Bracelet', image:'products/mens_pillar_tennis_bracelet.webp', thumbnail:'products/mens_pillar_tennis_bracelet-960.webp', metal:'18K Yellow Gold', price:9484, configurationPrice:true, details:[{key:'eachDiamond',value:'0.75 ct × 29'},{key:'info',value:'Provisional bracelet tier and stone count; confirm construction before production.'}]},
+    {name:'Anchor Link Bracelet', image:'products/mens_anchor_link_bracelet.webp', thumbnail:'products/mens_anchor_link_bracelet-960.webp', metal:'18K Yellow Gold', price:4596, configurationPrice:true, details:[{key:'eachDiamond',value:'0.75 ct × 3'},{key:'info',value:'Provisional bracelet tier; confirm construction before production.'}]},
+    {name:'Vanguard Cuff', image:'products/mens_vanguard_cuff.webp', thumbnail:'products/mens_vanguard_cuff-960.webp', metal:'18K Yellow Gold', price:4596, configurationPrice:true, details:[{key:'eachDiamond',value:'0.75 ct × 3'},{key:'info',value:'Provisional bracelet tier; confirm construction before production.'}]},
+    {name:'Foundry Link Bracelet', image:'products/mens_foundry_link_bracelet.webp', thumbnail:'products/mens_foundry_link_bracelet-960.webp', metal:'18K Yellow Gold', price:4220, configurationPrice:true, details:[{key:'eachDiamond',value:'0.75 ct'},{key:'info',value:'Provisional bracelet tier; confirm construction before production.'}]}
 ]},
 {collection:"mensCollection", category:"Pendant", items:[
-    {name:'Obelisk Pendant', image:'mens-obelisk-pendant.jpg', metal:'18K Yellow Gold', price:1625, configurationPrice:true, details:[{key:'centreStone',value:'2 ct'},{key:'info',value:'Pendant only; chain not included. Concept image and specifications to be confirmed.'}]},
-    {name:'Horizon Pendant', image:'mens-horizon-pendant.jpg', metal:'18K Yellow Gold', price:1975, configurationPrice:true, details:[{key:'centreStone',value:'3 ct'},{key:'info',value:'Pendant only; chain not included. Concept image and specifications to be confirmed.'}]},
-    {name:'Shield Pendant', image:'mens-shield-pendant.jpg', metal:'18K Yellow Gold', price:1375, configurationPrice:true, details:[{key:'centreStone',value:'1 ct'},{key:'info',value:'Pendant only; chain not included. Concept image and specifications to be confirmed.'}]},
-    {name:'Solstice Medallion Pendant', image:'mens-solstice-medallion-pendant.jpg', metal:'18K Yellow Gold', price:1375, configurationPrice:true, details:[{key:'centreStone',value:'1 ct'},{key:'info',value:'Pendant only; chain not included. Concept image and specifications to be confirmed.'}]},
-    {name:'Keystone Link Pendant', image:'mens-keystone-link-pendant.jpg', metal:'18K Yellow Gold', price:1875, configurationPrice:true, details:[{key:'eachDiamond',value:'1 ct × 3'},{key:'info',value:'Pendant only; chain not included. Concept image and specifications to be confirmed.'}]}
+    {name:'Obelisk Pendant', image:'products/mens_obelisk_pendant.webp', thumbnail:'products/mens_obelisk_pendant-960.webp', metal:'18K Yellow Gold', price:1625, configurationPrice:true, details:[{key:'centreStone',value:'2 ct'},{key:'info',value:'Pendant only; chain not included. Concept image and specifications to be confirmed.'}]},
+    {name:'Horizon Pendant', image:'products/mens_horizon_pendant.webp', thumbnail:'products/mens_horizon_pendant-960.webp', metal:'18K Yellow Gold', price:1975, configurationPrice:true, details:[{key:'centreStone',value:'3 ct'},{key:'info',value:'Pendant only; chain not included. Concept image and specifications to be confirmed.'}]},
+    {name:'Shield Pendant', image:'products/mens_shield_pendant.webp', thumbnail:'products/mens_shield_pendant-960.webp', metal:'18K Yellow Gold', price:1375, configurationPrice:true, details:[{key:'centreStone',value:'1 ct'},{key:'info',value:'Pendant only; chain not included. Concept image and specifications to be confirmed.'}]},
+    {name:'Solstice Medallion Pendant', image:'products/mens_solstice_medallion_pendant.webp', thumbnail:'products/mens_solstice_medallion_pendant-960.webp', metal:'18K Yellow Gold', price:1375, configurationPrice:true, details:[{key:'centreStone',value:'1 ct'},{key:'info',value:'Pendant only; chain not included. Concept image and specifications to be confirmed.'}]},
+    {name:'Keystone Link Pendant', image:'products/mens_keystone_link_pendant.webp', thumbnail:'products/mens_keystone_link_pendant-960.webp', metal:'18K Yellow Gold', price:1875, configurationPrice:true, details:[{key:'eachDiamond',value:'1 ct × 3'},{key:'info',value:'Pendant only; chain not included. Concept image and specifications to be confirmed.'}]}
 ]},
 ];

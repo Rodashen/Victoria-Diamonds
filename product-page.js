@@ -21,7 +21,7 @@
  document.title=name+' | '+collection[0]+' | Victoria Diamonds';
  document.querySelector('meta[name=description]').content=`${name} — ${collection[0]}. `+t(p.mode==='custom'?'Choose your materials, diamonds and payment option.':'Discover the design and order with Victoria Diamonds.',p.mode==='custom'?'選擇材質、鑽石及付款方式。':'探索設計及訂購詳情。');
  const canonical=document.createElement('link');canonical.rel='canonical';canonical.href='https://victoria-diamonds.com/product.html?item='+encodeURIComponent(p.id);document.head.append(canonical);
- const structured=document.createElement('script');structured.type='application/ld+json';structured.textContent=JSON.stringify({'@context':'https://schema.org','@type':'Product',name:p.name,image:'https://victoria-diamonds.com/images/'+encodeURIComponent(p.image),sku:p.id,category:p.category,brand:{'@type':'Brand',name:'Victoria Diamonds'},url:canonical.href});document.head.append(structured);
+ const structured=document.createElement('script');structured.type='application/ld+json';structured.textContent=JSON.stringify({'@context':'https://schema.org','@type':'Product',name:p.name,image:'https://victoria-diamonds.com/images/'+p.image.split('/').map(encodeURIComponent).join('/'),sku:p.id,category:p.category,brand:{'@type':'Brand',name:'Victoria Diamonds'},url:canonical.href});document.head.append(structured);
  const labels={mainSide:t('Main side stones','主要配石'),secondarySide:t('Secondary side stones','次要配石'),finishingSide:t('Finishing stones','點綴鑽石'),centreStone:t('Centre stone','主石'),sideStone:t('Side stones','配石'),totalKarat:t('Total carat weight','總克拉重量'),eachDiamond:t('Each diamond','每顆鑽石'),diamondPrice:t('Diamond price','鑽石價格'),metalPrice:t('Metal price','金屬價格'),info:t('Details','詳情')};
  const centreRing=p.mode==='custom'&&p.category==='Ring'&&p.preset.diamonds.length&&!/band|eternity|alternating/i.test(p.name);
  const originalMetal=p.metal||(centreRing?'18K White Gold':null);
@@ -34,6 +34,16 @@
  <section id="order" aria-label="${t('Order your piece','訂購作品')}" tabindex="-1"><div id="productCheckout" class="daily-checkout inline-checkout"></div></section>
  <a class="order-help" href="${enquiry}" target="_blank" rel="noopener">${t('Need help choosing? Ask us about this piece ↗','需要協助選擇？查詢此作品 ↗')}</a>
  <section class="product-details"><details><summary>${t('Original design details','原始設計詳情')}</summary><dl>${originalMetal?`<dt>${t('Metal','材質')}</dt><dd>${esc(originalMetal)}</dd>`:''}${details}</dl>${p.mode==='custom'&&!centreRing?`<p>${t('These are the catalogue details of the original design. Your configured stone total and price above apply to your custom order; starting selections may differ from the photograph.','以上為原始設計的目錄資料。訂製訂單以您於上方選擇的鑽石總重及價格為準；初始選項可能與圖片不同。')}</p>`:''}</details><details><summary>${t('Ordering & payment','訂購及付款')}</summary><p>${p.mode==='enquiry'?t('Contact the atelier for a personalised quotation before ordering.','訂購前請聯絡工作室索取個人化報價。'):t('Enter your name and email to receive a secure payment link. You will complete payment through the link in your email. Submitting this form does not charge your card.','輸入姓名及電郵以接收安全付款連結，並透過電郵中的連結完成付款。提交此表格不會扣款。')}</p><p>${t('Please confirm sizing and delivery requirements with us. See our','請與我們確認尺寸及配送需求。請參閱')} <a href="${zh?'T&C-zh-HK.pdf':'T&C.pdf'}" target="_blank" rel="noopener">${t('terms and conditions','條款及細則')}</a>.</p></details><details><summary>${t('Caring for your jewellery','珠寶保養')}</summary><p><a href="Jewelry-Care.pdf" target="_blank" rel="noopener">${t('Read our jewellery care guide ↗','閱讀珠寶保養指南 ↗')}</a></p></details></section></div></div>`;
+ if(p.detailImage){
+  const gallery=document.querySelector('.gallery'),photo=gallery.querySelector('img'),fullLink=gallery.querySelector('a');
+  const views=document.createElement('div');views.className='gallery-views';views.setAttribute('role','group');views.setAttribute('aria-label',t('Photograph view','照片視圖'));
+  for(const [label,file] of [[t('Full necklace','完整頸鏈'),p.image],[t('Original detail','原始細節'),p.detailImage]]){
+   const button=document.createElement('button');button.type='button';button.textContent=label;button.setAttribute('aria-pressed',String(file===p.image));
+   button.addEventListener('click',()=>{photo.src='images/'+file;fullLink.href='images/'+file;views.querySelectorAll('button').forEach(other=>other.setAttribute('aria-pressed',String(other===button)));});views.append(button);
+  }
+  gallery.querySelector('p').before(views);
+  gallery.querySelector('p').textContent=t('Select a view, then open the photograph in full. The complete-chain view is reconstructed; the detail view retains the original design photograph.','選擇視圖後可開啟完整照片。完整鏈條視圖經重構；細節視圖保留原始設計照片。');
+ }
  if(p.mode==='custom'){const price=document.createElement('p');price.className='product-price';price.id='productQuote';price.setAttribute('aria-live','polite');price.textContent=t('Confirming price…','正在確認價格…');document.querySelector('.product-intro').append(price);}
  const host=document.getElementById('productCheckout');
  if(p.mode==='custom'){window.VDCheckout.mount(p.preset);}

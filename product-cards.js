@@ -10,7 +10,7 @@
  const element=(tag,className,text)=>{const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;};
  function create(product){
   const link=element('a','showcase-card');link.href=window.VDProducts.url(product);link.target='_blank';link.rel='noopener';link.dataset.productId=product.id;
-  const frame=element('div','showcase-image'),img=element('img');img.src='images/'+product.image;img.alt=name(product);img.loading='lazy';img.decoding='async';frame.append(img);
+  const frame=element('div','showcase-image'),img=element('img');img.src='images/'+(product.thumbnail||product.image);img.alt=name(product);img.loading='lazy';img.decoding='async';img.width=960;img.height=960;frame.append(img);
   const copy=element('div','showcase-copy');copy.append(element('p','showcase-kicker',categoryName(product.category)),element('h3','',name(product)));
   const metal=product.metal||{gold:'18K Gold',platinum:'Platinum',silver:'Silver'}[product.preset?.metal];if(metal)copy.append(element('p','showcase-metal',metal));
   const centreRing=product.mode==='custom'&&product.category==='Ring'&&product.preset.diamonds.length&&!/band|eternity|alternating/i.test(product.name);

@@ -4,6 +4,10 @@
 
 #fixedControls{border:0;padding:0;margin:0}#fixedControls>legend{padding:12px 0;font:500 26px var(--font-display)}.configuration-confirm{display:flex;gap:10px;align-items:flex-start;font-size:12px;margin:18px 0}.configuration-confirm input{margin:4px 0;accent-color:var(--gold);width:18px;height:18px;flex-shrink:0}
 .inline-checkout>.daily-heading,.inline-checkout>.daily-note{display:none}.inline-checkout{padding-top:0!important}
+.gallery img{aspect-ratio:1/1;object-fit:contain;background:#fff}
+.gallery-views{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.gallery-views button{min-height:44px;padding:10px 16px;border:1px solid var(--taupe);background:var(--cream);color:var(--ink);cursor:pointer}
+.gallery-views button[aria-pressed=true]{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
 @media(max-width:800px){
  header nav{width:100%;justify-content:space-between;gap:8px}
  header nav a,header nav select{min-height:44px;display:flex;align-items:center}

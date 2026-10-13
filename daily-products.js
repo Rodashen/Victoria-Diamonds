@@ -17,7 +17,7 @@ window.DailyProducts = {
     {
       "name": "Aurelia Ring",
       "id": "ds_s_aurelia",
-      "image": "75.png",
+      "image": "products/ds_s_aurelia.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -29,12 +29,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_aurelia-960.webp"
     },
     {
       "name": "Elara Ring",
       "id": "ds_s_elara",
-      "image": "4.png",
+      "image": "products/ds_s_elara.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -46,12 +47,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_elara-960.webp"
     },
     {
       "name": "Raya Ring",
       "id": "ds_s_raya",
-      "image": "6.jpeg",
+      "image": "products/ds_s_raya.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -63,12 +65,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_raya-960.webp"
     },
     {
       "name": "Gianna Ring",
       "id": "ds_s_gianna",
-      "image": "78.png",
+      "image": "products/ds_s_gianna.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -80,12 +83,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_gianna-960.webp"
     },
     {
       "name": "Mirabelle Ring",
       "id": "ds_s_mirabelle",
-      "image": "79.png",
+      "image": "products/ds_s_mirabelle.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -97,12 +101,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_mirabelle-960.webp"
     },
     {
       "name": "Nova Ring",
       "id": "ds_s_nova",
-      "image": "5.png",
+      "image": "products/ds_s_nova.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -114,12 +119,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_nova-960.webp"
     },
     {
       "name": "Solitaire Ring",
       "id": "ds_s_solitaire",
-      "image": "12.png",
+      "image": "products/ds_s_solitaire.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -131,12 +137,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_solitaire-960.webp"
     },
     {
       "name": "Diamond Dust Ring",
       "id": "ds_s_diamond_dust",
-      "image": "76.png",
+      "image": "products/ds_s_diamond_dust.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -148,12 +155,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_diamond_dust-960.webp"
     },
     {
       "name": "Solenne Ring",
       "id": "ds_s_solenne",
-      "image": "7.png",
+      "image": "products/ds_s_solenne.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -165,12 +173,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1575,
       "needsStoneSelection": false,
-      "designFee": 200
+      "designFee": 200,
+      "thumbnail": "products/ds_s_solenne-960.webp"
     },
     {
       "name": "Élan Ring",
       "id": "ds_s_elan",
-      "image": "11.png",
+      "image": "products/ds_s_elan.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -187,12 +196,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1715,
       "needsStoneSelection": false,
-      "designFee": 200
+      "designFee": 200,
+      "thumbnail": "products/ds_s_elan-960.webp"
     },
     {
       "name": "Timeless Classic Ring",
       "id": "ds_s_timeless",
-      "image": "13.png",
+      "image": "products/ds_s_timeless.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -209,12 +219,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1667,
       "needsStoneSelection": false,
-      "designFee": 200
+      "designFee": 200,
+      "thumbnail": "products/ds_s_timeless-960.webp"
     },
     {
       "name": "Princess Ring",
       "id": "ds_s_princess",
-      "image": "10.png",
+      "image": "products/ds_s_princess.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -231,12 +242,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1951,
       "needsStoneSelection": false,
-      "designFee": 200
+      "designFee": 200,
+      "thumbnail": "products/ds_s_princess-960.webp"
     },
     {
       "name": "Aurelle Ring",
       "id": "ds_s_aurelle",
-      "image": "9.png",
+      "image": "products/ds_s_aurelle.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -248,12 +260,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_aurelle-960.webp"
     },
     {
       "name": "Eternity Stacking Ring",
       "id": "ds_m_eternity",
-      "image": "29.png",
+      "image": "products/ds_m_eternity.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -264,12 +277,13 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": null,
       "price": 1516,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_m_eternity-960.webp"
     },
     {
       "name": "Splendor Stacking Ring",
       "id": "ds_m_splendor",
-      "image": "30.png",
+      "image": "products/ds_m_splendor.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -281,12 +295,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1575,
       "needsStoneSelection": false,
-      "designFee": 200
+      "designFee": 200,
+      "thumbnail": "products/ds_m_splendor-960.webp"
     },
     {
       "name": "Cascade Ring",
       "id": "ds_s_cascade",
-      "image": "80.png",
+      "image": "products/ds_s_cascade.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -298,12 +313,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_cascade-960.webp"
     },
     {
       "name": "Nocturne Ring",
       "id": "ds_s_nocturne",
-      "image": "77.png",
+      "image": "products/ds_s_nocturne.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -315,12 +331,13 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_nocturne-960.webp"
     },
     {
       "name": "Luvia Necklace",
       "id": "ds_l_luvia",
-      "image": "19.png",
+      "image": "products/ds_l_luvia.webp",
       "type": "necklace",
       "diamonds": [
         {
@@ -331,12 +348,14 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": null,
       "price": 1950,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_l_luvia-960.webp",
+      "detailImage": "products/ds_l_luvia-detail.webp"
     },
     {
       "name": "Virelle Necklace",
       "id": "ds_l_virelle",
-      "image": "18.png",
+      "image": "products/ds_l_virelle.webp",
       "type": "necklace",
       "diamonds": [
         {
@@ -347,12 +366,14 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": null,
       "price": 2575,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_l_virelle-960.webp",
+      "detailImage": "products/ds_l_virelle-detail.webp"
     },
     {
       "name": "Serenity Necklace",
       "id": "ds_l_serenity",
-      "image": "17.png",
+      "image": "products/ds_l_serenity.webp",
       "type": "necklace",
       "diamonds": [
         {
@@ -368,12 +389,14 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": null,
       "price": 2101,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_l_serenity-960.webp",
+      "detailImage": "products/ds_l_serenity-detail.webp"
     },
     {
       "name": "Celeste Necklace",
       "id": "ds_m_celeste",
-      "image": "16.png",
+      "image": "products/ds_m_celeste.webp",
       "type": "necklace",
       "diamonds": [
         {
@@ -394,12 +417,14 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": null,
       "price": 1967,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_m_celeste-960.webp",
+      "detailImage": "products/ds_m_celeste-detail.webp"
     },
     {
       "name": "Aurora Necklace",
       "id": "ds_m_aurora",
-      "image": "15.png",
+      "image": "products/ds_m_aurora.webp",
       "type": "necklace",
       "diamonds": [
         {
@@ -420,12 +445,14 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": null,
       "price": 2101,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_m_aurora-960.webp",
+      "detailImage": "products/ds_m_aurora-detail.webp"
     },
     {
       "name": "Solstice Necklace",
       "id": "ds_m_solstice",
-      "image": "14.png",
+      "image": "products/ds_m_solstice.webp",
       "type": "necklace",
       "diamonds": [
         {
@@ -441,13 +468,15 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": null,
       "price": 2285,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_m_solstice-960.webp",
+      "detailImage": "products/ds_m_solstice-detail.webp"
     },
     {
       "name": "Luminéa Earrings",
       "id": "ds_s_luminea",
       "soldAsPair": true,
-      "image": "22.png",
+      "image": "products/ds_s_luminea.webp",
       "type": "earrings",
       "diamonds": [
         {
@@ -458,13 +487,14 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": null,
       "price": 1263,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_luminea-960.webp"
     },
     {
       "name": "Fiora Earrings",
       "id": "ds_s_fiora",
       "soldAsPair": true,
-      "image": "21.png",
+      "image": "products/ds_s_fiora.webp",
       "type": "earrings",
       "diamonds": [
         {
@@ -480,12 +510,13 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": null,
       "price": 1625,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_fiora-960.webp"
     },
     {
       "name": "Martini Studs",
       "id": "ds_s_martini",
-      "image": "28.png",
+      "image": "products/ds_s_martini.webp",
       "type": "earrings",
       "diamonds": [
         {
@@ -496,12 +527,13 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": null,
       "price": 1625,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_s_martini-960.webp"
     },
     {
       "name": "Auréa Bracelet",
       "id": "ds_m_aurea_bracelet",
-      "image": "24.png",
+      "image": "products/ds_m_aurea_bracelet.webp",
       "type": "bracelet",
       "diamonds": [
         {
@@ -517,12 +549,13 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": "premium",
       "price": 3050,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_m_aurea_bracelet-960.webp"
     },
     {
       "name": "Solenne Bracelet",
       "id": "ds_m_solenne_bracelet",
-      "image": "23.png",
+      "image": "products/ds_m_solenne_bracelet.webp",
       "type": "bracelet",
       "diamonds": [
         {
@@ -543,12 +576,13 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": "premium",
       "price": 2940,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_m_solenne_bracelet-960.webp"
     },
     {
       "name": "Liora Bracelet",
       "id": "ds_m_liora_bracelet",
-      "image": "25.png",
+      "image": "products/ds_m_liora_bracelet.webp",
       "type": "bracelet",
       "diamonds": [
         {
@@ -564,12 +598,13 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": "premium",
       "price": 3130,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_m_liora_bracelet-960.webp"
     },
     {
       "name": "Celeste Bracelet",
       "id": "ds_m_celeste_bracelet",
-      "image": "26.png",
+      "image": "products/ds_m_celeste_bracelet.webp",
       "type": "bracelet",
       "diamonds": [
         {
@@ -585,12 +620,13 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": "premium",
       "price": 3292,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_m_celeste_bracelet-960.webp"
     },
     {
       "name": "Lumière Bracelet",
       "id": "ds_m_lumiere_bracelet",
-      "image": "27.png",
+      "image": "products/ds_m_lumiere_bracelet.webp",
       "type": "bracelet",
       "diamonds": [
         {
@@ -601,7 +637,8 @@ window.DailyProducts = {
       ],
       "braceletMetalTier": "premium",
       "price": 2796,
-      "designFee": 0
+      "designFee": 0,
+      "thumbnail": "products/ds_m_lumiere_bracelet-960.webp"
     }
   ]
 };

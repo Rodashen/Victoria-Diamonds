@@ -63,7 +63,7 @@
     status.textContent=query||active ? found.length ? t(found.length+' matching pieces','找到 '+found.length+' 件作品') : t('No pieces found. Try a collection or a shorter name.','未找到作品，請嘗試系列名稱或較短的名稱。') : t('Start typing to explore all six collections.','輸入關鍵字以探索六個系列。');
     found.slice(0,8).forEach(p=>{
      const a=element('a',undefined,'search-result'); a.href=productURL(p); a.target='_blank'; a.rel='noopener';
-     const img=new Image(); img.src='images/'+p.image; img.alt=''; img.loading='lazy'; img.width=70; img.height=80;
+     const img=new Image(); img.src='images/'+(p.thumbnail||p.image); img.alt=''; img.loading='lazy'; img.width=70; img.height=80;
      const copy=element('span'); copy.append(element('strong',translatedName(p.name)),element('small',collections[p.collection][zh()?2:0]+' · '+money(p)));
      a.append(img,copy,element('span','→')); results.append(a);
     });
