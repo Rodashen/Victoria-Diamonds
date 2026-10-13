@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   track.hidden=active;controls.hidden=active;results.hidden=!active;reset.hidden=!active;status.hidden=!active;
   grid.replaceChildren();if(!active)return;
   const matches=registry.products.filter(product=>browser.filterProduct({...product,price:cards.price(product)},filters));
-  matches.slice(0,6).forEach(product=>grid.append(cards.create(product)));
-  status.textContent=matches.length?t(`${matches.length} matching pieces · Showing ${Math.min(6,matches.length)}.`,`${matches.length} 件符合條件的作品 · 顯示 ${Math.min(6,matches.length)} 件。`):t('No pieces match these filters. Try another combination or clear the filters.','沒有符合篩選條件的作品。請嘗試其他條件或清除篩選。');
+  matches.forEach(product=>grid.append(cards.create(product)));
+  status.textContent=matches.length?t(`${matches.length} matching pieces · Showing all.`,`${matches.length} 件符合條件的作品 · 顯示全部。`):t('No pieces match these filters. Try another combination or clear the filters.','沒有符合篩選條件的作品。請嘗試其他條件或清除篩選。');
   const url=new URL('view-catalogue.html',location.href);Object.entries(filters).forEach(([key,value])=>{if(value)url.searchParams.set(key,value);});browse.href=url.pathname.split('/').pop()+url.search;browse.hidden=!matches.length;browse.textContent=t(`Browse all ${matches.length} matching pieces →`,`瀏覽所有 ${matches.length} 件符合條件的作品 →`);
  }
  [collection,type,max].forEach(select=>select.addEventListener('change',update));reset.addEventListener('click',()=>{collection.value='';type.value='';max.value='';update();collection.focus();});

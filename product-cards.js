@@ -13,7 +13,8 @@
   const frame=element('div','showcase-image'),img=element('img');img.src='images/'+product.image;img.alt=name(product);img.loading='lazy';img.decoding='async';frame.append(img);
   const copy=element('div','showcase-copy');copy.append(element('p','showcase-kicker',categoryName(product.category)),element('h3','',name(product)));
   const metal=product.metal||{gold:'18K Gold',platinum:'Platinum',silver:'Silver'}[product.preset?.metal];if(metal)copy.append(element('p','showcase-metal',metal));
-  const stones=product.preset?.diamonds?.map(d=>`${d.carat} ct × ${d.qty}`).join(' · ')||product.details?.filter(d=>['centreStone','totalKarat'].includes(d.key)).map(d=>d.value).join(' · ');
+  const centreRing=product.mode==='custom'&&product.category==='Ring'&&product.preset.diamonds.length&&!/band|eternity|alternating/i.test(product.name);
+  const stones=centreRing?t('Centre stone · 1.00 ct','主石 · 1.00 ct'):product.preset?.diamonds?.map(d=>`${d.carat} ct × ${d.qty}`).join(' · ')||product.details?.filter(d=>['centreStone','totalKarat'].includes(d.key)).map(d=>d.value).join(' · ');
   if(stones)copy.append(element('p','showcase-stones',stones+(product.category.startsWith('Earring')?t(' · per pair',' · 每對'):'')));
   const bottom=element('div','showcase-bottom'),amount=element('span','showcase-price'),value=price(product);
   amount.append(element('small','',product.mode==='enquiry'?t('Private consultation','私人諮詢'):product.mode==='silver'?t('Full price','全額價格'):t('Starting configuration','起始規格')),element('strong','',value===null?t('By appointment','只限預約'):money(value)));

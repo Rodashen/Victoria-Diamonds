@@ -223,6 +223,10 @@
 @media(max-width:760px){.landing-page .visit-map{grid-column:1;grid-row:auto;max-width:none;justify-self:stretch}}
 
 /* Keep the desktop browsing tools comfortable on a touch screen. */
+.landing-page .landing-collection-filters{max-width:920px;gap:10px;margin-bottom:18px}
+.landing-page .landing-collection-filters label{min-width:140px;font-size:10px}
+.landing-page .landing-collection-filters select{padding:9px 10px;font-size:13px}
+.landing-page .landing-collection-filters button{padding:10px 12px}
 @media(max-width:760px){
  .landing-page .header-inner>.lang-selector-mobile{margin-left:auto}
  .landing-page .menu-toggle{flex-basis:44px;width:44px;min-height:44px;align-items:center;justify-content:center}
@@ -243,4 +247,8 @@
  .landing-page .newsletter-inline-fields{flex-wrap:wrap;gap:10px}
  .landing-page .newsletter-inline-fields input{flex-basis:180px}
  .landing-page .newsletter-inline-fields button{min-height:48px}
+ .landing-page .landing-collection-filters{gap:10px}
+ .landing-page .collections-desktop .section-header{gap:8px;margin-bottom:16px}
+ .landing-page .type-links{padding-block:16px}
+ .landing-page :is(.featured-piece,.story,.craftsmanship,.testimonials,.contact){padding-block:40px}
 }

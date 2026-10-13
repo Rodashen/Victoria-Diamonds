@@ -1,4 +1,4 @@
-/* Default specifications from the catalogue; prices checked against calculator/pricing.js. */
+/* Online starting configurations; prices match the calculator. */
 window.DailyProducts = {
   "carats": [
     "0.05",
@@ -27,7 +27,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1375
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Elara Ring",
@@ -42,7 +44,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1375
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Raya Ring",
@@ -57,7 +61,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1375
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Gianna Ring",
@@ -72,7 +78,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1375
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Mirabelle Ring",
@@ -87,7 +95,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1375
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Nova Ring",
@@ -102,7 +112,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1375
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Solitaire Ring",
@@ -117,7 +129,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1375
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Diamond Dust Ring",
@@ -132,7 +146,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1375
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Solenne Ring",
@@ -147,7 +163,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1375
+      "price": 1575,
+      "needsStoneSelection": false,
+      "designFee": 200
     },
     {
       "name": "Élan Ring",
@@ -167,7 +185,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1515
+      "price": 1715,
+      "needsStoneSelection": false,
+      "designFee": 200
     },
     {
       "name": "Timeless Classic Ring",
@@ -187,7 +207,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1467
+      "price": 1667,
+      "needsStoneSelection": false,
+      "designFee": 200
     },
     {
       "name": "Princess Ring",
@@ -197,7 +219,7 @@ window.DailyProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "2.00",
+          "carat": "1.00",
           "qty": 1
         },
         {
@@ -207,7 +229,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 2001
+      "price": 1951,
+      "needsStoneSelection": false,
+      "designFee": 200
     },
     {
       "name": "Aurelle Ring",
@@ -217,12 +241,14 @@ window.DailyProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "2.00",
+          "carat": "1.00",
           "qty": 1
         }
       ],
       "braceletMetalTier": null,
-      "price": 1625
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Eternity Stacking Ring",
@@ -237,7 +263,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1516
+      "price": 1516,
+      "designFee": 0
     },
     {
       "name": "Splendor Stacking Ring",
@@ -252,7 +279,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1375
+      "price": 1575,
+      "needsStoneSelection": false,
+      "designFee": 200
     },
     {
       "name": "Cascade Ring",
@@ -267,7 +296,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1375
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Nocturne Ring",
@@ -282,7 +313,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1375
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Luvia Necklace",
@@ -297,7 +330,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1950
+      "price": 1950,
+      "designFee": 0
     },
     {
       "name": "Virelle Necklace",
@@ -312,7 +346,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 2575
+      "price": 2575,
+      "designFee": 0
     },
     {
       "name": "Serenity Necklace",
@@ -332,7 +367,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 2101
+      "price": 2101,
+      "designFee": 0
     },
     {
       "name": "Celeste Necklace",
@@ -357,7 +393,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1967
+      "price": 1967,
+      "designFee": 0
     },
     {
       "name": "Aurora Necklace",
@@ -382,7 +419,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 2101
+      "price": 2101,
+      "designFee": 0
     },
     {
       "name": "Solstice Necklace",
@@ -402,7 +440,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 2285
+      "price": 2285,
+      "designFee": 0
     },
     {
       "name": "Luminéa Earrings",
@@ -418,7 +457,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1263
+      "price": 1263,
+      "designFee": 0
     },
     {
       "name": "Fiora Earrings",
@@ -439,7 +479,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1625
+      "price": 1625,
+      "designFee": 0
     },
     {
       "name": "Martini Studs",
@@ -454,7 +495,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1625
+      "price": 1625,
+      "designFee": 0
     },
     {
       "name": "Auréa Bracelet",
@@ -474,7 +516,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": "premium",
-      "price": 3050
+      "price": 3050,
+      "designFee": 0
     },
     {
       "name": "Solenne Bracelet",
@@ -499,7 +542,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": "premium",
-      "price": 2940
+      "price": 2940,
+      "designFee": 0
     },
     {
       "name": "Liora Bracelet",
@@ -519,7 +563,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": "premium",
-      "price": 3130
+      "price": 3130,
+      "designFee": 0
     },
     {
       "name": "Celeste Bracelet",
@@ -539,7 +584,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": "premium",
-      "price": 3292
+      "price": 3292,
+      "designFee": 0
     },
     {
       "name": "Lumière Bracelet",
@@ -554,7 +600,8 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": "premium",
-      "price": 2796
+      "price": 2796,
+      "designFee": 0
     }
   ]
 };

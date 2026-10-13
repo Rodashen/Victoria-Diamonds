@@ -14,11 +14,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="images/logo.png">
+
     <link rel="stylesheet" href="victoria-diamonds.css">
     <script src="translations.js"></script>
     <script src="victoria-diamonds.js?v=20261006b"></script>
-    
+
     <style>
         /* Page-specific styles for newsletter landing page */
         .newsletter-page {
@@ -30,7 +30,7 @@
             padding: 2rem 1rem;
             background: var(--color-warm-white);
         }
-        
+
         .newsletter-page .email-subscription-content {
             max-width: min(900px, calc(100vw - 40px));
             width: 100%;
@@ -43,7 +43,7 @@
             animation: modalIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
             transform-origin: center;
         }
-        
+
         @media (min-width: 768px) {
             .newsletter-page .email-subscription-content {
                 padding: 4rem;
@@ -51,26 +51,26 @@
                 align-items: stretch;
             }
         }
-        
+
         @media (max-width: 767px) {
             .newsletter-page .email-subscription-content {
                 padding: 3rem;
             }
         }
-        
+
         .newsletter-page .email-subscription-image-column {
             display: none;
             overflow: hidden;
             border-radius: 24px 0 0 24px;
         }
-        
+
         @media (min-width: 768px) {
             .newsletter-page .email-subscription-image-column {
                 display: block;
                 flex: 0 0 50%;
                 max-width: 50%;
             }
-            
+
             .newsletter-page .email-subscription-image-column img {
                 width: 100%;
                 height: 100%;
@@ -78,20 +78,20 @@
                 display: block;
             }
         }
-        
+
         .newsletter-page .email-subscription-text-column {
             flex: 1;
             display: flex;
             flex-direction: column;
             padding-left: 0;
         }
-        
+
         @media (min-width: 768px) {
             .newsletter-page .email-subscription-text-column {
                 padding-left: 3rem;
             }
         }
-        
+
         .newsletter-page .email-subscription-content h2 {
             font-family: var(--font-display);
             font-size: 2.25rem;
@@ -101,7 +101,7 @@
             letter-spacing: -0.02em;
             line-height: 1.2;
         }
-        
+
         .newsletter-page .email-subscription-eyebrow {
             font-family: var(--font-body);
             font-size: 0.875rem;
@@ -112,7 +112,7 @@
             margin-bottom: 1.5rem;
             display: block;
         }
-        
+
         .newsletter-page .email-subscription-content > p {
             font-family: var(--font-body);
             font-size: 1.125rem;
@@ -120,7 +120,7 @@
             line-height: 1.8;
             margin-bottom: 2.5rem;
         }
-        
+
         /* Form styling - Override Zoho form styling */
         .newsletter-page #emailSubscriptionForm {
             display: flex;
@@ -129,7 +129,7 @@
             width: 100%;
             max-width: 100%;
         }
-        
+
         .newsletter-page #emailSubscriptionForm .zcwf_row {
             display: flex;
             flex-direction: column;
@@ -137,7 +137,7 @@
             margin: 0;
             width: 100%;
         }
-        
+
         .newsletter-page #emailSubscriptionForm .zcwf_col_lab,
         .newsletter-page #emailSubscriptionForm .zcwf_col_fld {
             width: 100% !important;
@@ -145,7 +145,7 @@
             padding: 0 !important;
             margin: 0 !important;
         }
-        
+
         .newsletter-page #emailSubscriptionForm .zcwf_col_lab {
             font-family: var(--font-body);
             font-size: 1rem;
@@ -153,11 +153,11 @@
             color: var(--color-charcoal);
             margin-bottom: 0.5rem !important;
         }
-        
+
         .newsletter-page #emailSubscriptionForm .zcwf_col_lab span {
             color: var(--color-gold);
         }
-        
+
         .newsletter-page #emailSubscriptionForm input[type="text"],
         .newsletter-page #emailSubscriptionForm input[type="email"] {
             width: 100% !important;
@@ -171,31 +171,31 @@
             transition: all 0.3s ease !important;
             box-sizing: border-box !important;
         }
-        
+
         .newsletter-page #emailSubscriptionForm input[type="text"]:focus,
         .newsletter-page #emailSubscriptionForm input[type="email"]:focus {
             outline: none;
             border-color: var(--color-gold) !important;
             box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.2) !important;
         }
-        
+
         .newsletter-page #emailSubscriptionForm input[type="text"]::placeholder,
         .newsletter-page #emailSubscriptionForm input[type="email"]::placeholder {
             color: var(--color-charcoal-soft);
             opacity: 0.5;
         }
-        
+
         .newsletter-page #emailSubscriptionForm .zcwf_col_fld_slt,
         .newsletter-page #emailSubscriptionForm .zcwf_col_fld textarea {
             width: 100% !important;
         }
-        
+
         .newsletter-page #emailSubscriptionForm .zcwf_row:last-child {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
-        
+
         .newsletter-page #emailSubscriptionForm .formsubmit {
             width: 100%;
             padding: 1.125rem 2rem !important;
@@ -212,30 +212,30 @@
             transition: all 0.3s ease !important;
             margin: 0 !important;
         }
-        
+
         .newsletter-page #emailSubscriptionForm .formsubmit:hover {
             background: transparent !important;
             color: var(--color-charcoal) !important;
         }
-        
+
         .newsletter-page #emailSubscriptionForm .zcwf_button[name="reset"] {
             display: none;
         }
-        
+
         .newsletter-page #emailSubscriptionForm .zcwf_title {
             display: none;
         }
-        
+
         .newsletter-page .email-subscription-form-state {
             display: flex;
             flex-direction: column;
         }
-        
+
         .newsletter-page .email-subscription-success,
         .newsletter-page .email-subscription-error {
             display: none;
         }
-        
+
         .newsletter-page .email-subscription-success.show,
         .newsletter-page .email-subscription-error.show {
             display: flex;
@@ -245,7 +245,7 @@
             text-align: center;
             padding: 3rem;
         }
-        
+
         .newsletter-page .email-subscription-success-final {
             width: 100%;
             min-height: 300px;
@@ -255,7 +255,7 @@
             box-sizing: border-box;
             padding: 60px 55px;
         }
-        
+
         .newsletter-page .email-subscription-success-final .success-content {
             width: 100%;
             max-width: 390px;
@@ -265,7 +265,7 @@
             justify-content: center;
             text-align: left;
         }
-        
+
         .newsletter-page .email-subscription-success-final .success-eyebrow {
             font-family: 'DM Sans', sans-serif;
             font-size: 10px;
@@ -275,7 +275,7 @@
             margin-bottom: 22px;
             opacity: 0.6;
         }
-        
+
         .newsletter-page .email-subscription-success-final h2 {
             margin: 0 0 22px 0 !important;
             padding: 0 !important;
@@ -286,7 +286,7 @@
             letter-spacing: -0.02em !important;
             color: #1c1c1c !important;
         }
-        
+
         .newsletter-page .email-subscription-success-final .success-main-text {
             margin: 0 0 7px 0 !important;
             padding: 0 !important;
@@ -295,7 +295,7 @@
             line-height: 1.6 !important;
             color: #1c1c1c !important;
         }
-        
+
         .newsletter-page .email-subscription-success-final .success-sub-text {
             margin: 0 !important;
             padding: 0 !important;
@@ -304,7 +304,7 @@
             line-height: 1.6 !important;
             color: #777 !important;
         }
-        
+
         .newsletter-page .success-instagram-link {
             display: inline-flex !important;
             align-items: center !important;
@@ -322,39 +322,39 @@
             color: #1c1c1c !important;
             transition: opacity 0.25s ease !important;
         }
-        
+
         .newsletter-page .success-instagram-link:hover {
             opacity: 0.55 !important;
         }
-        
+
         .newsletter-page .success-instagram-icon {
             width: 21px !important;
             height: 21px !important;
             flex: 0 0 21px !important;
             fill: #1c1c1c !important;
         }
-        
+
         @media (max-width: 700px) {
             .newsletter-page .email-subscription-success-final {
                 padding: 45px 32px;
             }
-            
+
             .newsletter-page .email-subscription-success-final h2 {
                 font-size: 44px !important;
             }
         }
-        
+
         .newsletter-page .email-subscription-error {
             color: var(--color-charcoal);
         }
-        
+
         .newsletter-page .email-subscription-error p {
             margin: 0;
             font-family: var(--font-body);
             font-size: 1rem;
             line-height: 1.6;
         }
-        
+
         .newsletter-page .back-link {
             display: inline-flex;
             align-items: center;
@@ -366,16 +366,16 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .newsletter-page .back-link:hover {
             color: var(--color-gold);
         }
-        
+
         .newsletter-page .back-link svg {
             width: 18px;
             height: 18px;
         }
-        
+
         @keyframes modalIn {
             from {
                 opacity: 0;
@@ -388,6 +388,7 @@
         }
     </style>
     <link rel="canonical" href="https://victoria-diamonds.com/newsletter.html">
+<link rel="icon" href="images/favicon.ico?v=20261013a" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=20261013a"><link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=20261013a">
 </head>
 <body>
     <main class="newsletter-page">
@@ -399,7 +400,7 @@
                 <span class="email-subscription-eyebrow" data-i18n="email-subscription-eyebrow">Victoria Diamonds</span>
                 <h2 id="newsletter-title" data-i18n="email-subscription-title">JOIN THE VICTORIA DIAMONDS COMMUNITY</h2>
                 <p data-i18n="email-subscription-description">Subscribe to receive exclusive access to new collections, bespoke jewellery stories, private events, and the latest from Victoria Diamonds.</p>
-                
+
                 <div class="email-subscription-form-state">
                     <form id='emailSubscriptionForm' name='WebToLeads1021550000000671011' action='https://crm.zoho.eu/crm/WebToLeadForm' method='POST' accept-charset='UTF-8' target='zohoSubmitIframe' autocomplete='off'>
                         <input type='text' style='display:none;' name='xnQsjsdp' value='aff24f4463444aea01a92e57bb228902a032ac4f986c23ea75673595911226f3'>
@@ -608,17 +609,17 @@
                         <div id="wf_splash_info"></div>
                     </div>
                 </div>
-                
+
                 <div class="email-subscription-success" data-i18n="email-subscription-success">
                     Thank You for Subscribing!<br><br>
                     Welcome to the Victoria Diamonds community. We're delighted to have you with us.<br><br>
                     Follow us on Instagram: <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener">@victoriadiamondsco</a>
                 </div>
-                
+
                 <div class="email-subscription-error" data-i18n="email-subscription-error">
                     Something went wrong. Please try again later.
                 </div>
-                
+
                 <a href="index.html" class="back-link" aria-label="Back to home">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M15 18l-6-6 6-6"/>
@@ -628,22 +629,22 @@
             </div>
         </div>
     </main>
-    
+
     <script>
         // Initialize email subscription on page load for the newsletter page
         (function() {
             'use strict';
-            
+
             let emailSubscriptionForm = null;
             let emailSubscriptionIframe = null;
             let emailSubscriptionSubmissionPending = false;
             let emailSubscriptionSuccessTimer = null;
-            
+
             function initElements() {
                 emailSubscriptionForm = document.getElementById('emailSubscriptionForm');
                 emailSubscriptionIframe = document.getElementById('zohoSubmitIframe');
             }
-            
+
             function resetStates() {
                 const formState = document.querySelector('.email-subscription-form-state');
                 const successState = document.querySelector('.email-subscription-success');
@@ -651,7 +652,7 @@
                 const heading = document.querySelector('.email-subscription-text-column h2');
                 const description = document.querySelector('.email-subscription-text-column > p');
                 const eyebrow = document.querySelector('.email-subscription-eyebrow');
-                
+
                 if (formState) {
                     formState.style.display = 'flex';
                     formState.hidden = false;
@@ -659,7 +660,7 @@
                 if (heading) heading.style.display = '';
                 if (description) description.style.display = '';
                 if (eyebrow) eyebrow.style.display = '';
-                
+
                 if (successState) {
                     successState.classList.remove('show');
                     successState.style.display = 'none';
@@ -668,18 +669,18 @@
                     errorState.classList.remove('show');
                     errorState.style.display = 'none';
                 }
-                
+
                 emailSubscriptionSubmissionPending = false;
                 if (emailSubscriptionSuccessTimer) {
                     clearTimeout(emailSubscriptionSuccessTimer);
                     emailSubscriptionSuccessTimer = null;
                 }
             }
-            
+
             function showSuccess() {
                 const textColumn = document.querySelector('.email-subscription-text-column');
                 if (!textColumn) return;
-                
+
                 textColumn.innerHTML = `
                     <div class="email-subscription-success-final">
                         <div class="success-content">
@@ -696,15 +697,15 @@
                         </div>
                     </div>
                 `;
-                
+
                 emailSubscriptionSubmissionPending = false;
             }
-            
+
             function showError() {
                 const formState = document.querySelector('.email-subscription-form-state');
                 const successState = document.querySelector('.email-subscription-success');
                 const errorState = document.querySelector('.email-subscription-error');
-                
+
                 if (formState) {
                     formState.style.display = 'none';
                     formState.hidden = true;
@@ -717,68 +718,68 @@
                     errorState.classList.add('show');
                     errorState.style.display = 'flex';
                 }
-                
+
                 emailSubscriptionSubmissionPending = false;
             }
-            
+
             function handleSubmit(event) {
                 if (!emailSubscriptionForm) return;
-                
+
                 const emailField = emailSubscriptionForm.querySelector('input[name="Email"]');
                 const lastNameField = emailSubscriptionForm.querySelector('input[name="Last Name"]');
-                
+
                 if (!emailField || !lastNameField) {
                     event.preventDefault();
                     console.error('[Newsletter Page] Required Zoho fields are missing.');
                     showError();
                     return;
                 }
-                
+
                 const email = emailField.value.trim();
                 const lastName = lastNameField.value.trim() || 'Newsletter Subscriber';
                 lastNameField.value = lastName;
-                
+
                 if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                     event.preventDefault();
                     emailField.focus();
                     return;
                 }
-                
+
                 if (!lastName) {
                     event.preventDefault();
                     lastNameField.value = 'Newsletter Subscriber';
                     return;
                 }
-                
+
                 emailSubscriptionSubmissionPending = true;
                 console.log('[Newsletter Page] Submitting to Zoho CRM:', email);
             }
-            
+
             function handleIframeLoad() {
                 if (!emailSubscriptionSubmissionPending) return;
-                
+
                 if (emailSubscriptionSuccessTimer) {
                     clearTimeout(emailSubscriptionSuccessTimer);
                 }
-                
+
                 emailSubscriptionSuccessTimer = setTimeout(function() {
                     showSuccess();
                 }, 350);
             }
-            
+
             function initialize() {
                 initElements();
                 resetStates();
-                
+
                 if (emailSubscriptionForm) {
                     emailSubscriptionForm.addEventListener('submit', handleSubmit);
                 }
-                
+
                 if (emailSubscriptionIframe) {
                     emailSubscriptionIframe.addEventListener('load', handleIframeLoad);
                 }
             }
-            
+
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', initialize);
             } else {

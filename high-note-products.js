@@ -1,3 +1,4 @@
+/* Online starting configurations; prices match the calculator. */
 window.HighNoteProducts = {
   "carats": [
     "0.05",
@@ -21,13 +22,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "2.00",
+          "carat": "1.00",
           "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1625
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Venus Ring",
@@ -37,13 +40,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 8
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 2775
+      "price": 2125,
+      "needsStoneSelection": false,
+      "designFee": 300
     },
     {
       "name": "Tranquility Ring",
@@ -59,7 +64,9 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1375
+      "price": 1475,
+      "needsStoneSelection": false,
+      "designFee": 100
     },
     {
       "name": "Athena Ring",
@@ -69,13 +76,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 4
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1725
+      "price": 1475,
+      "needsStoneSelection": false,
+      "designFee": 100
     },
     {
       "name": "Fae Ring",
@@ -85,13 +94,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 3
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1575
+      "price": 1575,
+      "needsStoneSelection": false,
+      "designFee": 200
     },
     {
       "name": "Skylar Ring",
@@ -101,13 +112,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 4
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1725
+      "price": 1575,
+      "needsStoneSelection": false,
+      "designFee": 200
     },
     {
       "name": "Promise of Forever Ring",
@@ -123,7 +136,9 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1375
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Celestia Ring",
@@ -133,13 +148,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 5
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1875
+      "price": 1575,
+      "needsStoneSelection": false,
+      "designFee": 200
     },
     {
       "name": "Rosé Bloom Ring",
@@ -149,13 +166,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 3
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1575
+      "price": 1575,
+      "needsStoneSelection": false,
+      "designFee": 200
     },
     {
       "name": "Elysia Ring",
@@ -165,13 +184,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 4
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1725
+      "price": 1575,
+      "needsStoneSelection": false,
+      "designFee": 200
     },
     {
       "name": "Lunelle Ring",
@@ -181,13 +202,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 3
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1575
+      "price": 1575,
+      "needsStoneSelection": false,
+      "designFee": 200
     },
     {
       "name": "Victorian Ring",
@@ -197,13 +220,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 5
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1875
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Amour Ring",
@@ -213,13 +238,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 24
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 4725
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Imperial Pavé Ring",
@@ -229,13 +256,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 10
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 3075
+      "price": 1825,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Éternelle Grande Ring",
@@ -245,13 +274,15 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 5
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1875
+      "price": 1375,
+      "needsStoneSelection": false,
+      "designFee": 0
     },
     {
       "name": "Round Illusion Stud",
@@ -267,7 +298,8 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": true,
-      "price": 1305
+      "price": 1305,
+      "designFee": 0
     },
     {
       "name": "Fiora Earrings",
@@ -283,7 +315,8 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": true,
-      "price": 1725
+      "price": 1725,
+      "designFee": 0
     },
     {
       "name": "Lumina Wedding Tennis",
@@ -299,7 +332,8 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 2175
+      "price": 2175,
+      "designFee": 0
     },
     {
       "name": "Arabella",
@@ -315,7 +349,8 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 2325
+      "price": 2325,
+      "designFee": 0
     },
     {
       "name": "Classic Round Tennis Bracelet (Gold)",
@@ -331,7 +366,8 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "premium",
       "soldAsPair": false,
-      "price": 2770
+      "price": 2770,
+      "designFee": 0
     },
     {
       "name": "Emerald-Cut Tennis Bracelet",
@@ -347,7 +383,8 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "premium",
       "soldAsPair": false,
-      "price": 2770
+      "price": 2770,
+      "designFee": 0
     },
     {
       "name": "Pear-Cut Tennis Bracelet (Gold)",
@@ -363,7 +400,8 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "premium",
       "soldAsPair": false,
-      "price": 2770
+      "price": 2770,
+      "designFee": 0
     }
   ]
 };

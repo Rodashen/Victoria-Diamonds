@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="images/logo.png">
+
     <script src="translations.js"></script>
-    <link rel="stylesheet" href="daily-checkout.css?v=20261006c">
-    <script src="high-note-products.js" defer></script>
-    <script src="daily-checkout.js?v=20261005c" defer></script>
+    <link rel="stylesheet" href="daily-checkout.css?v=20261013a">
+    <script src="high-note-products.js?v=20261013a" defer></script>
+    <script src="daily-checkout.js?v=20261013a" defer></script>
     <script src="victoria-diamonds.js?v=20261006b"></script>
     <link rel="stylesheet" href="victoria-diamonds.css">
     <style>
@@ -664,11 +664,12 @@
         }
     </style>
     <script src="product-links.js" defer></script>
-<script src="catalogue-data.js?v=20261006c" defer></script>
-<script src="daily-products.js" defer></script>
-<script src="remaining-products.js" defer></script><script src="product-registry.js" defer></script>
+<script src="catalogue-data.js?v=20261013a" defer></script>
+<script src="daily-products.js?v=20261013a" defer></script>
+<script src="remaining-products.js?v=20261013a" defer></script><script src="product-registry.js" defer></script>
 <link rel="stylesheet" href="collection-showcase.css?v=20261006c">
     <link rel="canonical" href="https://victoria-diamonds.com/high-note-collection.html">
+<link rel="icon" href="images/favicon.ico?v=20261013a" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=20261013a"><link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=20261013a">
 </head>
 <body>
     <header class="catalogue-header">
@@ -1141,7 +1142,7 @@
                     var showPriceDetails = card.getAttribute('data-show-price-details');
                     var details;
                     try { details = JSON.parse(card.getAttribute('data-details') || '[]'); } catch(e) { details = []; }
- 
+
                     var item = { metal: metal, currency: currency, fixedPrice: fixedPrice, details: details };
                     if (showPriceDetails !== null && showPriceDetails !== '') item.showPriceDetails = showPriceDetails === 'true';
                     if (stone !== null && stone !== '') item.stone = stone;
@@ -1176,19 +1177,19 @@
 
        // Occasional Wear - Rings
         renderProducts('occasionalWear', [
-            {name:'Anora Ring', image:'42.png', stone:'2.00 ct', price:1625, details:[{key:'centreStone', value:'2.00 ct'}]},
-            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'3.00 ct', totalWeight:'5.5 ct', price:2675, details:[{key:'centreStone', value:'3.00 ct'},{key:'mainSide', value:'0.25 x 2'},{key:'secondarySide', value:'0.15 x 20'},{key:'finishingSide', value:'0.10 x 20'},{key:'totalKarat', value:'5.5 ct'}]},
-            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'1.8 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 8'},{key:'totalKarat', value:'1.8 ct'}]},
-            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'2.2 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 12'},{key:'totalKarat', value:'2.2 ct'}]},
-            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'3.56 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 16'},{key:'totalKarat', value:'3.56 ct'}]},
-            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'2.5 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.25 x 6'},{key:'totalKarat', value:'2.5 ct'}]},
-            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', totalWeight:'4 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.25 x 12'},{key:'totalKarat', value:'4 ct'}]},
-            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', totalWeight:'3.25 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.25 x 9'},{key:'totalKarat', value:'3.25 ct'}]},
+            {name:'Anora Ring', image:'42.png', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Venus Ring', image:'35.png', metal:'18K Rose Gold', stone:'1.00 ct', price:2125, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Tranquility Ring', image:'40.png', metal:'18K White Gold', stone:'1.00 ct', price:1475, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Athena Ring', image:'44.png', metal:'18K White Gold', stone:'1.00 ct', price:1475, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Fae Ring', image:'38.png', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Skylar Ring', image:'37.png', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Promise of Forever Ring', image:'36.png', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Celestia Ring', image:'39.png', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
             {name:'Ros\u00e9 Bloom Ring', image:'34.png', metal:'18K Rose Gold', stone:'1.00 ct', totalWeight:'6 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 50'},{key:'totalKarat', value:'6 ct'}]},
-            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', totalWeight:'1.75 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'1.75 ct'}]},
-            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', totalWeight:'5 ct', price:1525, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 40'},{key:'totalKarat', value:'5 ct'}]},
-            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'2.00 ct', totalWeight:'2.5 ct', price:1625, details:[{key:'centreStone', value:'2.00 ct'},{key:'mainSide', value:'0.15 x 2'},{key:'secondarySide', value:'0.10 x 2'},{key:'totalKarat', value:'2.5 ct'}]},
-            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', totalWeight:'12 ct', price:1300, details:[{key:'eachDiamond', value:'0.50 x 24'},{key:'totalKarat', value:'12 ct'}]},
+            {name:'Elysia Ring', image:'32.png', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Lunelle Ring', image:'46.png', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Victorian Ring', image:'45.png', metal:'18K White Gold', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Amour Ring', image:'41.png', metal:'18K White Gold', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
             {name:'Imperial Pav\u00e9 Ring', image:'43.png', price:'request'},
             {name:'\u00c9ternelle Grande Ring', image:'33.png', totalWeight:'7 ct', price:1300, details:[{key:'eachDiamond', value:'0.50 x 14'},{key:'totalKarat', value:'7 ct'}]}
         ], 'Ring');
@@ -1363,7 +1364,7 @@
         </div>
     </div>
 </div>
-<script src="product-cards.js?v=20261004e" defer></script>
+<script src="product-cards.js?v=20261013a" defer></script>
 <script src="collection-showcase.js?v=20261005a" defer></script>
 </body>
 </html>

@@ -34,3 +34,4 @@
  .daily-close{min-width:44px;min-height:44px}
 }
 @media(max-width:360px){.metal-options .choice-face{min-width:76px;padding-inline:6px}.diamond-options .choice-face{min-width:76px;padding-inline:6px}}
+@media(max-width:600px){.configuration-choices{gap:7px;margin-bottom:10px}.metal-options .choice-face{min-height:108px}.daily-checkout h3{margin-top:20px}.daily-diamond{padding:12px}.daily-checkout .daily-note{margin-block:10px}}

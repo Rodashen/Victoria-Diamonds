@@ -1,4 +1,4 @@
-/* Calculator identities; starting stone selections require customer review. */
+/* Online starting configurations; prices match the calculator. */
 window.RemainingProducts = {
   "carats": [
     "0.05",
@@ -24,7 +24,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "2.00",
+          "carat": "1.00",
           "qty": 1
         }
       ],
@@ -32,7 +32,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1625
+      "price": 1575,
+      "designFee": 200
     },
     {
       "name": "Élégance Unie Ring",
@@ -44,15 +45,16 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.50",
-          "qty": 2
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1425
+      "price": 1575,
+      "designFee": 200
     },
     {
       "name": "Lumière Eternity Ring",
@@ -72,7 +74,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": true,
       "needsReview": true,
-      "price": 1375
+      "price": 1375,
+      "designFee": 0
     },
     {
       "name": "Endless Devotion Ring",
@@ -97,7 +100,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1515
+      "price": 1715,
+      "designFee": 200
     },
     {
       "name": "Luminous Devotion Ring",
@@ -109,7 +113,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "2.00",
+          "carat": "1.00",
           "qty": 1
         },
         {
@@ -122,7 +126,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2215
+      "price": 2165,
+      "designFee": 200
     },
     {
       "name": "Everlasting Embrace Ring",
@@ -152,7 +157,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2955
+      "price": 3155,
+      "designFee": 200
     },
     {
       "name": "The Knot Ring",
@@ -170,9 +176,10 @@ window.RemainingProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsSet": false,
-      "needsStoneSelection": true,
+      "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1375
+      "price": 1375,
+      "designFee": 0
     },
     {
       "name": "Eternal Connection",
@@ -197,7 +204,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1935
+      "price": 1935,
+      "designFee": 0
     },
     {
       "name": "Eternal Promise",
@@ -215,9 +223,10 @@ window.RemainingProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsSet": false,
-      "needsStoneSelection": true,
+      "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1375
+      "price": 1375,
+      "designFee": 0
     },
     {
       "name": "Moment to Shine Ring",
@@ -247,7 +256,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1955
+      "price": 1955,
+      "designFee": 0
     },
     {
       "name": "Unbreakable Hearts",
@@ -282,7 +292,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2911
+      "price": 2911,
+      "designFee": 0
     },
     {
       "name": "Bound by Destiny",
@@ -294,7 +305,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "2.00",
+          "carat": "1.00",
           "qty": 1
         },
         {
@@ -307,7 +318,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 3125
+      "price": 2875,
+      "designFee": 0
     },
     {
       "name": "Ethereal Halo Ring",
@@ -319,7 +331,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "2.00",
+          "carat": "1.00",
           "qty": 1
         },
         {
@@ -332,7 +344,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2215
+      "price": 2165,
+      "designFee": 200
     },
     {
       "name": "Amour Éternel Ring",
@@ -350,9 +363,10 @@ window.RemainingProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsSet": false,
-      "needsStoneSelection": true,
+      "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1375
+      "price": 1375,
+      "designFee": 0
     },
     {
       "name": "Celestial Embrace",
@@ -364,7 +378,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "2.00",
+          "carat": "1.00",
           "qty": 1
         }
       ],
@@ -372,7 +386,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2075
+      "price": 2025,
+      "designFee": 200
     },
     {
       "name": "Destiny Couple Ring",
@@ -384,8 +399,8 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.1",
-          "qty": 2
+          "carat": "1.00",
+          "qty": 1
         },
         {
           "quality": "select",
@@ -397,7 +412,8 @@ window.RemainingProducts = {
       "soldAsSet": true,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1311
+      "price": 1515,
+      "designFee": 0
     },
     {
       "name": "Eternal Harmony",
@@ -410,14 +426,15 @@ window.RemainingProducts = {
         {
           "quality": "select",
           "carat": "1.00",
-          "qty": 2
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsSet": true,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1625
+      "price": 1575,
+      "designFee": 200
     },
     {
       "name": "Wedding Bands",
@@ -437,7 +454,8 @@ window.RemainingProducts = {
       "soldAsSet": true,
       "needsStoneSelection": true,
       "needsReview": true,
-      "price": 1375
+      "price": 1375,
+      "designFee": 0
     },
     {
       "name": "Eternal Promise Ring Set",
@@ -449,15 +467,16 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.25",
-          "qty": 2
+          "carat": "1.00",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsSet": true,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1305
+      "price": 1375,
+      "designFee": 0
     },
     {
       "name": "Elysian Ring",
@@ -469,7 +488,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "3.00",
+          "carat": "1.00",
           "qty": 1
         }
       ],
@@ -477,7 +496,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2425
+      "price": 2025,
+      "designFee": 200
     },
     {
       "name": "Curved Chevron Pavé Band",
@@ -497,7 +517,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": true,
       "needsReview": true,
-      "price": 1375
+      "price": 1375,
+      "designFee": 0
     },
     {
       "name": "Cushion Bypass Swirl Ring",
@@ -517,7 +538,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1375
+      "price": 1575,
+      "designFee": 200
     },
     {
       "name": "Marquise Bypass Pavé Ring",
@@ -529,7 +551,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "4.00",
+          "carat": "1.00",
           "qty": 1
         }
       ],
@@ -537,7 +559,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2425
+      "price": 1575,
+      "designFee": 200
     },
     {
       "name": "Marquise Crown Cluster Ring",
@@ -562,7 +585,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1675
+      "price": 1675,
+      "designFee": 0
     },
     {
       "name": "Marquise Halo Infinity Twist Ring",
@@ -574,7 +598,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "3.00",
+          "carat": "1.00",
           "qty": 1
         }
       ],
@@ -582,7 +606,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1975
+      "price": 1575,
+      "designFee": 200
     },
     {
       "name": "Marquise & Pear Three-Stone Ring",
@@ -594,7 +619,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "2.00",
+          "carat": "1.00",
           "qty": 1
         },
         {
@@ -607,7 +632,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1925
+      "price": 1875,
+      "designFee": 200
     },
     {
       "name": "Marquise & Round Alternating Band",
@@ -627,7 +653,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": true,
       "needsReview": true,
-      "price": 1375
+      "price": 1375,
+      "designFee": 0
     },
     {
       "name": "Oval East-West Solitaire Ring",
@@ -639,7 +666,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "5.00",
+          "carat": "1.00",
           "qty": 1
         }
       ],
@@ -647,7 +674,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2625
+      "price": 1375,
+      "designFee": 0
     },
     {
       "name": "Oval Halo Pavé Ring",
@@ -659,7 +687,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "2.00",
+          "carat": "1.00",
           "qty": 1
         }
       ],
@@ -667,7 +695,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1625
+      "price": 1575,
+      "designFee": 200
     },
     {
       "name": "Oval Halo Twist Petite Ring",
@@ -679,7 +708,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "4.00",
+          "carat": "1.00",
           "qty": 1
         }
       ],
@@ -687,7 +716,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2425
+      "price": 1575,
+      "designFee": 200
     },
     {
       "name": "Pear Solitaire Chevron Ring",
@@ -699,7 +729,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "3.00",
+          "carat": "1.00",
           "qty": 1
         }
       ],
@@ -707,7 +737,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1975
+      "price": 1575,
+      "designFee": 200
     },
     {
       "name": "Pear Solitaire Tapered Ring",
@@ -719,7 +750,7 @@ window.RemainingProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "3.00",
+          "carat": "1.00",
           "qty": 1
         }
       ],
@@ -727,7 +758,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1975
+      "price": 1575,
+      "designFee": 200
     },
     {
       "name": "Round Nature Vine Ring",
@@ -747,7 +779,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1375
+      "price": 1575,
+      "designFee": 200
     },
     {
       "name": "Round Vintage Milgrain Ring",
@@ -767,7 +800,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1375
+      "price": 1575,
+      "designFee": 200
     },
     {
       "name": "Three-Stone Round Classic Ring II",
@@ -792,7 +826,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1675
+      "price": 1875,
+      "designFee": 200
     },
     {
       "name": "Three-Stone Round Classic Ring",
@@ -817,7 +852,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1675
+      "price": 1875,
+      "designFee": 200
     },
     {
       "name": "Diamond Paperclip Link Bracelet",
@@ -837,7 +873,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 3150
+      "price": 3150,
+      "designFee": 0
     },
     {
       "name": "Pear Cluster Drop Necklace",
@@ -857,7 +894,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": true,
       "needsReview": true,
-      "price": 1375
+      "price": 1375,
+      "designFee": 0
     },
     {
       "name": "Pear Drop Station Necklace",
@@ -877,7 +915,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": true,
       "needsReview": true,
-      "price": 1375
+      "price": 1375,
+      "designFee": 0
     },
     {
       "name": "Marquise and Round Tennis Bracelet",
@@ -895,7 +934,8 @@ window.RemainingProducts = {
       ],
       "braceletMetalTier": "premium",
       "needsReview": true,
-      "price": 5520
+      "price": 5520,
+      "designFee": 0
     }
   ]
 };
