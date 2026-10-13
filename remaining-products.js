@@ -299,12 +299,13 @@ window.RemainingProducts = {
         }
       ],
       "braceletMetalTier": "essential",
-      "soldAsSet": false,
+      "soldAsSet": true,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2911,
+      "price": 8733,
       "designFee": 0,
-      "thumbnail": "products/fb_s_unbreakable_hearts-960.webp"
+      "thumbnail": "products/fb_s_unbreakable_hearts-960.webp",
+      "stackingSetMultiplier": 3
     },
     {
       "name": "Bound by Destiny",
@@ -326,12 +327,13 @@ window.RemainingProducts = {
         }
       ],
       "braceletMetalTier": "essential",
-      "soldAsSet": false,
+      "soldAsSet": true,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2875,
+      "price": 8625,
       "designFee": 0,
-      "thumbnail": "products/fb_s_bound_by_destiny-960.webp"
+      "thumbnail": "products/fb_s_bound_by_destiny-960.webp",
+      "stackingSetMultiplier": 3
     },
     {
       "name": "Ethereal Halo Ring",

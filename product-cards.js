@@ -17,7 +17,7 @@
   const stones=centreRing?t('Centre stone · 1.00 ct','主石 · 1.00 ct'):product.preset?.diamonds?.map(d=>`${d.carat} ct × ${d.qty}`).join(' · ')||product.details?.filter(d=>['centreStone','totalKarat'].includes(d.key)).map(d=>d.value).join(' · ');
   if(stones)copy.append(element('p','showcase-stones',stones+(product.category.startsWith('Earring')?t(' · per pair',' · 每對'):'')));
   const bottom=element('div','showcase-bottom'),amount=element('span','showcase-price'),value=price(product);
-  amount.append(element('small','',product.mode==='enquiry'?t('Private consultation','私人諮詢'):product.mode==='silver'?t('Full price','全額價格'):t('Starting configuration','起始規格')),element('strong','',value===null?t('By appointment','只限預約'):money(value)));
+  amount.append(element('small','',product.mode==='enquiry'?t('Private consultation','私人諮詢'):product.mode==='silver'?t('Full price','全額價格'):product.preset?.stackingSetMultiplier===3?t('Three-piece set · starting price','三件套裝 · 起價'):t('Starting configuration','起始規格')),element('strong','',value===null?t('By appointment','只限預約'):money(value)));
   const action=product.mode==='enquiry'?t('Book appointment ↗','預約諮詢 ↗'):product.mode==='silver'?t('View & buy ↗','查看及購買 ↗'):t('View & customise ↗','查看及訂製 ↗');
   bottom.append(amount,element('span','showcase-cta',action));copy.append(bottom);link.append(frame,copy);return link;
  }

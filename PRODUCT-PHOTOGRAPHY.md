@@ -1,5 +1,11 @@
 # Product photograph refresh — 14 October 2026
 
+## Ring corrections
+
+Splendor Stacking, Tranquility, Athena, Fae, Skylar and Celestia now use individually edited `-v2.webp` photographs and `-960-v2.webp` thumbnails in `images/products/`. Previous assets are retained. Splendor has a 4096 px square export; the other five have 2400 px square exports. These are upscaled exports of AI-retouched originals, not native optical 4K photographs.
+
+The built-in image editing tool was used once per ring with its original photo as the edit target. Common prompt: preserve the exact silhouette, band geometry, stone positions, cuts, prongs and number of bands; restore bright polished 18K white gold with neutral silver reflections, crisp edges and diamond facets; remove beige casts and dullness without erasing pale metal; centre the complete ring on pure white with comfortable margins; no props, writing, added stones or artificial star flares. Each result was visually compared with its source. Only near-white background pixels were normalised during export; the previous aggressive background mask was not reused.
+
 Local update; no deployment or calculator change is required until the website is approved for publication.
 
 All 133 catalogue products now reference white-background WebP assets in `images/products/`. Each has a 960 × 960 thumbnail for collection cards and search results. All 31 Daily Sparkle primary images are 4096 × 4096 exports. Other collections have square 1600–2400 px exports. The source photos remain in their previous locations.

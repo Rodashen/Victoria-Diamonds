@@ -55,7 +55,7 @@ window.HighNoteProducts = {
     {
       "name": "Tranquility Ring",
       "id": "ow_s_tranquility",
-      "image": "products/ow_s_tranquility.webp",
+      "image": "products/ow_s_tranquility-v2.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -69,12 +69,12 @@ window.HighNoteProducts = {
       "price": 1475,
       "needsStoneSelection": false,
       "designFee": 100,
-      "thumbnail": "products/ow_s_tranquility-960.webp"
+      "thumbnail": "products/ow_s_tranquility-960-v2.webp"
     },
     {
       "name": "Athena Ring",
       "id": "ow_m_athena",
-      "image": "products/ow_m_athena.webp",
+      "image": "products/ow_m_athena-v2.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -88,12 +88,12 @@ window.HighNoteProducts = {
       "price": 1475,
       "needsStoneSelection": false,
       "designFee": 100,
-      "thumbnail": "products/ow_m_athena-960.webp"
+      "thumbnail": "products/ow_m_athena-960-v2.webp"
     },
     {
       "name": "Fae Ring",
       "id": "ow_m_fae",
-      "image": "products/ow_m_fae.webp",
+      "image": "products/ow_m_fae-v2.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -107,12 +107,12 @@ window.HighNoteProducts = {
       "price": 1575,
       "needsStoneSelection": false,
       "designFee": 200,
-      "thumbnail": "products/ow_m_fae-960.webp"
+      "thumbnail": "products/ow_m_fae-960-v2.webp"
     },
     {
       "name": "Skylar Ring",
       "id": "ow_m_skylar",
-      "image": "products/ow_m_skylar.webp",
+      "image": "products/ow_m_skylar-v2.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -126,7 +126,7 @@ window.HighNoteProducts = {
       "price": 1575,
       "needsStoneSelection": false,
       "designFee": 200,
-      "thumbnail": "products/ow_m_skylar-960.webp"
+      "thumbnail": "products/ow_m_skylar-960-v2.webp"
     },
     {
       "name": "Promise of Forever Ring",
@@ -142,15 +142,17 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1375,
+      "price": 4125,
       "needsStoneSelection": false,
       "designFee": 0,
-      "thumbnail": "products/ow_s_promise-960.webp"
+      "thumbnail": "products/ow_s_promise-960.webp",
+      "soldAsSet": true,
+      "stackingSetMultiplier": 3
     },
     {
       "name": "Celestia Ring",
       "id": "ow_m_celestia",
-      "image": "products/ow_m_celestia.webp",
+      "image": "products/ow_m_celestia-v2.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -164,7 +166,7 @@ window.HighNoteProducts = {
       "price": 1575,
       "needsStoneSelection": false,
       "designFee": 200,
-      "thumbnail": "products/ow_m_celestia-960.webp"
+      "thumbnail": "products/ow_m_celestia-960-v2.webp"
     },
     {
       "name": "Rosé Bloom Ring",

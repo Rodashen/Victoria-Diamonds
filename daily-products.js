@@ -283,7 +283,7 @@ window.DailyProducts = {
     {
       "name": "Splendor Stacking Ring",
       "id": "ds_m_splendor",
-      "image": "products/ds_m_splendor.webp",
+      "image": "products/ds_m_splendor-v2.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -296,7 +296,7 @@ window.DailyProducts = {
       "price": 1575,
       "needsStoneSelection": false,
       "designFee": 200,
-      "thumbnail": "products/ds_m_splendor-960.webp"
+      "thumbnail": "products/ds_m_splendor-960-v2.webp"
     },
     {
       "name": "Cascade Ring",

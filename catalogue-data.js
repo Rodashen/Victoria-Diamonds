@@ -57,7 +57,7 @@ window.VDCatalogueGroups = [
 
     {name:'Eternity Stacking Ring', image:'products/ds_m_eternity.webp', thumbnail:'products/ds_m_eternity-960.webp', metal:'18K White Gold', price:1110, details:[{key:'eachDiamond', value:'0.10 x 17'}]},
 
-    {name:'Splendor Stacking Ring', image:'products/ds_m_splendor.webp', thumbnail:'products/ds_m_splendor-960.webp', metal:'18K White Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Splendor Stacking Ring', image:'products/ds_m_splendor-v2.webp', thumbnail:'products/ds_m_splendor-960-v2.webp', metal:'18K White Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
 
     {name:'Cascade Ring', image:'products/ds_s_cascade.webp', thumbnail:'products/ds_s_cascade-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
@@ -89,12 +89,12 @@ window.VDCatalogueGroups = [
 {collection:"occasionalWear", category:"Ring", items:[
             {name:'Anora Ring', image:'products/ow_s_anora.webp', thumbnail:'products/ow_s_anora-960.webp', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
             {name:'Venus Ring', image:'products/ow_l_venus.webp', thumbnail:'products/ow_l_venus-960.webp', metal:'18K Rose Gold', stone:'1.00 ct', price:2125, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Tranquility Ring', image:'products/ow_s_tranquility.webp', thumbnail:'products/ow_s_tranquility-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1475, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Athena Ring', image:'products/ow_m_athena.webp', thumbnail:'products/ow_m_athena-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1475, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Fae Ring', image:'products/ow_m_fae.webp', thumbnail:'products/ow_m_fae-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Skylar Ring', image:'products/ow_m_skylar.webp', thumbnail:'products/ow_m_skylar-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Promise of Forever Ring', image:'products/ow_s_promise.webp', thumbnail:'products/ow_s_promise-960.webp', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Celestia Ring', image:'products/ow_m_celestia.webp', thumbnail:'products/ow_m_celestia-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Tranquility Ring', image:'products/ow_s_tranquility-v2.webp', thumbnail:'products/ow_s_tranquility-960-v2.webp', metal:'18K White Gold', stone:'1.00 ct', price:1475, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Athena Ring', image:'products/ow_m_athena-v2.webp', thumbnail:'products/ow_m_athena-960-v2.webp', metal:'18K White Gold', stone:'1.00 ct', price:1475, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Fae Ring', image:'products/ow_m_fae-v2.webp', thumbnail:'products/ow_m_fae-960-v2.webp', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Skylar Ring', image:'products/ow_m_skylar-v2.webp', thumbnail:'products/ow_m_skylar-960-v2.webp', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Promise of Forever Ring', image:'products/ow_s_promise.webp', thumbnail:'products/ow_s_promise-960.webp', stone:'1.00 ct', price:4125, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Celestia Ring', image:'products/ow_m_celestia-v2.webp', thumbnail:'products/ow_m_celestia-960-v2.webp', metal:'18K White Gold', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
             {name:'Ros\u00e9 Bloom Ring', image:'products/ow_m_rosebloom.webp', thumbnail:'products/ow_m_rosebloom-960.webp', metal:'18K Rose Gold', stone:'1.00 ct', totalWeight:'6 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.10 x 50'},{key:'totalKarat', value:'6 ct'}]},
             {name:'Elysia Ring', image:'products/ow_m_elysia.webp', thumbnail:'products/ow_m_elysia-960.webp', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
             {name:'Lunelle Ring', image:'products/ow_m_lunelle.webp', thumbnail:'products/ow_m_lunelle-960.webp', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
@@ -133,8 +133,8 @@ window.VDCatalogueGroups = [
             {name:'Eternal Connection', image:'products/fb_m_eternal_connection.webp', thumbnail:'products/fb_m_eternal_connection-960.webp', metal:'18k White Gold', stone:'1.00 ct', price:1935, details:[{key:'centreStone', value:'1.00 ct'}]},
             {name:'Eternal Promise', image:'products/fb_s_eternal_promise.webp', thumbnail:'products/fb_s_eternal_promise-960.webp', price:1375},
             {name:'Moment to Shine Ring', image:'products/fb_s_moment_to_shine.webp', thumbnail:'products/fb_s_moment_to_shine-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1955, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Unbreakable Hearts', image:'products/fb_s_unbreakable_hearts.webp', thumbnail:'products/fb_s_unbreakable_hearts-960.webp', stone:'1.00 ct', price:2911, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Bound by Destiny', image:'products/fb_s_bound_by_destiny.webp', thumbnail:'products/fb_s_bound_by_destiny-960.webp', stone:'1.00 ct', price:2875, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Unbreakable Hearts', image:'products/fb_s_unbreakable_hearts.webp', thumbnail:'products/fb_s_unbreakable_hearts-960.webp', stone:'1.00 ct', price:8733, details:[{key:'centreStone', value:'1.00 ct'}]},
+            {name:'Bound by Destiny', image:'products/fb_s_bound_by_destiny.webp', thumbnail:'products/fb_s_bound_by_destiny-960.webp', stone:'1.00 ct', price:8625, details:[{key:'centreStone', value:'1.00 ct'}]},
             {name:'Ethereal Halo Ring', image:'products/fb_l_ethereal_halo.webp', thumbnail:'products/fb_l_ethereal_halo-960.webp', stone:'1.00 ct', price:2165, details:[{key:'centreStone', value:'1.00 ct'}]},
             {name:'Amour \u00c9ternel Ring', image:'products/fb_s_amour_eternel.webp', thumbnail:'products/fb_s_amour_eternel-960.webp', price:1120},
             {name:'Celestial Embrace', image:'products/fb_l_celestial_embrace.webp', thumbnail:'products/fb_l_celestial_embrace-960.webp', stone:'1.00 ct', price:2025, details:[{key:'centreStone', value:'1.00 ct'}]},
