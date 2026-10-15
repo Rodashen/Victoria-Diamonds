@@ -531,3 +531,12 @@ Object.assign(translations['zh-HK'], {
   "qol-care-question": "應如何保養純銀珠寶？",
   "qol-care-answer": "閱讀珠寶保養指南，了解純銀保養、清潔與存放建議 →"
 });
+
+Object.assign(translations['zh-HK'], {
+  "seo-home-title": "倫敦訂製珠寶 | Victoria Diamonds",
+  "seo-home-heading": "倫敦訂製珠寶工作室",
+  "seo-home-intro": "探索 Hatton Garden 工作室的訂製求婚戒指與手工珠寶。",
+  "seo-collections-heading": "手工珠寶系列",
+  "seo-featured-heading": "手工 Solstice 鑽石項鏈",
+  "seo-craft-heading": "手工珠寶與訂製戒指設計"
+});

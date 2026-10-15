@@ -9,12 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
-    <script src="translations.js?v=20261015a"></script>
+    <script src="translations.js?v=20261015seo"></script>
     <link rel="stylesheet" href="daily-checkout.css?v=20261013a">
     <script src="high-note-products.js?v=20261014c" defer></script>
-    <script src="daily-checkout.js?v=20261014c" defer></script>
+    <script src="daily-checkout.js?v=20261015seo" defer></script>
     <script src="victoria-diamonds.js?v=20261006b"></script>
-    <link rel="stylesheet" href="victoria-diamonds.css">
+    <link rel="stylesheet" href="victoria-diamonds.css?v=20261015seo">
     <style>
         .cookie-consent-banner {
             position: fixed;
@@ -666,7 +666,7 @@
     <script src="product-links.js" defer></script>
 <script src="catalogue-data.js?v=20261014c" defer></script>
 <script src="daily-products.js?v=20261014c" defer></script>
-<script src="remaining-products.js?v=20261014c" defer></script><script src="product-registry.js" defer></script>
+<script src="remaining-products.js?v=20261014c" defer></script><script src="product-registry.js?v=20261015seo" defer></script>
 <link rel="stylesheet" href="collection-showcase.css?v=20261014a">
     <link rel="canonical" href="https://victoria-diamonds.com/high-note-collection.html">
 <link rel="icon" href="images/favicon.ico?v=20261014b" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=20261014b"><link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=20261014b">
@@ -1056,7 +1056,7 @@
                 if (item.showPriceDetails !== undefined) card.setAttribute('data-show-price-details', String(item.showPriceDetails));
                 var metal = item.metal || '18K Gold';
                 var displayName = getProductName(name);
-                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + '"></div><div class="info"><p class="name" data-product-name="' + name.replace(/"/g, '"') + '">' + displayName + '</p><p class="meta">' + getMetaHTML(item, category) + '</p></div>';
+                card.innerHTML = '<div class="image-wrap"><span class="badge-type">' + category + '</span><img src="' + imgSrc + '" alt="' + name + ' — original jewellery design by Victoria Diamonds"></div><div class="info"><p class="name" data-product-name="' + name.replace(/"/g, '"') + '">' + displayName + '</p><p class="meta">' + getMetaHTML(item, category) + '</p></div>';
                 grid.appendChild(card);
             });
             container.appendChild(grid);
@@ -1128,6 +1128,7 @@
                 var nameEl = card.querySelector('.info .name');
                 if (img && nameEl) {
                     document.getElementById('modalImg').src = img.src;
+                    document.getElementById('modalImg').alt = img.alt;
                     var englishName = nameEl.getAttribute('data-product-name') || nameEl.textContent;
                     document.getElementById('modalName').textContent = getProductName(englishName);
 
@@ -1303,7 +1304,7 @@
         <div class="email-subscription-wrapper">
             <div class="email-subscription-content">
                 <div class="email-subscription-image-column">
-                    <img src="images/victoria-diamonds-01.png" alt="Victoria Diamonds Luxury Jewelry" class="email-subscription-logo">
+                    <img src="images/victoria-diamonds-01.png" alt="High Note jewellery collection by Victoria Diamonds" class="email-subscription-logo">
                 </div>
                 <div class="email-subscription-text-column">
                     <h2 data-i18n="email-subscription-title">JOIN THE VICTORIA DIAMONDS COMMUNITY</h2>
@@ -1364,7 +1365,7 @@
         </div>
     </div>
 </div>
-<script src="product-cards.js?v=20261014c" defer></script>
+<script src="product-cards.js?v=20261015seo" defer></script>
 <script src="collection-showcase.js?v=20261005a" defer></script>
 </body>
 </html>

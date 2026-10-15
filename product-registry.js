@@ -12,5 +12,6 @@
  }));
  const find=(collection,name)=>products.find(p=>p.collection===collection&&p.name===name);
  const url=p=>'product.html?item='+encodeURIComponent(p.id)+'&lang='+(document.documentElement.lang.startsWith('zh')?'zh-HK':'en');
- window.VDProducts={products,collections,find,url,slug};
+ const imageAlt=p=>[p.name,p.metal|| (p.collection==='silverCollection'?'Sterling 925 silver':''),'original jewellery design',collections[p.collection]?.[0],'Victoria Diamonds'].filter(Boolean).join(' — ');
+ window.VDProducts={products,collections,find,url,slug,imageAlt};
 })();

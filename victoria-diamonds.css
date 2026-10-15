@@ -3324,6 +3324,25 @@ animation: dotProgress 2s linear forwards;
     max-width: min(860px, 96vw);
     padding-bottom: 0;
 }
+.transparency-section {
+    padding: 4rem 0;
+    scroll-margin-top: 8rem;
+}
+.transparency-section .transparency-modal-body {
+    padding: 0;
+    max-width: 860px;
+    margin-inline: auto;
+}
+.transparency-section caption {
+    text-align: left;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    padding-bottom: 1rem;
+}
+@media (max-width: 600px) {
+    .transparency-section { padding: 2.5rem 0; }
+    .transparency-section .transparency-tier-list { grid-template-columns: 1fr; }
+}
 .transparency-modal-grid {
     display: block;
 }
