@@ -1,7 +1,7 @@
 /* Shared search and catalogue filters. Prices shown here never determine payment amounts. */
 (() => {
  'use strict';
- const collections = {
+ const collections = {keepsakeCollection:['Keepsake Collection','keepsake-collection.html','珍藏系列'],
   dailySparkle: ['Daily Sparkle', 'daily-sparkle.html', '日常閃耀'],
   occasionalWear: ['High Note', 'high-note-collection.html', '華麗樂章'],
   foreverBond: ['Forever Bond', 'forever-bond.html', '永恆之約'],
@@ -9,7 +9,7 @@
   singleLady: ['Aura', 'aura-collection.html', 'Aura 系列'],
   mensCollection: ["Men’s Collection", 'mens-collection.html', '男士系列']
  };
- const types = {Ring:['Rings','戒指'], Earring:['Earrings','耳環'], Necklace:['Necklaces','項鏈'], Bracelet:['Bracelets','手鏈'], Anklet:['Anklets','腳鏈'], Pendant:['Pendants','吊墜'], Brooch:['Brooches','胸針'], Tiara:['Tiaras','冠冕']};
+ const types = {'Key Ring':['Key rings','鑰匙圈'],'Key Charm':['Initial key charms','字母鑰匙吊飾'],Ring:['Rings','戒指'], Earring:['Earrings','耳環'], Necklace:['Necklaces','項鏈'], Bracelet:['Bracelets','手鏈'], Anklet:['Anklets','腳鏈'], Pendant:['Pendants','吊墜'], Brooch:['Brooches','胸針'], Tiara:['Tiaras','冠冕']};
  const typeOf = category => category === 'Earring Stud' ? 'Earring' : category;
  const zh = () => document.documentElement.lang.startsWith('zh');
  const t = (en, cn) => zh() ? cn : en;
@@ -60,7 +60,7 @@
     const query=input.value.trim(),filters={query,collection:document.getElementById('landingCollection')?.value||'',type:document.getElementById('landingType')?.value||'',max:document.getElementById('landingPrice')?.value||''};
     const active=!!(filters.collection||filters.type||filters.max), found=query||active ? products.filter(p=>filterProduct(p,filters)) : [];
     results.replaceChildren();
-    status.textContent=query||active ? found.length ? t(found.length+' matching pieces','找到 '+found.length+' 件作品') : t('No pieces found. Try a collection or a shorter name.','未找到作品，請嘗試系列名稱或較短的名稱。') : t('Start typing to explore all six collections.','輸入關鍵字以探索六個系列。');
+    status.textContent=query||active ? found.length ? t(found.length+' matching pieces','找到 '+found.length+' 件作品') : t('No pieces found. Try a collection or a shorter name.','未找到作品，請嘗試系列名稱或較短的名稱。') : t('Start typing to explore all collections.','輸入關鍵字以探索所有系列。');
     found.slice(0,8).forEach(p=>{
      const a=element('a',undefined,'search-result'); a.href=productURL(p); a.target='_blank'; a.rel='noopener';
      const img=new Image(); img.src='images/'+(p.thumbnail||p.image); img.alt=window.VDProducts?.imageAlt(p)||p.name+' — Victoria Diamonds jewellery'; img.loading='lazy'; img.width=70; img.height=80;

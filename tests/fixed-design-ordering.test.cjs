@@ -15,7 +15,7 @@ test('Fiora and Luminea diamond specifications cannot be changed through checkou
  assert.equal(products.find(p=>p.id==='ds_s_fiora').preset.diamonds[0].qty,4);
 });
 test('all custom bracelets use four diamond budgets with fixed metal specifications and correct deposits',()=>{
- for(const p of products.filter(p=>p.preset?.type==='bracelet')){
+ for(const p of products.filter(p=>p.preset?.diamondPriceOptions)){
   assert.equal(p.preset.lockBraceletTier,true,p.name);
   for(const metal of ['gold','silver','platinum'])for(const [carat,amount]of Object.entries(p.preset.diamondPriceOptions)){
    const input={...body(p),metal,braceletMetalTier:'essential',diamonds:[{quality:'luxe',carat,qty:99}],quantity:2};

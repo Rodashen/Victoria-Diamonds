@@ -196,3 +196,1096 @@ window.VDCatalogueGroups = [
     {name:'Keystone Link Pendant', image:'products/mens_keystone_link_pendant.webp', thumbnail:'products/mens_keystone_link_pendant-960.webp', metal:'18K Yellow Gold', price:1875, configurationPrice:true, details:[{key:'eachDiamond',value:'1 ct × 3'},{key:'info',value:'Pendant only; chain not included. Concept image and specifications to be confirmed.'}]}
 ]},
 ];
+
+// Document-approved Aura, Silver and Keepsake additions.
+window.VDCatalogueGroups.push(...[
+  {
+    "collection": "keepsakeCollection",
+    "category": "Key Ring",
+    "items": [
+      {
+        "id": "keepsake_amelie_heart_key_ring",
+        "name": "Amelie Heart Key Ring",
+        "image": "products/keepsake_amelie_heart_key_ring.webp",
+        "thumbnail": "products/keepsake_amelie_heart_key_ring-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 62,
+        "description": "An open polished heart charm holds a round diamond at its lower point, suspended from a circular split key ring by short silver links.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Key ring and charm; keys not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "keepsake_lunara_crescent_key_ring",
+        "name": "Lunara Crescent Key Ring",
+        "image": "products/keepsake_lunara_crescent_key_ring.webp",
+        "thumbnail": "products/keepsake_lunara_crescent_key_ring-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 62,
+        "description": "A sculpted crescent charm carries a discreet round diamond near its lower tip, joined to a circular split key ring.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Key ring and charm; keys not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "keepsake_estelle_star_key_ring",
+        "name": "Estelle Star Key Ring",
+        "image": "products/keepsake_estelle_star_key_ring.webp",
+        "thumbnail": "products/keepsake_estelle_star_key_ring-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 62,
+        "description": "A faceted silver star charm features a round diamond at its centre, suspended from a circular split key ring.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Key ring and charm; keys not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "keepsake_virelia_leaf_key_ring",
+        "name": "Virelia Leaf Key Ring",
+        "image": "products/keepsake_virelia_leaf_key_ring.webp",
+        "thumbnail": "products/keepsake_virelia_leaf_key_ring-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 62,
+        "description": "A sculpted leaf charm with a defined central vein carries a small round diamond near its stem, joined to a split key ring.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Key ring and charm; keys not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "keepsake_oriana_oval_key_ring",
+        "name": "Oriana Oval Key Ring",
+        "image": "products/keepsake_oriana_oval_key_ring.webp",
+        "thumbnail": "products/keepsake_oriana_oval_key_ring-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 82,
+        "description": "A polished oval medallion with a recessed border holds a round 0.25ct diamond in a circular bezel, suspended from a split key ring.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25ct"
+          },
+          {
+            "key": "info",
+            "value": "Key ring and charm; keys not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "keepsake_clara_clover_key_ring",
+        "name": "Clara Clover Key Ring",
+        "image": "products/keepsake_clara_clover_key_ring.webp",
+        "thumbnail": "products/keepsake_clara_clover_key_ring-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 62,
+        "description": "Four rounded clover leaves meet around a single round diamond, forming a polished charm on a split key ring.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Key ring and charm; keys not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "keepsake_marina_shell_key_ring",
+        "name": "Marina Shell Key Ring",
+        "image": "products/keepsake_marina_shell_key_ring.webp",
+        "thumbnail": "products/keepsake_marina_shell_key_ring-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 62,
+        "description": "A scallop-shell charm combines raised silver ribs with a round diamond near the hinge, suspended from a split key ring.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Key ring and charm; keys not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "keepsake_alina_butterfly_key_ring",
+        "name": "Alina Butterfly Key Ring",
+        "image": "products/keepsake_alina_butterfly_key_ring.webp",
+        "thumbnail": "products/keepsake_alina_butterfly_key_ring-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 62,
+        "description": "An openwork butterfly charm frames a round diamond at its centre, joined by short links to a split key ring.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Key ring and charm; keys not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "keepsake_serena_infinity_key_ring",
+        "name": "Serena Infinity Key Ring",
+        "image": "products/keepsake_serena_infinity_key_ring.webp",
+        "thumbnail": "products/keepsake_serena_infinity_key_ring-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 62,
+        "description": "A polished infinity charm carries one round diamond at its crossing, suspended from a circular split key ring.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Key ring and charm; keys not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "keepsake_celia_teardrop_key_ring",
+        "name": "Celia Teardrop Key Ring",
+        "image": "products/keepsake_celia_teardrop_key_ring.webp",
+        "thumbnail": "products/keepsake_celia_teardrop_key_ring-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 82,
+        "description": "A sculpted teardrop charm holds a round 0.25ct diamond in a circular bezel, joined by short links to a split key ring.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25ct"
+          },
+          {
+            "key": "info",
+            "value": "Key ring and charm; keys not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      }
+    ]
+  },
+  {
+    "collection": "silverCollection",
+    "category": "Pendant",
+    "items": [
+      {
+        "id": "silver_new_amelie_petite_heart_pendant",
+        "name": "Amelie Petite Heart Pendant",
+        "image": "products/silver_new_amelie_petite_heart_pendant.webp",
+        "thumbnail": "products/silver_new_amelie_petite_heart_pendant-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 62,
+        "description": "An open silver heart frames a single round diamond at its lower point, with a polished bail above.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Pendant only; chain not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "silver_new_lunara_crescent_pendant",
+        "name": "Lunara Crescent Pendant",
+        "image": "products/silver_new_lunara_crescent_pendant.webp",
+        "thumbnail": "products/silver_new_lunara_crescent_pendant-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 62,
+        "description": "A slender polished crescent carries a round diamond near its lower tip, finished with a simple silver bail.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Pendant only; chain not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "silver_new_estelle_petite_star_pendant",
+        "name": "Estelle Petite Star Pendant",
+        "image": "products/silver_new_estelle_petite_star_pendant.webp",
+        "thumbnail": "products/silver_new_estelle_petite_star_pendant-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 62,
+        "description": "A polished five-point star frames one round diamond at its centre, with a plain silver bail.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Pendant only; chain not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "silver_new_virelia_leaf_pendant",
+        "name": "Virelia Leaf Pendant",
+        "image": "products/silver_new_virelia_leaf_pendant.webp",
+        "thumbnail": "products/silver_new_virelia_leaf_pendant-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 82,
+        "description": "A round 0.25ct diamond sits in the open side of an engraved silver leaf pendant, with a polished bail above.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25ct"
+          },
+          {
+            "key": "info",
+            "value": "Pendant only; chain not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "silver_new_oriana_oval_pendant",
+        "name": "Oriana Oval Pendant",
+        "image": "products/silver_new_oriana_oval_pendant.webp",
+        "thumbnail": "products/silver_new_oriana_oval_pendant-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 82,
+        "description": "An oval silver frame surrounds a round 0.25ct diamond in a circular bezel, suspended from a polished bail.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25ct"
+          },
+          {
+            "key": "info",
+            "value": "Pendant only; chain not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      }
+    ]
+  },
+  {
+    "collection": "silverCollection",
+    "category": "Earring",
+    "items": [
+      {
+        "id": "silver_new_amelie_petite_heart_earrings",
+        "name": "Amelie Petite Heart Earrings",
+        "image": "products/silver_new_amelie_petite_heart_earrings.webp",
+        "thumbnail": "products/silver_new_amelie_petite_heart_earrings-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 92,
+        "description": "A matching pair of open heart studs, each finished with a round diamond at the lower point.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct each"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.20ct"
+          },
+          {
+            "key": "info",
+            "value": "Stone quantities and price are for the complete pair. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "silver_new_lunara_crescent_earrings",
+        "name": "Lunara Crescent Earrings",
+        "image": "products/silver_new_lunara_crescent_earrings.webp",
+        "thumbnail": "products/silver_new_lunara_crescent_earrings-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 92,
+        "description": "Mirrored crescent studs curve around a small round diamond near the tip of each earring.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct each"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.20ct"
+          },
+          {
+            "key": "info",
+            "value": "Stone quantities and price are for the complete pair. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "silver_new_estelle_petite_star_earrings",
+        "name": "Estelle Petite Star Earrings",
+        "image": "products/silver_new_estelle_petite_star_earrings.webp",
+        "thumbnail": "products/silver_new_estelle_petite_star_earrings-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 92,
+        "description": "A matching pair of polished star studs, each with a single round diamond at its centre.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct each"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.20ct"
+          },
+          {
+            "key": "info",
+            "value": "Stone quantities and price are for the complete pair. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "silver_new_virelia_leaf_earrings",
+        "name": "Virelia Leaf Earrings",
+        "image": "products/silver_new_virelia_leaf_earrings.webp",
+        "thumbnail": "products/silver_new_virelia_leaf_earrings-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 134,
+        "description": "Mirrored leaf studs each hold one round 0.25ct diamond beside engraved silver foliage.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct each"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.50ct"
+          },
+          {
+            "key": "info",
+            "value": "Stone quantities and price are for the complete pair. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "silver_new_oriana_oval_earrings",
+        "name": "Oriana Oval Earrings",
+        "image": "products/silver_new_oriana_oval_earrings.webp",
+        "thumbnail": "products/silver_new_oriana_oval_earrings-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 134,
+        "description": "Oval silver stud frames each hold a round 0.25ct diamond in a circular bezel, forming a matching pair.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct each"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.50ct"
+          },
+          {
+            "key": "info",
+            "value": "Stone quantities and price are for the complete pair. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      }
+    ]
+  },
+  {
+    "collection": "silverCollection",
+    "category": "Bracelet",
+    "items": [
+      {
+        "id": "silver_new_amelie_petite_heart_bracelet",
+        "name": "Amelie Petite Heart Bracelet",
+        "image": "products/silver_new_amelie_petite_heart_bracelet.webp",
+        "thumbnail": "products/silver_new_amelie_petite_heart_bracelet-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 72,
+        "description": "An open heart station with one round diamond centres a fine oval-link chain bracelet with a lobster clasp.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Bracelet fit to be confirmed. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "silver_new_lunara_crescent_bracelet",
+        "name": "Lunara Crescent Bracelet",
+        "image": "products/silver_new_lunara_crescent_bracelet.webp",
+        "thumbnail": "products/silver_new_lunara_crescent_bracelet-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 72,
+        "description": "A polished crescent station holds a round diamond at its lower curve, joined to a fine chain and lobster clasp.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Bracelet fit to be confirmed. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "silver_new_estelle_petite_star_bracelet",
+        "name": "Estelle Petite Star Bracelet",
+        "image": "products/silver_new_estelle_petite_star_bracelet.webp",
+        "thumbnail": "products/silver_new_estelle_petite_star_bracelet-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 72,
+        "description": "A small polished star with a round diamond centres a fine silver chain bracelet with a lobster clasp.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.1 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.1ct"
+          },
+          {
+            "key": "info",
+            "value": "Bracelet fit to be confirmed. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "silver_new_virelia_leaf_bracelet",
+        "name": "Virelia Leaf Bracelet",
+        "image": "products/silver_new_virelia_leaf_bracelet.webp",
+        "thumbnail": "products/silver_new_virelia_leaf_bracelet-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 87,
+        "description": "A round 0.25ct diamond beside an engraved silver leaf forms the centre of a fine chain bracelet with a lobster clasp.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25ct"
+          },
+          {
+            "key": "info",
+            "value": "Bracelet fit to be confirmed. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      },
+      {
+        "id": "silver_new_oriana_oval_bracelet",
+        "name": "Oriana Oval Bracelet",
+        "image": "products/silver_new_oriana_oval_bracelet.webp",
+        "thumbnail": "products/silver_new_oriana_oval_bracelet-960.webp",
+        "metal": "Sterling 925 silver",
+        "price": 87,
+        "description": "A round 0.25ct diamond in a circular bezel centres a fine silver chain bracelet with a lobster clasp.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25ct"
+          },
+          {
+            "key": "info",
+            "value": "Bracelet fit to be confirmed. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "fixedPrice": true
+      }
+    ]
+  },
+  {
+    "collection": "keepsakeCollection",
+    "category": "Key Charm",
+    "items": [
+      {
+        "id": "keepsake_amelie_heart_initial_key_charm",
+        "name": "Amelie Heart Initial Key Charm",
+        "image": "products/keepsake_amelie_heart_initial_key_charm.webp",
+        "thumbnail": "products/keepsake_amelie_heart_initial_key_charm-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 1215,
+        "description": "An 18K yellow gold heart initial charm with one round 0.25ct diamond and VD engraved on the key ring.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25ct"
+          },
+          {
+            "key": "info",
+            "value": "Key ring and charm; keys not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "initialSamples": {
+          "A": "products/keepsake_amelie_heart_initial_key_charm.webp",
+          "B": "products/keepsake_amelie_heart_initial_key_charm-sample-b.webp"
+        }
+      },
+      {
+        "id": "keepsake_atlas_circle_initial_key_charm",
+        "name": "Atlas Circle Initial Key Charm",
+        "image": "products/keepsake_atlas_circle_initial_key_charm.webp",
+        "thumbnail": "products/keepsake_atlas_circle_initial_key_charm-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 1215,
+        "description": "An 18K yellow gold circle initial charm with one round 0.25ct diamond and VD engraved on the key ring.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25ct"
+          },
+          {
+            "key": "info",
+            "value": "Key ring and charm; keys not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true,
+        "initialSamples": {
+          "A": "products/keepsake_atlas_circle_initial_key_charm.webp",
+          "B": "products/keepsake_atlas_circle_initial_key_charm-sample-b.webp"
+        }
+      }
+    ]
+  },
+  {
+    "collection": "singleLady",
+    "category": "Pendant",
+    "items": [
+      {
+        "id": "aura_lunara_pear_pendant",
+        "name": "Lunara Pear Pendant",
+        "image": "products/aura_lunara_pear_pendant.webp",
+        "thumbnail": "products/aura_lunara_pear_pendant-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 1715,
+        "description": "A pear diamond sits within an open teardrop frame, suspended beneath a round accent and a polished gold bail.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "2.00 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "2.25ct"
+          },
+          {
+            "key": "info",
+            "value": "Pendant only; chain not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      },
+      {
+        "id": "aura_virelia_leaf_pendant",
+        "name": "Virelia Leaf Pendant",
+        "image": "products/aura_virelia_leaf_pendant.webp",
+        "thumbnail": "products/aura_virelia_leaf_pendant-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 1555,
+        "description": "A 1.00ct marquise diamond crowns a yellow-gold botanical pendant with two round 0.25ct accents and sculpted foliage.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "1.00 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "1.50ct"
+          },
+          {
+            "key": "info",
+            "value": "Pendant only; chain not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      },
+      {
+        "id": "aura_oriana_oval_pendant",
+        "name": "Oriana Oval Pendant",
+        "image": "products/aura_oriana_oval_pendant.webp",
+        "thumbnail": "products/aura_oriana_oval_pendant-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 1975,
+        "description": "A sweeping gold crescent embraces an oval solitaire, creating an asymmetric pendant with an open silhouette.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "3.00 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "3.00ct"
+          },
+          {
+            "key": "info",
+            "value": "Pendant only; chain not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      },
+      {
+        "id": "aura_estelle_trio_pendant",
+        "name": "Estelle Trio Pendant",
+        "image": "products/aura_estelle_trio_pendant.webp",
+        "thumbnail": "products/aura_estelle_trio_pendant-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 1615,
+        "description": "Two graduated round diamonds lead to a cushion diamond drop, joined by articulated gold links.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "1.00 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "1.75ct"
+          },
+          {
+            "key": "info",
+            "value": "Pendant only; chain not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      },
+      {
+        "id": "aura_amelie_heart_pendant",
+        "name": "Amelie Heart Pendant",
+        "image": "products/aura_amelie_heart_pendant.webp",
+        "thumbnail": "products/aura_amelie_heart_pendant-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 1375,
+        "description": "A round diamond rests within an open gold heart, with softly sculpted curves and a polished bail.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "1.00 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "1.00ct"
+          },
+          {
+            "key": "info",
+            "value": "Pendant only; chain not included. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      }
+    ]
+  },
+  {
+    "collection": "singleLady",
+    "category": "Earring",
+    "items": [
+      {
+        "id": "aura_lunara_pear_earrings",
+        "name": "Lunara Pear Earrings",
+        "image": "products/aura_lunara_pear_earrings.webp",
+        "thumbnail": "products/aura_lunara_pear_earrings-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 2305,
+        "description": "Round diamond studs suspend pear diamond drops from delicate gold connectors, forming a matching pair.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "2.00 ct each"
+          },
+          {
+            "key": "totalKarat",
+            "value": "4.50ct"
+          },
+          {
+            "key": "info",
+            "value": "Stone quantities and price are for the complete pair. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      },
+      {
+        "id": "aura_virelia_leaf_earrings",
+        "name": "Virelia Leaf Earrings",
+        "image": "products/aura_virelia_leaf_earrings.webp",
+        "thumbnail": "products/aura_virelia_leaf_earrings-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 2225,
+        "description": "Mirrored botanical earrings each feature a 1.00ct marquise diamond and two round 0.50ct accents. Smaller sculpted gold leaves keep the diamonds in proportion.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "1.00 ct each"
+          },
+          {
+            "key": "totalKarat",
+            "value": "4.00ct"
+          },
+          {
+            "key": "info",
+            "value": "Stone quantities and price are for the complete pair. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      },
+      {
+        "id": "aura_oriana_oval_earrings",
+        "name": "Oriana Oval Earrings",
+        "image": "products/aura_oriana_oval_earrings.webp",
+        "thumbnail": "products/aura_oriana_oval_earrings-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 2125,
+        "description": "Oval solitaire studs are framed by mirrored gold crescents that curve around the outer edge of each diamond.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "2.00 ct each"
+          },
+          {
+            "key": "totalKarat",
+            "value": "4.00ct"
+          },
+          {
+            "key": "info",
+            "value": "Stone quantities and price are for the complete pair. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      },
+      {
+        "id": "aura_estelle_trio_earrings",
+        "name": "Estelle Trio Earrings",
+        "image": "products/aura_estelle_trio_earrings.webp",
+        "thumbnail": "products/aura_estelle_trio_earrings-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 2105,
+        "description": "Graduated round diamonds descend to cushion drops, with articulated links giving each earring movement.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "1.00 ct each"
+          },
+          {
+            "key": "totalKarat",
+            "value": "3.50ct"
+          },
+          {
+            "key": "info",
+            "value": "Stone quantities and price are for the complete pair. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      },
+      {
+        "id": "aura_amelie_heart_earrings",
+        "name": "Amelie Heart Earrings",
+        "image": "products/aura_amelie_heart_earrings.webp",
+        "thumbnail": "products/aura_amelie_heart_earrings-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 1425,
+        "description": "Open gold heart studs hold a round diamond in each lower curve, creating a matching pair with polished contours.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.50 ct each"
+          },
+          {
+            "key": "totalKarat",
+            "value": "1.00ct"
+          },
+          {
+            "key": "info",
+            "value": "Stone quantities and price are for the complete pair. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      }
+    ]
+  },
+  {
+    "collection": "singleLady",
+    "category": "Bracelet",
+    "items": [
+      {
+        "id": "aura_lunara_pear_bracelet",
+        "name": "Lunara Pear Bracelet",
+        "image": "products/aura_lunara_pear_bracelet.webp",
+        "thumbnail": "products/aura_lunara_pear_bracelet-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 5882,
+        "description": "Five pear diamonds form a curved front on a polished hinged bangle: one 3.00ct centre and four 1.00ct side diamonds.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "3.00 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "7.00ct"
+          },
+          {
+            "key": "info",
+            "value": "Bracelet fit to be confirmed. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      },
+      {
+        "id": "aura_virelia_leaf_bracelet",
+        "name": "Virelia Leaf Bracelet",
+        "image": "products/aura_virelia_leaf_bracelet.webp",
+        "thumbnail": "products/aura_virelia_leaf_bracelet-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 4020,
+        "description": "Five marquise diamond leaf stations form an articulated front on an oval-link chain bracelet, with a 2.00ct centre and four 1.00ct side diamonds. Small gold leaves retain the botanical motif.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "2.00 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "6.00ct"
+          },
+          {
+            "key": "info",
+            "value": "Bracelet fit to be confirmed. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      },
+      {
+        "id": "aura_oriana_oval_bracelet",
+        "name": "Oriana Oval Bracelet",
+        "image": "products/aura_oriana_oval_bracelet.webp",
+        "thumbnail": "products/aura_oriana_oval_bracelet-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 5882,
+        "description": "A graduated row of five oval diamonds spans the front of a polished hinged bangle, with a 3.00ct centre and four 1.00ct side diamonds.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "3.00 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "7.00ct"
+          },
+          {
+            "key": "info",
+            "value": "Bracelet fit to be confirmed. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      },
+      {
+        "id": "aura_estelle_trio_bracelet",
+        "name": "Estelle Trio Bracelet",
+        "image": "products/aura_estelle_trio_bracelet.webp",
+        "thumbnail": "products/aura_estelle_trio_bracelet-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 5882,
+        "description": "Five cushion diamonds are articulated into the front of a rounded rectangular link bracelet, with a 3.00ct centre and four 1.00ct side diamonds. A box clasp closes the bracelet.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "3.00 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "7.00ct"
+          },
+          {
+            "key": "info",
+            "value": "Bracelet fit to be confirmed. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      },
+      {
+        "id": "aura_amelie_heart_bracelet",
+        "name": "Amelie Heart Bracelet",
+        "image": "products/aura_amelie_heart_bracelet.webp",
+        "thumbnail": "products/aura_amelie_heart_bracelet-960.webp",
+        "metal": "18K Yellow Gold",
+        "price": 4020,
+        "description": "An open heart holds a round 2.00ct diamond. Four round 1.00ct bezel-set diamonds, two on each side, bring light to the front of an oval-link chain bracelet.",
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "2.00 ct"
+          },
+          {
+            "key": "totalKarat",
+            "value": "6.00ct"
+          },
+          {
+            "key": "info",
+            "value": "Bracelet fit to be confirmed. Design visualisation; final construction requires confirmation."
+          }
+        ],
+        "designVisualisation": true
+      }
+    ]
+  }
+]);

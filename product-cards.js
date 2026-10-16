@@ -2,7 +2,7 @@
 (() => {
  'use strict';
  const t=(en,zh)=>document.documentElement.lang.startsWith('zh')?zh:en;
- const categories={Ring:['Rings','戒指'],Earring:['Earrings','耳環'],'Earring Stud':['Stud earrings','耳釘'],Necklace:['Necklaces','項鏈'],Bracelet:['Bracelets','手鏈'],Pendant:['Pendants','吊墜'],Anklet:['Anklets','腳鏈'],Brooch:['Brooches','胸針'],Tiara:['Tiaras','冠冕']};
+ const categories={'Key Ring':['Key rings','鑰匙圈'],'Key Charm':['Initial key charms','字母鑰匙吊飾'],Ring:['Rings','戒指'],Earring:['Earrings','耳環'],'Earring Stud':['Stud earrings','耳釘'],Necklace:['Necklaces','項鏈'],Bracelet:['Bracelets','手鏈'],Pendant:['Pendants','吊墜'],Anklet:['Anklets','腳鏈'],Brooch:['Brooches','胸針'],Tiara:['Tiaras','冠冕']};
  const categoryName=category=>t(...(categories[category]||[category,category]));
  const name=product=>document.documentElement.lang.startsWith('zh')&&typeof translations!=='undefined'?(translations['zh-HK']?.['product-'+product.name]||product.name):product.name;
  const price=product=>product.mode==='enquiry'?null:Number(product.preset?.price??product.price);
@@ -16,6 +16,7 @@
   const centreRing=product.mode==='custom'&&product.category==='Ring'&&product.preset.diamonds.length&&!/band|eternity|alternating/i.test(product.name);
   const stones=product.preset?.diamondPriceOptions?t('Diamond size option · ','鑽石大小選項 · ')+product.preset.diamonds[0].carat+' ct':centreRing?t('Centre stone · 1.00 ct','主石 · 1.00 ct'):product.preset?.diamonds?.map(d=>`${d.carat} ct × ${d.qty}`).join(' · ')||product.details?.filter(d=>['centreStone','totalKarat'].includes(d.key)).map(d=>d.value).join(' · ');
   if(stones)copy.append(element('p','showcase-stones',stones+(product.category.startsWith('Earring')?t(' · per pair',' · 每對'):'')));
+  if(product.category==='Bracelet'&&product.preset?.braceletMetalTier){const tier=product.preset.braceletMetalTier;copy.append(element('p','showcase-specification',t('Bracelet specification: ','手鏈規格：')+tier[0].toUpperCase()+tier.slice(1)+(product.preset.lockBraceletTier?t(' · Fixed design',' · 固定設計'):'')));}
   const bottom=element('div','showcase-bottom'),amount=element('span','showcase-price'),value=price(product);
   amount.append(element('small','',product.mode==='enquiry'?t('Private consultation','私人諮詢'):product.mode==='silver'?t('Full price','全額價格'):product.preset?.stackingSetMultiplier===3?t('Three-piece set · starting price','三件套裝 · 起價'):t('Starting configuration','起始規格')),element('strong','',value===null?t('By appointment','只限預約'):money(value)));
   const action=product.mode==='enquiry'?t('Book appointment ↗','預約諮詢 ↗'):product.mode==='silver'?t('View & buy ↗','查看及購買 ↗'):t('View & customise ↗','查看及訂製 ↗');

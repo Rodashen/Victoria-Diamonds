@@ -1,0 +1,13 @@
+/* Existing campaign photographs, blended into each collection's own surface. */
+.collection-image-hero{position:relative;isolation:isolate;overflow:hidden;box-sizing:border-box;max-width:none!important;margin:0!important;min-height:500px;padding:90px max(24px,6vw)!important;text-align:left!important;background:var(--warm-white,#FEFCF9)}
+.collection-image-hero .collection-hero-image{position:absolute;z-index:-2;right:0;top:0;width:58%;height:100%;object-fit:cover;object-position:center}
+.collection-image-hero::after{content:""!important;position:absolute!important;z-index:-1;inset:0!important;width:100%!important;height:100%!important;transform:none!important;margin:0!important;background:linear-gradient(90deg,var(--warm-white,#FEFCF9) 0%,var(--warm-white,#FEFCF9) 40%,rgba(254,252,249,.94) 47%,rgba(254,252,249,.65) 55%,rgba(254,252,249,.22) 65%,rgba(254,252,249,0) 77%)!important}
+.collection-image-hero h1{max-width:600px;margin:0 0 28px!important;font-size:clamp(52px,6vw,92px)!important;line-height:1.04!important}
+.collection-image-hero p{max-width:480px;margin:0!important;line-height:1.7}
+.collection-image-hero .eyebrow{margin-bottom:22px!important}
+@media(max-width:600px){
+ .collection-image-hero{min-height:0;padding:36px 20px 320px!important}
+ .collection-image-hero .collection-hero-image{top:auto;bottom:0;width:100%;height:285px}
+ .collection-image-hero::after{top:auto!important;height:285px!important;background:linear-gradient(180deg,var(--warm-white,#FEFCF9),rgba(254,252,249,.8) 12%,rgba(254,252,249,.35) 27%,rgba(254,252,249,0) 44%)!important}
+ .collection-image-hero h1{font-size:52px!important;margin-bottom:22px!important}
+}

@@ -996,3 +996,455 @@ window.RemainingProducts = {
     }
   ]
 };
+
+window.RemainingProducts.products.push(...[
+  {
+    "id": "keepsake_amelie_heart_initial_key_charm",
+    "name": "Amelie Heart Initial Key Charm",
+    "image": "products/keepsake_amelie_heart_initial_key_charm.webp",
+    "thumbnail": "products/keepsake_amelie_heart_initial_key_charm-960.webp",
+    "type": "keycharm",
+    "collection": "keepsake",
+    "route": "keepsake",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 1
+      }
+    ],
+    "braceletMetalTier": "essential",
+    "soldAsPair": false,
+    "price": 1215,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockDiamonds": true,
+    "initialRequired": true,
+    "initialSamples": {
+      "A": "products/keepsake_amelie_heart_initial_key_charm.webp",
+      "B": "products/keepsake_amelie_heart_initial_key_charm-sample-b.webp"
+    }
+  },
+  {
+    "id": "keepsake_atlas_circle_initial_key_charm",
+    "name": "Atlas Circle Initial Key Charm",
+    "image": "products/keepsake_atlas_circle_initial_key_charm.webp",
+    "thumbnail": "products/keepsake_atlas_circle_initial_key_charm-960.webp",
+    "type": "keycharm",
+    "collection": "keepsake",
+    "route": "keepsake",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 1
+      }
+    ],
+    "braceletMetalTier": "essential",
+    "soldAsPair": false,
+    "price": 1215,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockDiamonds": true,
+    "initialRequired": true,
+    "initialSamples": {
+      "A": "products/keepsake_atlas_circle_initial_key_charm.webp",
+      "B": "products/keepsake_atlas_circle_initial_key_charm-sample-b.webp"
+    }
+  },
+  {
+    "id": "aura_lunara_pear_pendant",
+    "name": "Lunara Pear Pendant",
+    "image": "products/aura_lunara_pear_pendant.webp",
+    "thumbnail": "products/aura_lunara_pear_pendant-960.webp",
+    "type": "pendant",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "2.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 1
+      }
+    ],
+    "braceletMetalTier": "essential",
+    "soldAsPair": false,
+    "price": 1715,
+    "designFee": 0,
+    "needsStoneSelection": false
+  },
+  {
+    "id": "aura_virelia_leaf_pendant",
+    "name": "Virelia Leaf Pendant",
+    "image": "products/aura_virelia_leaf_pendant.webp",
+    "thumbnail": "products/aura_virelia_leaf_pendant-960.webp",
+    "type": "pendant",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "1.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 2
+      }
+    ],
+    "braceletMetalTier": "essential",
+    "soldAsPair": false,
+    "price": 1555,
+    "designFee": 0,
+    "needsStoneSelection": false
+  },
+  {
+    "id": "aura_oriana_oval_pendant",
+    "name": "Oriana Oval Pendant",
+    "image": "products/aura_oriana_oval_pendant.webp",
+    "thumbnail": "products/aura_oriana_oval_pendant-960.webp",
+    "type": "pendant",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "3.00",
+        "qty": 1
+      }
+    ],
+    "braceletMetalTier": "essential",
+    "soldAsPair": false,
+    "price": 1975,
+    "designFee": 0,
+    "needsStoneSelection": false
+  },
+  {
+    "id": "aura_estelle_trio_pendant",
+    "name": "Estelle Trio Pendant",
+    "image": "products/aura_estelle_trio_pendant.webp",
+    "thumbnail": "products/aura_estelle_trio_pendant-960.webp",
+    "type": "pendant",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "1.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "0.50",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 1
+      }
+    ],
+    "braceletMetalTier": "essential",
+    "soldAsPair": false,
+    "price": 1615,
+    "designFee": 0,
+    "needsStoneSelection": false
+  },
+  {
+    "id": "aura_amelie_heart_pendant",
+    "name": "Amelie Heart Pendant",
+    "image": "products/aura_amelie_heart_pendant.webp",
+    "thumbnail": "products/aura_amelie_heart_pendant-960.webp",
+    "type": "pendant",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "1.00",
+        "qty": 1
+      }
+    ],
+    "braceletMetalTier": "essential",
+    "soldAsPair": false,
+    "price": 1375,
+    "designFee": 0,
+    "needsStoneSelection": false
+  },
+  {
+    "id": "aura_lunara_pear_earrings",
+    "name": "Lunara Pear Earrings",
+    "image": "products/aura_lunara_pear_earrings.webp",
+    "thumbnail": "products/aura_lunara_pear_earrings-960.webp",
+    "type": "earrings",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "2.00",
+        "qty": 2
+      },
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 2
+      }
+    ],
+    "braceletMetalTier": "essential",
+    "soldAsPair": true,
+    "price": 2305,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockDiamonds": true
+  },
+  {
+    "id": "aura_virelia_leaf_earrings",
+    "name": "Virelia Leaf Earrings",
+    "image": "products/aura_virelia_leaf_earrings.webp",
+    "thumbnail": "products/aura_virelia_leaf_earrings-960.webp",
+    "type": "earrings",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "1.00",
+        "qty": 2
+      },
+      {
+        "quality": "select",
+        "carat": "0.50",
+        "qty": 4
+      }
+    ],
+    "braceletMetalTier": "essential",
+    "soldAsPair": true,
+    "price": 2225,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockDiamonds": true
+  },
+  {
+    "id": "aura_oriana_oval_earrings",
+    "name": "Oriana Oval Earrings",
+    "image": "products/aura_oriana_oval_earrings.webp",
+    "thumbnail": "products/aura_oriana_oval_earrings-960.webp",
+    "type": "earrings",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "2.00",
+        "qty": 2
+      }
+    ],
+    "braceletMetalTier": "essential",
+    "soldAsPair": true,
+    "price": 2125,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockDiamonds": true
+  },
+  {
+    "id": "aura_estelle_trio_earrings",
+    "name": "Estelle Trio Earrings",
+    "image": "products/aura_estelle_trio_earrings.webp",
+    "thumbnail": "products/aura_estelle_trio_earrings-960.webp",
+    "type": "earrings",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "1.00",
+        "qty": 2
+      },
+      {
+        "quality": "select",
+        "carat": "0.50",
+        "qty": 2
+      },
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 2
+      }
+    ],
+    "braceletMetalTier": "essential",
+    "soldAsPair": true,
+    "price": 2105,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockDiamonds": true
+  },
+  {
+    "id": "aura_amelie_heart_earrings",
+    "name": "Amelie Heart Earrings",
+    "image": "products/aura_amelie_heart_earrings.webp",
+    "thumbnail": "products/aura_amelie_heart_earrings-960.webp",
+    "type": "earrings",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.50",
+        "qty": 2
+      }
+    ],
+    "braceletMetalTier": "essential",
+    "soldAsPair": true,
+    "price": 1425,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockDiamonds": true
+  },
+  {
+    "id": "aura_lunara_pear_bracelet",
+    "name": "Lunara Pear Bracelet",
+    "image": "products/aura_lunara_pear_bracelet.webp",
+    "thumbnail": "products/aura_lunara_pear_bracelet-960.webp",
+    "type": "bracelet",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "3.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "1.00",
+        "qty": 4
+      }
+    ],
+    "braceletMetalTier": "supreme",
+    "soldAsPair": false,
+    "price": 5882,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockDiamonds": true,
+    "lockBraceletTier": true
+  },
+  {
+    "id": "aura_virelia_leaf_bracelet",
+    "name": "Virelia Leaf Bracelet",
+    "image": "products/aura_virelia_leaf_bracelet.webp",
+    "thumbnail": "products/aura_virelia_leaf_bracelet-960.webp",
+    "type": "bracelet",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "2.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "1.00",
+        "qty": 4
+      }
+    ],
+    "braceletMetalTier": "premium",
+    "soldAsPair": false,
+    "price": 4020,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockDiamonds": true,
+    "lockBraceletTier": true
+  },
+  {
+    "id": "aura_oriana_oval_bracelet",
+    "name": "Oriana Oval Bracelet",
+    "image": "products/aura_oriana_oval_bracelet.webp",
+    "thumbnail": "products/aura_oriana_oval_bracelet-960.webp",
+    "type": "bracelet",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "3.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "1.00",
+        "qty": 4
+      }
+    ],
+    "braceletMetalTier": "supreme",
+    "soldAsPair": false,
+    "price": 5882,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockDiamonds": true,
+    "lockBraceletTier": true
+  },
+  {
+    "id": "aura_estelle_trio_bracelet",
+    "name": "Estelle Trio Bracelet",
+    "image": "products/aura_estelle_trio_bracelet.webp",
+    "thumbnail": "products/aura_estelle_trio_bracelet-960.webp",
+    "type": "bracelet",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "3.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "1.00",
+        "qty": 4
+      }
+    ],
+    "braceletMetalTier": "supreme",
+    "soldAsPair": false,
+    "price": 5882,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockDiamonds": true,
+    "lockBraceletTier": true
+  },
+  {
+    "id": "aura_amelie_heart_bracelet",
+    "name": "Amelie Heart Bracelet",
+    "image": "products/aura_amelie_heart_bracelet.webp",
+    "thumbnail": "products/aura_amelie_heart_bracelet-960.webp",
+    "type": "bracelet",
+    "collection": "singleLady",
+    "route": "aura",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "2.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "1.00",
+        "qty": 4
+      }
+    ],
+    "braceletMetalTier": "premium",
+    "soldAsPair": false,
+    "price": 4020,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockDiamonds": true,
+    "lockBraceletTier": true
+  }
+]);

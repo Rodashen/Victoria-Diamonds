@@ -1,0 +1,14 @@
+/* Blend the photograph into the existing warm-white surface without cropping it. */
+.keepsake-hero{
+ background-image:linear-gradient(90deg,var(--warm-white) 0%,var(--warm-white) 40%,rgba(254,252,249,.96) 47%,rgba(254,252,249,.72) 54%,rgba(254,252,249,.3) 62%,rgba(254,252,249,0) 74%),url(images/keepsake-collection-hero.webp);
+ background-size:100% 100%,auto 100%;
+ background-position:center,right center;
+ background-repeat:no-repeat;
+}
+@media(max-width:600px){
+ .keepsake-hero{
+  background-image:linear-gradient(180deg,var(--warm-white) 0%,rgba(254,252,249,.8) 12%,rgba(254,252,249,.35) 27%,rgba(254,252,249,0) 44%),url(images/keepsake-collection-hero.webp);
+  background-size:100% 285px,100% auto;
+  background-position:center bottom,center bottom;
+ }
+}

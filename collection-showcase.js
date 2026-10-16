@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
  const page=location.pathname.split('/').filter(Boolean).pop();
  const collection=Object.keys(registry?.collections||{}).find(key=>{const file=registry.collections[key][1];return file===page||file.slice(0,-5)===page;});
  if(!collection)return;
- const host=collection==='mensCollection'?document.getElementById('mensProducts'):document.querySelector('.collection-section');
+ const host=['mensCollection','keepsakeCollection'].includes(collection)?document.getElementById('mensProducts'):document.querySelector('.collection-section');
  if(!host)return;
  const inventory=registry.products.filter(product=>product.collection===collection);
  const categories=[...new Set(inventory.map(product=>product.category))];
@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
  const sortLabel=element('label','',t('Sort','排序'));sortLabel.htmlFor='collectionSort';
  const sort=element('select');sort.id='collectionSort';
  const status=element('p','showcase-count');status.setAttribute('role','status');status.setAttribute('aria-live','polite');
- toolbar.append(searchLabel,search,typeLabel,type,sortLabel,sort,status);
+ [[searchLabel,search],[typeLabel,type],[sortLabel,sort]].forEach(([label,control])=>{const field=element('div','showcase-filter');field.append(label,control);toolbar.append(field);});
+ toolbar.append(status);
  const results=element('div','showcase-results');
  const empty=element('div','showcase-empty');empty.hidden=true;
  const reset=element('button');reset.type='button';reset.addEventListener('click',()=>{search.value='';type.value='';sort.value='default';render();search.focus();});
@@ -48,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
    const products=inventory.filter(product=>product.category===category&&normalize(product.name+' '+translated(product)+' '+categoryName(category)).includes(query));
    if(sort.value!=='default')products.sort((a,b)=>{const pa=price(a),pb=price(b);if(pa===null)return pb===null?0:1;if(pb===null)return -1;return sort.value==='asc'?pa-pb:pb-pa;});
    if(!products.length)return;count+=products.length;
-   const section=element('section','showcase-category');section.id=categoryId(category);section.append(element('h2','',categoryName(category)));
+   const section=element('section','showcase-category');section.id=categoryId(category);
+   const heading=element('h2','',categoryName(category));heading.id=section.id+'-title';section.setAttribute('aria-labelledby',heading.id);section.append(heading);
    const grid=element('div','showcase-grid');
    products.forEach(product=>grid.append(window.VDProductCards.create(product)));
 section.append(grid);results.append(section);
