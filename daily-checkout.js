@@ -54,6 +54,7 @@
  }
  function visualChoices(){
   dialog.querySelectorAll('#dailyControls select').forEach(select=>{
+   if(select.disabled)return;
    const original=select.parentElement,group=document.createElement('fieldset'),legend=document.createElement('legend');
    group.className='configuration-options';if(original.id)group.id=original.id;group.hidden=original.hidden;
    legend.textContent=original.firstChild.textContent.trim();group.append(legend);
@@ -68,6 +69,7 @@
     if(diamond&&Number(option.value)>0){const illustration=document.createElement('span');illustration.className='diamond-size';illustration.setAttribute('aria-hidden','true');const size=60*Math.cbrt(Number(option.value)/5);illustration.style.setProperty('--stone-size',size+'px');illustration.innerHTML='<svg viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="1.1"><path vector-effect="non-scaling-stroke" d="M2 13 12 2h24l10 11-22 25Z M2 13h44 M12 2l6 11L24 38l6-25 6-11 M18 13l6-11 6 11"/></svg>';face.append(illustration);}
     const text=document.createElement('span');text.textContent=metal?{gold:t('Yellow gold','黃金'),silver:t('Silver','白銀'),platinum:t('Platinum','鉑金')}[option.value]:option.textContent;
     face.append(text);
+    if(selected.diamondPriceOptions&&select.id==='dailyCarat0'){const price=document.createElement('small');price.textContent=money(selected.diamondPriceOptions[option.value]);face.append(price);}
     if(select.id==='dailyKarat'){const purity=document.createElement('small');purity.textContent=({9:'375',14:'585',18:'750',22:'916'})[option.value]+' '+t('purity','純度');face.append(purity);}
     label.append(input,face);choices.append(label);
     input.addEventListener('change',()=>{if(input.checked){select.value=input.value;select.dispatchEvent(new Event('input',{bubbles:true}));}});
@@ -78,7 +80,7 @@
  }
  function open(p){
   selected=p;lastFocus=document.activeElement;quote=null;busy=false;
-  const options=catalogue.carats.map(c=>`<option value="${c}">${c} ct</option>`).join('');
+  const options=(p.diamondPriceOptions?Object.keys(p.diamondPriceOptions):catalogue.carats).map(c=>`<option value="${c}">${c} ct</option>`).join('');
   const tierNames=['essential','signature','atelier','premium','supreme'],minimumTier=tierNames.indexOf(p.minBraceletTier||'essential');
   const tierOptions=tierNames.map((tier,index)=>`<option value="${tier}" ${index<minimumTier?'disabled':''}>${tier[0].toUpperCase()+tier.slice(1)}${tier==='essential'?' · 2.5–4 g':tier==='signature'?' · 4–5.5 g':tier==='atelier'?' · 5.5–8 g':tier==='premium'?' · 8–19 g':' · 16+ g'}</option>`).join('');
   const diamond=i=>`<fieldset class="daily-diamond"><legend>${i===0?t('Main diamonds','主鑽'):t('Diamond specification ','鑽石規格 ')+(i+1)}</legend><div class="daily-fields"><label>${t('Quality','級別')}<select id="dailyQuality${i}"><option value="select">Select</option><option value="luxe">Luxe</option></select></label><label>${t('Carat per stone','每顆克拉')}<select id="dailyCarat${i}">${i||['foreverBond','singleLady'].includes(p.collection)?`<option value="0">${t('None','無')}</option>`:''}${options}</select></label><label>${t('Number of stones','鑽石數量')}<input id="dailyQty${i}" type="number" min="1" max="100" step="1" value="1" required></label></div></fieldset>`;
@@ -98,7 +100,24 @@
   if(p.needsStoneSelection){const option=document.createElement('option');option.value='';option.textContent=t('Choose a stone size','選擇鑽石大小');option.disabled=true;field('dailyCarat0').prepend(option);field('dailyCarat0').value='';}
   if(p.needsReview){const label=document.createElement('label');label.className='configuration-confirm';label.innerHTML='<input type="checkbox" required id="configurationConfirm">'+t('I have checked the stone sizes and counts above for my custom order.','我已確認此訂製訂單的鑽石大小及數量。');field('dailySubmit').before(label);}
   if(p.designFee){const feeNote=document.createElement('p');feeNote.className='daily-note';feeNote.textContent=t(`Your confirmed price includes a £${p.designFee} design charge per piece.`,`確認價格包含每件 £${p.designFee} 設計費。`);field('dailyTotal').closest('.daily-summary').after(feeNote);}
+  if(p.lockDiamonds){
+   dialog.querySelector('.daily-heading > div > p:last-child').textContent=t('Choose your metal. This piece has a fixed diamond design.','選擇金屬材質，此作品的鑽石設計已固定。');
+   dialog.querySelectorAll('.daily-diamond input,.daily-diamond select').forEach(control=>control.disabled=true);
+   dialog.querySelectorAll('.daily-diamond').forEach(group=>group.hidden=true);
+   field('dailyAdditional').hidden=true;
+   const note=document.createElement('p');note.className='daily-note';note.textContent=t('Fixed diamond design: ','固定鑽石設計：')+p.diamonds.map(d=>`${d.carat} ct × ${d.qty}`).join(' · ')+t(' per pair. Diamond sizes, quantities and quality are predetermined. You can choose your metal.','（每對）。鑽石大小、數量及級別已固定，您可選擇金屬材質。');field('dailyAdditional').before(note);
+  }
+  if(p.lockBraceletTier){field('dailyTier').disabled=true;field('dailyTier').parentElement.hidden=true;}
+  if(p.diamondPriceOptions){
+   const first=field('dailyCarat0').closest('.daily-diamond');first.querySelector('legend').textContent=t('Bracelet diamond size option','手鏈鑽石大小選項');
+   const total=window.VDProducts?.products.find(product=>product.id===p.id)?.details?.find(detail=>detail.key==='totalKarat')?.value;
+   if(total)field('dailyCarat0').parentElement.firstChild.textContent=t('Carat per stone · Total carat weight: ','每顆克拉 · 總克拉重量：')+total;
+   [field('dailyQuality0'),field('dailyQty0')].forEach(control=>{control.disabled=true;control.parentElement.hidden=true;});
+   field('dailyAdditional').hidden=true;caratSummary.hidden=true;
+   const note=document.createElement('p');note.className='daily-note';note.textContent=t('Choose the diamond carat option for this bracelet. The diamond portion is added to your selected metal price. The bracelet design and specification are fixed.','選擇此手鏈的鑽石克拉選項。鑽石部分價格加上所選金屬價格，手鏈設計及規格已固定。');first.before(note);
+  }
   visualChoices();
+  if(p.diamondPriceOptions&&field('configurationConfirm'))field('configurationConfirm').parentElement.lastChild.textContent=t('I have checked the bracelet diamond size option for my order.','我已確認訂單的手鏈鑽石大小選項。');
   field('dailyClose').onclick=close;field('dailyRetry').onclick=()=>{field('dailyRetry').hidden=true;refreshQuote();};
   field('dailyControls').addEventListener('input',e=>{if(!e.target.dataset.select&&!['dailyCustomer','dailyEmail','configurationConfirm'].includes(e.target.id))changed();});
   field('dailyForm').addEventListener('submit',submit);if(!inline){dialog.showModal();field('dailyClose').focus();}changed();

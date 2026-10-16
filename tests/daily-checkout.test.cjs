@@ -28,7 +28,7 @@ test('all 31 website pieces map uniquely to backend and their default price',()=
 });
 test('all products, metals, qualities and payment choices agree with server pricing',()=>{
  for(const p of products)for(const metal of ['gold','silver','platinum'])for(const quality of ['select','luxe'])for(const paymentPercentage of [30,50,100]){
-  const input={...body(p),metal,karat:14,paymentPercentage,diamonds:[{carat:'0.05',qty:3,quality}],quantity:2};
+  const input={...body(p),metal,karat:14,paymentPercentage,diamonds:[{carat:p.diamondPriceOptions?'0.25':'0.05',qty:3,quality}],quantity:2};
   const q=quoteDaily(input),computed=pricing.computePricing(q.params);
   assert.equal(q.total,Math.round(computed.finalTotal*100)/100);assert.equal(q.due,Math.round(q.total*paymentPercentage)/100);assert.equal(Math.round((q.due+q.balance)*100),Math.round(q.total*100));
  }
@@ -38,18 +38,19 @@ test('every offered diamond size and gold karat matches the calculator frontend'
  const html=fs.readFileSync(path.join(calculator,'index.html'),'utf8');
  for(const m of html.matchAll(/<script>([\s\S]*?)<\/script>/g))vm.runInContext(m[1],context);
  for(const p of products)for(const karat of [9,14,18,22])for(const carat of pricing.DIAMOND_CARATS)for(const quality of ['select','luxe']){
+  if(p.diamondPriceOptions&&!Object.hasOwn(p.diamondPriceOptions,Number(carat).toFixed(2)))continue;
   const input={...body(p),karat,diamonds:[{quality,carat,qty:1}]};
   for(const [key,value] of Object.entries({collection:'dailySparkle',typeFilter:'all',product:p.id,metal:'gold',karat,quantity:1,braceletMetalTier:input.braceletMetalTier,dc0:carat,dq0:quality,dqt0:1}))controls[key]={value:String(value)};
   const front=vm.runInContext('computePricing()',context);
   if(front.hasUnpricedDiamond)assert.throws(()=>quoteDaily(input));else assert.equal(quoteDaily(input).total,front.finalTotal,`${p.name} ${karat} ${carat} ${quality}`);
  }
 });
-test('bracelet tiers affect both quote and checkout rather than ignoring selection',()=>{
+test('bracelet specification stays fixed despite a changed request tier',()=>{
  const p=products.find(p=>p.type==='bracelet');
  for(const tier of Object.keys(pricing.PRICING_PACKAGE_MATRIX)){
   const q=quoteDaily({...body(p),braceletMetalTier:tier});
-  assert.equal(pricing.computePricing(q.params).packageKey,tier);
-  assert.equal(q.total,pricing.PRICING_PACKAGE_MATRIX[tier]['18K']+pricing.computePricing(q.params).diamondPrice);
+  assert.equal(pricing.computePricing(q.params).packageKey,p.braceletMetalTier);
+  assert.equal(q.total,pricing.PRICING_PACKAGE_MATRIX[p.braceletMetalTier]['18K']+pricing.computePricing(q.params).diamondPrice);
  }
 });
 test('tampered prices and internal discounts cannot change customer quote',()=>{

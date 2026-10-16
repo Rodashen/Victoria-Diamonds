@@ -251,15 +251,23 @@ window.MensProducts = {
         {
           "quality": "select",
           "carat": "0.75",
-          "qty": 29
+          "qty": 1
         }
       ],
       "braceletMetalTier": "premium",
       "minBraceletTier": "premium",
-      "price": 7972,
+      "price": 5220,
       "needsReview": true,
       "designFee": 0,
-      "thumbnail": "products/mens_apex_tennis_bracelet-960.webp"
+      "thumbnail": "products/mens_apex_tennis_bracelet-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Pillar Tennis Bracelet",
@@ -274,15 +282,23 @@ window.MensProducts = {
         {
           "quality": "select",
           "carat": "0.75",
-          "qty": 29
+          "qty": 1
         }
       ],
       "braceletMetalTier": "supreme",
       "minBraceletTier": "supreme",
-      "price": 9484,
+      "price": 6732,
       "needsReview": true,
       "designFee": 0,
-      "thumbnail": "products/mens_pillar_tennis_bracelet-960.webp"
+      "thumbnail": "products/mens_pillar_tennis_bracelet-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Anchor Link Bracelet",
@@ -297,15 +313,23 @@ window.MensProducts = {
         {
           "quality": "select",
           "carat": "0.75",
-          "qty": 3
+          "qty": 1
         }
       ],
       "braceletMetalTier": "supreme",
       "minBraceletTier": "supreme",
-      "price": 4596,
+      "price": 6732,
       "needsReview": true,
       "designFee": 0,
-      "thumbnail": "products/mens_anchor_link_bracelet-960.webp"
+      "thumbnail": "products/mens_anchor_link_bracelet-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Vanguard Cuff",
@@ -320,15 +344,23 @@ window.MensProducts = {
         {
           "quality": "select",
           "carat": "0.75",
-          "qty": 3
+          "qty": 1
         }
       ],
       "braceletMetalTier": "supreme",
       "minBraceletTier": "supreme",
-      "price": 4596,
+      "price": 6732,
       "needsReview": true,
       "designFee": 0,
-      "thumbnail": "products/mens_vanguard_cuff-960.webp"
+      "thumbnail": "products/mens_vanguard_cuff-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Foundry Link Bracelet",
@@ -348,10 +380,18 @@ window.MensProducts = {
       ],
       "braceletMetalTier": "supreme",
       "minBraceletTier": "supreme",
-      "price": 4220,
+      "price": 6732,
       "needsReview": true,
       "designFee": 0,
-      "thumbnail": "products/mens_foundry_link_bracelet-960.webp"
+      "thumbnail": "products/mens_foundry_link_bracelet-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Obelisk Pendant",

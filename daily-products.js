@@ -488,7 +488,9 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1263,
       "designFee": 0,
-      "thumbnail": "products/ds_s_luminea-960.webp"
+      "thumbnail": "products/ds_s_luminea-960.webp",
+      "lockDiamonds": true,
+      "needsStoneSelection": false
     },
     {
       "name": "Fiora Earrings",
@@ -511,7 +513,9 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1625,
       "designFee": 0,
-      "thumbnail": "products/ds_s_fiora-960.webp"
+      "thumbnail": "products/ds_s_fiora-960.webp",
+      "lockDiamonds": true,
+      "needsStoneSelection": false
     },
     {
       "name": "Martini Studs",
@@ -540,17 +544,20 @@ window.DailyProducts = {
           "quality": "select",
           "carat": "1.00",
           "qty": 1
-        },
-        {
-          "quality": "select",
-          "carat": "0.15",
-          "qty": 8
         }
       ],
       "braceletMetalTier": "premium",
-      "price": 3050,
+      "price": 5520,
       "designFee": 0,
-      "thumbnail": "products/ds_m_aurea_bracelet-960.webp"
+      "thumbnail": "products/ds_m_aurea_bracelet-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Solenne Bracelet",
@@ -562,22 +569,20 @@ window.DailyProducts = {
           "quality": "select",
           "carat": "0.75",
           "qty": 1
-        },
-        {
-          "quality": "select",
-          "carat": "0.15",
-          "qty": 4
-        },
-        {
-          "quality": "select",
-          "carat": "0.1",
-          "qty": 4
         }
       ],
       "braceletMetalTier": "premium",
-      "price": 2940,
+      "price": 5220,
       "designFee": 0,
-      "thumbnail": "products/ds_m_solenne_bracelet-960.webp"
+      "thumbnail": "products/ds_m_solenne_bracelet-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Liora Bracelet",
@@ -589,17 +594,20 @@ window.DailyProducts = {
           "quality": "select",
           "carat": "1.00",
           "qty": 1
-        },
-        {
-          "quality": "select",
-          "carat": "0.25",
-          "qty": 4
         }
       ],
       "braceletMetalTier": "premium",
-      "price": 3130,
+      "price": 5520,
       "designFee": 0,
-      "thumbnail": "products/ds_m_liora_bracelet-960.webp"
+      "thumbnail": "products/ds_m_liora_bracelet-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Celeste Bracelet",
@@ -610,18 +618,21 @@ window.DailyProducts = {
         {
           "quality": "select",
           "carat": "0.50",
-          "qty": 3
-        },
-        {
-          "quality": "select",
-          "carat": "0.1",
-          "qty": 14
+          "qty": 1
         }
       ],
       "braceletMetalTier": "premium",
-      "price": 3292,
+      "price": 4920,
       "designFee": 0,
-      "thumbnail": "products/ds_m_celeste_bracelet-960.webp"
+      "thumbnail": "products/ds_m_celeste_bracelet-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Lumière Bracelet",
@@ -631,14 +642,22 @@ window.DailyProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "0.1",
-          "qty": 12
+          "carat": "0.25",
+          "qty": 1
         }
       ],
       "braceletMetalTier": "premium",
-      "price": 2796,
+      "price": 4720,
       "designFee": 0,
-      "thumbnail": "products/ds_m_lumiere_bracelet-960.webp"
+      "thumbnail": "products/ds_m_lumiere_bracelet-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     }
   ]
 };

@@ -904,16 +904,23 @@ window.RemainingProducts = {
         {
           "quality": "select",
           "carat": "0.25",
-          "qty": 7
+          "qty": 1
         }
       ],
       "braceletMetalTier": "premium",
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 3150,
+      "price": 4720,
       "designFee": 0,
-      "thumbnail": "products/sl_b_diamond_paperclip_link_bracelet-960.webp"
+      "thumbnail": "products/sl_b_diamond_paperclip_link_bracelet-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      }
     },
     {
       "name": "Pear Cluster Drop Necklace",
@@ -970,14 +977,22 @@ window.RemainingProducts = {
         {
           "quality": "select",
           "carat": "0.50",
-          "qty": 20
+          "qty": 1
         }
       ],
       "braceletMetalTier": "premium",
       "needsReview": true,
-      "price": 5520,
+      "price": 4920,
       "designFee": 0,
-      "thumbnail": "products/ow_l_marquise_round_alternating_tennis-960.webp"
+      "thumbnail": "products/ow_l_marquise_round_alternating_tennis-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     }
   ]
 };

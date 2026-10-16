@@ -328,17 +328,19 @@ window.HighNoteProducts = {
         {
           "quality": "select",
           "carat": "0.50",
-          "qty": 4
+          "qty": 2
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": true,
-      "price": 1725,
+      "price": 1425,
       "designFee": 0,
-      "thumbnail": "products/ow_m_fiora-960.webp"
+      "thumbnail": "products/ow_m_fiora-960.webp",
+      "lockDiamonds": true,
+      "needsStoneSelection": false
     },
     {
-      "name": "Lumina Wedding Tennis",
+      "name": "Lumina Tennis",
       "id": "ow_l_lumina",
       "image": "products/ow_l_lumina.webp",
       "type": "bracelet",
@@ -346,14 +348,22 @@ window.HighNoteProducts = {
         {
           "quality": "select",
           "carat": "0.50",
-          "qty": 7
+          "qty": 1
         }
       ],
-      "braceletMetalTier": "essential",
+      "braceletMetalTier": "premium",
       "soldAsPair": false,
-      "price": 2175,
+      "price": 4920,
       "designFee": 0,
-      "thumbnail": "products/ow_l_lumina-960.webp"
+      "thumbnail": "products/ow_l_lumina-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Arabella",
@@ -364,14 +374,22 @@ window.HighNoteProducts = {
         {
           "quality": "select",
           "carat": "0.50",
-          "qty": 8
+          "qty": 1
         }
       ],
-      "braceletMetalTier": "essential",
+      "braceletMetalTier": "premium",
       "soldAsPair": false,
-      "price": 2325,
+      "price": 4920,
       "designFee": 0,
-      "thumbnail": "products/ow_l_arabella-960.webp"
+      "thumbnail": "products/ow_l_arabella-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Classic Round Tennis Bracelet (Gold)",
@@ -387,9 +405,17 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "premium",
       "soldAsPair": false,
-      "price": 2770,
+      "price": 5520,
       "designFee": 0,
-      "thumbnail": "products/ow_l_classic_round_tennis_gold-960.webp"
+      "thumbnail": "products/ow_l_classic_round_tennis_gold-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Emerald-Cut Tennis Bracelet",
@@ -405,9 +431,17 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "premium",
       "soldAsPair": false,
-      "price": 2770,
+      "price": 5520,
       "designFee": 0,
-      "thumbnail": "products/ow_l_emerald_cut_tennis-960.webp"
+      "thumbnail": "products/ow_l_emerald_cut_tennis-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     },
     {
       "name": "Pear-Cut Tennis Bracelet (Gold)",
@@ -423,9 +457,17 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "premium",
       "soldAsPair": false,
-      "price": 2770,
+      "price": 5520,
       "designFee": 0,
-      "thumbnail": "products/ow_l_pear_cut_tennis_gold-960.webp"
+      "thumbnail": "products/ow_l_pear_cut_tennis_gold-960.webp",
+      "lockBraceletTier": true,
+      "diamondPriceOptions": {
+        "0.25": 2200,
+        "0.50": 2400,
+        "0.75": 2700,
+        "1.00": 3000
+      },
+      "needsStoneSelection": false
     }
   ]
 };
