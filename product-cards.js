@@ -12,6 +12,7 @@
   const link=element('a','showcase-card');link.href=window.VDProducts.url(product);link.target='_blank';link.rel='noopener';link.dataset.productId=product.id;
   const frame=element('div','showcase-image'),img=element('img');img.src='images/'+(product.thumbnail||product.image);img.alt=window.VDProducts.imageAlt(product);img.loading='lazy';img.decoding='async';img.width=960;img.height=960;frame.append(img);
   const copy=element('div','showcase-copy');copy.append(element('p','showcase-kicker',categoryName(product.category)),element('h3','',name(product)));
+  copy.prepend(element('span','ux-order-badge',product.mode==='enquiry'?t('By appointment','僅限預約'):product.mode==='silver'?t('Fixed design · Full payment','固定設計 · 全額付款'):t('Customise online','網上訂製')));
   const metal=product.metal||{gold:'18K Gold',platinum:'Platinum',silver:'Silver'}[product.preset?.metal];if(metal)copy.append(element('p','showcase-metal',metal));
   const centreRing=product.mode==='custom'&&product.category==='Ring'&&product.preset.diamonds.length&&!/band|eternity|alternating/i.test(product.name);
   const stones=product.preset?.diamondPriceOptions?t('Diamond size option · ','鑽石大小選項 · ')+product.preset.diamonds[0].carat+' ct':centreRing?t('Centre stone · 1.00 ct','主石 · 1.00 ct'):product.preset?.diamonds?.map(d=>`${d.carat} ct × ${d.qty}`).join(' · ')||product.details?.filter(d=>['centreStone','totalKarat'].includes(d.key)).map(d=>d.value).join(' · ');

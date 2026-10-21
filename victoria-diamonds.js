@@ -40,7 +40,11 @@
             mobileOverlay.classList.toggle('active', isOpen);
             mobileMenuToggle.classList.toggle('active', isOpen);
             mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+            mobileNav.setAttribute('aria-hidden', String(!isOpen));
+            mobileNav.inert = !isOpen;
             updateBodyScroll();
+            if (isOpen) mobileNavClose?.focus();
+            else if (mobileNav.contains(document.activeElement)) mobileMenuToggle.focus();
         }
 
         function openModal(modal) {
@@ -82,6 +86,13 @@
 
         if (mobileMenuToggle && mobileNav && mobileOverlay) {
             mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.setAttribute('aria-controls', 'mobileNav');
+            mobileNav.setAttribute('role', 'dialog');
+            mobileNav.setAttribute('aria-modal', 'true');
+            mobileNav.setAttribute('aria-label', 'Navigation');
+            mobileNav.setAttribute('aria-hidden', 'true');
+            mobileNav.inert = true;
+            mobileNavClose?.setAttribute('aria-label', 'Close menu');
             mobileMenuToggle.addEventListener('click', function() {
                 setMobileNavigation(
                     !mobileNav.classList.contains('active')
@@ -98,10 +109,15 @@
                 });
             }
 
-            mobileNav.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    setMobileNavigation(false);
-                });
+            mobileNav.addEventListener('click', function(event) {
+                if (event.target.closest('a')) setMobileNavigation(false);
+            });
+            mobileNav.addEventListener('keydown', function(event) {
+                if(event.key !== 'Tab') return;
+                const items=Array.from(mobileNav.querySelectorAll('a,button,summary,select')).filter(node=>node.getClientRects().length&&!node.disabled);
+                const first=items[0],last=items[items.length-1];
+                if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus();}
+                else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}
             });
         }
 
