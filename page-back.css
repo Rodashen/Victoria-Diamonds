@@ -1,0 +1,5 @@
+.page-back-bar{box-sizing:border-box;position:relative;z-index:2;max-width:1480px;margin:0 auto;padding:12px 4vw;background:transparent;text-align:left}
+.page-back-link{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:44px;padding:10px 16px;gap:8px;border:1px solid #C4B5A5;border-radius:8px;background:#FFFBF5;color:#1c1c1c;font:500 13px/1.5 var(--font-body,'DM Sans',Arial,sans-serif);text-decoration:none;cursor:pointer;white-space:nowrap}
+.page-back-link:hover{background:#F7F3ED}.page-back-link:focus-visible{outline:2px solid #8B6914;outline-offset:3px}.page-buying-back{margin:0 0 20px}
+.page-back-legacy{display:none!important}
+@media(max-width:760px){.page-back-bar{padding:10px 18px}.page-back-link{min-height:44px;font-size:13px}}
