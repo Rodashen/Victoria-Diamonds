@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
  // Existing artist content and information dialogs gain focus containment and return focus.
  const artist=document.getElementById('artistModal');
  function closeArtist(){artist.classList.remove('active');artist.setAttribute('aria-hidden','true');document.body.style.overflow='';}
- document.getElementById('craftArtistBtn').addEventListener('click',()=>{artist.classList.add('active');artist.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';});
+ // Know Our Artist is now a normal link to the shareable artist gallery.
  artist.querySelectorAll('button').forEach(button=>button.addEventListener('click',closeArtist));
  artist.addEventListener('click',event=>{if(event.target===artist)closeArtist();});
  const focusable='a[href],button:not([disabled]),input:not([type=hidden]):not([disabled]),select,summary,[tabindex="0"]';
