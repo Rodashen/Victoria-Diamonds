@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="atelier-feedback.js?v=20261023ring" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://crm.zoho.eu; frame-src https://crm.zoho.eu https://www.google.com/maps;  object-src 'none'; base-uri 'self'; form-action 'self' https://crm.zoho.eu; upgrade-insecure-requests">
@@ -146,22 +147,23 @@
     </style>
     <link rel="stylesheet" href="landing-page.css?v=20261013a">
     <link rel="stylesheet" href="catalogue-browser.css?v=20261004e">
-    <script src="catalogue-data.js?v=20261022a" defer></script>
+    <script src="catalogue-data.js?v=20261023photos" defer></script>
     <script src="mens-products.js?v=20261016a" defer></script>
-    <script src="daily-products.js?v=20261016a" defer></script>
+    <script src="daily-products.js?v=20261023photos" defer></script>
     <script src="catalogue-browser.js?v=20261022a" defer></script>
     <script src="landing-page.js?v=20261022artist" defer></script>
-    <script src="translations.js?v=20261022a"></script>
-    <script src="victoria-diamonds.js?v=20261021a"></script>
+    <script src="translations.js?v=20261023nav"></script>
+    <script src="victoria-diamonds.js?v=20261023ring"></script>
 <script src="high-note-products.js?v=20261022a" defer></script>
-<script src="remaining-products.js?v=20261017a" defer></script><script src="product-registry.js?v=20261017a" defer></script><script src="design-rules.js?v=20261022a" defer></script><script src="diamond-prices.js?v=20261022a" defer></script>
+<script src="remaining-products.js?v=20261023photos" defer></script><script src="product-registry.js?v=20261017a" defer></script><script src="design-rules.js?v=20261022a" defer></script><script src="diamond-prices.js?v=20261022a" defer></script>
 <link rel="stylesheet" href="collection-showcase.css?v=20261017c">
     <link rel="canonical" href="https://victoria-diamonds.com/">
 <link rel="icon" href="images/favicon.ico?v=20261014b" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=20261014b"><link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=20261014b">
 <link rel="stylesheet" href="mobile-browsing.css?v=20261021a">
 <link rel="stylesheet" href="page-back.css?v=20261021b">
 <link rel="stylesheet" href="desktop-storefront.css?v=20261023launch">
-<link rel="stylesheet" href="atelier-theme.css?v=20261023launch">
+<link rel="stylesheet" href="atelier-theme.css?v=20261023newsletter">
+<link rel="stylesheet" href="atelier-feedback.css?v=20261023ring">
 </head>
 <body class="landing-page">
     <div class="progress-bar" id="progressBar"></div>
@@ -223,7 +225,7 @@
                 </button>
             </div>
         </div>
-<nav class="utility-nav" aria-label="Information"><a href="journal.html" class="nav-catalog">Journal</a><a href="artist.html" class="nav-catalog">Know Our Artist</a><a href="#diamond-pricing" class="nav-catalog" data-i18n="nav-transparency">VD Price</a><a href="Jewelry-Care.pdf" class="nav-catalog" target="_blank" rel="noopener" data-i18n="nav-jewelry-care">Jewelry Care</a><a href="Catalogue.pdf" download="Victoria-Diamonds-Catalogue.pdf" class="nav-catalog" data-i18n="nav-download-catalogue">Download Our Catalogue</a><button class="js-guarantee-trigger" data-i18n="nav-our-guarantee">Our Guarantee</button></nav>
+<nav class="utility-nav" aria-label="Information"><a href="journal.html" class="nav-catalog">Journal</a><a href="#diamond-pricing" class="nav-catalog" data-i18n="nav-transparency">Price</a><a href="Jewelry-Care.pdf" class="nav-catalog" target="_blank" rel="noopener" data-i18n="nav-jewelry-care">Jewelry Care</a><a href="Catalogue.pdf" download="Victoria-Diamonds-Catalogue.pdf" class="nav-catalog" data-i18n="nav-download-catalogue">Download Our Catalogue</a><button class="js-guarantee-trigger" data-i18n="nav-our-guarantee">Our Guarantee</button><a href="artist.html" class="nav-catalog">Know Our Artist</a></nav>
     </header>
 
 
@@ -234,7 +236,7 @@
         <ul class="mobile-nav-links">
             <li><a href="#collections" data-i18n="nav-collections">Collections</a></li>
             <li><a href="journal.html">Blog &amp; Diamond Guides</a></li>
-            <li><a href="artist.html">Know Our Artist</a></li>
+
             <li><a href="#story" data-i18n="nav-our-story">Our Story</a></li>
             <li><a href="#craftsmanship" data-i18n="nav-craftsmanship">Craftsmanship</a></li>
             <li><a href="#contact" data-i18n="nav-visit-us">Visit Us</a></li>
@@ -248,7 +250,7 @@
                 <a href="T&C.pdf" target="_blank" rel="noopener" data-i18n="footer-terms-conditions">Terms &amp; Conditions</a>
             </li>
             <li>
-                <a href="#diamond-pricing" id="mobileTransparencyLink" data-i18n="nav-transparency">VD Price</a>
+                <a href="#diamond-pricing" id="mobileTransparencyLink" data-i18n="nav-transparency">Price</a>
             </li>
             <li>
                 <a href="Jewelry-Care.pdf" target="_blank" rel="noopener" data-i18n="nav-jewelry-care">Jewelry Care</a>
@@ -256,6 +258,7 @@
             <li>
                 <a href="#" id="mobileGuaranteeLink" class="js-guarantee-trigger" data-i18n="nav-our-guarantee">Our Guarantee</a>
             </li>
+            <li><a href="artist.html">Know Our Artist</a></li>
         </ul>
     </nav>
 
@@ -1154,7 +1157,6 @@
                     <iframe name="zohoSubmitIframe" id="zohoSubmitIframe" style="display:none;"></iframe>
                     <div id="wf_splash" style="display:none;">
                         <div id="wf_splash_info"></div>
-                    </div>
                     </div>
                     <div class="email-subscription-success" data-i18n="email-subscription-success">
                         Thank You for Subscribing!<br><br>

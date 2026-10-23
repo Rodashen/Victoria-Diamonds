@@ -691,6 +691,8 @@ function resetEmailSubscriptionStates() {
     if (!emailSubscriptionPopup) {
         return;
     }
+    emailSubscriptionPopup.classList.remove('subscription-confirmed');
+    globalThis.VDLoading?.set('newsletter',false);
 
     const formState =
         emailSubscriptionPopup.querySelector(
@@ -746,6 +748,7 @@ function resetEmailSubscriptionStates() {
     }
 
     emailSubscriptionSubmissionPending = false;
+        globalThis.VDLoading?.set('newsletter',false);
 
     if (emailSubscriptionSuccessTimer) {
         clearTimeout(emailSubscriptionSuccessTimer);
@@ -756,11 +759,14 @@ function resetEmailSubscriptionStates() {
     // ---------- Show Success ----------
    function showEmailSubscriptionSuccess() {
         if (!emailSubscriptionPopup) return;
+        emailSubscriptionPopup.classList.add('subscription-confirmed');
         const formState = emailSubscriptionPopup.querySelector('.email-subscription-form-state');
         const success = emailSubscriptionPopup.querySelector('.email-subscription-success');
         if (formState) { formState.hidden = true; formState.style.display = 'none'; }
-        if (success) { success.classList.add('show'); success.style.display = 'block'; success.setAttribute('role', 'status'); }
+        emailSubscriptionPopup.querySelectorAll('.email-subscription-text-column > h2,.email-subscription-text-column > p').forEach(node => { node.style.display = 'none'; });
+        if (success) { success.classList.add('show'); success.style.display = 'block'; success.setAttribute('role', 'status'); globalThis.VDFeedback?.newsletterSuccess(success); }
         emailSubscriptionSubmissionPending = false;
+        globalThis.VDLoading?.set('newsletter',false);
     }
 // ============================================
 // FAQ Accordion
@@ -923,6 +929,7 @@ if (document.readyState === 'loading') {
         }
 
         emailSubscriptionSubmissionPending = false;
+        globalThis.VDLoading?.set('newsletter',false);
     }
 
 
@@ -998,6 +1005,7 @@ if (document.readyState === 'loading') {
          */
 
         emailSubscriptionSubmissionPending = true;
+        globalThis.VDLoading?.set('newsletter',true,document.documentElement.lang.startsWith('zh')?'正在加入社群…':'Joining the community…');
 
         console.log(
             '[Email Subscription] Submitting to Zoho CRM:',

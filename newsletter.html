@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="atelier-feedback.js?v=20261023ring" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://crm.zoho.eu; frame-src https://crm.zoho.eu; object-src 'none'; base-uri 'self'; form-action 'self' https://crm.zoho.eu; upgrade-insecure-requests">
@@ -17,7 +18,7 @@
 
     <link rel="stylesheet" href="victoria-diamonds.css?v=20261015seo">
     <script src="translations.js?v=20261022a"></script>
-    <script src="victoria-diamonds.js?v=20261006b"></script>
+    <script src="victoria-diamonds.js?v=20261023ring"></script>
 
     <style>
         /* Page-specific styles for newsletter landing page */
@@ -392,6 +393,7 @@
 <link rel="stylesheet" href="page-back.css?v=20261021b">
 <link rel="stylesheet" href="desktop-storefront.css?v=20261023launch">
 <link rel="stylesheet" href="atelier-theme.css?v=20261023launch">
+<link rel="stylesheet" href="atelier-feedback.css?v=20261023ring">
 </head>
 <body>
 <nav class="page-back-bar" aria-label="Previous page"><a class="page-back-link" data-page-back href="view-catalogue.html">← Back</a></nav>
@@ -683,29 +685,20 @@
 
             function showSuccess() {
                 const textColumn = document.querySelector('.email-subscription-text-column');
-                if (!textColumn) return;
-
-                textColumn.innerHTML = `
-                    <div class="email-subscription-success-final">
-                        <div class="success-content">
-                            <div class="success-eyebrow">VICTORIA DIAMONDS</div>
-                            <h2>Thank You for Subscribing!</h2>
-                            <p class="success-main-text">Welcome to the Victoria Diamonds community. We're delighted to have you with us.</p>
-                            <p class="success-sub-text">Follow us on Instagram to discover our latest creations, bespoke jewellery, and behind-the-scenes moments.</p>
-                            <a href="https://www.instagram.com/victoriadiamondsco/" target="_blank" rel="noopener" class="success-instagram-link" aria-label="Follow Victoria Diamonds on Instagram">
-                                <svg viewBox="0 0 24 24" aria-hidden="true" class="success-instagram-icon">
-                                    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0 3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Zm5.2-3.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2Z"/>
-                                </svg>
-                                <span>@victoriadiamondsco</span>
-                            </a>
-                        </div>
-                    </div>
-                `;
-
+                const success = document.querySelector('.email-subscription-success');
+                if (!textColumn || !success) return;
+                const form = document.querySelector('.email-subscription-form-state');
+                if (form) { form.hidden = true; form.style.display = 'none'; }
+                textColumn.querySelectorAll(':scope > h2,:scope > p,.email-subscription-eyebrow').forEach(node=>node.style.display='none');
+                if (success.parentElement!==textColumn) textColumn.append(success);
+                success.classList.add('show');success.style.display='block';
+                window.VDFeedback?.newsletterSuccess(success);
+                window.VDLoading?.set('newsletter',false);
                 emailSubscriptionSubmissionPending = false;
             }
 
             function showError() {
+                window.VDLoading?.set('newsletter',false);
                 const formState = document.querySelector('.email-subscription-form-state');
                 const successState = document.querySelector('.email-subscription-success');
                 const errorState = document.querySelector('.email-subscription-error');
@@ -756,6 +749,7 @@
                 }
 
                 emailSubscriptionSubmissionPending = true;
+                window.VDLoading?.set('newsletter',true,'Joining the community…');
                 console.log('[Newsletter Page] Submitting to Zoho CRM:', email);
             }
 

@@ -266,7 +266,7 @@ window.DailyProducts = {
     {
       "name": "Eternity Stacking Ring",
       "id": "ds_m_eternity",
-      "image": "products/ds_m_eternity.webp",
+      "image": "products/ds_m_eternity-detail-restored.webp",
       "type": "ring",
       "diamonds": [
         {
@@ -278,7 +278,7 @@ window.DailyProducts = {
       "braceletMetalTier": null,
       "price": 1516,
       "designFee": 0,
-      "thumbnail": "products/ds_m_eternity-960.webp"
+      "thumbnail": "products/ds_m_eternity-960-detail-restored.webp"
     },
     {
       "name": "Splendor Stacking Ring",

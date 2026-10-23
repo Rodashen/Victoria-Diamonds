@@ -590,7 +590,7 @@ window.RemainingProducts = {
     {
       "name": "Marquise Crown Cluster Ring",
       "id": "sl_r_marquise_crown_cluster",
-      "image": "products/sl_r_marquise_crown_cluster.webp",
+      "image": "products/sl_r_marquise_crown_cluster-detail-restored.webp",
       "type": "ring",
       "collection": "singleLady",
       "route": "aura",
@@ -612,7 +612,7 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1675,
       "designFee": 0,
-      "thumbnail": "products/sl_r_marquise_crown_cluster-960.webp"
+      "thumbnail": "products/sl_r_marquise_crown_cluster-960-detail-restored.webp"
     },
     {
       "name": "Marquise Halo Infinity Twist Ring",
@@ -776,7 +776,7 @@ window.RemainingProducts = {
     {
       "name": "Pear Solitaire Tapered Ring",
       "id": "sl_r_pear_solitaire_tapered",
-      "image": "products/sl_r_pear_solitaire_tapered.webp",
+      "image": "products/sl_r_pear_solitaire_tapered-detail-restored.webp",
       "type": "ring",
       "collection": "singleLady",
       "route": "aura",
@@ -793,7 +793,7 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1575,
       "designFee": 200,
-      "thumbnail": "products/sl_r_pear_solitaire_tapered-960.webp"
+      "thumbnail": "products/sl_r_pear_solitaire_tapered-960-detail-restored.webp"
     },
     {
       "name": "Round Nature Vine Ring",

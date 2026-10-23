@@ -1,31 +1,31 @@
 /* Shared browsing inventory. Checkout remains authoritative for payment quotes. */
 window.VDCatalogueGroups = [
 {collection:"silverCollection", category:"Ring", items:[
-            {name:'Everyday Silver Ring', image:'products/silver_everyday_ring.webp', thumbnail:'products/silver_everyday_ring-960.webp', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Twisted Silver Band', image:'products/silver_twisted_band.webp', thumbnail:'products/silver_twisted_band-960.webp', metal:'Sterling 925', price:142, fixedPrice:true, details:[{key:'centreStone', value:'0.50 ct'}]},
-            {name:'Round Silver Ring', image:'products/silver_round_ring.webp', thumbnail:'products/silver_round_ring-960.webp', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Classic Silver Ring', image:'products/silver_classic_ring.webp', thumbnail:'products/silver_classic_ring-960.webp', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Curved Silver Band', image:'products/silver_curved_band.webp', thumbnail:'products/silver_curved_band-960.webp', metal:'Sterling 925', price:97, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Dainty Silver Ring', image:'products/silver_dainty_ring.webp', thumbnail:'products/silver_dainty_ring-960.webp', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Crescent Silver Ring', image:'products/silver_crescent_ring.webp', thumbnail:'products/silver_crescent_ring-960.webp', metal:'Sterling 925', price:129, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'sideStone', value:'0.05 x 4'}]},
-            {name:'Loop Silver Ring', image:'products/silver_loop_ring.webp', thumbnail:'products/silver_loop_ring-960.webp', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.50 ct'}]}
+            {name:'Everyday Silver Ring', image:'products/silver_everyday_ring-detail-restored.webp', thumbnail:'products/silver_everyday_ring-960-detail-restored.webp', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Twisted Silver Band', image:'products/silver_twisted_band-detail-restored.webp', thumbnail:'products/silver_twisted_band-960-detail-restored.webp', metal:'Sterling 925', price:142, fixedPrice:true, details:[{key:'centreStone', value:'0.50 ct'}]},
+            {name:'Round Silver Ring', image:'products/silver_round_ring-detail-restored.webp', thumbnail:'products/silver_round_ring-960-detail-restored.webp', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Classic Silver Ring', image:'products/silver_classic_ring-detail-restored.webp', thumbnail:'products/silver_classic_ring-960-detail-restored.webp', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Curved Silver Band', image:'products/silver_curved_band-detail-restored.webp', thumbnail:'products/silver_curved_band-960-detail-restored.webp', metal:'Sterling 925', price:97, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Dainty Silver Ring', image:'products/silver_dainty_ring-detail-restored.webp', thumbnail:'products/silver_dainty_ring-960-detail-restored.webp', metal:'Sterling 925', price:79, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Crescent Silver Ring', image:'products/silver_crescent_ring-detail-restored.webp', thumbnail:'products/silver_crescent_ring-960-detail-restored.webp', metal:'Sterling 925', price:129, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'sideStone', value:'0.05 x 4'}]},
+            {name:'Loop Silver Ring', image:'products/silver_loop_ring-detail-restored.webp', thumbnail:'products/silver_loop_ring-960-detail-restored.webp', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.50 ct'}]}
         ]},
 {collection:"silverCollection", category:"Necklace", items:[
-            {name:'Simple Chain Necklace', image:'products/silver_simple_chain.webp', thumbnail:'products/silver_simple_chain-960.webp', metal:'Sterling 925', price:98, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Little Drop Necklace', image:'products/silver_little_drop.webp', thumbnail:'products/silver_little_drop-960.webp', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Everyday Pendant Necklace', image:'products/silver_everyday_pendant.webp', thumbnail:'products/silver_everyday_pendant-960.webp', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]}
+            {name:'Simple Chain Necklace', image:'products/silver_simple_chain-detail-restored.webp', thumbnail:'products/silver_simple_chain-960-detail-restored.webp', metal:'Sterling 925', price:98, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Little Drop Necklace', image:'products/silver_little_drop-detail-restored.webp', thumbnail:'products/silver_little_drop-960-detail-restored.webp', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Everyday Pendant Necklace', image:'products/silver_everyday_pendant-detail-restored.webp', thumbnail:'products/silver_everyday_pendant-960-detail-restored.webp', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]}
         ]},
 {collection:"silverCollection", category:"Bracelet", items:[
-            {name:'Open Cuff Bracelet', image:'products/silver_open_cuff.webp', thumbnail:'products/silver_open_cuff-960.webp', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
-            {name:'Link Charm Bracelet', image:'products/silver_link_charm.webp', thumbnail:'products/silver_link_charm-960.webp', metal:'Sterling 925', price:113, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'totalKarat', value:'0.3 ct'}]},
-            {name:'Link Charm Bracelet II', image:'products/silver_link_charm_ii.webp', thumbnail:'products/silver_link_charm_ii-960.webp', metal:'Sterling 925', price:159, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'totalKarat', value:'0.50 ct'}]}
+            {name:'Open Cuff Bracelet', image:'products/silver_open_cuff-detail-restored.webp', thumbnail:'products/silver_open_cuff-960-detail-restored.webp', metal:'Sterling 925', price:87, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'}]},
+            {name:'Link Charm Bracelet', image:'products/silver_link_charm-detail-restored.webp', thumbnail:'products/silver_link_charm-960-detail-restored.webp', metal:'Sterling 925', price:113, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'totalKarat', value:'0.3 ct'}]},
+            {name:'Link Charm Bracelet II', image:'products/silver_link_charm_ii-detail-restored.webp', thumbnail:'products/silver_link_charm_ii-960-detail-restored.webp', metal:'Sterling 925', price:159, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct'},{key:'totalKarat', value:'0.50 ct'}]}
         ]},
 {collection:"silverCollection", category:"Earring", items:[
-            {name:'Round Stud Earrings', image:'products/silver_round_studs.webp', thumbnail:'products/silver_round_studs-960.webp', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct (each)'}]},
-            {name:'Flower Drop Earrings', image:'products/silver_flower_drop.webp', thumbnail:'products/silver_flower_drop-960.webp', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct (each)'}]}
+            {name:'Round Stud Earrings', image:'products/silver_round_studs-detail-restored.webp', thumbnail:'products/silver_round_studs-960-detail-restored.webp', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct (each)'}]},
+            {name:'Flower Drop Earrings', image:'products/silver_flower_drop-detail-restored.webp', thumbnail:'products/silver_flower_drop-960-detail-restored.webp', metal:'Sterling 925', price:134, fixedPrice:true, details:[{key:'centreStone', value:'0.25 ct (each)'}]}
         ]},
 {collection:"silverCollection", category:"Anklet", items:[
-            {name:'Everyday Silver Anklet', image:'products/silver_anklet.webp', thumbnail:'products/silver_anklet-960.webp', metal:'Sterling 925', price:179, fixedPrice:true, details:[{key:'totalKarat', value:'0.75 ct'}]}
+            {name:'Everyday Silver Anklet', image:'products/silver_anklet-detail-restored.webp', thumbnail:'products/silver_anklet-960-detail-restored.webp', metal:'Sterling 925', price:179, fixedPrice:true, details:[{key:'totalKarat', value:'0.75 ct'}]}
         ]},
 {collection:"dailySparkle", category:"Ring", items:[
 
@@ -55,7 +55,7 @@ window.VDCatalogueGroups = [
 
     {name:'Aurelle Ring', image:'products/ds_s_aurelle.webp', thumbnail:'products/ds_s_aurelle-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Eternity Stacking Ring', image:'products/ds_m_eternity.webp', thumbnail:'products/ds_m_eternity-960.webp', metal:'18K White Gold', price:1110, details:[{key:'eachDiamond', value:'0.10 x 17'}]},
+    {name:'Eternity Stacking Ring', image:'products/ds_m_eternity-detail-restored.webp', thumbnail:'products/ds_m_eternity-960-detail-restored.webp', metal:'18K White Gold', price:1110, details:[{key:'eachDiamond', value:'0.10 x 17'}]},
 
     {name:'Splendor Stacking Ring', image:'products/ds_m_splendor-v2.webp', thumbnail:'products/ds_m_splendor-960-v2.webp', metal:'18K White Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
 
@@ -148,7 +148,7 @@ window.VDCatalogueGroups = [
     {name:'Curved Chevron Pavé Band', image:'products/sl_r_curved_chevron_pave_band.webp', thumbnail:'products/sl_r_curved_chevron_pave_band-960.webp', metal:'18K Gold', price:1313, details:[{key:'info', value:'Curved chevron pavé band, 18K gold'}]},
     {name:'Cushion Bypass Swirl Ring', image:'products/sl_r_cushion_bypass_swirl.webp', thumbnail:'products/sl_r_cushion_bypass_swirl-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Marquise Bypass Pavé Ring', image:'products/sl_r_marquise_bypass_pave.webp', thumbnail:'products/sl_r_marquise_bypass_pave-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Marquise Crown Cluster Ring', image:'products/sl_r_marquise_crown_cluster.webp', thumbnail:'products/sl_r_marquise_crown_cluster-960.webp', metal:'18K White Gold', price:1675, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Marquise Crown Cluster Ring', image:'products/sl_r_marquise_crown_cluster-detail-restored.webp', thumbnail:'products/sl_r_marquise_crown_cluster-960-detail-restored.webp', metal:'18K White Gold', price:1675, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Marquise Halo Infinity Twist Ring', image:'products/sl_r_marquise_halo_infinity_twist.webp', thumbnail:'products/sl_r_marquise_halo_infinity_twist-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Marquise & Pear Three-Stone Ring', image:'products/sl_r_marquise_pear_three_stone.webp', thumbnail:'products/sl_r_marquise_pear_three_stone-960.webp', metal:'18K Gold', price:1875, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Marquise & Round Alternating Band', image:'products/sl_r_marquise_round_alternating_band.webp', thumbnail:'products/sl_r_marquise_round_alternating_band-960.webp', metal:'18K Gold', price:1803, details:[{key:'totalKarat', value:'2.1 ct'},{key:'info', value:'Marquise & round alternating band'}]},
@@ -156,7 +156,7 @@ window.VDCatalogueGroups = [
     {name:'Oval Halo Pavé Ring', image:'products/sl_r_oval_halo_pave.webp', thumbnail:'products/sl_r_oval_halo_pave-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Oval Halo Twist Petite Ring', image:'products/sl_r_oval_halo_twist_petite.webp', thumbnail:'products/sl_r_oval_halo_twist_petite-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Pear Solitaire Chevron Ring', image:'products/sl_r_pear_solitaire_chevron.webp', thumbnail:'products/sl_r_pear_solitaire_chevron-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Pear Solitaire Tapered Ring', image:'products/sl_r_pear_solitaire_tapered.webp', thumbnail:'products/sl_r_pear_solitaire_tapered-960.webp', metal:'18K White Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Pear Solitaire Tapered Ring', image:'products/sl_r_pear_solitaire_tapered-detail-restored.webp', thumbnail:'products/sl_r_pear_solitaire_tapered-960-detail-restored.webp', metal:'18K White Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Round Nature Vine Ring', image:'products/sl_r_round_nature_vine.webp', thumbnail:'products/sl_r_round_nature_vine-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Round Vintage Milgrain Ring', image:'products/sl_r_round_vintage_milgrain.webp', thumbnail:'products/sl_r_round_vintage_milgrain-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Three-Stone Round Classic Ring II', image:'products/sl_r_three_stone_round_classic_ii.webp', thumbnail:'products/sl_r_three_stone_round_classic_ii-960.webp', metal:'18K Gold', price:1875, details:[{key:'centreStone', value:'1.00 ct'}]},

@@ -27,3 +27,18 @@
 @media(max-width:760px){.atelier-filter-toggle{display:none}.landing-page .atelier-mobile-filter{display:block;width:auto;font-size:12px;padding:8px 11px}}
 
 .footer-logo>span:not(.brand-victoria){color:#1c1c1c}
+
+/* Newsletter confirmation uses the complete text column, never a second flex column. */
+#emailSubscriptionPopup .email-subscription-text-column{box-sizing:border-box!important;display:flex!important;flex-direction:column!important;min-width:0!important;overflow:visible!important}
+#emailSubscriptionPopup .email-subscription-text-column>*{min-width:0;max-width:100%;box-sizing:border-box;overflow-wrap:break-word}
+#emailSubscriptionPopup .email-subscription-form-state[hidden]{display:none!important}
+#emailSubscriptionPopup.subscription-confirmed .email-subscription-text-column>h2,
+#emailSubscriptionPopup.subscription-confirmed .email-subscription-text-column>p{display:none!important}
+#emailSubscriptionPopup .email-subscription-success.show{display:block!important;flex:none!important;width:100%!important;max-width:100%;min-height:0!important;font:400 16px/1.7 var(--font-body,'DM Sans',Arial);overflow-wrap:anywhere}
+#emailSubscriptionPopup .email-subscription-success.show::first-line{font-weight:500}
+#emailSubscriptionPopup{max-height:calc(100dvh - 32px)!important;overflow-y:auto!important}
+@media(max-width:767px){
+ #emailSubscriptionPopup .email-subscription-text-column{flex:none!important;width:100%!important;padding:40px 24px 30px!important}
+ #emailSubscriptionPopup .email-subscription-success.show{font-size:16px;line-height:1.75}
+ #emailSubscriptionPopup.subscription-confirmed .email-subscription-image-column{display:none!important}
+}
