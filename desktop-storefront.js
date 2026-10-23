@@ -1,0 +1,23 @@
+document.addEventListener('DOMContentLoaded',()=>{
+ 'use strict';
+ const t=(en,zh)=>document.documentElement.lang.startsWith('zh')?zh:en;
+ const home=location.pathname==='/'||location.pathname==='/VictoriaDiamonds/'||/\/index(?:\.html)?$/.test(location.pathname);
+ const bar=document.querySelector('.page-back-bar');
+ let header=document.querySelector('header');
+ if(!header&&document.querySelector('.topbar')){const previous=document.querySelector('.topbar');header=document.createElement('header');header.className=previous.className;header.append(...previous.childNodes);previous.replaceWith(header);}
+ if(!header){header=document.createElement('header');header.className='utility-page-header';const logo=document.createElement('a');logo.className='wordmark';logo.href='index.html';logo.textContent='Victoria Diamonds';header.append(logo);document.body.prepend(header);}
+ if(home){bar?.remove();}else if(bar){header.classList.add('has-page-back');bar.classList.add('in-header');header.prepend(bar);}
+ const brand=header.querySelector('.logo,.wordmark,.brand');
+ if(brand&&!brand.closest('.brand-signature')){const signature=document.createElement('div');signature.className='brand-signature';brand.before(signature);const line=document.createElement('span');line.className='brand-diamond-line';line.textContent=t('Lab-grown & Natural Diamonds','培育及天然鑽石');signature.append(brand,line);new MutationObserver(()=>line.textContent=t('Lab-grown & Natural Diamonds','培育及天然鑽石')).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});}
+ const footerLogo=document.querySelector('.footer-logo');if(footerLogo){const line=document.createElement('span');line.className='brand-diamond-line';line.textContent=t('Lab-grown & Natural Diamonds','培育及天然鑽石');footerLogo.after(line);}
+ const track=document.getElementById('collectionCarousel');if(!track)return;
+ const editorial=document.createElement('section');editorial.className='collection-editorial';editorial.setAttribute('aria-label',t('Explore our jewellery collections','探索珠寶系列'));
+ const feature=document.createElement('a');feature.className='collection-feature';const img=document.createElement('img');img.width=900;img.height=900;const copy=document.createElement('div');copy.className='collection-feature-copy';const title=document.createElement('h3'),description=document.createElement('p'),cta=document.createElement('span');copy.append(title,description,cta);feature.append(img,copy);
+ const rail=document.createElement('nav');rail.className='collection-rail';rail.setAttribute('aria-label',t('Collections','系列'));
+ const cards=[...track.querySelectorAll('.collection-item')];
+ function update(card,row){const image=card.querySelector('img');feature.href=card.href;img.src=image.currentSrc||image.src;img.alt=image.alt;title.textContent=card.querySelector('.collection-name')?.textContent;description.textContent=card.querySelector('.collection-count,.collection-description,.collection-note,.collection-tagline')?.textContent||card.querySelector('.collection-meta p')?.textContent||'';cta.textContent=t('Explore this collection →','探索此系列 →');rail.querySelectorAll('a').forEach(a=>a.classList.toggle('is-active',a===row));}
+ cards.forEach((card,i)=>{const row=document.createElement('a');row.href=card.href;const thumb=card.querySelector('img').cloneNode();thumb.loading='lazy';thumb.alt='';const text=document.createElement('span'),name=document.createElement('strong'),note=document.createElement('small');name.textContent=card.querySelector('.collection-name')?.textContent;note.textContent=card.querySelector('.collection-count,.collection-description,.collection-note,.collection-tagline')?.textContent||'';text.append(name,note);const arrow=document.createElement('span');arrow.textContent='↗';arrow.setAttribute('aria-hidden','true');row.append(thumb,text,arrow);row.addEventListener('mouseenter',()=>update(card,row));row.addEventListener('focus',()=>update(card,row));rail.append(row);if(i===0)update(card,row);});editorial.append(feature,rail);track.before(editorial);
+ document.body.classList.add('desktop-collection-ready');
+ new MutationObserver(()=>editorial.hidden=track.hidden).observe(track,{attributes:true,attributeFilter:['hidden']});editorial.hidden=track.hidden;
+ new MutationObserver(()=>{cards.forEach((card,i)=>rail.children[i].querySelector('strong').textContent=card.querySelector('.collection-name')?.textContent);const i=[...rail.children].findIndex(r=>r.classList.contains('is-active'));update(cards[Math.max(0,i)],rail.children[Math.max(0,i)]);}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+});

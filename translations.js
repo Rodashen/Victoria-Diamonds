@@ -523,7 +523,7 @@ Object.assign(translations['zh-HK'], {
   "qol-newsletter-copy": "接收 Victoria Diamonds 的新作與故事。",
   "qol-email": "您的電郵地址",
   "qol-subscribe": "訂閱",
-  "qol-back-collections": "返回系列 ↑",
+  "qol-back-collections": "探索系列 ↑",
   "qol-appointment-title": "倫敦私人預約",
   "qol-appointment-copy": "預約與我們一起探索系列，欣賞心儀作品，或商討您的個人設計。",
   "qol-payment-question": "網上付款如何進行？",
@@ -535,7 +535,7 @@ Object.assign(translations['zh-HK'], {
 Object.assign(translations['zh-HK'], {
   "seo-home-title": "倫敦訂製珠寶 | Victoria Diamonds",
   "seo-home-heading": "倫敦訂製珠寶工作室",
-  "seo-home-intro": "探索 Hatton Garden 工作室的訂製求婚戒指與手工珠寶。",
+  "seo-home-intro": "探索倫敦 Hatton Garden 工作室以培育或天然鑽石手工打造的訂製求婚戒指。",
   "seo-collections-heading": "手工珠寶系列",
   "seo-featured-heading": "手工 Solstice 鑽石項鏈",
   "seo-craft-heading": "手工珠寶與訂製戒指設計"

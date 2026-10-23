@@ -1,0 +1,13 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),{createRequire}=require('node:module');
+test('natural quote and payment-link route preserve origin, grades, full stone quantities and server-owned total',async()=>{
+ const root=path.resolve(__dirname,'../../../calculator'),localRequire=createRequire(path.join(root,'server.js')),pricing=localRequire('./pricing'),{quoteDaily}=localRequire('./daily-checkout'),data=localRequire('./natural-diamonds-data');
+ const routes=new Map(),calls=[],app={use(){},get(){},post(paths,fn){for(const p of [].concat(paths))routes.set(p,fn);},listen(){}};const express=()=>app;express.json=express.static=()=>()=>{};
+ const axios=async options=>{calls.push(options);return {data:options.url.endsWith('/create')?{id:'natural-test-only',url:'https://example.invalid/payment'}:{}};};axios.post=async()=>({data:{token:'test-only',expires_at:'2099-01-01'}});
+ const context=vm.createContext({require(id){if(id==='express')return express;if(id==='cors')return ()=>()=>{};if(id==='axios')return axios;if(id==='pdfkit')return function(){};if(id==='dotenv')return {config(){}};if(id==='./pricing')return pricing;if(id==='./daily-checkout')return {quoteDaily};return localRequire(id);},__dirname:root,process:{env:{AIRWALLEX_CLIENT_ID:'test',AIRWLEX_API_KEY:'test',AIRWALLEX_API_KEY:'test'}},console:{log(){},warn(){},error(){}},Buffer});vm.runInContext(fs.readFileSync(path.join(root,'server.js'),'utf8'),context);
+ async function request(route,body){const res={code:200,status(code){this.code=code;return this;},set(){return this;},json(data){this.data=data;return this;}};await routes.get(route)({body,path:route},res);return res;}
+ const stone=data.items.find(d=>d.carat===.25),body={productId:'mens_atlas_band',collection:'mens',metal:'gold',karat:18,purity:925,quantity:1,paymentPercentage:50,diamondOrigin:'natural',diamonds:[{naturalId:stone.id,qty:5,price:1}],customerName:'Test Customer',customerEmail:'test@example.invalid'};
+ const q=await request('/mens/quote',body);assert.equal(q.code,200);assert.equal(q.data.total,quoteDaily(body,'mens').total);
+ assert.equal((await request('/mens/payment-link',{...body,expectedTotal:1})).code,409);
+ const result=await request('/mens/payment-link',{...body,expectedTotal:q.data.total});assert.equal(result.code,200);assert.equal(result.data.amount,q.data.due);
+ const order=vm.runInContext('Array.from(orders.values()).at(-1)',context);assert.equal(order.pricing.entries[0].qty,5);assert.equal(order.pricing.entries[0].naturalId,stone.id);assert.equal(order.pricing.entries[0].shape,stone.shape);assert.equal(order.pricing.entries[0].clarity,stone.clarity);assert.ok(calls.length);
+});

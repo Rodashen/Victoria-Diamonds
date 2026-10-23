@@ -290,13 +290,13 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "1.00",
-          "qty": 1
+          "carat": "0.50",
+          "qty": 14
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1375,
+      "price": 3225,
       "needsStoneSelection": false,
       "designFee": 0,
       "thumbnail": "products/ow_m_eternelle-960.webp"

@@ -26,7 +26,8 @@
  function inventory() {
   return (window.VDCatalogueGroups || []).flatMap(group => group.items.map(item => {
    const registered=window.VDProducts?.find(group.collection,item.name);
-   return {...item, price: registered?.mode==='enquiry'?null:registered?.preset?.price??item.price, mode:registered?.mode, collection: group.collection, category: group.category};
+   const starting=window.VDDiamondCatalogue?.products[registered?.id];
+   return {...item, price: registered?.mode==='enquiry'?null:starting?Math.min(starting.lab,starting.natural??Infinity):registered?.preset?.price??item.price, mode:registered?.mode, collection: group.collection, category: group.category};
   }));
  }
  function matches(product, query) {
@@ -35,8 +36,8 @@
  }
  function money(product) {
   if (product.mode==='enquiry' || product.price===null || !Number.isFinite(Number(product.price)) || product.price === '') return t('Price on request','價格請洽詢');
-  const amount = new Intl.NumberFormat('en-GB', {style:'currency',currency:product.currency || 'GBP', maximumFractionDigits:0}).format(Number(product.price));
-  return (product.collection==='dailySparkle' ? t('Shown configuration: ','所示配置：') : product.fixedPrice ? '' : t('From ','起價 ')) + amount;
+  const amount = new Intl.NumberFormat('en-GB', {style:'currency',currency:product.currency || 'GBP', minimumFractionDigits:Number.isInteger(Number(product.price))?0:2, maximumFractionDigits:2}).format(Number(product.price));
+  return (product.fixedPrice ? '' : t('From ','起價 ')) + amount;
  }
  function element(tag, text, className) { const el=document.createElement(tag); if(text!==undefined)el.textContent=text; if(className)el.className=className; return el; }
  function filterProduct(product,filters={}) {
@@ -102,6 +103,7 @@
     cards.forEach(card=>{
      const name=card.querySelector('[data-product-name]').dataset.productName;
      const p=products.find(p=>p.collection===group&&p.name===name);
+     if(p){card.dataset.price=p.price??'';const displayed=card.querySelector('.meta-price');if(displayed)displayed.textContent=(p.mode==='custom'?t('From ','起價 '):'')+(p.price===null?t('By appointment','預約諮詢'):new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',minimumFractionDigits:Number.isInteger(Number(p.price))?0:2,maximumFractionDigits:2}).format(Number(p.price)));}
      const show=!!p&&filterProduct(p,{collection:collection.value,type:type.value,query:query.value,max:price.value});
      card.hidden=!show;if(show)count++;
     });
@@ -121,7 +123,7 @@
     const counter=section.querySelector('.count');
     if(counter){counter.removeAttribute('data-i18n');counter.textContent=t(visible+' pieces',visible+' 件作品');}
    });
-   status.textContent=t(count+' pieces · Prices are for the displayed configuration. Sorting applies within each category.','共 '+count+' 件作品 · 價格為所示配置，排序按每個類別進行。');
+   status.textContent=t(count+' pieces · Starting prices use listed stone weights and starting metal. Sorting applies within each category.','共 '+count+' 件作品 · 起價按列明鑽石重量及起始金屬計算，排序按每個類別進行。');
    empty.hidden=count>0;
    if(persist){const url=new URL(location.href);[['q',query.value.trim()],['collection',collection.value],['type',type.value],['max',price.value],['sort',sort.value==='default'?'':sort.value]].forEach(([key,value])=>value?url.searchParams.set(key,value):url.searchParams.delete(key));history.replaceState(null,'',url);}
   }

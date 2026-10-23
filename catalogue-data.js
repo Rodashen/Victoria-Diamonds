@@ -101,7 +101,7 @@ window.VDCatalogueGroups = [
             {name:'Victorian Ring', image:'products/ow_m_victorian.webp', thumbnail:'products/ow_m_victorian-960.webp', metal:'18K White Gold', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
             {name:'Amour Ring', image:'products/ow_s_amour.webp', thumbnail:'products/ow_s_amour-960.webp', metal:'18K White Gold', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
             {name:'Imperial Pav\u00e9 Ring', image:'products/ow_l_imperial.webp', thumbnail:'products/ow_l_imperial-960.webp', price:'request'},
-            {name:'\u00c9ternelle Grande Ring', image:'products/ow_m_eternelle.webp', thumbnail:'products/ow_m_eternelle-960.webp', totalWeight:'7 ct', price:1300, details:[{key:'eachDiamond', value:'0.50 x 14'},{key:'totalKarat', value:'7 ct'}]}
+            {name:'\u00c9ternelle Grande Ring', image:'products/ow_m_eternelle.webp', thumbnail:'products/ow_m_eternelle-960.webp', totalWeight:'7 ct', price:3225, details:[{key:'eachDiamond', value:'0.50 x 14'},{key:'totalKarat', value:'7 ct'}]}
         ]},
 {collection:"occasionalWear", category:"Earring", items:[
             {name:'Round Illusion Stud', image:'products/ow_m_illusion.webp', thumbnail:'products/ow_m_illusion-960.webp', stone:'0.25 ct (each)', total:'1.15 ct (each)', price:1410, details:[{key:'centreStone', value:'0.25 ct each'},{key:'sideStone', value:'0.10 x 9'},{key:'totalKarat', value:'1.15 ct each'}]},

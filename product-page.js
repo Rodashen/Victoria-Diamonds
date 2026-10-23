@@ -21,11 +21,12 @@
  document.title=name+' | '+collection[0]+' | Victoria Diamonds';
  document.querySelector('meta[name=description]').content=`${name} — ${collection[0]}. `+t(p.mode==='custom'?'Choose your materials, diamonds and payment option.':'Discover the design and order with Victoria Diamonds.',p.mode==='custom'?'選擇材質、鑽石及付款方式。':'探索設計及訂購詳情。');
  const canonical=document.createElement('link');canonical.rel='canonical';canonical.href='https://victoria-diamonds.com/product.html?item='+encodeURIComponent(p.id);document.head.append(canonical);
- const structured=document.createElement('script');structured.type='application/ld+json';structured.textContent=JSON.stringify({'@context':'https://schema.org','@type':'Product',name:p.name,image:'https://victoria-diamonds.com/images/'+p.image.split('/').map(encodeURIComponent).join('/'),sku:p.id,category:p.category,brand:{'@type':'Brand',name:'Victoria Diamonds'},url:canonical.href});document.head.append(structured);
+ const starting=window.VDDiamondCatalogue?.products[p.id];
+ const structured=document.createElement('script');structured.type='application/ld+json';structured.textContent=JSON.stringify(window.VDProductSchema.create(p,starting));document.head.append(structured);
  const labels={mainSide:t('Main side stones','主要配石'),secondarySide:t('Secondary side stones','次要配石'),finishingSide:t('Finishing stones','點綴鑽石'),centreStone:t('Centre stone','主石'),sideStone:t('Side stones','配石'),totalKarat:t('Total carat weight','總克拉重量'),eachDiamond:t('Each diamond','每顆鑽石'),diamondPrice:t('Diamond price','鑽石價格'),metalPrice:t('Metal price','金屬價格'),info:t('Details','詳情')};
- const centreRing=p.mode==='custom'&&p.category==='Ring'&&p.preset.diamonds.length&&!/band|eternity|alternating/i.test(p.name);
+ const centreRing=p.mode==='custom'&&p.category==='Ring'&&p.preset.diamonds.length&&!window.VDDesignRules?.isPerStone(p)&&!/band|eternity|alternating/i.test(p.name);
  const originalMetal=p.metal||(centreRing?'18K White Gold':null);
- const originalDetails=centreRing?[{key:'centreStone',value:'1.00 ct'}]:(p.details||[]);
+ const originalDetails=centreRing?[{key:'centreStone',value:'1.00 ct'}]:(p.details||[]).map(detail=>window.VDDesignRules?.isPerStone(p)&&detail.key==='centreStone'?{...detail,key:'eachDiamond'}:detail);
  const details=originalDetails.map(d=>`<dt>${esc(labels[d.key]||translate(d.key,d.key))}</dt><dd>${esc(d.value)}</dd>`).join('');
  const enquiry='https://wa.me/447594442577?text='+encodeURIComponent('Hello Victoria Diamonds, I would like to enquire about '+p.name+' from '+collection[0]+'. '+canonical.href);
  main.innerHTML=`<nav class="breadcrumb" aria-label="${t('Breadcrumb','導覽路徑')}"><a href="view-catalogue.html">${t('Collections','系列')}</a> / <a href="${collection[1]}?lang=${document.documentElement.lang}">${esc(collection[zh?2:0])}</a></nav>
