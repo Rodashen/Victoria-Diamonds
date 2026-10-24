@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  // Keep the existing language control and its listeners available inside the phone menu.
  const language=document.querySelector('.lang-selector-mobile'),homeMenu=document.getElementById('mobileNav');
  if(language&&homeMenu){const marker=document.createComment('mobile language position');language.before(marker);const moveLanguage=()=>mobile.matches?homeMenu.append(language):marker.after(language);mobile.addEventListener('change',moveLanguage);moveLanguage();}
- const icons={home:'<path d="m3 11 9-8 9 8v10h-7v-7h-4v7H3Z"/>',collections:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>',search:'<circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/>',visit:'<path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/>'};
+ const icons={home:'<path d="m3 11 9-8 9 8v10h-7v-7h-4v7H3Z"/>',collections:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>',search:'<circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/>',contact:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>'};
  const art=key=>'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+icons[key]+'</svg>';
  // SVG stays monochrome on iOS; Unicode diagonal arrows can become coloured emoji.
  const arrowIcon=()=>{const span=make('span','ma-link-icon');span.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg>';span.setAttribute('aria-hidden','true');return span;};
@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded',()=>{
  let opener=null;close.onclick=()=>panel.close();panel.addEventListener('click',e=>{if(e.target===panel)panel.close();});panel.addEventListener('close',()=>opener?.isConnected&&opener.focus({preventScroll:true}));
  function showCollections(button){if(!mobile.matches)return;opener=button;panel.showModal();close.focus();}
  const dock=make('nav','ma-dock');dock.setAttribute('aria-label',t('Mobile navigation','手機導覽'));
- const discover=make('a',''),browse=make('button',''),search=make('button',''),visit=make('a','');browse.type=search.type='button';browse.setAttribute('aria-haspopup','dialog');browse.setAttribute('aria-controls',heading.id);discover.href='index.html';visit.href=home?'#contact':'index.html#contact';
+ const discover=make('a',''),browse=make('button',''),search=make('button',''),contact=make('a','');browse.type=search.type='button';browse.setAttribute('aria-haspopup','dialog');browse.setAttribute('aria-controls',heading.id);discover.href='index.html';contact.href=home?'#contact':'index.html#contact';
  browse.setAttribute('aria-controls',panel.id);
- const items=[[discover,'home','Discover','探索'],[browse,'collections','Collections','系列'],[search,'search','Search','搜尋'],[visit,'visit','Visit us','到訪']];
+ const items=[[discover,'home','Discover','探索'],[browse,'collections','Collections','系列'],[search,'search','Search','搜尋'],[contact,'contact','Contact us','聯絡我們']];
  items.forEach(([node,key])=>{node.dataset.mobileAction=key;dock.append(node);});document.body.append(dock);
  if(home)discover.setAttribute('aria-current','page');else if(document.body.classList.contains('collection-browsing')||location.pathname.includes('view-catalogue'))browse.setAttribute('aria-current','page');
  browse.onclick=()=>showCollections(browse);
