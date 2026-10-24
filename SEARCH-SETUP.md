@@ -1,6 +1,6 @@
 # Search setup
 
-Public pages are allowed by `robots.txt`. `sitemap.xml` lists the homepage, six collections, catalogue, newsletter, policy pages, journal, three articles, and every product in the shared registry. Product URLs retain the canonical format already used by `product-page.js`: `product.html?item=PRODUCT_ID`. Collection pages use their `.html` address as canonical; both existing URL forms remain working. Journal articles are static HTML with descriptions, canonical addresses and Article structured data; add new article filenames to the generator when publishing more.
+Public pages are allowed by `robots.txt`. `sitemap.xml` lists the homepage, seven collections, catalogue, artist, newsletter, policy pages, journal, nine articles, and all 175 products in the shared registry. Product URLs retain the canonical format already used by `product-page.js`: `product.html?item=PRODUCT_ID`. Collection pages use their `.html` address as canonical; both existing URL forms remain working. Journal articles are static HTML with descriptions, canonical addresses and Article structured data. The generator discovers published `journal-*.html` files and uses their actual Article publication or modification date for `lastmod`; it excludes pages marked noindex.
 
 After adding, removing, or renaming products, regenerate the sitemap:
 
