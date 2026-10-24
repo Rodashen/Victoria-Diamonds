@@ -1,7 +1,12 @@
 /* Silver has its own entrance; catalogue and checkout retain the shared components. */
-.silver-entry{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-block:32px 48px;padding-block:32px;background:var(--atelier-beige,#F7F3ED)}
-.silver-entry h2{font:400 clamp(30px,3vw,42px)/1.1 var(--font-display);margin:0 0 10px}
-.silver-entry p{font:400 16px/1.6 var(--font-body);margin:0;max-width:52ch}
+.silver-header-link{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;min-height:44px;padding:10px 16px;border:1px solid var(--atelier-gold,#B8860B);border-radius:24px;background:#f1e9dd;color:#514018;font:500 13px/1.3 var(--font-body);text-align:center;text-decoration:none;transition:background .2s ease,transform .2s ease}
+.silver-header-link:hover{background:#e8dcc6;transform:translateY(-1px)}
+.silver-header-link:focus-visible{outline:2px solid var(--atelier-gold,#B8860B);outline-offset:4px}
+@media(min-width:761px) and (max-width:1250px){
+ .landing-page .nav-main{display:none}
+ .landing-page .menu-toggle{display:flex}
+ .landing-page .top-social-links{margin-left:auto}
+}
 .silver-link{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:48px;padding:14px 22px;background:var(--charcoal,#282828);color:var(--warm-white,#fffcf8);border-radius:28px;text-decoration:none;font:500 15px/1.5 var(--font-body);flex-shrink:0;transition:background .2s ease,transform .2s ease}
 .silver-link svg{width:22px;height:22px;flex:none;transition:transform .2s ease}
 .silver-link:hover svg{transform:translateX(4px)}
@@ -17,11 +22,15 @@
 .silver-studio-image img{display:block;width:100%;height:auto;max-height:650px;object-fit:contain}
 #silver-pieces{scroll-margin-top:120px}
 @media(max-width:760px){
- .silver-entry{flex-direction:column;align-items:stretch;gap:20px;margin:24px 14px 36px;padding:26px 22px;width:auto;border-radius:20px}
- .silver-entry h2{font-size:32px}.silver-entry p{font-size:15px}.silver-entry .silver-link{align-self:flex-start;max-width:100%;gap:16px;font-size:14px}
+ .landing-page .site-header>.container{padding-inline:14px}
+ .landing-page .site-header .header-inner{padding-inline:0}
+ .silver-header-link{width:74px;padding:8px 10px;font-size:12px;min-height:44px;margin-left:auto}
+ .landing-page .site-header .brand-signature{min-width:0;margin-right:0}
+ .landing-page .site-header .logo{font-size:clamp(18px,5.4vw,24px)!important;white-space:nowrap}
+ .landing-page .site-header .menu-toggle{flex:0 0 40px;min-width:40px!important;width:40px!important}
  .silver-studio-hero{grid-template-columns:1fr;gap:26px;padding:30px 22px 32px}
  .silver-studio-copy h1{font-size:clamp(46px,13vw,64px);max-width:none;margin-bottom:20px}
  .silver-studio-copy p{margin-bottom:22px}.silver-studio-copy .silver-studio-lead{font-size:27px}
  .silver-studio-image img{max-height:none}.silver-studio-copy{max-width:none}
 }
-@media(prefers-reduced-motion:reduce){.silver-link,.silver-link svg{transition:none}.silver-link:hover svg,.silver-link:active{transform:none}}
+@media(prefers-reduced-motion:reduce){.silver-link,.silver-link svg,.silver-header-link{transition:none}.silver-link:hover svg,.silver-link:active,.silver-header-link:hover{transform:none}}
