@@ -533,6 +533,13 @@ Object.assign(translations['zh-HK'], {
 });
 
 Object.assign(translations['zh-HK'], {
+  "silver-entry-title": "探索純銀之美。",
+  "silver-entry-copy": "探索專屬純銀系列，為日常穿搭挑選 Sterling 925 珠寶。",
+  "silver-entry-cta": "探索純銀系列",
+  "silver-studio-lead": "以純銀點亮每一天。",
+  "silver-studio-copy": "探索 Sterling 925 戒指、項鏈、手鏈、耳環及腳鏈。在專屬純銀系列中挑選日常珠寶，每款作品頁面均提供價格及網上訂購。",
+  "silver-studio-shop": "選購純銀珠寶",
+  "silver-studio-care": "了解純銀保養方法",
   "seo-home-title": "倫敦訂製珠寶 | Victoria Diamonds",
   "seo-home-heading": "倫敦訂製珠寶工作室",
   "seo-home-intro": "探索倫敦 Hatton Garden 工作室以培育或天然鑽石手工打造的訂製求婚戒指。",
