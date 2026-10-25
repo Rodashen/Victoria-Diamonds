@@ -109,7 +109,6 @@
   if(p.diamonds.length>1)field('dailyAdditional').open=true;
   if(p.needsStoneSelection){const option=document.createElement('option');option.value='';option.textContent=t('Choose a stone size','選擇鑽石大小');option.disabled=true;field('dailyCarat0').prepend(option);field('dailyCarat0').value='';}
   if(p.needsReview){const label=document.createElement('label');label.className='configuration-confirm';label.innerHTML='<input type="checkbox" required id="configurationConfirm">'+t('I have checked the stone sizes and counts above for my custom order.','我已確認此訂製訂單的鑽石大小及數量。');field('dailySubmit').before(label);}
-  if(p.designFee){const feeNote=document.createElement('p');feeNote.className='daily-note';feeNote.textContent=t(`Your confirmed price includes a £${p.designFee} design charge per piece.`,`確認價格包含每件 £${p.designFee} 設計費。`);field('dailyTotal').closest('.daily-summary').after(feeNote);}
   if(p.lockDiamonds){
    dialog.querySelector('.daily-heading > div > p:last-child').textContent=t('Choose your metal. This piece has a fixed diamond design.','選擇金屬材質，此作品的鑽石設計已固定。');
    dialog.querySelectorAll('.daily-diamond input,.daily-diamond select').forEach(control=>control.disabled=true);

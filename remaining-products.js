@@ -32,8 +32,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1575,
-      "designFee": 200,
+      "price": 1375,
+      "designFee": 0,
       "thumbnail": "products/fb_m_stellar-960.webp"
     },
     {
@@ -54,8 +54,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1575,
-      "designFee": 200,
+      "price": 1375,
+      "designFee": 0,
       "thumbnail": "products/fb_m_elegance-960.webp"
     },
     {
@@ -103,8 +103,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1715,
-      "designFee": 200,
+      "price": 1515,
+      "designFee": 0,
       "thumbnail": "products/fb_m_endless-960.webp"
     },
     {
@@ -130,8 +130,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2165,
-      "designFee": 200,
+      "price": 1965,
+      "designFee": 0,
       "thumbnail": "products/fb_m_luminous-960.webp"
     },
     {
@@ -162,8 +162,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 3155,
-      "designFee": 200,
+      "price": 2955,
+      "designFee": 0,
       "thumbnail": "products/fb_m_everlasting-960.webp"
     },
     {
@@ -358,8 +358,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2165,
-      "designFee": 200,
+      "price": 1965,
+      "designFee": 0,
       "thumbnail": "products/fb_l_ethereal_halo-960.webp"
     },
     {
@@ -402,8 +402,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2025,
-      "designFee": 200,
+      "price": 1825,
+      "designFee": 0,
       "thumbnail": "products/fb_l_celestial_embrace-960.webp"
     },
     {
@@ -451,8 +451,8 @@ window.RemainingProducts = {
       "soldAsSet": true,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1575,
-      "designFee": 200,
+      "price": 1375,
+      "designFee": 0,
       "thumbnail": "products/fb_m_eternal_harmony-960.webp"
     },
     {
@@ -517,8 +517,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 2025,
-      "designFee": 200,
+      "price": 1825,
+      "designFee": 0,
       "thumbnail": "products/fb_m_elysian-960.webp"
     },
     {
@@ -561,8 +561,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1575,
-      "designFee": 200,
+      "price": 1375,
+      "designFee": 0,
       "thumbnail": "products/sl_r_cushion_bypass_swirl-960.webp"
     },
     {
@@ -583,8 +583,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1575,
-      "designFee": 200,
+      "price": 1375,
+      "designFee": 0,
       "thumbnail": "products/sl_r_marquise_bypass_pave-960.webp"
     },
     {
@@ -632,8 +632,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1575,
-      "designFee": 200,
+      "price": 1375,
+      "designFee": 0,
       "thumbnail": "products/sl_r_marquise_halo_infinity_twist-960.webp"
     },
     {
@@ -659,8 +659,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1875,
-      "designFee": 200,
+      "price": 1675,
+      "designFee": 0,
       "thumbnail": "products/sl_r_marquise_pear_three_stone-960.webp"
     },
     {
@@ -725,8 +725,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1575,
-      "designFee": 200,
+      "price": 1375,
+      "designFee": 0,
       "thumbnail": "products/sl_r_oval_halo_pave-960.webp"
     },
     {
@@ -747,8 +747,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1575,
-      "designFee": 200,
+      "price": 1375,
+      "designFee": 0,
       "thumbnail": "products/sl_r_oval_halo_twist_petite-960.webp"
     },
     {
@@ -769,8 +769,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1575,
-      "designFee": 200,
+      "price": 1375,
+      "designFee": 0,
       "thumbnail": "products/sl_r_pear_solitaire_chevron-960.webp"
     },
     {
@@ -791,8 +791,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1575,
-      "designFee": 200,
+      "price": 1375,
+      "designFee": 0,
       "thumbnail": "products/sl_r_pear_solitaire_tapered-960-detail-restored.webp"
     },
     {
@@ -813,8 +813,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1575,
-      "designFee": 200,
+      "price": 1375,
+      "designFee": 0,
       "thumbnail": "products/sl_r_round_nature_vine-960.webp"
     },
     {
@@ -835,8 +835,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1575,
-      "designFee": 200,
+      "price": 1375,
+      "designFee": 0,
       "thumbnail": "products/sl_r_round_vintage_milgrain-960.webp"
     },
     {
@@ -862,8 +862,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1875,
-      "designFee": 200,
+      "price": 1675,
+      "designFee": 0,
       "thumbnail": "products/sl_r_three_stone_round_classic_ii-960.webp"
     },
     {
@@ -889,8 +889,8 @@ window.RemainingProducts = {
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1875,
-      "designFee": 200,
+      "price": 1675,
+      "designFee": 0,
       "thumbnail": "products/sl_r_three_stone_round_classic-960.webp"
     },
     {

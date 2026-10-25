@@ -47,9 +47,9 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 2125,
+      "price": 1825,
       "needsStoneSelection": false,
-      "designFee": 300,
+      "designFee": 0,
       "thumbnail": "products/ow_l_venus-960.webp"
     },
     {
@@ -66,9 +66,9 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1475,
+      "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 100,
+      "designFee": 0,
       "thumbnail": "products/ow_s_tranquility-960-v2.webp"
     },
     {
@@ -85,9 +85,9 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1475,
+      "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 100,
+      "designFee": 0,
       "thumbnail": "products/ow_m_athena-960-v2.webp"
     },
     {
@@ -104,9 +104,9 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1575,
+      "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 200,
+      "designFee": 0,
       "thumbnail": "products/ow_m_fae-960-v2.webp"
     },
     {
@@ -123,9 +123,9 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1575,
+      "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 200,
+      "designFee": 0,
       "thumbnail": "products/ow_m_skylar-960-v2.webp"
     },
     {
@@ -163,9 +163,9 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1575,
+      "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 200,
+      "designFee": 0,
       "thumbnail": "products/ow_m_celestia-960-v2.webp"
     },
     {
@@ -182,9 +182,9 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1575,
+      "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 200,
+      "designFee": 0,
       "thumbnail": "products/ow_m_rosebloom-960.webp"
     },
     {
@@ -201,9 +201,9 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1575,
+      "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 200,
+      "designFee": 0,
       "thumbnail": "products/ow_m_elysia-960.webp"
     },
     {
@@ -220,9 +220,9 @@ window.HighNoteProducts = {
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1575,
+      "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 200,
+      "designFee": 0,
       "thumbnail": "products/ow_m_lunelle-960.webp"
     },
     {

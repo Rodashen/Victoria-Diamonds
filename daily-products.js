@@ -171,9 +171,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1575,
+      "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 200,
+      "designFee": 0,
       "thumbnail": "products/ds_s_solenne-960.webp"
     },
     {
@@ -194,9 +194,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1715,
+      "price": 1515,
       "needsStoneSelection": false,
-      "designFee": 200,
+      "designFee": 0,
       "thumbnail": "products/ds_s_elan-960.webp"
     },
     {
@@ -217,9 +217,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1667,
+      "price": 1467,
       "needsStoneSelection": false,
-      "designFee": 200,
+      "designFee": 0,
       "thumbnail": "products/ds_s_timeless-960.webp"
     },
     {
@@ -240,9 +240,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1951,
+      "price": 1751,
       "needsStoneSelection": false,
-      "designFee": 200,
+      "designFee": 0,
       "thumbnail": "products/ds_s_princess-960.webp"
     },
     {
@@ -293,9 +293,9 @@ window.DailyProducts = {
         }
       ],
       "braceletMetalTier": null,
-      "price": 1575,
+      "price": 1375,
       "needsStoneSelection": false,
-      "designFee": 200,
+      "designFee": 0,
       "thumbnail": "products/ds_m_splendor-960-v2.webp"
     },
     {
