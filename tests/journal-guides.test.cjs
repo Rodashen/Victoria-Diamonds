@@ -2,7 +2,8 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const root=path.resolve(__dirname,'..'),slugs=['tennis-necklace','tennis-bracelet','diamond-gifting','yellow-white-gold','diamond-shapes','gold-purity'];
 test('six new journal guides are discoverable with valid article metadata and local resources',()=>{
  const journal=fs.readFileSync(path.join(root,'journal.html'),'utf8'),sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
- assert.equal((journal.match(/class="journal-card"/g)||[]).length,9);
+ const published=fs.readdirSync(root).filter(file=>/^journal-.+\.html$/.test(file)&&!/<meta\b[^>]*content=["'][^"']*noindex/i.test(fs.readFileSync(path.join(root,file),'utf8')));
+ assert.equal((journal.match(/class="journal-card"/g)||[]).length,published.length);
  for(const slug of slugs){
   const file='journal-'+slug+'.html',source=fs.readFileSync(path.join(root,file),'utf8');
   assert.ok(journal.includes('href="'+file+'"'));assert.ok(sitemap.includes('/'+file));

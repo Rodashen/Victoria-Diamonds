@@ -51,6 +51,18 @@ document.addEventListener('DOMContentLoaded',()=>{
   mobile.addEventListener('change',()=>{if(mobile.matches)select(current,false);else{const row=editorial.querySelector('.collection-rail .is-active');row?.dispatchEvent(new Event('mouseenter'));}});
  }
  new MutationObserver(()=>{labels();translateLookbook();}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+ // Make the existing product options prominent on phones without changing checkout or fixed designs.
+ const product=window.VDProducts?.products.find(p=>p.id===new URLSearchParams(location.search).get('item'));
+ if(document.getElementById('productMain')&&product?.mode==='custom'){
+  const intro=document.querySelector('.product-intro'),order=document.getElementById('order');
+  const choices=make('section','mobile-customisation-intro'),title=make('h2','',t('Make it yours.','打造您的專屬珠寶。'));
+  title.id='mobileCustomisationTitle';choices.setAttribute('aria-labelledby',title.id);
+  choices.append(title,make('p','',product.preset?.lockDiamonds?t('Choose your metal. The diamonds are fixed for this design.','選擇金屬材質。此設計的鑽石規格已固定。'):t('Explore the options available for this piece. Review your configuration and confirmed price before ordering.','探索此作品提供的選項，訂購前檢視您的配置及確認價格。')));
+  const start=make('a','mobile-bespoke-primary',t('Explore my options','探索訂製選項'));start.href='#order';
+  const advice=make('a','mobile-bespoke-guide',t('Need guidance? Talk to a designer','需要指導？與設計師交流'));advice.href='https://calendly.com/general-victoria-diamonds/30min?utm_content='+encodeURIComponent(product.id);advice.target='_blank';advice.rel='noopener';choices.append(start,advice);intro?.append(choices);
+  const help=make('aside','mobile-designer-help'),heading=make('h2','',t('Have your own idea?','有自己的設計構思？')),copy=make('p','',t('Discuss a personal variation with our jewellery design team in a one-to-one consultation.','透過一對一諮詢，與我們的珠寶設計團隊討論個人化設計。')),book=make('a','mobile-bespoke-secondary',t('Talk to a designer','與設計師交流')),guide=make('a','mobile-bespoke-guide',t('How bespoke design works','了解訂製設計流程'));
+  book.href='https://calendly.com/general-victoria-diamonds/30min?utm_content='+encodeURIComponent(product.id);book.target='_blank';book.rel='noopener';guide.href='journal-bespoke-jewellery-london.html';help.append(heading,copy,book,guide);order?.after(help);
+ }
  // Keep the dock clear of the on-screen keyboard and existing consent/modal UI.
  const isInput=node=>node?.matches?.('input:not([type=radio]):not([type=checkbox]),textarea,select,[contenteditable=true]');
  document.addEventListener('focusin',e=>{if(isInput(e.target))document.body.classList.add('ma-editing');});document.addEventListener('focusout',e=>{if(!isInput(e.relatedTarget))document.body.classList.remove('ma-editing');});

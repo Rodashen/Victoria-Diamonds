@@ -1,5 +1,6 @@
 /* Approved Pocket Atelier. This entire presentation layer is mobile-only. */
 .ma-dock,.ma-lookbook-controls,.ma-collection-tabs,.ma-menu-button,.ma-picks{display:none}
+.mobile-bespoke,.mobile-customisation-intro,.mobile-designer-help{display:none}
 .ma-link-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;align-self:center}.ma-link-icon svg{display:block;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .ma-sheet-links a.ma-contact-button{align-items:center;min-height:48px;box-sizing:border-box;padding:14px 20px;margin-top:16px;border:1px solid #282828;border-radius:26px;background:#282828;color:#fffcf8;font:500 16px/1.5 var(--font-body,'DM Sans',sans-serif)}.ma-contact-button:hover{background:#51483d}.ma-contact-button:active{transform:translateY(1px)}
 .ma-collection-sheet,.ma-navigation-sheet{border:1px solid #C4B5A5;background:#F7F3ED;color:#282828;width:min(480px,100%);max-height:85vh;max-height:85dvh;max-width:100%;margin:auto auto 0;padding:24px 24px max(28px,env(safe-area-inset-bottom));border-radius:28px 28px 0 0;font:16px/1.5 var(--font-body,'DM Sans',sans-serif);box-sizing:border-box;overflow-y:auto;overscroll-behavior:contain}
@@ -25,7 +26,35 @@
 @media(max-width:350px){.ux-mobile-header .brand-signature :is(.brand,.wordmark){font-size:17px!important}.ux-mobile-header{padding-inline:10px!important;gap:4px!important;grid-template-columns:34px minmax(0,1fr) 38px 40px!important}.brand-diamond-line{font-size:7px!important;letter-spacing:.02em!important}.page-back-bar.in-header .page-back-link{width:34px;min-width:34px}.ma-dock>a,.ma-dock>button{font-size:10px}.showcase-copy h3{font-size:21px}.product-layout .metal-options .choice-face{font-size:11px}.landing-page .collection-feature-copy h3{font-size:34px}}
 @media(max-width:760px) and (orientation:landscape){.ma-dock{max-width:390px;padding-block:3px;bottom:4px}.ma-dock>a,.ma-dock>button{min-height:44px}.diamond-origin-dialog,.ux-sheet,.ma-collection-sheet,.ma-navigation-sheet{max-height:90vh;max-height:90dvh}.landing-page .collection-feature img{height:340px}}
 @keyframes ma-sheet-in{from{transform:translateY(35px);opacity:.3}to{transform:translateY(0);opacity:1}}
-@media(prefers-reduced-motion:reduce){.ma-collection-sheet,.ma-navigation-sheet,.ux-sheet,.diamond-origin-dialog{animation:none!important}}
+/* Bespoke service is foregrounded on mobile; the four existing navigation destinations stay available. */
+@media(max-width:760px){
+ .mobile-bespoke,.mobile-customisation-intro,.mobile-designer-help{display:block}
+ .landing-page .mobile-bespoke{padding:4px 8px 32px;margin-bottom:24px}
+ .mobile-bespoke h2{font:400 clamp(42px,12vw,58px)/1.02 var(--font-display,Georgia);letter-spacing:-.03em;text-wrap:balance;margin:0 0 20px}
+ .mobile-bespoke>p,.mobile-customisation-intro p,.mobile-designer-help p{font:400 16px/1.65 var(--font-body,Arial);color:#51483d;margin:0 0 22px}
+ .mobile-bespoke-primary,.mobile-bespoke-secondary{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:50px;padding:14px 20px;border-radius:28px;font:500 14px/1.5 var(--font-body,Arial);text-align:center;text-decoration:none;transition:transform .2s ease,background .2s ease}
+ .mobile-bespoke-primary{background:#282828;border:1px solid #282828;color:#fffcf8}
+ .mobile-bespoke-secondary{background:transparent;border:1px solid #C4B5A5;color:#282828;margin-top:10px}
+ .mobile-bespoke-primary:active,.mobile-bespoke-secondary:active{transform:scale(.98)}
+ .mobile-bespoke-primary:focus-visible,.mobile-bespoke-secondary:focus-visible,.mobile-bespoke-guide:focus-visible{outline:2px solid #8B6914;outline-offset:4px}
+ .mobile-bespoke figure{position:relative;margin:24px 0 18px;border-radius:4px 4px 24px 24px;overflow:hidden}
+ .mobile-bespoke figure img{display:block;width:100%;height:280px;object-fit:cover;object-position:center 70%}
+ .mobile-bespoke figcaption{position:absolute;bottom:14px;left:14px;right:14px;padding:12px 14px;background:#fffcf8f2;color:#282828;border-radius:14px;font:500 13px/1.5 var(--font-body,Arial)}
+ .mobile-bespoke-process{border-block:1px solid #d9cec0;padding:0}
+ .mobile-bespoke-process summary{min-height:52px;padding:14px 8px 14px 0;cursor:pointer;font:500 15px/1.6 var(--font-body,Arial)}
+ .mobile-bespoke-process ol{padding:0 0 0 24px;margin:8px 0 20px}
+ .mobile-bespoke-process li{padding:8px 0 12px 6px;font:14px/1.6 var(--font-body,Arial)}
+ .mobile-bespoke-process li strong,.mobile-bespoke-process li span{display:block}.mobile-bespoke-process li span{color:#51483d;margin-top:4px}
+ .mobile-bespoke-guide{display:flex;align-items:center;min-height:44px;padding:10px 0;color:#51483d;font:400 14px/1.6 var(--font-body,Arial);text-underline-offset:4px;margin-top:8px}
+ .landing-page .mobile-bespoke+.section-header .section-title{font-size:30px;line-height:1.12;letter-spacing:-.02em}
+ .mobile-customisation-intro{background:#eee5d8;border-radius:20px;padding:22px;margin:24px 0}
+ .mobile-customisation-intro h2,.mobile-designer-help h2{font:400 34px/1.1 var(--font-display,Georgia);margin:0 0 14px}
+ .mobile-customisation-intro p,.mobile-designer-help p{font-size:14px;margin-bottom:18px}
+ .mobile-designer-help{padding:24px 20px;background:#eee5d8;border-radius:20px;margin:26px 0 16px}
+ body:has(.mobile-customisation-intro) .sticky-order{display:none}
+ .mobile-designer-help .mobile-bespoke-guide{justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){.ma-collection-sheet,.ma-navigation-sheet,.ux-sheet,.diamond-origin-dialog{animation:none!important}.mobile-bespoke-primary,.mobile-bespoke-secondary{transition:none!important;transform:none!important}}
 
 /* Mobile menu alignment and wrapping leave dedicated space for disclosure controls. */
 @media(max-width:760px){
