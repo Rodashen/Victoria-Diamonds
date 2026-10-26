@@ -1,0 +1,15 @@
+[build]
+  command = "node scripts/prepare-release.cjs"
+  publish = "."
+
+# The site already uses .html canonicals. Keep Netlify from rewriting those links.
+[build.processing.html]
+  pretty_urls = false
+
+[[edge_functions]]
+  function = "product-seo"
+  path = "/product"
+
+[[edge_functions]]
+  function = "product-seo"
+  path = "/product.html"

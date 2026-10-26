@@ -11,7 +11,7 @@
   return {...item,collection:group.collection,category:group.category,id:item.id||preset?.id||(silver?silverIds[item.name]:group.collection+'-'+slug(item.name)),mode:preset?'custom':silver?'silver':'enquiry',preset:preset?{...preset,collection:preset.collection||(group.collection==='dailySparkle'?'dailySparkle':group.collection==='mensCollection'?'mens':'occasionWear'),route:preset.route||(group.collection==='dailySparkle'?'daily-sparkle':group.collection==='mensCollection'?'mens':'high-note')}:null};
  }));
  const find=(collection,name)=>products.find(p=>p.collection===collection&&p.name===name);
- const url=p=>'product.html?item='+encodeURIComponent(p.id)+'&lang='+(document.documentElement.lang.startsWith('zh')?'zh-HK':'en');
+ const url=p=>'product.html?item='+encodeURIComponent(p.id)+(document.documentElement.lang.startsWith('zh')?'&lang=zh-HK':'');
  const imageAlt=p=>[p.name,p.metal|| (p.collection==='silverCollection'?'Sterling 925 silver':''),p.designVisualisation?'lab-grown diamond design visualisation':'original jewellery design',collections[p.collection]?.[0],'Victoria Diamonds'].filter(Boolean).join(' — ');
  window.VDProducts={products,collections,find,url,slug,imageAlt};
 })();

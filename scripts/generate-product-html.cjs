@@ -1,0 +1,30 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const root=path.resolve(__dirname,'..'),c={window:{},document:{documentElement:{lang:'en'}}};
+for(const f of ['catalogue-data.js','daily-products.js','high-note-products.js','remaining-products.js','mens-products.js','product-registry.js','design-rules.js','diamond-prices.js','product-schema.js'])vm.runInNewContext(fs.readFileSync(path.join(root,f),'utf8'),c);
+const template=fs.readFileSync(path.join(root,'product.html'),'utf8'),base='https://victoria-diamonds.com/';
+const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const money=value=>new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(value);
+const labels={mainSide:'Main side stones',secondarySide:'Secondary side stones',finishingSide:'Finishing stones',centreStone:'Centre stone',sideStone:'Side stones',totalKarat:'Total carat weight',eachDiamond:'Each diamond',diamondPrice:'Diamond price',metalPrice:'Metal price',info:'Details'};
+const products={};
+for(const p of c.window.VDProducts.products){
+ const collection=c.window.VDProducts.collections[p.collection],canonical=base+'product.html?item='+encodeURIComponent(p.id),starting=c.window.VDDiamondCatalogue.products[p.id];
+ const centreRing=p.mode==='custom'&&p.category==='Ring'&&p.preset.diamonds.length&&!c.window.VDDesignRules.isPerStone(p)&&!/band|eternity|alternating/i.test(p.name);
+ const metal=p.metal||(centreRing?'18K White Gold':null);
+ const details=centreRing?[{key:'centreStone',value:'1.00 ct'}]:(p.details||[]).map(d=>c.window.VDDesignRules.isPerStone(p)&&d.key==='centreStone'?{...d,key:'eachDiamond'}:d);
+ const facts=[metal,...details.map(d=>(labels[d.key]||d.key)+': '+d.value)].filter(Boolean);
+ const description=p.name+' from '+collection[0]+'. '+(metal?metal+'. ':'')+(p.mode==='custom'?'Explore available options and order online.':p.mode==='silver'?'View the fixed design and order online.':'Arrange a design consultation.');
+ const title=p.name+' | '+collection[0]+' | Victoria Diamonds';
+ const schema=c.window.VDProductSchema.create(p,starting);
+ const price=p.mode==='silver'?p.price:starting?Math.min(starting.lab,starting.natural??Infinity):null;
+ const priceCopy=p.mode==='enquiry'?'Available by appointment':(p.mode==='custom'?'Starting from ':'')+money(price)+' GBP';
+ const intro=p.mode==='custom'?'Explore the options available for this design. Your selected materials and diamonds determine the confirmed quote before ordering.':p.mode==='silver'?'A Sterling 925 silver piece with fixed design specifications, available to order online.':'This piece is available through an appointment with our atelier. Contact us to discuss the design and specifications.';
+ const main=`<main id="productMain"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="view-catalogue.html">Collections</a> / <a href="${collection[1]}">${esc(collection[0])}</a></nav><div class="product-layout"><div class="gallery"><a href="images/${esc(p.image)}" target="_blank" rel="noopener"><img src="images/${esc(p.image)}" alt="${esc(c.window.VDProducts.imageAlt(p))}" fetchpriority="high"></a><p>Original design shown. Confirm final specifications with the atelier.</p></div><div><section class="product-intro"><p class="eyebrow">${esc(collection[0])} · ${esc(p.category)}</p><h1>${esc(p.name)}</h1><p>${esc(intro)}</p><p class="product-price">${esc(priceCopy)}</p>${p.description?'<p>'+esc(p.description)+'</p>':''}</section><section class="product-details"><h2>Original design details</h2><dl>${metal?'<dt>Metal</dt><dd>'+esc(metal)+'</dd>':''}${details.map(d=>'<dt>'+esc(labels[d.key]||d.key)+'</dt><dd>'+esc(d.value)+'</dd>').join('')}</dl></section><section id="order" tabindex="-1"><h2>${p.mode==='custom'?'Personalise and order':p.mode==='silver'?'Order this piece':'Arrange an appointment'}</h2><p>Use the interactive ordering options when JavaScript is enabled, or contact our London atelier for assistance.</p><p><a href="index.html#contact">Contact Victoria Diamonds</a> · <a href="tel:+447594442577">+44 7594 442577</a></p></section><p><a href="${collection[1]}">Explore ${esc(collection[0])}</a> · <a href="journal-diamond-jewellery-care.html">Jewellery care guide</a></p></div></div></main>`;
+ let html=template.replace(/<title[^>]*>[\s\S]*?<\/title>/,`<title>${esc(title)}</title>`).replace(/<meta name="description" content="[^"]*">/,`<meta name="description" content="${esc(description)}">`).replace(/<main id="productMain">[\s\S]*?<\/main>/,main);
+ const metadata=`<link rel="canonical" href="${esc(canonical)}"><meta property="og:type" content="product"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:image" content="${esc(base+'images/'+p.image)}"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json" id="productStructuredData">${JSON.stringify(schema).replace(/</g,'\\u003c')}</script>`;
+ html=html.replace('</head>',metadata+'\n</head>');
+ products[p.id]={html,canonical,name:p.name,facts};
+}
+const notFound=template.replace(/<title>[\s\S]*?<\/title>/,'<title>Piece not found | Victoria Diamonds</title>').replace('</head>','<meta name="robots" content="noindex">\n</head>').replace(/<main id="productMain">[\s\S]*?<\/main>/,'<main id="productMain"><h1>Let’s find your piece.</h1><p>This piece could not be found. <a href="view-catalogue.html">Browse all pieces</a>.</p></main>');
+fs.mkdirSync(path.join(root,'_generated'),{recursive:true});
+fs.writeFileSync(path.join(root,'_generated/product-pages.mjs'),'// Generated from the public catalogue at build time.\nexport default '+JSON.stringify({products,notFound})+';\n');
+console.log('Generated first-response HTML for '+Object.keys(products).length+' products.');
