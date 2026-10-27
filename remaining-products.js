@@ -732,7 +732,7 @@ window.RemainingProducts = {
     {
       "name": "Oval Halo Twist Petite Ring",
       "id": "sl_r_oval_halo_twist_petite",
-      "image": "products/sl_r_oval_halo_twist_petite.webp",
+      "image": "products/sl_r_oval_halo_twist_petite-studio-20261027.webp",
       "type": "ring",
       "collection": "singleLady",
       "route": "aura",
@@ -749,7 +749,7 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1375,
       "designFee": 0,
-      "thumbnail": "products/sl_r_oval_halo_twist_petite-960.webp"
+      "thumbnail": "products/sl_r_oval_halo_twist_petite-studio-20261027-960.webp"
     },
     {
       "name": "Pear Solitaire Chevron Ring",

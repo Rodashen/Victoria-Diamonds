@@ -29,39 +29,39 @@ window.VDCatalogueGroups = [
         ]},
 {collection:"dailySparkle", category:"Ring", items:[
 
-    {name:'Aurelia Ring', image:'products/ds_s_aurelia.webp', thumbnail:'products/ds_s_aurelia-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Aurelia Ring', image:'products/ds_s_aurelia-studio-20261027.webp', thumbnail:'products/ds_s_aurelia-studio-20261027-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Elara Ring', image:'products/ds_s_elara.webp', thumbnail:'products/ds_s_elara-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Elara Ring', image:'products/ds_s_elara-studio-20261027.webp', thumbnail:'products/ds_s_elara-studio-20261027-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Raya Ring', image:'products/ds_s_raya.webp', thumbnail:'products/ds_s_raya-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Raya Ring', image:'products/ds_s_raya-studio-20261027.webp', thumbnail:'products/ds_s_raya-studio-20261027-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Gianna Ring', image:'products/ds_s_gianna.webp', thumbnail:'products/ds_s_gianna-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Gianna Ring', image:'products/ds_s_gianna-studio-20261027.webp', thumbnail:'products/ds_s_gianna-studio-20261027-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Mirabelle Ring', image:'products/ds_s_mirabelle.webp', thumbnail:'products/ds_s_mirabelle-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Mirabelle Ring', image:'products/ds_s_mirabelle-studio-20261027.webp', thumbnail:'products/ds_s_mirabelle-studio-20261027-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Nova Ring', image:'products/ds_s_nova.webp', thumbnail:'products/ds_s_nova-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Nova Ring', image:'products/ds_s_nova-studio-20261027.webp', thumbnail:'products/ds_s_nova-studio-20261027-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Solitaire Ring', image:'products/ds_s_solitaire.webp', thumbnail:'products/ds_s_solitaire-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Solitaire Ring', image:'products/ds_s_solitaire-studio-20261027.webp', thumbnail:'products/ds_s_solitaire-studio-20261027-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Diamond Dust Ring', image:'products/ds_s_diamond_dust.webp', thumbnail:'products/ds_s_diamond_dust-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Diamond Dust Ring', image:'products/ds_s_diamond_dust-studio-20261027.webp', thumbnail:'products/ds_s_diamond_dust-studio-20261027-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Solenne Ring', image:'products/ds_s_solenne.webp', thumbnail:'products/ds_s_solenne-960.webp', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Solenne Ring', image:'products/ds_s_solenne-studio-20261027.webp', thumbnail:'products/ds_s_solenne-studio-20261027-960.webp', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Élan Ring', image:'products/ds_s_elan.webp', thumbnail:'products/ds_s_elan-960.webp', price:1715, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Élan Ring', image:'products/ds_s_elan-studio-20261027.webp', thumbnail:'products/ds_s_elan-studio-20261027-960.webp', price:1715, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Timeless Classic Ring', image:'products/ds_s_timeless.webp', thumbnail:'products/ds_s_timeless-960.webp', price:1667, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Timeless Classic Ring', image:'products/ds_s_timeless-studio-20261027.webp', thumbnail:'products/ds_s_timeless-studio-20261027-960.webp', price:1667, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Princess Ring', image:'products/ds_s_princess.webp', thumbnail:'products/ds_s_princess-960.webp', price:1951, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Princess Ring', image:'products/ds_s_princess-studio-20261027.webp', thumbnail:'products/ds_s_princess-studio-20261027-960.webp', price:1951, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Aurelle Ring', image:'products/ds_s_aurelle.webp', thumbnail:'products/ds_s_aurelle-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Aurelle Ring', image:'products/ds_s_aurelle-studio-20261027.webp', thumbnail:'products/ds_s_aurelle-studio-20261027-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Eternity Stacking Ring', image:'products/ds_m_eternity-detail-restored.webp', thumbnail:'products/ds_m_eternity-960-detail-restored.webp', metal:'18K White Gold', price:1110, details:[{key:'eachDiamond', value:'0.10 x 17'}]},
+    {name:'Eternity Stacking Ring', image:'products/ds_m_eternity-studio-20261027.webp', thumbnail:'products/ds_m_eternity-studio-20261027-960.webp', metal:'18K White Gold', price:1110, details:[{key:'eachDiamond', value:'0.10 x 17'}]},
 
-    {name:'Splendor Stacking Ring', image:'products/ds_m_splendor-v2.webp', thumbnail:'products/ds_m_splendor-960-v2.webp', metal:'18K White Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Splendor Stacking Ring', image:'products/ds_m_splendor-studio-20261027.webp', thumbnail:'products/ds_m_splendor-studio-20261027-960.webp', metal:'18K White Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Cascade Ring', image:'products/ds_s_cascade.webp', thumbnail:'products/ds_s_cascade-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Cascade Ring', image:'products/ds_s_cascade-studio-20261027.webp', thumbnail:'products/ds_s_cascade-studio-20261027-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
 
-    {name:'Nocturne Ring', image:'products/ds_s_nocturne.webp', thumbnail:'products/ds_s_nocturne-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]}
+    {name:'Nocturne Ring', image:'products/ds_s_nocturne-studio-20261027.webp', thumbnail:'products/ds_s_nocturne-studio-20261027-960.webp', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]}
 
 ]},
 {collection:"dailySparkle", category:"Necklace", items:[
@@ -73,18 +73,18 @@ window.VDCatalogueGroups = [
             {name:'Solstice Necklace', image:'products/ds_m_solstice.webp', thumbnail:'products/ds_m_solstice-960.webp', detailImage:'products/ds_m_solstice-detail.webp', stone:'1.00 ct', total:'3 ct', price:2285, details:[{key:'centreStone', value:'1.00 ct'},{key:'totalKarat', value:'3 ct'},{key:'sideStone', value:'0.10 x 20'}]}
         ]},
 {collection:"dailySparkle", category:"Earring", items:[
-            {name:'Lumin\u00e9a Earrings', image:'products/ds_s_luminea.webp', thumbnail:'products/ds_s_luminea-960.webp', total:'0.60 ct (pair)', price:1263, details:[{key:'eachDiamond', value:'0.10 (6 per pair)'},{key:'totalKarat', value:'0.60 ct (pair)'}]},
-            {name:'Fiora Earrings', image:'products/ds_s_fiora.webp', thumbnail:'products/ds_s_fiora-960.webp', total:'1.60 ct (pair)', price:1625, details:[{key:'mainDiamond', value:'0.25 (4 per pair)'},{key:'secondaryDiamond', value:'0.15 (4 per pair)'},{key:'totalKarat', value:'1.60 ct (pair)'}]}
+            {name:'Lumin\u00e9a Earrings', image:'products/ds_s_luminea-studio-20261027.webp', thumbnail:'products/ds_s_luminea-studio-20261027-960.webp', total:'0.60 ct (pair)', price:1263, details:[{key:'eachDiamond', value:'0.10 (6 per pair)'},{key:'totalKarat', value:'0.60 ct (pair)'}]},
+            {name:'Fiora Earrings', image:'products/ds_s_fiora-studio-20261027.webp', thumbnail:'products/ds_s_fiora-studio-20261027-960.webp', total:'1.60 ct (pair)', price:1625, details:[{key:'mainDiamond', value:'0.25 (4 per pair)'},{key:'secondaryDiamond', value:'0.15 (4 per pair)'},{key:'totalKarat', value:'1.60 ct (pair)'}]}
         ]},
 {collection:"dailySparkle", category:"Earring Stud", items:[
-            {name:'Martini Studs', image:'products/ds_s_martini.webp', thumbnail:'products/ds_s_martini-960.webp', total:'2 ct (pair)', price:1625, details:[{key:'eachDiamond', value:'1 (2 in total if pair)'},{key:'totalKarat', value:'2 ct (pair)'}]}
+            {name:'Martini Studs', image:'products/ds_s_martini-studio-20261027.webp', thumbnail:'products/ds_s_martini-studio-20261027-960.webp', total:'2 ct (pair)', price:1625, details:[{key:'eachDiamond', value:'1 (2 in total if pair)'},{key:'totalKarat', value:'2 ct (pair)'}]}
         ]},
 {collection:"dailySparkle", category:"Bracelet", items:[
-            {name:'Aur\u00e9a Bracelet', image:'products/ds_m_aurea_bracelet.webp', thumbnail:'products/ds_m_aurea_bracelet-960.webp', price:5520, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 8'},{key:'totalKarat', value:'2.2 ct'}]},
-            {name:'Solenne Bracelet', image:'products/ds_m_solenne_bracelet.webp', thumbnail:'products/ds_m_solenne_bracelet-960.webp', price:5220, details:[{key:'centreStone', value:'0.75 ct'},{key:'mainSide', value:'0.15 x 4'},{key:'secondarySide', value:'0.10 x 4'},{key:'totalKarat', value:'1.75 ct'}]},
-            {name:'Liora Bracelet', image:'products/ds_m_liora_bracelet.webp', thumbnail:'products/ds_m_liora_bracelet-960.webp', price:5520, details:[{key:'centreStone', value:'1 ct'},{key:'sideStone', value:'0.25 x 4'},{key:'totalKarat', value:'2 ct'}]},
-            {name:'Celeste Bracelet', image:'products/ds_m_celeste_bracelet.webp', thumbnail:'products/ds_m_celeste_bracelet-960.webp', price:4920, details:[{key:'mainDiamond', value:'0.50 x 3'},{key:'sideStone', value:'0.10 x 14'},{key:'totalKarat', value:'2.9 ct'}]},
-            {name:'Lumi\u00e8re Bracelet', image:'products/ds_m_lumiere_bracelet.webp', thumbnail:'products/ds_m_lumiere_bracelet-960.webp', price:4720, details:[{key:'eachDiamond', value:'0.10 x 12'},{key:'totalKarat', value:'1.2 ct'}]}
+            {name:'Aur\u00e9a Bracelet', image:'products/ds_m_aurea_bracelet-studio-20261027.webp', thumbnail:'products/ds_m_aurea_bracelet-studio-20261027-960.webp', price:5520, details:[{key:'centreStone', value:'1.00 ct'},{key:'sideStone', value:'0.15 x 8'},{key:'totalKarat', value:'2.2 ct'}]},
+            {name:'Solenne Bracelet', image:'products/ds_m_solenne_bracelet-studio-20261027.webp', thumbnail:'products/ds_m_solenne_bracelet-studio-20261027-960.webp', price:5220, details:[{key:'centreStone', value:'0.75 ct'},{key:'mainSide', value:'0.15 x 4'},{key:'secondarySide', value:'0.10 x 4'},{key:'totalKarat', value:'1.75 ct'}]},
+            {name:'Liora Bracelet', image:'products/ds_m_liora_bracelet-studio-20261027.webp', thumbnail:'products/ds_m_liora_bracelet-studio-20261027-960.webp', price:5520, details:[{key:'centreStone', value:'1 ct'},{key:'sideStone', value:'0.25 x 4'},{key:'totalKarat', value:'2 ct'}]},
+            {name:'Celeste Bracelet', image:'products/ds_m_celeste_bracelet-studio-20261027.webp', thumbnail:'products/ds_m_celeste_bracelet-studio-20261027-960.webp', price:4920, details:[{key:'mainDiamond', value:'0.50 x 3'},{key:'sideStone', value:'0.10 x 14'},{key:'totalKarat', value:'2.9 ct'}]},
+            {name:'Lumi\u00e8re Bracelet', image:'products/ds_m_lumiere_bracelet-studio-20261027.webp', thumbnail:'products/ds_m_lumiere_bracelet-studio-20261027-960.webp', price:4720, details:[{key:'eachDiamond', value:'0.10 x 12'},{key:'totalKarat', value:'1.2 ct'}]}
         ]},
 {collection:"occasionalWear", category:"Ring", items:[
             {name:'Anora Ring', image:'products/ow_s_anora.webp', thumbnail:'products/ow_s_anora-960.webp', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
@@ -154,7 +154,7 @@ window.VDCatalogueGroups = [
     {name:'Marquise & Round Alternating Band', image:'products/sl_r_marquise_round_alternating_band.webp', thumbnail:'products/sl_r_marquise_round_alternating_band-960.webp', metal:'18K Gold', price:1803, details:[{key:'totalKarat', value:'2.1 ct'},{key:'info', value:'Marquise & round alternating band'}]},
     {name:'Oval East-West Solitaire Ring', image:'products/sl_r_oval_east_west_solitaire.webp', thumbnail:'products/sl_r_oval_east_west_solitaire-960.webp', metal:'18K Gold', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Oval Halo Pavé Ring', image:'products/sl_r_oval_halo_pave.webp', thumbnail:'products/sl_r_oval_halo_pave-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
-    {name:'Oval Halo Twist Petite Ring', image:'products/sl_r_oval_halo_twist_petite.webp', thumbnail:'products/sl_r_oval_halo_twist_petite-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
+    {name:'Oval Halo Twist Petite Ring', image:'products/sl_r_oval_halo_twist_petite-studio-20261027.webp', thumbnail:'products/sl_r_oval_halo_twist_petite-studio-20261027-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Pear Solitaire Chevron Ring', image:'products/sl_r_pear_solitaire_chevron.webp', thumbnail:'products/sl_r_pear_solitaire_chevron-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Pear Solitaire Tapered Ring', image:'products/sl_r_pear_solitaire_tapered-detail-restored.webp', thumbnail:'products/sl_r_pear_solitaire_tapered-960-detail-restored.webp', metal:'18K White Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
     {name:'Round Nature Vine Ring', image:'products/sl_r_round_nature_vine.webp', thumbnail:'products/sl_r_round_nature_vine-960.webp', metal:'18K Gold', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
