@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
  const page=location.pathname.split('/').filter(Boolean).pop();
  const collection=Object.keys(registry?.collections||{}).find(key=>{const file=registry.collections[key][1];return file===page||file.slice(0,-5)===page;});
  if(!collection)return;
- const host=['mensCollection','keepsakeCollection'].includes(collection)?document.getElementById('mensProducts'):document.querySelector('.collection-section');
+ const host=['mensCollection','keepsakeCollection','tennisCollection'].includes(collection)?document.getElementById('mensProducts'):document.querySelector('.collection-section');
  if(!host)return;
  const inventory=registry.products.filter(product=>product.collection===collection);
  const categories=[...new Set(inventory.map(product=>product.category))];

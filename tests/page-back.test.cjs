@@ -17,7 +17,7 @@ test('New-tab product returns to referring catalogue including its filters',()=>
 test('Direct product entry falls back to its own collection',()=>{const s=run({historyLength:1,product:true});s.click();assert.deepEqual(s.calls,[['assign','daily-sparkle.html']]);});
 
 test('Every collection returns to the homepage showcase regardless of previous page',()=>{
- for(const name of ['daily-sparkle','high-note-collection','forever-bond','silver-collection','aura-collection','mens-collection','keepsake-collection','view-catalogue']){
+ for(const name of ['daily-sparkle','high-note-collection','forever-bond','silver-collection','aura-collection','mens-collection','keepsake-collection','tennis-collection','view-catalogue']){
   for(const suffix of ['.html','','/']){
    const s=run({page:'/'+name+suffix,referrer:'https://victoria-diamonds.com/product.html?item=test',entries:[{index:0,key:'product',url:'https://victoria-diamonds.com/product.html?item=test'},{index:1,key:'collection',url:'https://victoria-diamonds.com/'+name+suffix}]});
    s.click();assert.deepEqual(s.calls,[['assign','index.html#collections']],name+suffix);

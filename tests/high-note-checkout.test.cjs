@@ -1,6 +1,6 @@
 const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),assert=require('node:assert/strict');
 const root=process.env.CALCULATOR_ROOT||path.resolve(__dirname,'../../../calculator'),stage=root,pricing=require(path.join(root,'pricing'));
-const mod={exports:{}};vm.runInNewContext(fs.readFileSync(path.join(stage,'daily-checkout.js'),'utf8'),{module:mod,require:()=>pricing});const {quoteDaily}=mod.exports;
+const {quoteDaily}=require(path.join(stage,'daily-checkout'));
 const productsContext={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../high-note-products.js'),'utf8'),productsContext);
 const products=productsContext.window.HighNoteProducts.products;
 assert.equal(products.length,22);

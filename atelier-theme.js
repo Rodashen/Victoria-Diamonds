@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded',()=>{
  if(editorial&&rail){
   editorial.prepend(rail);
   const menu=document.createElement('details');menu.className='collection-mobile-menu';
-  const summary=document.createElement('summary');summary.textContent='Explore all seven collections';
+  const summary=document.createElement('summary');summary.textContent='Explore all collections';
   const links=document.createElement('nav');links.setAttribute('aria-label','All jewellery collections');
   rail.querySelectorAll('a').forEach(row=>{const a=document.createElement('a');a.href=row.href;a.textContent=row.querySelector('strong').textContent;links.append(a);});menu.append(summary,links);editorial.append(menu);
-  const labels=()=>{summary.textContent=document.documentElement.lang.startsWith('zh')?'探索全部七個系列':'Explore all seven collections';rail.querySelectorAll('strong').forEach((name,i)=>links.children[i].textContent=name.textContent);};
+  const labels=()=>{summary.textContent=document.documentElement.lang.startsWith('zh')?'探索全部系列':'Explore all collections';rail.querySelectorAll('strong').forEach((name,i)=>links.children[i].textContent=name.textContent);};
   new MutationObserver(labels).observe(rail,{childList:true,subtree:true,characterData:true});labels();
  }
  const filters=document.querySelector('.landing-collection-filters'),actions=document.querySelector('.collection-browse-actions');

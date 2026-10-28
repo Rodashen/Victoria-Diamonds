@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://victoria-diamonds.com/</loc></url>
   <url><loc>https://victoria-diamonds.com/view-catalogue.html</loc></url>
+  <url><loc>https://victoria-diamonds.com/tennis-collection.html</loc></url>
   <url><loc>https://victoria-diamonds.com/keepsake-collection.html</loc></url>
   <url><loc>https://victoria-diamonds.com/daily-sparkle.html</loc></url>
   <url><loc>https://victoria-diamonds.com/high-note-collection.html</loc></url>
@@ -89,12 +90,6 @@
   <url><loc>https://victoria-diamonds.com/product.html?item=ow_m_eternelle</loc></url>
   <url><loc>https://victoria-diamonds.com/product.html?item=ow_m_illusion</loc></url>
   <url><loc>https://victoria-diamonds.com/product.html?item=ow_m_fiora</loc></url>
-  <url><loc>https://victoria-diamonds.com/product.html?item=ow_l_lumina</loc></url>
-  <url><loc>https://victoria-diamonds.com/product.html?item=ow_l_arabella</loc></url>
-  <url><loc>https://victoria-diamonds.com/product.html?item=ow_l_classic_round_tennis_gold</loc></url>
-  <url><loc>https://victoria-diamonds.com/product.html?item=ow_l_emerald_cut_tennis</loc></url>
-  <url><loc>https://victoria-diamonds.com/product.html?item=ow_l_marquise_round_alternating_tennis</loc></url>
-  <url><loc>https://victoria-diamonds.com/product.html?item=ow_l_pear_cut_tennis_gold</loc></url>
   <url><loc>https://victoria-diamonds.com/product.html?item=occasionalWear-celestia-broche</loc></url>
   <url><loc>https://victoria-diamonds.com/product.html?item=occasionalWear-eternelle-broche</loc></url>
   <url><loc>https://victoria-diamonds.com/product.html?item=occasionalWear-lunaria-tiara</loc></url>
@@ -147,8 +142,6 @@
   <url><loc>https://victoria-diamonds.com/product.html?item=mens_citadel_band</loc></url>
   <url><loc>https://victoria-diamonds.com/product.html?item=mens_axis_band</loc></url>
   <url><loc>https://victoria-diamonds.com/product.html?item=mens_sovereign_signet_ring</loc></url>
-  <url><loc>https://victoria-diamonds.com/product.html?item=mens_apex_tennis_bracelet</loc></url>
-  <url><loc>https://victoria-diamonds.com/product.html?item=mens_pillar_tennis_bracelet</loc></url>
   <url><loc>https://victoria-diamonds.com/product.html?item=mens_anchor_link_bracelet</loc></url>
   <url><loc>https://victoria-diamonds.com/product.html?item=mens_vanguard_cuff</loc></url>
   <url><loc>https://victoria-diamonds.com/product.html?item=mens_foundry_link_bracelet</loc></url>
@@ -199,4 +192,17 @@
   <url><loc>https://victoria-diamonds.com/product.html?item=aura_oriana_oval_bracelet</loc></url>
   <url><loc>https://victoria-diamonds.com/product.html?item=aura_estelle_trio_bracelet</loc></url>
   <url><loc>https://victoria-diamonds.com/product.html?item=aura_amelie_heart_bracelet</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=ow_l_lumina</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=ow_l_arabella</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=ow_l_classic_round_tennis_gold</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=ow_l_emerald_cut_tennis</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=ow_l_marquise_round_alternating_tennis</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=ow_l_pear_cut_tennis_gold</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=mens_apex_tennis_bracelet</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=mens_pillar_tennis_bracelet</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=tennis_oval_riviere</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=tennis_princess_line</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=tennis_cushion_lumiere</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=tennis_asscher_avenue</loc></url>
+  <url><loc>https://victoria-diamonds.com/product.html?item=tennis_round_bezel</loc></url>
 </urlset>

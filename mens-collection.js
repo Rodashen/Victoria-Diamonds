@@ -10,7 +10,7 @@
  const tr=(key,fallback)=>dictionary?.[key]||fallback;
  const categories=[
   {name:'Ring',id:'mens-rings',en:'Rings',zh:'戒指',descriptionEn:'Signet and diamond bands, ready to tailor to your own specification.',descriptionZh:'印章戒指與鑽石戒指，可按您的喜好訂製。'},
-  {name:'Bracelet',id:'mens-bracelets',en:'Bracelets',zh:'手鏈',descriptionEn:'Tennis and link designs with calculator-verified minimum metal tiers.',descriptionZh:'網球及鏈節設計，金屬規格設有計算器確認的最低級別。'},
+  {name:'Bracelet',id:'mens-bracelets',en:'Bracelets',zh:'手鏈',descriptionEn:'Link and cuff designs with calculator-verified minimum metal tiers.',descriptionZh:'網球及鏈節設計，金屬規格設有計算器確認的最低級別。'},
   {name:'Pendant',id:'mens-pendants',en:'Pendants',zh:'吊墜',descriptionEn:'Considered gold and diamond forms. Pendants are sold without a chain.',descriptionZh:'精緻黃金與鑽石設計。吊墜不包括項鏈。'}
  ];
  const select=document.getElementById('mensLanguage');

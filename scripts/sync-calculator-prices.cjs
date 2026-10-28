@@ -43,7 +43,7 @@ for(const p of context.window.VDProducts.products.filter(p=>p.mode==='custom')){
  const available=!rules[p.id]?.labOnly&&selected.length>0&&selected.every(Boolean);
  products[p.id]={lab,natural:available?quoteDaily({...body,diamondOrigin:'natural',diamonds:selected},preset.collection).total:null,labOnly:!!rules[p.id]?.labOnly,diamonds,naturalDesign};
 }
-const date='2026-10-25';
+const date='2026-10-28';
 fs.writeFileSync(path.join(root,'diamond-catalogue.js'),'/* Calculator catalogue snapshot, '+date+'. Final prices are confirmed by the payment server. */\nwindow.VDDiamondCatalogue='+JSON.stringify({date,currency:'GBP',items,products})+';\n');
 fs.writeFileSync(path.join(root,'diamond-prices.js'),'/* Lightweight collection starting prices; full stone catalogue loads only on product pages. */\nwindow.VDDiamondCatalogue='+JSON.stringify({date,currency:'GBP',products})+';\n');
 console.log(JSON.stringify({updatedPresets:changes.length,products:Object.keys(products).length,changes},null,2));

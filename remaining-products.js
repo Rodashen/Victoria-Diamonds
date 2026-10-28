@@ -1448,3 +1448,147 @@ window.RemainingProducts.products.push(...[
     "lockBraceletTier": true
   }
 ]);
+
+/* Tennis Collection online order presets. */
+window.RemainingProducts.products.push(...[
+  {
+    "id": "tennis_oval_riviere",
+    "name": "Oval Rivière Tennis Bracelet",
+    "collection": "tennis",
+    "route": "tennis",
+    "type": "bracelet",
+    "image": "products/tennis_oval_riviere.webp",
+    "thumbnail": "products/tennis_oval_riviere-960.webp",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 1
+      }
+    ],
+    "braceletMetalTier": "premium",
+    "minBraceletTier": "premium",
+    "lockBraceletTier": true,
+    "diamondPriceOptions": {
+      "0.25": 2200,
+      "0.50": 2400,
+      "0.75": 2700,
+      "1.00": 3000
+    },
+    "needsStoneSelection": false,
+    "designFee": 0,
+    "price": 4720
+  },
+  {
+    "id": "tennis_princess_line",
+    "name": "Princess Line Tennis Bracelet",
+    "collection": "tennis",
+    "route": "tennis",
+    "type": "bracelet",
+    "image": "products/tennis_princess_line.webp",
+    "thumbnail": "products/tennis_princess_line-960.webp",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 1
+      }
+    ],
+    "braceletMetalTier": "premium",
+    "minBraceletTier": "premium",
+    "lockBraceletTier": true,
+    "diamondPriceOptions": {
+      "0.25": 2200,
+      "0.50": 2400,
+      "0.75": 2700,
+      "1.00": 3000
+    },
+    "needsStoneSelection": false,
+    "designFee": 0,
+    "price": 4720
+  },
+  {
+    "id": "tennis_cushion_lumiere",
+    "name": "Cushion Lumière Tennis Bracelet",
+    "collection": "tennis",
+    "route": "tennis",
+    "type": "bracelet",
+    "image": "products/tennis_cushion_lumiere.webp",
+    "thumbnail": "products/tennis_cushion_lumiere-960.webp",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 1
+      }
+    ],
+    "braceletMetalTier": "premium",
+    "minBraceletTier": "premium",
+    "lockBraceletTier": true,
+    "diamondPriceOptions": {
+      "0.25": 2200,
+      "0.50": 2400,
+      "0.75": 2700,
+      "1.00": 3000
+    },
+    "needsStoneSelection": false,
+    "designFee": 0,
+    "price": 4720
+  },
+  {
+    "id": "tennis_asscher_avenue",
+    "name": "Asscher Avenue Tennis Bracelet",
+    "collection": "tennis",
+    "route": "tennis",
+    "type": "bracelet",
+    "image": "products/tennis_asscher_avenue.webp",
+    "thumbnail": "products/tennis_asscher_avenue-960.webp",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 1
+      }
+    ],
+    "braceletMetalTier": "premium",
+    "minBraceletTier": "premium",
+    "lockBraceletTier": true,
+    "diamondPriceOptions": {
+      "0.25": 2200,
+      "0.50": 2400,
+      "0.75": 2700,
+      "1.00": 3000
+    },
+    "needsStoneSelection": false,
+    "designFee": 0,
+    "price": 4720
+  },
+  {
+    "id": "tennis_round_bezel",
+    "name": "Round Bezel Tennis Bracelet",
+    "collection": "tennis",
+    "route": "tennis",
+    "type": "bracelet",
+    "image": "products/tennis_round_bezel.webp",
+    "thumbnail": "products/tennis_round_bezel-960.webp",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 1
+      }
+    ],
+    "braceletMetalTier": "premium",
+    "minBraceletTier": "premium",
+    "lockBraceletTier": true,
+    "diamondPriceOptions": {
+      "0.25": 2200,
+      "0.50": 2400,
+      "0.75": 2700,
+      "1.00": 3000
+    },
+    "needsStoneSelection": false,
+    "designFee": 0,
+    "price": 4720
+  }
+]);
