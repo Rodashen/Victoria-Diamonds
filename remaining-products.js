@@ -17,7 +17,7 @@ window.RemainingProducts = {
     {
       "name": "Stellar Promise",
       "id": "fb_m_stellar",
-      "image": "products/fb_m_stellar.webp",
+      "image": "products/fb_m_stellar-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -34,12 +34,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1375,
       "designFee": 0,
-      "thumbnail": "products/fb_m_stellar-960.webp"
+      "thumbnail": "products/fb_m_stellar-studio-20261028-960.webp"
     },
     {
       "name": "Élégance Unie Ring",
       "id": "fb_m_elegance",
-      "image": "products/fb_m_elegance.webp",
+      "image": "products/fb_m_elegance-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -56,12 +56,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1375,
       "designFee": 0,
-      "thumbnail": "products/fb_m_elegance-960.webp"
+      "thumbnail": "products/fb_m_elegance-studio-20261028-960.webp"
     },
     {
       "name": "Lumière Eternity Ring",
       "id": "fb_m_lumiere_eternity",
-      "image": "products/fb_m_lumiere_eternity.webp",
+      "image": "products/fb_m_lumiere_eternity-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -78,12 +78,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1375,
       "designFee": 0,
-      "thumbnail": "products/fb_m_lumiere_eternity-960.webp"
+      "thumbnail": "products/fb_m_lumiere_eternity-studio-20261028-960.webp"
     },
     {
       "name": "Endless Devotion Ring",
       "id": "fb_m_endless",
-      "image": "products/fb_m_endless.webp",
+      "image": "products/fb_m_endless-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -105,12 +105,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1515,
       "designFee": 0,
-      "thumbnail": "products/fb_m_endless-960.webp"
+      "thumbnail": "products/fb_m_endless-studio-20261028-960.webp"
     },
     {
       "name": "Luminous Devotion Ring",
       "id": "fb_m_luminous",
-      "image": "products/fb_m_luminous.webp",
+      "image": "products/fb_m_luminous-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -132,12 +132,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1965,
       "designFee": 0,
-      "thumbnail": "products/fb_m_luminous-960.webp"
+      "thumbnail": "products/fb_m_luminous-studio-20261028-960.webp"
     },
     {
       "name": "Everlasting Embrace Ring",
       "id": "fb_m_everlasting",
-      "image": "products/fb_m_everlasting.webp",
+      "image": "products/fb_m_everlasting-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -164,12 +164,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 2955,
       "designFee": 0,
-      "thumbnail": "products/fb_m_everlasting-960.webp"
+      "thumbnail": "products/fb_m_everlasting-studio-20261028-960.webp"
     },
     {
       "name": "The Knot Ring",
       "id": "fb_m_knot",
-      "image": "products/fb_m_knot.webp",
+      "image": "products/fb_m_knot-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -186,12 +186,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1375,
       "designFee": 0,
-      "thumbnail": "products/fb_m_knot-960.webp"
+      "thumbnail": "products/fb_m_knot-studio-20261028-960.webp"
     },
     {
       "name": "Eternal Connection",
       "id": "fb_m_eternal_connection",
-      "image": "products/fb_m_eternal_connection.webp",
+      "image": "products/fb_m_eternal_connection-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -213,12 +213,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1935,
       "designFee": 0,
-      "thumbnail": "products/fb_m_eternal_connection-960.webp"
+      "thumbnail": "products/fb_m_eternal_connection-studio-20261028-960.webp"
     },
     {
       "name": "Eternal Promise",
       "id": "fb_s_eternal_promise",
-      "image": "products/fb_s_eternal_promise.webp",
+      "image": "products/fb_s_eternal_promise-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -235,12 +235,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1375,
       "designFee": 0,
-      "thumbnail": "products/fb_s_eternal_promise-960.webp"
+      "thumbnail": "products/fb_s_eternal_promise-studio-20261028-960.webp"
     },
     {
       "name": "Moment to Shine Ring",
       "id": "fb_s_moment_to_shine",
-      "image": "products/fb_s_moment_to_shine.webp",
+      "image": "products/fb_s_moment_to_shine-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -267,12 +267,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1955,
       "designFee": 0,
-      "thumbnail": "products/fb_s_moment_to_shine-960.webp"
+      "thumbnail": "products/fb_s_moment_to_shine-studio-20261028-960.webp"
     },
     {
       "name": "Unbreakable Hearts",
       "id": "fb_s_unbreakable_hearts",
-      "image": "products/fb_s_unbreakable_hearts.webp",
+      "image": "products/fb_s_unbreakable_hearts-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -304,13 +304,13 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 8733,
       "designFee": 0,
-      "thumbnail": "products/fb_s_unbreakable_hearts-960.webp",
+      "thumbnail": "products/fb_s_unbreakable_hearts-studio-20261028-960.webp",
       "stackingSetMultiplier": 3
     },
     {
       "name": "Bound by Destiny",
       "id": "fb_s_bound_by_destiny",
-      "image": "products/fb_s_bound_by_destiny.webp",
+      "image": "products/fb_s_bound_by_destiny-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -332,13 +332,13 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 8625,
       "designFee": 0,
-      "thumbnail": "products/fb_s_bound_by_destiny-960.webp",
+      "thumbnail": "products/fb_s_bound_by_destiny-studio-20261028-960.webp",
       "stackingSetMultiplier": 3
     },
     {
       "name": "Ethereal Halo Ring",
       "id": "fb_l_ethereal_halo",
-      "image": "products/fb_l_ethereal_halo.webp",
+      "image": "products/fb_l_ethereal_halo-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -360,12 +360,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1965,
       "designFee": 0,
-      "thumbnail": "products/fb_l_ethereal_halo-960.webp"
+      "thumbnail": "products/fb_l_ethereal_halo-studio-20261028-960.webp"
     },
     {
       "name": "Amour Éternel Ring",
       "id": "fb_s_amour_eternel",
-      "image": "products/fb_s_amour_eternel.webp",
+      "image": "products/fb_s_amour_eternel-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -382,12 +382,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1375,
       "designFee": 0,
-      "thumbnail": "products/fb_s_amour_eternel-960.webp"
+      "thumbnail": "products/fb_s_amour_eternel-studio-20261028-960.webp"
     },
     {
       "name": "Celestial Embrace",
       "id": "fb_l_celestial_embrace",
-      "image": "products/fb_l_celestial_embrace.webp",
+      "image": "products/fb_l_celestial_embrace-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -404,12 +404,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1825,
       "designFee": 0,
-      "thumbnail": "products/fb_l_celestial_embrace-960.webp"
+      "thumbnail": "products/fb_l_celestial_embrace-studio-20261028-960.webp"
     },
     {
       "name": "Destiny Couple Ring",
       "id": "fb_m_destiny_couple",
-      "image": "products/fb_m_destiny_couple.webp",
+      "image": "products/fb_m_destiny_couple-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -431,12 +431,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1515,
       "designFee": 0,
-      "thumbnail": "products/fb_m_destiny_couple-960.webp"
+      "thumbnail": "products/fb_m_destiny_couple-studio-20261028-960.webp"
     },
     {
       "name": "Eternal Harmony",
       "id": "fb_m_eternal_harmony",
-      "image": "products/fb_m_eternal_harmony.webp",
+      "image": "products/fb_m_eternal_harmony-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -453,12 +453,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1375,
       "designFee": 0,
-      "thumbnail": "products/fb_m_eternal_harmony-960.webp"
+      "thumbnail": "products/fb_m_eternal_harmony-studio-20261028-960.webp"
     },
     {
       "name": "Wedding Bands",
       "id": "fb_s_wedding_bands",
-      "image": "products/fb_s_wedding_bands.webp",
+      "image": "products/fb_s_wedding_bands-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -475,12 +475,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1375,
       "designFee": 0,
-      "thumbnail": "products/fb_s_wedding_bands-960.webp"
+      "thumbnail": "products/fb_s_wedding_bands-studio-20261028-960.webp"
     },
     {
       "name": "Eternal Promise Ring Set",
       "id": "fb_l_eternal_promise_set",
-      "image": "products/fb_l_eternal_promise_set.webp",
+      "image": "products/fb_l_eternal_promise_set-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -497,12 +497,12 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1375,
       "designFee": 0,
-      "thumbnail": "products/fb_l_eternal_promise_set-960.webp"
+      "thumbnail": "products/fb_l_eternal_promise_set-studio-20261028-960.webp"
     },
     {
       "name": "Elysian Ring",
       "id": "fb_m_elysian",
-      "image": "products/fb_m_elysian.webp",
+      "image": "products/fb_m_elysian-studio-20261028.webp",
       "type": "ring",
       "collection": "foreverBond",
       "route": "forever-bond",
@@ -519,7 +519,7 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 1825,
       "designFee": 0,
-      "thumbnail": "products/fb_m_elysian-960.webp"
+      "thumbnail": "products/fb_m_elysian-studio-20261028-960.webp"
     },
     {
       "name": "Curved Chevron Pavé Band",
