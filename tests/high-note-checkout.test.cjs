@@ -10,10 +10,10 @@ for(const p of products)for(const metal of ['gold','silver','platinum'])for(cons
  assert.equal(quoteDaily({...body,discount:100,expectedTotal:1},'occasionWear').total,q.total);
  assert.throws(()=>quoteDaily(body),'High Note IDs must not enter the Daily endpoint');
 }
-const routes=new Map(),calls=[];const app={use(){},get(){},post(paths,handler){for(const p of [].concat(paths))routes.set(p,handler);},listen(){}};
+const routes=new Map(),calls=[];const app={disable(){},set(){},use(){},get(){},post(paths,handler){for(const p of [].concat(paths))routes.set(p,handler);},listen(){}};
 const express=()=>app;express.json=express.static=()=>()=>{};
 const axios=async options=>{calls.push(options);return {data:options.url.endsWith('/create')?{id:'test-only',url:'https://example.invalid/payment'}:{}};};axios.post=async()=>({data:{token:'test-only',expires_at:'2099-01-01'}});
-const context=vm.createContext({require(id){if(id==='express')return express;if(id==='cors')return ()=>()=>{};if(id==='axios')return axios;if(id==='pdfkit')return function(){};if(id==='dotenv')return {config(){}};if(id==='./pricing')return pricing;if(id==='./daily-checkout')return {quoteDaily};return require(id);},__dirname:root,process:{env:{AIRWALLEX_CLIENT_ID:'test',AIRWALLEX_API_KEY:'test'}},console:{log(){},warn(){},error(){}},Buffer});
+const context=vm.createContext({require(id){if(id==='express')return express;if(id==='cors')return ()=>()=>{};if(id==='axios')return axios;if(id==='pdfkit')return function(){};if(id==='dotenv')return {config(){}};if(id==='./pricing')return pricing;if(id==='./daily-checkout')return {quoteDaily};return require(id.startsWith('./')?path.join(root,id):id);},__dirname:root,process:{env:{AIRWALLEX_CLIENT_ID:'test',AIRWALLEX_API_KEY:'test'}},console:{log(){},warn(){},error(){}},Buffer});
 vm.runInContext(fs.readFileSync(path.join(stage,'server.js'),'utf8'),context);
 async function request(route,body){const res={code:200,status(code){this.code=code;return this;},set(){return this;},json(data){this.data=data;return this;}};await routes.get(route)({path:route,body},res);return res;}
 (async()=>{
