@@ -969,7 +969,7 @@ window.RemainingProducts = {
     {
       "name": "Marquise and Round Tennis Bracelet",
       "id": "ow_l_marquise_round_alternating_tennis",
-      "image": "products/ow_l_marquise_round_alternating_tennis.webp",
+      "image": "products/ow_l_marquise_round_alternating_tennis-studio-20261028.webp",
       "type": "bracelet",
       "collection": "occasionWear",
       "route": "high-note",
@@ -984,7 +984,7 @@ window.RemainingProducts = {
       "needsReview": true,
       "price": 4920,
       "designFee": 0,
-      "thumbnail": "products/ow_l_marquise_round_alternating_tennis-960.webp",
+      "thumbnail": "products/ow_l_marquise_round_alternating_tennis-studio-20261028-960.webp",
       "lockBraceletTier": true,
       "diamondPriceOptions": {
         "0.25": 2200,
