@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
  const page=location.pathname.split('/').filter(Boolean).pop();
  const collection=Object.keys(registry?.collections||{}).find(key=>{const file=registry.collections[key][1];return file===page||file.slice(0,-5)===page;});
  if(!collection)return;
- const host=['mensCollection','keepsakeCollection','tennisCollection'].includes(collection)?document.getElementById('mensProducts'):document.querySelector('.collection-section');
+ const host=['mensCollection','keepsakeCollection','tennisCollection','petLoverCollection'].includes(collection)?document.getElementById('mensProducts'):document.querySelector('.collection-section');
  if(!host)return;
- const inventory=registry.products.filter(product=>product.collection===collection);
+ const inventory=registry.products.filter(product=>product.collection===collection).map(p=>collection==='petLoverCollection'?{...p,jewelleryCategory:p.category,category:p.petAudience}:p);
  const categories=[...new Set(inventory.map(product=>product.category))];
  const t=(en,zh)=>document.documentElement.lang.startsWith('zh')?zh:en;
  const translated=window.VDProductCards.name;

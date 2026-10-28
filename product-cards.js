@@ -2,7 +2,7 @@
 (() => {
  'use strict';
  const t=(en,zh)=>document.documentElement.lang.startsWith('zh')?zh:en;
- const categories={'Key Ring':['Key rings','鑰匙圈'],'Key Charm':['Initial key charms','字母鑰匙吊飾'],Ring:['Rings','戒指'],Earring:['Earrings','耳環'],'Earring Stud':['Stud earrings','耳釘'],Necklace:['Necklaces','項鏈'],Bracelet:['Bracelets','手鏈'],Pendant:['Pendants','吊墜'],Anklet:['Anklets','腳鏈'],Brooch:['Brooches','胸針'],Tiara:['Tiaras','冠冕']};
+ const categories={'For Furmom':['For Furmom','給寵物媽媽'],'For Furbaby':['For Furbaby','給毛孩'],'Collar Charm':['Collar charms','寵物項圈吊飾'],'Bracelet Charm':['Bracelet charms','手鏈吊飾'],'Key Ring':['Key rings','鑰匙圈'],'Key Charm':['Initial key charms','字母鑰匙吊飾'],Ring:['Rings','戒指'],Earring:['Earrings','耳環'],'Earring Stud':['Stud earrings','耳釘'],Necklace:['Necklaces','項鏈'],Bracelet:['Bracelets','手鏈'],Pendant:['Pendants','吊墜'],Anklet:['Anklets','腳鏈'],Brooch:['Brooches','胸針'],Tiara:['Tiaras','冠冕']};
  const categoryName=category=>t(...(categories[category]||[category,category]));
  const name=product=>document.documentElement.lang.startsWith('zh')&&typeof translations!=='undefined'?(translations['zh-HK']?.['product-'+product.name]||product.name):product.name;
  const price=product=>{const start=window.VDDiamondCatalogue?.products[product.id];return product.mode==='enquiry'?null:start?Math.min(start.lab,start.natural??Infinity):Number(product.preset?.price??product.price);};

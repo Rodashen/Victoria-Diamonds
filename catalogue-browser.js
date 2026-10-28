@@ -1,7 +1,7 @@
 /* Shared search and catalogue filters. Prices shown here never determine payment amounts. */
 (() => {
  'use strict';
- const collections = {tennisCollection:['Tennis Collection','tennis-collection.html','網球手鏈系列'],keepsakeCollection:['Keepsake Collection','keepsake-collection.html','珍藏系列'],
+ const collections = {petLoverCollection:['Pet Lover Collection','pet-lover-collection.html','寵物之愛系列'],tennisCollection:['Tennis Collection','tennis-collection.html','網球手鏈系列'],keepsakeCollection:['Keepsake Collection','keepsake-collection.html','珍藏系列'],
   dailySparkle: ['Daily Sparkle', 'daily-sparkle.html', '日常閃耀'],
   occasionalWear: ['High Note', 'high-note-collection.html', '華麗樂章'],
   foreverBond: ['Forever Bond', 'forever-bond.html', '永恆之約'],
@@ -9,7 +9,7 @@
   singleLady: ['Aura', 'aura-collection.html', 'Aura 系列'],
   mensCollection: ["Men’s Collection", 'mens-collection.html', '男士系列']
  };
- const types = {'Key Ring':['Key rings','鑰匙圈'],'Key Charm':['Initial key charms','字母鑰匙吊飾'],Ring:['Rings','戒指'], Earring:['Earrings','耳環'], Necklace:['Necklaces','項鏈'], Bracelet:['Bracelets','手鏈'], Anklet:['Anklets','腳鏈'], Pendant:['Pendants','吊墜'], Brooch:['Brooches','胸針'], Tiara:['Tiaras','冠冕']};
+ const types = {'Collar Charm':['Collar charms','寵物項圈吊飾'],'Bracelet Charm':['Bracelet charms','手鏈吊飾'],'Key Ring':['Key rings','鑰匙圈'],'Key Charm':['Initial key charms','字母鑰匙吊飾'],Ring:['Rings','戒指'], Earring:['Earrings','耳環'], Necklace:['Necklaces','項鏈'], Bracelet:['Bracelets','手鏈'], Anklet:['Anklets','腳鏈'], Pendant:['Pendants','吊墜'], Brooch:['Brooches','胸針'], Tiara:['Tiaras','冠冕']};
  const typeOf = category => category === 'Earring Stud' ? 'Earring' : category;
  const zh = () => document.documentElement.lang.startsWith('zh');
  const t = (en, cn) => zh() ? cn : en;
@@ -41,7 +41,7 @@
  }
  function element(tag, text, className) { const el=document.createElement(tag); if(text!==undefined)el.textContent=text; if(className)el.className=className; return el; }
  function filterProduct(product,filters={}) {
-  return (!filters.collection||product.collection===filters.collection)&&(!filters.type||typeOf(product.category)===filters.type)&&matches(product,filters.query||'')&&(!filters.max||(product.price!==null&&product.price!==''&&Number.isFinite(Number(product.price))&&(!product.currency||product.currency==='GBP')&&Number(product.price)<=Number(filters.max)));
+  return (!filters.collection||(product.collection===filters.collection||filters.collection==='silverCollection'&&product.parentCollection==='silverCollection'))&&(!filters.type||typeOf(product.category)===filters.type)&&matches(product,filters.query||'')&&(!filters.max||(product.price!==null&&product.price!==''&&Number.isFinite(Number(product.price))&&(!product.currency||product.currency==='GBP')&&Number(product.price)<=Number(filters.max)));
  }
  document.addEventListener('DOMContentLoaded', () => {
   const products=inventory();

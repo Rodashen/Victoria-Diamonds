@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
  'use strict';
  const item=new URLSearchParams(location.search).get('item'),p=window.VDProducts?.products.find(p=>p.id===item);
- if(!p||!document.getElementById('productMain'))return;
+ if(!p||p.subcollection==='petLover'||!document.getElementById('productMain'))return;
  const data=window.VDDiamondCatalogue,record=data?.products[p.id],t=(en,zh)=>document.documentElement.lang.startsWith('zh')?zh:en;
  const money=n=>new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(n);
  const node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};

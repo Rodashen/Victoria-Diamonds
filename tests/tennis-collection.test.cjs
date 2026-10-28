@@ -9,7 +9,7 @@ test('moving existing tennis bracelets preserves every original starting price a
 test('all tennis styles are moved once, retain stable URLs, and five new designs are orderable',()=>{
  assert.equal(tennis.length,13);assert.equal(tennis.filter(p=>p.id.startsWith('tennis_')).length,5);
  assert.equal(products.filter(p=>p.category==='Bracelet'&&/tennis/i.test(p.name)&&p.collection!=='tennisCollection').length,0);
- assert.equal(new Set(products.map(p=>p.id)).size,180);
+ assert.equal(new Set(products.map(p=>p.id)).size,200);
  for(const p of tennis){assert.equal(p.mode,'custom');assert.equal(p.preset.collection,'tennis');assert.equal(p.preset.route,'tennis');assert.equal(p.preset.braceletMetalTier,p.id==='mens_pillar_tennis_bracelet'?'supreme':'premium');assert.equal(p.preset.lockBraceletTier,true);assert(fs.existsSync(root+'/images/'+p.image));}
  assert.equal(products.find(p=>p.id==='ds_m_aurea_bracelet').collection,'dailySparkle');assert.equal(products.find(p=>p.id==='sl_b_diamond_paperclip_link_bracelet').collection,'singleLady');
 });

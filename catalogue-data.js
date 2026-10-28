@@ -1292,3 +1292,761 @@ window.VDCatalogueGroups.push(...[
 
 /* Dedicated tennis collection; product identities remain stable. */
 (()=>{const ids={"Lumina Tennis":"ow_l_lumina","Arabella":"ow_l_arabella","Classic Round Tennis Bracelet (Gold)":"ow_l_classic_round_tennis_gold","Emerald-Cut Tennis Bracelet":"ow_l_emerald_cut_tennis","Marquise and Round Tennis Bracelet":"ow_l_marquise_round_alternating_tennis","Pear-Cut Tennis Bracelet (Gold)":"ow_l_pear_cut_tennis_gold","Apex Tennis Bracelet":"mens_apex_tennis_bracelet","Pillar Tennis Bracelet":"mens_pillar_tennis_bracelet"};const items=[];for(const group of window.VDCatalogueGroups){group.items=group.items.filter(item=>{if(!ids[item.name])return true;items.push({...item,id:ids[item.name],sourceCollection:group.collection});return false;});}items.push(...[{"id":"tennis_oval_riviere","name":"Oval Rivière Tennis Bracelet","image":"products/tennis_oval_riviere.webp","thumbnail":"products/tennis_oval_riviere-960.webp","metal":"Platinum","price":4720,"configurationPrice":true,"designVisualisation":true,"description":"Oval-cut diamond tennis bracelet with articulated single-row settings and a secure box clasp. Premium bracelet specification.","details":[{"key":"totalKarat","value":"12 ct"},{"key":"info","value":"Premium bracelet specification. Design visualisation; final construction confirmed with the atelier."}]},{"id":"tennis_princess_line","name":"Princess Line Tennis Bracelet","image":"products/tennis_princess_line.webp","thumbnail":"products/tennis_princess_line-960.webp","metal":"18K Yellow Gold","price":4720,"configurationPrice":true,"designVisualisation":true,"description":"Princess-cut diamond tennis bracelet with articulated single-row settings and a secure box clasp. Premium bracelet specification.","details":[{"key":"totalKarat","value":"12 ct"},{"key":"info","value":"Premium bracelet specification. Design visualisation; final construction confirmed with the atelier."}]},{"id":"tennis_cushion_lumiere","name":"Cushion Lumière Tennis Bracelet","image":"products/tennis_cushion_lumiere.webp","thumbnail":"products/tennis_cushion_lumiere-960.webp","metal":"18K Yellow Gold","price":4720,"configurationPrice":true,"designVisualisation":true,"description":"Cushion-cut diamond tennis bracelet with articulated single-row settings and a secure box clasp. Premium bracelet specification.","details":[{"key":"totalKarat","value":"12 ct"},{"key":"info","value":"Premium bracelet specification. Design visualisation; final construction confirmed with the atelier."}]},{"id":"tennis_asscher_avenue","name":"Asscher Avenue Tennis Bracelet","image":"products/tennis_asscher_avenue.webp","thumbnail":"products/tennis_asscher_avenue-960.webp","metal":"Platinum","price":4720,"configurationPrice":true,"designVisualisation":true,"description":"Asscher-cut diamond tennis bracelet with articulated single-row settings and a secure box clasp. Premium bracelet specification.","details":[{"key":"totalKarat","value":"12 ct"},{"key":"info","value":"Premium bracelet specification. Design visualisation; final construction confirmed with the atelier."}]},{"id":"tennis_round_bezel","name":"Round Bezel Tennis Bracelet","image":"products/tennis_round_bezel.webp","thumbnail":"products/tennis_round_bezel-960.webp","metal":"18K Yellow Gold","price":4720,"configurationPrice":true,"designVisualisation":true,"description":"Round-cut diamond tennis bracelet with articulated single-row settings and a secure box clasp. Premium bracelet specification.","details":[{"key":"totalKarat","value":"12 ct"},{"key":"info","value":"Premium bracelet specification. Design visualisation; final construction confirmed with the atelier."}]}]);window.VDCatalogueGroups.push({collection:'tennisCollection',category:'Bracelet',items});})();
+
+/* Pet Lover Collection: supplied fixed-price Sterling 925 designs. */
+window.VDCatalogueGroups.push(...[
+  {
+    "collection": "petLoverCollection",
+    "category": "Pendant",
+    "items": [
+      {
+        "id": "pet_d01m",
+        "name": "Pawprint Promise Pendant",
+        "image": "products/pet_d01m.webp",
+        "thumbnail": "products/pet_d01m-960.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 155,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furmom",
+        "petSpecies": "Dog",
+        "matchingId": "pet_d01p",
+        "personalisation": {
+          "petNameRequired": false,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "BELLA"
+        },
+        "description": "The pawprint promise motif links this piece to its matching dog charm. Pendant only; chain excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "info",
+            "value": "Optional reverse engraving of a pet name or initial, subject to available space. Pendant only; chain excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_d04m",
+        "name": "Homeward Paw Pendant",
+        "image": "products/pet_d04m.webp",
+        "thumbnail": "products/pet_d04m-960.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 160,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furmom",
+        "petSpecies": "Dog",
+        "matchingId": "pet_d04p",
+        "personalisation": {
+          "petNameRequired": false,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "COCO"
+        },
+        "description": "The homeward paw motif links this piece to its matching dog charm. Pendant only; chain excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "info",
+            "value": "Optional reverse engraving of a pet name or initial, subject to available space. Pendant only; chain excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_c01m",
+        "name": "Whisker Heart Pendant",
+        "image": "products/pet_c01m.webp",
+        "thumbnail": "products/pet_c01m-960.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 155,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furmom",
+        "petSpecies": "Cat",
+        "matchingId": "pet_c01p",
+        "personalisation": {
+          "petNameRequired": false,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "LUNA"
+        },
+        "description": "The whisker heart motif links this piece to its matching cat charm. Pendant only; chain excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "info",
+            "value": "Optional reverse engraving of a pet name or initial, subject to available space. Pendant only; chain excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_c02m",
+        "name": "Moonlight Purr Pendant",
+        "image": "products/pet_c02m.webp",
+        "thumbnail": "products/pet_c02m-960.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 160,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furmom",
+        "petSpecies": "Cat",
+        "matchingId": "pet_c02p",
+        "personalisation": {
+          "petNameRequired": false,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "MOCHI"
+        },
+        "description": "The moonlight purr motif links this piece to its matching cat charm. Pendant only; chain excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "info",
+            "value": "Optional reverse engraving of a pet name or initial, subject to available space. Pendant only; chain excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_c05m",
+        "name": "Starlit Paw Pendant",
+        "image": "products/pet_c05m.webp",
+        "thumbnail": "products/pet_c05m-960.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 155,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furmom",
+        "petSpecies": "Cat",
+        "matchingId": "pet_c05p",
+        "personalisation": {
+          "petNameRequired": false,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "NAMI"
+        },
+        "description": "The starlit paw motif links this piece to its matching cat charm. Pendant only; chain excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "info",
+            "value": "Optional reverse engraving of a pet name or initial, subject to available space. Pendant only; chain excluded."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "collection": "petLoverCollection",
+    "category": "Collar Charm",
+    "items": [
+      {
+        "id": "pet_d01p",
+        "name": "Pawprint Promise Dog Charm",
+        "image": "products/pet_d01p.webp",
+        "thumbnail": "products/pet_d01p-960.webp",
+        "wearingImage": "products/pet_d01p-wearing.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 65,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furbaby",
+        "petSpecies": "Dog",
+        "matchingId": "pet_d01m",
+        "personalisation": {
+          "petNameRequired": true,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "BELLA"
+        },
+        "description": "A personalised dog collar charm pairs the pawprint promise motif with a single flush-set diamond. Decorative collar charm; collar and separate hook excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.10 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.10 ct"
+          },
+          {
+            "key": "info",
+            "value": "Front name shown as BELLA; customise up to 8 characters. Optional owner phone number on reverse, subject to available space. Decorative collar charm; collar and separate hook excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_d02p",
+        "name": "Little Bone Dog Charm",
+        "image": "products/pet_d02p.webp",
+        "thumbnail": "products/pet_d02p-960.webp",
+        "wearingImage": "products/pet_d02p-wearing.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 65,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furbaby",
+        "petSpecies": "Dog",
+        "matchingId": "pet_d02m",
+        "personalisation": {
+          "petNameRequired": true,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "TEDDY"
+        },
+        "description": "A personalised dog collar charm pairs the little bone motif with a single flush-set diamond. Decorative collar charm; collar and separate hook excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.10 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.10 ct"
+          },
+          {
+            "key": "info",
+            "value": "Front name shown as TEDDY; customise up to 8 characters. Optional owner phone number on reverse, subject to available space. Decorative collar charm; collar and separate hook excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_d03p",
+        "name": "True Companion Dog Charm",
+        "image": "products/pet_d03p.webp",
+        "thumbnail": "products/pet_d03p-960.webp",
+        "wearingImage": "products/pet_d03p-wearing.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 75,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furbaby",
+        "petSpecies": "Dog",
+        "matchingId": "pet_d03m",
+        "personalisation": {
+          "petNameRequired": true,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "MILO"
+        },
+        "description": "A personalised dog collar charm pairs the true companion motif with a single flush-set diamond. Decorative collar charm; collar and separate hook excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.10 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.10 ct"
+          },
+          {
+            "key": "info",
+            "value": "Front name shown as MILO; customise up to 8 characters. Optional owner phone number on reverse, subject to available space. Decorative collar charm; collar and separate hook excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_d04p",
+        "name": "Homeward Paw Dog Charm",
+        "image": "products/pet_d04p.webp",
+        "thumbnail": "products/pet_d04p-960.webp",
+        "wearingImage": "products/pet_d04p-wearing.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 70,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furbaby",
+        "petSpecies": "Dog",
+        "matchingId": "pet_d04m",
+        "personalisation": {
+          "petNameRequired": true,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "COCO"
+        },
+        "description": "A personalised dog collar charm pairs the homeward paw motif with a single flush-set diamond. Decorative collar charm; collar and separate hook excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.10 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.10 ct"
+          },
+          {
+            "key": "info",
+            "value": "Front name shown as COCO; customise up to 8 characters. Optional owner phone number on reverse, subject to available space. Decorative collar charm; collar and separate hook excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_d05p",
+        "name": "Forever Together Dog Charm",
+        "image": "products/pet_d05p.webp",
+        "thumbnail": "products/pet_d05p-960.webp",
+        "wearingImage": "products/pet_d05p-wearing.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 65,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furbaby",
+        "petSpecies": "Dog",
+        "matchingId": "pet_d05m",
+        "personalisation": {
+          "petNameRequired": true,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "BUDDY"
+        },
+        "description": "A personalised dog collar charm pairs the forever together motif with a single flush-set diamond. Decorative collar charm; collar and separate hook excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.10 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.10 ct"
+          },
+          {
+            "key": "info",
+            "value": "Front name shown as BUDDY; customise up to 8 characters. Optional owner phone number on reverse, subject to available space. Decorative collar charm; collar and separate hook excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_c01p",
+        "name": "Whisker Heart Cat Charm",
+        "image": "products/pet_c01p.webp",
+        "thumbnail": "products/pet_c01p-960.webp",
+        "wearingImage": "products/pet_c01p-wearing.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 65,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furbaby",
+        "petSpecies": "Cat",
+        "matchingId": "pet_c01m",
+        "personalisation": {
+          "petNameRequired": true,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "LUNA"
+        },
+        "description": "A personalised cat collar charm pairs the whisker heart motif with a single flush-set diamond. Decorative collar charm; collar and separate hook excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.10 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.10 ct"
+          },
+          {
+            "key": "info",
+            "value": "Front name shown as LUNA; customise up to 8 characters. Optional owner phone number on reverse, subject to available space. Decorative collar charm; collar and separate hook excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_c02p",
+        "name": "Moonlight Purr Cat Charm",
+        "image": "products/pet_c02p.webp",
+        "thumbnail": "products/pet_c02p-960.webp",
+        "wearingImage": "products/pet_c02p-wearing.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 70,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furbaby",
+        "petSpecies": "Cat",
+        "matchingId": "pet_c02m",
+        "personalisation": {
+          "petNameRequired": true,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "MOCHI"
+        },
+        "description": "A personalised cat collar charm pairs the moonlight purr motif with a single flush-set diamond. Decorative collar charm; collar and separate hook excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.10 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.10 ct"
+          },
+          {
+            "key": "info",
+            "value": "Front name shown as MOCHI; customise up to 8 characters. Optional owner phone number on reverse, subject to available space. Decorative collar charm; collar and separate hook excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_c03p",
+        "name": "Curled Companion Cat Charm",
+        "image": "products/pet_c03p.webp",
+        "thumbnail": "products/pet_c03p-960.webp",
+        "wearingImage": "products/pet_c03p-wearing.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 70,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furbaby",
+        "petSpecies": "Cat",
+        "matchingId": "pet_c03m",
+        "personalisation": {
+          "petNameRequired": true,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "CLEO"
+        },
+        "description": "A personalised cat collar charm pairs the curled companion motif with a single flush-set diamond. Decorative collar charm; collar and separate hook excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.10 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.10 ct"
+          },
+          {
+            "key": "info",
+            "value": "Front name shown as CLEO; customise up to 8 characters. Optional owner phone number on reverse, subject to available space. Decorative collar charm; collar and separate hook excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_c04p",
+        "name": "Little Fish Cat Charm",
+        "image": "products/pet_c04p.webp",
+        "thumbnail": "products/pet_c04p-960.webp",
+        "wearingImage": "products/pet_c04p-wearing.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 65,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furbaby",
+        "petSpecies": "Cat",
+        "matchingId": "pet_c04m",
+        "personalisation": {
+          "petNameRequired": true,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "OLLIE"
+        },
+        "description": "A personalised cat collar charm pairs the little fish motif with a single flush-set diamond. Decorative collar charm; collar and separate hook excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.10 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.10 ct"
+          },
+          {
+            "key": "info",
+            "value": "Front name shown as OLLIE; customise up to 8 characters. Optional owner phone number on reverse, subject to available space. Decorative collar charm; collar and separate hook excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_c05p",
+        "name": "Starlit Paw Cat Charm",
+        "image": "products/pet_c05p.webp",
+        "thumbnail": "products/pet_c05p-960.webp",
+        "wearingImage": "products/pet_c05p-wearing.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 65,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furbaby",
+        "petSpecies": "Cat",
+        "matchingId": "pet_c05m",
+        "personalisation": {
+          "petNameRequired": true,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "NAMI"
+        },
+        "description": "A personalised cat collar charm pairs the starlit paw motif with a single flush-set diamond. Decorative collar charm; collar and separate hook excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.10 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.10 ct"
+          },
+          {
+            "key": "info",
+            "value": "Front name shown as NAMI; customise up to 8 characters. Optional owner phone number on reverse, subject to available space. Decorative collar charm; collar and separate hook excluded."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "collection": "petLoverCollection",
+    "category": "Bracelet Charm",
+    "items": [
+      {
+        "id": "pet_d02m",
+        "name": "Little Bone Bracelet Charm",
+        "image": "products/pet_d02m.webp",
+        "thumbnail": "products/pet_d02m-960.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 155,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furmom",
+        "petSpecies": "Dog",
+        "matchingId": "pet_d02p",
+        "personalisation": {
+          "petNameRequired": false,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "TEDDY"
+        },
+        "description": "The little bone motif links this piece to its matching dog charm. Bracelet charm only; chain excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "info",
+            "value": "Optional reverse engraving of a pet name or initial, subject to available space. Bracelet charm only; chain excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_d05m",
+        "name": "Forever Together Bracelet Charm",
+        "image": "products/pet_d05m.webp",
+        "thumbnail": "products/pet_d05m-960.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 155,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furmom",
+        "petSpecies": "Dog",
+        "matchingId": "pet_d05p",
+        "personalisation": {
+          "petNameRequired": false,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "BUDDY"
+        },
+        "description": "The forever together motif links this piece to its matching dog charm. Bracelet charm only; chain excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "info",
+            "value": "Optional reverse engraving of a pet name or initial, subject to available space. Bracelet charm only; chain excluded."
+          }
+        ]
+      },
+      {
+        "id": "pet_c04m",
+        "name": "Little Fish Bracelet Charm",
+        "image": "products/pet_c04m.webp",
+        "thumbnail": "products/pet_c04m-960.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 155,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furmom",
+        "petSpecies": "Cat",
+        "matchingId": "pet_c04p",
+        "personalisation": {
+          "petNameRequired": false,
+          "ringSizeRequired": false,
+          "reverseEngraving": true,
+          "sample": "OLLIE"
+        },
+        "description": "The little fish motif links this piece to its matching cat charm. Bracelet charm only; chain excluded.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "info",
+            "value": "Optional reverse engraving of a pet name or initial, subject to available space. Bracelet charm only; chain excluded."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "collection": "petLoverCollection",
+    "category": "Ring",
+    "items": [
+      {
+        "id": "pet_d03m",
+        "name": "True Companion Signet Ring",
+        "image": "products/pet_d03m.webp",
+        "thumbnail": "products/pet_d03m-960.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 165,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furmom",
+        "petSpecies": "Dog",
+        "matchingId": "pet_d03p",
+        "personalisation": {
+          "petNameRequired": false,
+          "ringSizeRequired": true,
+          "reverseEngraving": true,
+          "sample": "MILO"
+        },
+        "description": "The true companion motif links this piece to its matching dog charm. Ring size to order.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "info",
+            "value": "Optional reverse engraving of a pet name or initial, subject to available space. Ring size to order."
+          }
+        ]
+      },
+      {
+        "id": "pet_c03m",
+        "name": "Curled Companion Ring",
+        "image": "products/pet_c03m.webp",
+        "thumbnail": "products/pet_c03m-960.webp",
+        "metal": "Sterling 925 silver",
+        "fixedPrice": true,
+        "price": 160,
+        "parentCollection": "silverCollection",
+        "subcollection": "petLover",
+        "petAudience": "For Furmom",
+        "petSpecies": "Cat",
+        "matchingId": "pet_c03p",
+        "personalisation": {
+          "petNameRequired": false,
+          "ringSizeRequired": true,
+          "reverseEngraving": true,
+          "sample": "CLEO"
+        },
+        "description": "The curled companion motif links this piece to its matching cat charm. Ring size to order.",
+        "designVisualisation": true,
+        "details": [
+          {
+            "key": "centreStone",
+            "value": "0.25 ct round lab-grown diamond"
+          },
+          {
+            "key": "totalKarat",
+            "value": "0.25 ct"
+          },
+          {
+            "key": "info",
+            "value": "Optional reverse engraving of a pet name or initial, subject to available space. Ring size to order."
+          }
+        ]
+      }
+    ]
+  }
+]);
