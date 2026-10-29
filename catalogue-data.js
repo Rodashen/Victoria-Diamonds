@@ -2050,3 +2050,330 @@ window.VDCatalogueGroups.push(...[
     ]
   }
 ]);
+
+window.VDCatalogueGroups.push({
+  "collection": "haloCollection",
+  "category": "Ring",
+  "items": [
+    {
+      "id": "halo_oh01",
+      "name": "Aveline Oval Hidden Halo Ring",
+      "image": "products/halo_oh01.webp",
+      "thumbnail": "products/halo_oh01-960.webp",
+      "type": "ring",
+      "collection": "halo",
+      "route": "halo",
+      "diamonds": [
+        {
+          "quality": "select",
+          "carat": "2.00",
+          "qty": 1
+        },
+        {
+          "quality": "select",
+          "carat": "0.05",
+          "qty": 22
+        }
+      ],
+      "defaultMetal": "gold",
+      "defaultKarat": 18,
+      "braceletMetalTier": "essential",
+      "price": 1900,
+      "designFee": 0,
+      "needsStoneSelection": false,
+      "lockStoneCounts": true,
+      "lockAccentSize": true,
+      "naturalCentreCarat": 1,
+      "haloDesign": {
+        "halo": 10,
+        "pave": 12,
+        "sourceId": "OH01"
+      },
+      "metal": "18K Yellow Gold",
+      "designVisualisation": true,
+      "description": "A classic pavé band rises to a four-prong oval centre, with a diamond halo tucked beneath its girdle. The image shows the original 1 ct concept. The Lab-grown starting selection uses a 2 ct oval centre. Final CAD, dimensions and ring fit are confirmed with the atelier.",
+      "details": [
+        {
+          "key": "centreStone",
+          "value": "Oval · 2.00 ct Lab / 1.00 ct Natural reference"
+        },
+        {
+          "key": "hiddenHalo",
+          "value": "Round · 0.05 ct × 10"
+        },
+        {
+          "key": "paveBand",
+          "value": "Round · 0.05 ct × 12"
+        },
+        {
+          "key": "stoneCount",
+          "value": "23 diamonds"
+        },
+        {
+          "key": "totalKarat",
+          "value": "3.10 ct Lab starting design"
+        },
+        {
+          "key": "info",
+          "value": "Essential metal specification. Natural versions require a complete personal quotation."
+        }
+      ]
+    },
+    {
+      "id": "halo_oh02",
+      "name": "Celina Oval Cathedral Hidden Halo Ring",
+      "image": "products/halo_oh02.webp",
+      "thumbnail": "products/halo_oh02-960.webp",
+      "type": "ring",
+      "collection": "halo",
+      "route": "halo",
+      "diamonds": [
+        {
+          "quality": "select",
+          "carat": "2.00",
+          "qty": 1
+        },
+        {
+          "quality": "select",
+          "carat": "0.05",
+          "qty": 26
+        }
+      ],
+      "defaultMetal": "gold",
+      "defaultKarat": 18,
+      "braceletMetalTier": "essential",
+      "price": 1950,
+      "designFee": 0,
+      "needsStoneSelection": false,
+      "lockStoneCounts": true,
+      "lockAccentSize": true,
+      "naturalCentreCarat": 1,
+      "haloDesign": {
+        "halo": 10,
+        "pave": 16,
+        "sourceId": "OH02"
+      },
+      "metal": "18K Yellow Gold",
+      "designVisualisation": true,
+      "description": "Cathedral shoulders frame an oval centre above a concealed diamond-set gallery. The image shows the original 1 ct concept. The Lab-grown starting selection uses a 2 ct oval centre. Final CAD, dimensions and ring fit are confirmed with the atelier.",
+      "details": [
+        {
+          "key": "centreStone",
+          "value": "Oval · 2.00 ct Lab / 1.00 ct Natural reference"
+        },
+        {
+          "key": "hiddenHalo",
+          "value": "Round · 0.05 ct × 10"
+        },
+        {
+          "key": "paveBand",
+          "value": "Round · 0.05 ct × 16"
+        },
+        {
+          "key": "stoneCount",
+          "value": "27 diamonds"
+        },
+        {
+          "key": "totalKarat",
+          "value": "3.30 ct Lab starting design"
+        },
+        {
+          "key": "info",
+          "value": "Essential metal specification. Natural versions require a complete personal quotation."
+        }
+      ]
+    },
+    {
+      "id": "halo_oh03",
+      "name": "Elowen Oval Split Shank Hidden Halo Ring",
+      "image": "products/halo_oh03.webp",
+      "thumbnail": "products/halo_oh03-960.webp",
+      "type": "ring",
+      "collection": "halo",
+      "route": "halo",
+      "diamonds": [
+        {
+          "quality": "select",
+          "carat": "2.00",
+          "qty": 1
+        },
+        {
+          "quality": "select",
+          "carat": "0.05",
+          "qty": 30
+        }
+      ],
+      "defaultMetal": "gold",
+      "defaultKarat": 18,
+      "braceletMetalTier": "essential",
+      "price": 2000,
+      "designFee": 0,
+      "needsStoneSelection": false,
+      "lockStoneCounts": true,
+      "lockAccentSize": true,
+      "naturalCentreCarat": 1,
+      "haloDesign": {
+        "halo": 10,
+        "pave": 20,
+        "sourceId": "OH03"
+      },
+      "metal": "18K Yellow Gold",
+      "designVisualisation": true,
+      "description": "A split pavé shank opens beneath the oval diamond and its hidden halo. The image shows the original 1 ct concept. The Lab-grown starting selection uses a 2 ct oval centre. Final CAD, dimensions and ring fit are confirmed with the atelier.",
+      "details": [
+        {
+          "key": "centreStone",
+          "value": "Oval · 2.00 ct Lab / 1.00 ct Natural reference"
+        },
+        {
+          "key": "hiddenHalo",
+          "value": "Round · 0.05 ct × 10"
+        },
+        {
+          "key": "paveBand",
+          "value": "Round · 0.05 ct × 20"
+        },
+        {
+          "key": "stoneCount",
+          "value": "31 diamonds"
+        },
+        {
+          "key": "totalKarat",
+          "value": "3.50 ct Lab starting design"
+        },
+        {
+          "key": "info",
+          "value": "Essential metal specification. Natural versions require a complete personal quotation."
+        }
+      ]
+    },
+    {
+      "id": "halo_oh04",
+      "name": "Iselle Oval Twist Hidden Halo Ring",
+      "image": "products/halo_oh04.webp",
+      "thumbnail": "products/halo_oh04-960.webp",
+      "type": "ring",
+      "collection": "halo",
+      "route": "halo",
+      "diamonds": [
+        {
+          "quality": "select",
+          "carat": "2.00",
+          "qty": 1
+        },
+        {
+          "quality": "select",
+          "carat": "0.05",
+          "qty": 22
+        }
+      ],
+      "defaultMetal": "gold",
+      "defaultKarat": 18,
+      "braceletMetalTier": "essential",
+      "price": 1900,
+      "designFee": 0,
+      "needsStoneSelection": false,
+      "lockStoneCounts": true,
+      "lockAccentSize": true,
+      "naturalCentreCarat": 1,
+      "haloDesign": {
+        "halo": 10,
+        "pave": 12,
+        "sourceId": "OH04"
+      },
+      "metal": "18K Yellow Gold",
+      "designVisualisation": true,
+      "description": "A pavé ribbon crosses a polished gold strand beneath a raised oval centre. The image shows the original 1 ct concept. The Lab-grown starting selection uses a 2 ct oval centre. Final CAD, dimensions and ring fit are confirmed with the atelier.",
+      "details": [
+        {
+          "key": "centreStone",
+          "value": "Oval · 2.00 ct Lab / 1.00 ct Natural reference"
+        },
+        {
+          "key": "hiddenHalo",
+          "value": "Round · 0.05 ct × 10"
+        },
+        {
+          "key": "paveBand",
+          "value": "Round · 0.05 ct × 12"
+        },
+        {
+          "key": "stoneCount",
+          "value": "23 diamonds"
+        },
+        {
+          "key": "totalKarat",
+          "value": "3.10 ct Lab starting design"
+        },
+        {
+          "key": "info",
+          "value": "Essential metal specification. Natural versions require a complete personal quotation."
+        }
+      ]
+    },
+    {
+      "id": "halo_oh05",
+      "name": "Maelle East West Hidden Halo Ring",
+      "image": "products/halo_oh05.webp",
+      "thumbnail": "products/halo_oh05-960.webp",
+      "type": "ring",
+      "collection": "halo",
+      "route": "halo",
+      "diamonds": [
+        {
+          "quality": "select",
+          "carat": "2.00",
+          "qty": 1
+        },
+        {
+          "quality": "select",
+          "carat": "0.05",
+          "qty": 24
+        }
+      ],
+      "defaultMetal": "gold",
+      "defaultKarat": 18,
+      "braceletMetalTier": "essential",
+      "price": 1925,
+      "designFee": 0,
+      "needsStoneSelection": false,
+      "lockStoneCounts": true,
+      "lockAccentSize": true,
+      "naturalCentreCarat": 1,
+      "haloDesign": {
+        "halo": 10,
+        "pave": 14,
+        "sourceId": "OH05"
+      },
+      "metal": "18K Yellow Gold",
+      "designVisualisation": true,
+      "description": "An east-west oval sits over a hidden halo on a pavé band. The image shows the original 1 ct concept. The Lab-grown starting selection uses a 2 ct oval centre. Final CAD, dimensions and ring fit are confirmed with the atelier.",
+      "details": [
+        {
+          "key": "centreStone",
+          "value": "Oval · 2.00 ct Lab / 1.00 ct Natural reference"
+        },
+        {
+          "key": "hiddenHalo",
+          "value": "Round · 0.05 ct × 10"
+        },
+        {
+          "key": "paveBand",
+          "value": "Round · 0.05 ct × 14"
+        },
+        {
+          "key": "stoneCount",
+          "value": "25 diamonds"
+        },
+        {
+          "key": "totalKarat",
+          "value": "3.20 ct Lab starting design"
+        },
+        {
+          "key": "info",
+          "value": "Essential metal specification. Natural versions require a complete personal quotation."
+        }
+      ]
+    }
+  ]
+});

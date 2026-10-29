@@ -4,11 +4,11 @@ for(const f of ['catalogue-data.js','daily-products.js','high-note-products.js',
 const template=fs.readFileSync(path.join(root,'product.html'),'utf8'),base='https://victoria-diamonds.com/';
 const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const money=value=>new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(value);
-const labels={mainSide:'Main side stones',secondarySide:'Secondary side stones',finishingSide:'Finishing stones',centreStone:'Centre stone',sideStone:'Side stones',totalKarat:'Total carat weight',eachDiamond:'Each diamond',diamondPrice:'Diamond price',metalPrice:'Metal price',info:'Details'};
+const labels={hiddenHalo:'Hidden halo',paveBand:'Pavé band',stoneCount:'Diamond count',mainSide:'Main side stones',secondarySide:'Secondary side stones',finishingSide:'Finishing stones',centreStone:'Centre stone',sideStone:'Side stones',totalKarat:'Total carat weight',eachDiamond:'Each diamond',diamondPrice:'Diamond price',metalPrice:'Metal price',info:'Details'};
 const products={};
 for(const p of c.window.VDProducts.products){
  const collection=c.window.VDProducts.collections[p.collection],canonical=base+'product.html?item='+encodeURIComponent(p.id),starting=c.window.VDDiamondCatalogue.products[p.id];
- const centreRing=p.mode==='custom'&&p.category==='Ring'&&p.preset.diamonds.length&&!c.window.VDDesignRules.isPerStone(p)&&!/band|eternity|alternating/i.test(p.name);
+ const centreRing=!p.haloDesign&&p.mode==='custom'&&p.category==='Ring'&&p.preset.diamonds.length&&!c.window.VDDesignRules.isPerStone(p)&&!/band|eternity|alternating/i.test(p.name);
  const metal=p.metal||(centreRing?'18K White Gold':null);
  const details=centreRing?[{key:'centreStone',value:'1.00 ct'}]:(p.details||[]).map(d=>c.window.VDDesignRules.isPerStone(p)&&d.key==='centreStone'?{...d,key:'eachDiamond'}:d);
  const facts=[metal,...details.map(d=>(labels[d.key]||d.key)+': '+d.value)].filter(Boolean);

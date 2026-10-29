@@ -1587,3 +1587,182 @@ window.RemainingProducts.products.push(...[
     "price": 4720
   }
 ]);
+
+// Halo schedules from the supplied Word document; Lab centre updated to 2 ct by client.
+window.RemainingProducts.products.push(...[
+  {
+    "id": "halo_oh01",
+    "name": "Aveline Oval Hidden Halo Ring",
+    "image": "products/halo_oh01.webp",
+    "thumbnail": "products/halo_oh01-960.webp",
+    "type": "ring",
+    "collection": "halo",
+    "route": "halo",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "2.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "0.05",
+        "qty": 22
+      }
+    ],
+    "defaultMetal": "gold",
+    "defaultKarat": 18,
+    "braceletMetalTier": "essential",
+    "price": 1900,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockStoneCounts": true,
+    "lockAccentSize": true,
+    "naturalCentreCarat": 1,
+    "haloDesign": {
+      "halo": 10,
+      "pave": 12,
+      "sourceId": "OH01"
+    }
+  },
+  {
+    "id": "halo_oh02",
+    "name": "Celina Oval Cathedral Hidden Halo Ring",
+    "image": "products/halo_oh02.webp",
+    "thumbnail": "products/halo_oh02-960.webp",
+    "type": "ring",
+    "collection": "halo",
+    "route": "halo",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "2.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "0.05",
+        "qty": 26
+      }
+    ],
+    "defaultMetal": "gold",
+    "defaultKarat": 18,
+    "braceletMetalTier": "essential",
+    "price": 1950,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockStoneCounts": true,
+    "lockAccentSize": true,
+    "naturalCentreCarat": 1,
+    "haloDesign": {
+      "halo": 10,
+      "pave": 16,
+      "sourceId": "OH02"
+    }
+  },
+  {
+    "id": "halo_oh03",
+    "name": "Elowen Oval Split Shank Hidden Halo Ring",
+    "image": "products/halo_oh03.webp",
+    "thumbnail": "products/halo_oh03-960.webp",
+    "type": "ring",
+    "collection": "halo",
+    "route": "halo",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "2.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "0.05",
+        "qty": 30
+      }
+    ],
+    "defaultMetal": "gold",
+    "defaultKarat": 18,
+    "braceletMetalTier": "essential",
+    "price": 2000,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockStoneCounts": true,
+    "lockAccentSize": true,
+    "naturalCentreCarat": 1,
+    "haloDesign": {
+      "halo": 10,
+      "pave": 20,
+      "sourceId": "OH03"
+    }
+  },
+  {
+    "id": "halo_oh04",
+    "name": "Iselle Oval Twist Hidden Halo Ring",
+    "image": "products/halo_oh04.webp",
+    "thumbnail": "products/halo_oh04-960.webp",
+    "type": "ring",
+    "collection": "halo",
+    "route": "halo",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "2.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "0.05",
+        "qty": 22
+      }
+    ],
+    "defaultMetal": "gold",
+    "defaultKarat": 18,
+    "braceletMetalTier": "essential",
+    "price": 1900,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockStoneCounts": true,
+    "lockAccentSize": true,
+    "naturalCentreCarat": 1,
+    "haloDesign": {
+      "halo": 10,
+      "pave": 12,
+      "sourceId": "OH04"
+    }
+  },
+  {
+    "id": "halo_oh05",
+    "name": "Maelle East West Hidden Halo Ring",
+    "image": "products/halo_oh05.webp",
+    "thumbnail": "products/halo_oh05-960.webp",
+    "type": "ring",
+    "collection": "halo",
+    "route": "halo",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "2.00",
+        "qty": 1
+      },
+      {
+        "quality": "select",
+        "carat": "0.05",
+        "qty": 24
+      }
+    ],
+    "defaultMetal": "gold",
+    "defaultKarat": 18,
+    "braceletMetalTier": "essential",
+    "price": 1925,
+    "designFee": 0,
+    "needsStoneSelection": false,
+    "lockStoneCounts": true,
+    "lockAccentSize": true,
+    "naturalCentreCarat": 1,
+    "haloDesign": {
+      "halo": 10,
+      "pave": 14,
+      "sourceId": "OH05"
+    }
+  }
+]);

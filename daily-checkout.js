@@ -71,7 +71,7 @@
     const input=document.createElement('input');input.type='radio';input.name=select.id+'Choice';input.value=option.value;input.dataset.select=select.id;input.checked=option.selected;input.disabled=option.disabled;
     const face=document.createElement('span');face.className='choice-face';
     if(metal){const swatch=document.createElement('span');swatch.className='metal-swatch metal-'+option.value;swatch.setAttribute('aria-hidden','true');const badge=document.createElement('span');badge.dataset.metalBadge=option.value;badge.textContent=option.value==='platinum'?'Pt':option.value==='gold'?field('dailyKarat').value+'K':field('dailyPurity').value;swatch.append(badge);face.append(swatch);}
-    if(diamond&&Number(option.value)>0){const illustration=document.createElement('span');illustration.className='diamond-size';illustration.setAttribute('aria-hidden','true');const size=43*Math.cbrt(Number(option.value));illustration.style.setProperty('--stone-size',size+'px');illustration.innerHTML=window.VDDiamondVisuals.icon('Round');face.append(illustration);}
+    if(diamond&&Number(option.value)>0){const illustration=document.createElement('span');illustration.className='diamond-size';illustration.setAttribute('aria-hidden','true');const size=43*Math.cbrt(Number(option.value));illustration.style.setProperty('--stone-size',size+'px');illustration.innerHTML=window.VDDiamondVisuals.icon(selected.haloDesign&&select.id==='dailyCarat0'?'Oval':'Round');face.append(illustration);}
     const text=document.createElement('span');text.textContent=metal?{gold:t('Yellow gold','黃金'),silver:t('Silver','白銀'),platinum:t('Platinum','鉑金')}[option.value]:option.textContent;
     face.append(text);
     if(selected.diamondPriceOptions&&select.id==='dailyCarat0'){const price=document.createElement('small');price.textContent=money(selected.diamondPriceOptions[option.value]);face.append(price);}
@@ -144,6 +144,10 @@
    });
    field('dailyAdditional').hidden=p.diamonds.length<2;field('dailyAdditional').open=true;
    const note=document.createElement('p');note.className='daily-note';note.textContent=t('Carat is the weight of each stone. The configured stone count is fixed for this design.','克拉為每顆鑽石的重量，此設計的鑽石數量已固定。');field('dailyAdditional').before(note);
+  }
+  if(p.lockStoneCounts){
+   p.diamonds.forEach((d,i)=>{const qty=field('dailyQty'+i);qty.disabled=true;qty.parentElement.hidden=false;qty.parentElement.firstChild.textContent=i===0?t('Centre stones · fixed count','主石數量 · 固定'):t('Halo and band stones · fixed count','光環及戒臂鑽石數量 · 固定');if(i>0&&p.lockAccentSize){field('dailyCarat'+i).disabled=true;field('dailyCarat'+i).parentElement.hidden=true;const size=document.createElement('p');size.className='daily-note';size.textContent=t('Fixed round accents: 0.05 ct per stone','固定圓形配石：每顆 0.05 ct');field('dailyQty'+i).parentElement.before(size);}});
+   dialog.querySelectorAll('.daily-diamond legend').forEach((legend,i)=>legend.textContent=i===0?t('Oval centre diamond','橢圓形主鑽'):t('Round halo and pavé diamonds','圓形光環及密鑲鑽石'));
   }
   if(p.type==='ring'){
    dialog.querySelectorAll('.daily-diamond').forEach((group,i)=>{if(i>=p.diamonds.length){group.hidden=true;field('dailyCarat'+i).value='0';field('dailyQty'+i).value=1;}});

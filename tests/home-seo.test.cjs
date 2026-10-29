@@ -21,9 +21,9 @@ test('scripts and all HTML inline scripts parse; all active images have alt attr
   for(const [tag]of s.matchAll(/<img\b[^>]*>/g))assert.match(tag,/\balt\s*=/,name+': '+tag);
  }
 });
-test('all 200 product photos have distinct catalogue-based descriptions',()=>{
+test('all 205 product photos have distinct catalogue-based descriptions',()=>{
  const c={window:{},document:{documentElement:{lang:'en'}}};
  for(const f of ['catalogue-data.js','daily-products.js','high-note-products.js','remaining-products.js','mens-products.js','product-registry.js'])vm.runInNewContext(fs.readFileSync(path.join(root,f),'utf8'),c);
- const {products,imageAlt}=c.window.VDProducts;assert.equal(new Set(products.map(imageAlt)).size,200);
+ const {products,imageAlt}=c.window.VDProducts;assert.equal(new Set(products.map(imageAlt)).size,205);
  assert.match(imageAlt(products.find(p=>p.id==='silver_link_charm')),/Sterling 925/);
 });

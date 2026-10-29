@@ -1,7 +1,7 @@
 /* Shared search and catalogue filters. Prices shown here never determine payment amounts. */
 (() => {
  'use strict';
- const collections = {petLoverCollection:['Pet Lover Collection','pet-lover-collection.html','寵物之愛系列'],tennisCollection:['Tennis Collection','tennis-collection.html','網球手鏈系列'],keepsakeCollection:['Keepsake Collection','keepsake-collection.html','珍藏系列'],
+ const collections = {haloCollection:['Halo Ring Collection','halo-collection.html','隱藏光環戒指系列'],petLoverCollection:['Pet Lover Collection','pet-lover-collection.html','寵物之愛系列'],tennisCollection:['Tennis Collection','tennis-collection.html','網球手鏈系列'],keepsakeCollection:['Keepsake Collection','keepsake-collection.html','珍藏系列'],
   dailySparkle: ['Daily Sparkle', 'daily-sparkle.html', '日常閃耀'],
   occasionalWear: ['High Note', 'high-note-collection.html', '華麗樂章'],
   foreverBond: ['Forever Bond', 'forever-bond.html', '永恆之約'],

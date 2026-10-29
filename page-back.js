@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
  if(location.pathname==='/'||location.pathname==='/VictoriaDiamonds/'||/\/index(?:\.html)?$/.test(location.pathname))return;
  const pageKey = value => { const url = new URL(value, location.href); url.searchParams.delete('lang');return url.origin + url.pathname.replace(/\.html$/, '').replace(/\/$/, '') + url.search; };
  const arrivalLength = history.length;
- const collectionPage = new Set(['daily-sparkle','high-note-collection','forever-bond','silver-collection','aura-collection','mens-collection','keepsake-collection','tennis-collection','pet-lover-collection','view-catalogue']).has(location.pathname.replace(/\/$/, '').split('/').pop().replace(/\.html$/, ''));
+ const collectionPage = new Set(['daily-sparkle','high-note-collection','forever-bond','silver-collection','aura-collection','mens-collection','keepsake-collection','tennis-collection','halo-collection','pet-lover-collection','view-catalogue']).has(location.pathname.replace(/\/$/, '').split('/').pop().replace(/\.html$/, ''));
  function fallback() {
   if(/\/pet-lover-collection(?:\.html)?$/.test(location.pathname))return 'silver-collection.html';
   if (collectionPage) return 'index.html#collections';

@@ -2,10 +2,10 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const root=path.resolve(__dirname,'..'),context={window:{},document:{documentElement:{lang:'en'}}};
 for(const file of ['catalogue-data.js','daily-products.js','high-note-products.js','remaining-products.js','mens-products.js','product-registry.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context);
 const {products,find,url}=context.window.VDProducts;
-test('all 200 pieces have unique stable links and real assets',()=>{
- assert.equal(products.length,200);assert.equal(new Set(products.map(p=>p.id)).size,200);
+test('all 205 pieces have unique stable links and real assets',()=>{
+ assert.equal(products.length,205);assert.equal(new Set(products.map(p=>p.id)).size,205);
  for(const p of products){assert.ok(p.id);assert.equal(new URL(url(p),'https://example.test').searchParams.get('item'),p.id);assert.ok(fs.existsSync(path.join(root,'images',p.image)));}
- assert.equal(products.filter(p=>p.mode==='custom').length,135);assert.equal(products.filter(p=>p.mode==='silver').length,62);assert.deepEqual(Array.from(products.filter(p=>p.mode==='enquiry'),p=>p.name).sort(),['Celestia Broche','Lunaria Tiara','Éternelle Broche'].sort());
+ assert.equal(products.filter(p=>p.mode==='custom').length,140);assert.equal(products.filter(p=>p.mode==='silver').length,62);assert.deepEqual(Array.from(products.filter(p=>p.mode==='enquiry'),p=>p.name).sort(),['Celestia Broche','Lunaria Tiara','Éternelle Broche'].sort());
 });
 test('same-named pieces keep their collection and checkout identity',()=>{
  const a=find('dailySparkle','Fiora Earrings'),b=find('occasionalWear','Fiora Earrings');assert.notEqual(a.id,b.id);assert.equal(a.preset.route,'daily-sparkle');assert.equal(b.preset.route,'high-note');

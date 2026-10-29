@@ -34,7 +34,7 @@ for(const p of context.window.VDProducts.products.filter(p=>p.mode==='custom')){
  const preset=p.preset,diamonds=preset.diamonds.map(d=>({...d,quality:'select'}));
  const body={productId:p.id,metal:preset.defaultMetal||'gold',karat:18,purity:925,quantity:1,paymentPercentage:100,braceletMetalTier:preset.braceletMetalTier,diamonds,...(preset.initialRequired?{initial:'A'}:{})};
  const lab=quoteDaily(body,preset.collection).total;
- let naturalDesign=diamonds;
+ let naturalDesign=preset.naturalCentreCarat?diamonds.map((d,i)=>i?d:{...d,carat:String(preset.naturalCentreCarat)}):diamonds;
  if(preset.diamondPriceOptions){
   const listed=(p.details||[]).filter(d=>['centreStone','mainDiamond','mainSide','secondarySide','finishingSide','sideStone','eachDiamond'].includes(d.key)).map(d=>{const match=d.value.match(/([\d.]+)\s*(?:ct\s*)?[x×]\s*(\d+)/i);return match?{carat:Number(match[1]),qty:Number(match[2])}:{carat:parseFloat(d.value),qty:1};}).filter(d=>d.carat>0);
   const total=parseFloat(p.details?.find(d=>d.key==='totalKarat')?.value);
