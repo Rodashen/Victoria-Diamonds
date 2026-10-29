@@ -29,6 +29,7 @@ for(const [file,key] of [['daily-products.js','DailyProducts'],['high-note-produ
 for(const file of sources)vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context);
 const items=natural.items.map(({id,shape,carat,colour,clarity,cut,price})=>({id,shape,carat,colour,clarity,cut,price}));
 const products={};
+vm.runInNewContext(fs.readFileSync(path.join(root,'tennis-natural-rules.js'),'utf8'),context);
 for(const p of context.window.VDProducts.products.filter(p=>p.mode==='custom')){
  const preset=p.preset,diamonds=preset.diamonds.map(d=>({...d,quality:'select'}));
  const body={productId:p.id,metal:preset.defaultMetal||'gold',karat:18,purity:925,quantity:1,paymentPercentage:100,braceletMetalTier:preset.braceletMetalTier,diamonds,...(preset.initialRequired?{initial:'A'}:{})};
@@ -39,11 +40,11 @@ for(const p of context.window.VDProducts.products.filter(p=>p.mode==='custom')){
   const total=parseFloat(p.details?.find(d=>d.key==='totalKarat')?.value);
   naturalDesign=listed.length?listed:Number.isFinite(total)&&Number.isInteger(total/Number(diamonds[0].carat))?[{carat:Number(diamonds[0].carat),qty:total/Number(diamonds[0].carat)}]:[];
  }
- const selected=naturalDesign.map(d=>{const stone=items.filter(i=>i.carat===Number(d.carat)).sort((a,b)=>a.price-b.price)[0];return stone?{naturalId:stone.id,qty:d.qty}:null;});
+ const selected=naturalDesign.map(d=>{const stone=p.collection==='tennisCollection'?context.window.VDTennisNatural.select(items,'Round',d.carat,d.carat*d.qty):items.filter(i=>i.carat===Number(d.carat)).sort((a,b)=>a.price-b.price)[0];return stone?{naturalId:stone.id,qty:d.qty}:null;});
  const available=!rules[p.id]?.labOnly&&selected.length>0&&selected.every(Boolean);
  products[p.id]={lab,natural:available?quoteDaily({...body,diamondOrigin:'natural',diamonds:selected},preset.collection).total:null,labOnly:!!rules[p.id]?.labOnly,diamonds,naturalDesign};
 }
-const date='2026-10-28';
+const date=new Date().toISOString().slice(0,10);
 fs.writeFileSync(path.join(root,'diamond-catalogue.js'),'/* Calculator catalogue snapshot, '+date+'. Final prices are confirmed by the payment server. */\nwindow.VDDiamondCatalogue='+JSON.stringify({date,currency:'GBP',items,products})+';\n');
 fs.writeFileSync(path.join(root,'diamond-prices.js'),'/* Lightweight collection starting prices; full stone catalogue loads only on product pages. */\nwindow.VDDiamondCatalogue='+JSON.stringify({date,currency:'GBP',products})+';\n');
 console.log(JSON.stringify({updatedPresets:changes.length,products:Object.keys(products).length,changes},null,2));

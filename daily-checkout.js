@@ -87,7 +87,7 @@
   diamondOrigin=inline&&window.VDDiamondCatalogue?null:'lab';naturalGroups=[];
   const options=(p.diamondPriceOptions?Object.keys(p.diamondPriceOptions):catalogue.carats).map(c=>`<option value="${c}">${c} ct</option>`).join('');
   const tierNames=['essential','signature','atelier','premium','supreme'],minimumTier=tierNames.indexOf(p.minBraceletTier||'essential');
-  const tierOptions=tierNames.map((tier,index)=>`<option value="${tier}" ${index<minimumTier?'disabled':''}>${tier[0].toUpperCase()+tier.slice(1)}${tier==='essential'?' · 2.5–4 g':tier==='signature'?' · 4–5.5 g':tier==='atelier'?' · 5.5–8 g':tier==='premium'?' · 8–19 g':' · 16+ g'}</option>`).join('');
+  const tierOptions=tierNames.map((tier,index)=>`<option value="${tier}" ${index<minimumTier?'disabled':''}>${tier[0].toUpperCase()+tier.slice(1)}</option>`).join('');
   const diamond=i=>`<fieldset class="daily-diamond"><legend>${i===0?t('Main diamonds','主鑽'):t('Diamond specification ','鑽石規格 ')+(i+1)}</legend><div class="daily-fields"><label>${t('Quality','級別')}<select id="dailyQuality${i}"><option value="select">Select</option><option value="luxe">Luxe</option></select></label><label>${t('Carat per stone','每顆克拉')}<select id="dailyCarat${i}">${i||['foreverBond','singleLady'].includes(p.collection)?`<option value="0">${t('None','無')}</option>`:''}${options}</select></label><label>${t('Number of stones','鑽石數量')}<input id="dailyQty${i}" type="number" min="1" max="100" step="1" value="1" required></label></div></fieldset>`;
   dialog.innerHTML=`<button type="button" class="daily-close" aria-label="${t('Close customization','關閉訂製')}" id="dailyClose">×</button>
    <div class="daily-heading"><img src="images/${esc(p.thumbnail||p.image)}" alt="${esc(name(p)+' — original jewellery design by Victoria Diamonds')}"><div><p class="daily-eyebrow">${selected.collection==='occasionWear'?t('HIGH NOTE · CUSTOMISE & BUY','華麗樂章 · 訂製及購買'):selected.collection==='mens'?t('MEN’S COLLECTION · CUSTOMISE & BUY','男士系列 · 訂製及購買'):t('DAILY SPARKLE · CUSTOMISE & BUY','日常閃耀 · 訂製及購買')}</p><h2 id="dailyCheckoutTitle">${esc(name(p))}</h2><p>${t('Choose your materials and diamonds. The photograph shows the original design; your selections define your order.','選擇材質及鑽石。照片展示原始設計，訂單以您所選的規格為準。')}</p></div></div>
@@ -121,9 +121,8 @@
    const summary=document.createElement('section');summary.className='bracelet-specification';summary.setAttribute('aria-label',t('Bracelet specification','手鏈規格'));
    const title=document.createElement('h3');title.textContent=t('Your bracelet specification','您的手鏈規格');
    const value=document.createElement('p'),scale=document.createElement('div'),note=document.createElement('p');scale.className='bracelet-tier-scale';scale.setAttribute('aria-hidden','true');note.className='daily-note';
-   const ranges=['2.5–4 g','4–5.5 g','5.5–8 g','8–19 g','16+ g'];
-   const update=()=>{const tier=field('dailyTier').value,index=tierNames.indexOf(tier);value.textContent=tier[0].toUpperCase()+tier.slice(1)+' · '+ranges[index]+' · '+t(p.lockBraceletTier?'Fixed for this design':'Selected specification',p.lockBraceletTier?'此設計規格固定':'已選規格');scale.replaceChildren();tierNames.forEach((name,i)=>{const bar=document.createElement('span');bar.className=i===index?'is-selected':'';bar.textContent=name[0].toUpperCase()+name.slice(1);scale.append(bar);});};
-   note.textContent=t('Weight ranges describe the metal specification tier, not the diamond weight or an exact finished-piece weight. Final dimensions and weight are confirmed with the atelier.','重量範圍表示金屬規格級別，並非鑽石重量或成品確切重量。最終尺寸及重量由工作室確認。');
+   const update=()=>{const tier=field('dailyTier').value,index=tierNames.indexOf(tier);value.textContent=tier[0].toUpperCase()+tier.slice(1)+' · '+t(p.lockBraceletTier?'Fixed for this design':'Selected specification',p.lockBraceletTier?'此設計規格固定':'已選規格');scale.replaceChildren();tierNames.forEach((name,i)=>{const bar=document.createElement('span');bar.className=i===index?'is-selected':'';bar.textContent=name[0].toUpperCase()+name.slice(1);scale.append(bar);});};
+   note.textContent=t('The specification is fixed for this design. Final dimensions are confirmed with the atelier.','重量範圍表示金屬規格級別，並非鑽石重量或成品確切重量。最終尺寸及重量由工作室確認。');
    summary.append(title,value,scale,note);field('dailyTier').closest('.daily-fields').after(summary);field('dailyTier').addEventListener('change',update);update();
   }
   if(p.diamondPriceOptions){
@@ -143,6 +142,10 @@
    });
    field('dailyAdditional').hidden=p.diamonds.length<2;field('dailyAdditional').open=true;
    const note=document.createElement('p');note.className='daily-note';note.textContent=t('Carat is the weight of each stone. The configured stone count is fixed for this design.','克拉為每顆鑽石的重量，此設計的鑽石數量已固定。');field('dailyAdditional').before(note);
+  }
+  if(p.type==='ring'){
+   dialog.querySelectorAll('.daily-diamond').forEach((group,i)=>{if(i>=p.diamonds.length){group.hidden=true;field('dailyCarat'+i).value='0';field('dailyQty'+i).value=1;}});
+   field('dailyAdditional').hidden=p.diamonds.length<2;
   }
   visualChoices();
   if(p.diamondPriceOptions&&field('configurationConfirm'))field('configurationConfirm').parentElement.lastChild.textContent=t('I have checked the bracelet diamond size option for my order.','我已確認訂單的手鏈鑽石大小選項。');

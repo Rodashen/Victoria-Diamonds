@@ -123,14 +123,14 @@ window.RemainingProducts = {
         {
           "quality": "select",
           "carat": "0.15",
-          "qty": 4
+          "qty": 10
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsSet": false,
       "needsStoneSelection": false,
       "needsReview": true,
-      "price": 1965,
+      "price": 2175,
       "designFee": 0,
       "thumbnail": "products/fb_m_luminous-studio-20261028-960.webp"
     },
@@ -285,12 +285,7 @@ window.RemainingProducts = {
         {
           "quality": "select",
           "carat": "0.25",
-          "qty": 10
-        },
-        {
-          "quality": "select",
-          "carat": "0.25",
-          "qty": 4
+          "qty": 14
         },
         {
           "quality": "select",

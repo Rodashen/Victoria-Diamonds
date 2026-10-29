@@ -178,11 +178,16 @@ window.HighNoteProducts = {
           "quality": "select",
           "carat": "1.00",
           "qty": 1
+        },
+        {
+          "quality": "select",
+          "carat": "0.1",
+          "qty": 50
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1375,
+      "price": 2525,
       "needsStoneSelection": false,
       "designFee": 0,
       "thumbnail": "products/ow_m_rosebloom-studio-20261028-960.webp"
