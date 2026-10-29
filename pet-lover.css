@@ -12,3 +12,6 @@
 @media(max-width:400px){.pet-gallery-choices{gap:6px}.pet-gallery-controls{gap:6px}.pet-gallery-choices button{padding:10px 12px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.pet-gallery-controls button{transition:none}}
 @media(max-width:760px){.pet-hero-pair{align-items:stretch}.pet-hero-pair figure:nth-child(2){margin-top:0}.pet-hero-pair figure{display:flex;flex-direction:column}.pet-hero-pair img{aspect-ratio:3/4;object-fit:contain}.pet-hero-pair figcaption{margin-top:auto;min-height:1.2em}}
+
+/* Equal studio frames keep both audiences aligned at every screen size. */
+.pet-hero-pair img{aspect-ratio:1/1;object-fit:cover;object-position:center}

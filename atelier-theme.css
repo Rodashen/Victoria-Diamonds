@@ -42,3 +42,5 @@
  #emailSubscriptionPopup .email-subscription-success.show{font-size:16px;line-height:1.75}
  #emailSubscriptionPopup.subscription-confirmed .email-subscription-image-column{display:none!important}
 }
+/* Wide tennis campaign keeps both bracelet silhouettes complete in collection tiles. */
+.collection-feature img[src*="tennis-collection-hero-studio"],.collection-image img[src*="tennis-collection-hero-studio"]{object-fit:contain;background:#e9e9e9}

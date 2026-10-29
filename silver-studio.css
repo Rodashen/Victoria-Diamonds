@@ -34,3 +34,6 @@
  .silver-studio-image img{max-height:none}.silver-studio-copy{max-width:none}
 }
 @media(prefers-reduced-motion:reduce){.silver-link,.silver-link svg,.silver-header-link{transition:none}.silver-link:hover svg,.silver-link:active,.silver-header-link:hover{transform:none}}
+
+/* The studio campaign has its own landscape composition. */
+.silver-studio-image img{aspect-ratio:3/2;object-fit:contain}
