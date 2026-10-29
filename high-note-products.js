@@ -276,13 +276,13 @@ window.HighNoteProducts = {
       "diamonds": [
         {
           "quality": "select",
-          "carat": "1.00",
-          "qty": 1
+          "carat": "0.1",
+          "qty": 30
         }
       ],
       "braceletMetalTier": "essential",
       "soldAsPair": false,
-      "price": 1825,
+      "price": 2265,
       "needsStoneSelection": false,
       "designFee": 0,
       "thumbnail": "products/ow_l_imperial-studio-20261028-960.webp"

@@ -1,5 +1,9 @@
 # Ordering and stone-count audit — 29 October 2026
 
+## Update — 30 October 2026
+
+Imperial Pavé is now client-confirmed at 30 × 0.10 ct (3 ct total), replacing the incorrect one 1 ct preset. Starting Lab price is £2,265. Éternelle Grande remains 14 × 0.50 ct (7 ct total). Fixed ring counts are now visible. Order quantity (1–10) counts complete pieces, not diamonds; each stone group supports up to 100 diamonds. Tennis shows its automatically calculated stone count separately from the order quantity.
+
 ## Confirmed corrections
 
 - Luminous Devotion: photographed five side stones on each shoulder, ten total. Retained the recorded 0.15 ct accent size. One 1 ct centre plus ten 0.15 ct accents; £2,175 starting Lab configuration, confirmed by calculator.
@@ -18,7 +22,7 @@ Examples requiring an authoritative stone schedule before further count changes:
 - Endless Devotion and Ethereal Halo have a recorded four-stone accent preset, but images show additional pavé/halo stones. Exact full counts and any distinct halo size require production confirmation; their counts were not changed arbitrarily to ten.
 - Destiny Couple, Eternal Connection and stacking sets need a stone schedule for each component; combining a visible front count across separate rings would be misleading.
 - Élégance Unie's catalogue says two 0.50 ct stones and 5 ct total, while the preset is one 1 ct centre. These records conflict and cannot establish the missing accents.
-- Curved Chevron, Marquise & Round Alternating, Imperial Pavé, Amour, Lumière Eternity, The Knot, Eternal Promise and Amour Éternel require full-band schedules; a front image does not reveal the full count.
+- Curved Chevron, Marquise & Round Alternating, Amour, Lumière Eternity, The Knot, Eternal Promise and Amour Éternel require full-band schedules; a front image does not reveal the full count.
 - Aura pavé/halo styles and several three-stone designs show small accents absent from centre-only or centre/side presets. Retained recorded sizes until a complete schedule is supplied.
 
 These are open data-quality findings, not certified matches between all photographs and production specifications. Existing quote controls still show the priced configuration and its total.
@@ -73,7 +77,7 @@ The table records the priced configuration, not a claim that obscured image ston
 | Lunelle Ring | 1 × 1.00 ct | Existing recorded configuration; see limitations above |
 | Victorian Ring | 1 × 1.00 ct | Existing recorded configuration; see limitations above |
 | Amour Ring | 1 × 1.00 ct | Existing recorded configuration; see limitations above |
-| Imperial Pavé Ring | 1 × 1.00 ct | Existing recorded configuration; see limitations above |
+| Imperial Pavé Ring | 30 × 0.1 ct | Client-confirmed on 30 October |
 | Éternelle Grande Ring | 14 × 0.50 ct | Existing recorded configuration; see limitations above |
 | Stellar Promise | 1 × 1.00 ct | Existing recorded configuration; see limitations above |
 | Élégance Unie Ring | 1 × 1.00 ct | Existing recorded configuration; see limitations above |

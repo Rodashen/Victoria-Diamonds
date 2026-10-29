@@ -100,7 +100,7 @@ window.VDCatalogueGroups = [
             {name:'Lunelle Ring', image:'products/ow_m_lunelle-studio-20261028.webp', thumbnail:'products/ow_m_lunelle-studio-20261028-960.webp', stone:'1.00 ct', price:1575, details:[{key:'centreStone', value:'1.00 ct'}]},
             {name:'Victorian Ring', image:'products/ow_m_victorian-studio-20261028.webp', thumbnail:'products/ow_m_victorian-studio-20261028-960.webp', metal:'18K Yellow Gold', stone:'1.00 ct', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
             {name:'Amour Ring', image:'products/ow_s_amour-studio-20261028.webp', thumbnail:'products/ow_s_amour-studio-20261028-960.webp', metal:'18K Yellow Gold', price:1375, details:[{key:'centreStone', value:'1.00 ct'}]},
-            {name:'Imperial Pav\u00e9 Ring', image:'products/ow_l_imperial-studio-20261028.webp', thumbnail:'products/ow_l_imperial-studio-20261028-960.webp', price:'request'},
+            {name:'Imperial Pav\u00e9 Ring', image:'products/ow_l_imperial-studio-20261028.webp', thumbnail:'products/ow_l_imperial-studio-20261028-960.webp', price:2265, totalWeight:'3 ct', details:[{key:'eachDiamond', value:'0.10 ct × 30'},{key:'totalKarat', value:'3 ct'}]},
             {name:'\u00c9ternelle Grande Ring', image:'products/ow_m_eternelle-studio-20261028.webp', thumbnail:'products/ow_m_eternelle-studio-20261028-960.webp', totalWeight:'7 ct', price:3225, details:[{key:'eachDiamond', value:'0.50 x 14'},{key:'totalKarat', value:'7 ct'}]}
         ]},
 {collection:"occasionalWear", category:"Earring", items:[
