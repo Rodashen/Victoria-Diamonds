@@ -40,8 +40,9 @@
   return (product.fixedPrice ? '' : t('From ','起價 ')) + amount;
  }
  function element(tag, text, className) { const el=document.createElement(tag); if(text!==undefined)el.textContent=text; if(className)el.className=className; return el; }
+ function ringStyle(product){if(typeOf(product.category)!=='Ring')return '';const n=normal(product.name);if(/halo/.test(n))return 'halo';if(/three.stone|trilogy/.test(n))return 'three';if(/solitaire/.test(n))return 'solitaire';if(/etern|band|promise|bond|knot/.test(n))return 'bands';if(/signet|cluster|cocktail|crown|bypass/.test(n))return 'statement';return 'other';}
  function filterProduct(product,filters={}) {
-  return (!filters.collection||(product.collection===filters.collection||filters.collection==='silverCollection'&&product.parentCollection==='silverCollection'))&&(!filters.type||typeOf(product.category)===filters.type)&&matches(product,filters.query||'')&&(!filters.max||(product.price!==null&&product.price!==''&&Number.isFinite(Number(product.price))&&(!product.currency||product.currency==='GBP')&&Number(product.price)<=Number(filters.max)));
+  return (!filters.style||ringStyle(product)===filters.style)&&(!filters.collection||(product.collection===filters.collection||filters.collection==='silverCollection'&&product.parentCollection==='silverCollection'))&&(!filters.type||typeOf(product.category)===filters.type)&&matches(product,filters.query||'')&&(!filters.max||(product.price!==null&&product.price!==''&&Number.isFinite(Number(product.price))&&(!product.currency||product.currency==='GBP')&&Number(product.price)<=Number(filters.max)));
  }
  document.addEventListener('DOMContentLoaded', () => {
   const products=inventory();
@@ -84,16 +85,18 @@
   const label=element('label',t('Search pieces','搜尋作品'));const query=element('input');query.type='search';query.id='catalogueQuery';label.append(query);controls.append(label);
   const collection=makeSelect('collectionFilter',t('Collection','系列'),[['',t('All collections','所有系列')],...Object.entries(collections).map(([key,value])=>[key,value[zh()?2:0]])]);
   const type=makeSelect('typeFilter',t('Jewellery type','珠寶類別'),[['',t('All types','所有類別')],...Object.entries(types).map(([key,value])=>[key,value[zh()?1:0]])]);
+  const style=makeSelect('ringStyleFilter',t('Ring style','戒指款式'),[['',t('All ring styles','所有戒指款式')],['solitaire',t('Solitaire','單鑽')],['halo',t('Halo & hidden halo','光環及隱藏光環')],['three',t('Three-stone','三石')],['bands',t('Bands & eternity','戒環及永恆戒指')],['statement',t('Statement & signet','個性及印章戒指')],['other',t('Other ring designs','其他戒指設計')]]);
   const price=makeSelect('priceFilter',t('Displayed price (GBP)','顯示價格（英鎊）'),[['',t('Any price','所有價格')],['200',t('Up to £200','£200 以下')],['1000',t('Up to £1,000','£1,000 以下')],['2500',t('Up to £2,500','£2,500 以下')],['5000',t('Up to £5,000','£5,000 以下')]]);
   const reset=element('button',t('Clear filters','清除篩選'));reset.type='button';controls.append(reset);
   const status=element('p',undefined,'filter-status');status.setAttribute('role','status');status.setAttribute('aria-live','polite');
   const empty=element('div',t('No pieces match these filters. Try another search or clear the filters.','沒有符合篩選的作品。請嘗試其他關鍵字或清除篩選。'),'filter-empty');empty.hidden=true;
   document.querySelector('.catalogue-sort-wrapper').before(controls,status,empty);
+  const ringNav=element('nav',undefined,'ring-style-shortcuts');ringNav.setAttribute('aria-label',t('Browse rings by style','按款式瀏覽戒指'));ringNav.append(element('strong',t('Find your ring','尋找您的戒指')));[...style.options].forEach(option=>{const a=element('a',option.value?option.textContent:t('All rings','所有戒指'));a.href='view-catalogue.html?type=Ring'+(option.value?'&style='+option.value:'');ringNav.append(a)});controls.before(ringNav);
   const grids=Array.from(document.querySelectorAll('.product-grid'));
   grids.forEach(grid=>Array.from(grid.children).forEach((card,index)=>card.dataset.browseOrder=index));
   function fromURL() {
    const params=new URLSearchParams(location.search);
-   query.value=params.get('q') || '';collection.value=params.get('collection') || '';type.value=params.get('type') || '';price.value=params.get('max') || '';sort.value=params.get('sort') || 'default';
+   style.value=params.get('style')||'';query.value=params.get('q') || '';collection.value=params.get('collection') || '';type.value=params.get('type') || '';price.value=params.get('max') || '';sort.value=params.get('sort') || 'default';
    if(!sort.value)sort.value='default';
   }
   function update(persist=true) {
@@ -104,7 +107,7 @@
      const name=card.querySelector('[data-product-name]').dataset.productName;
      const p=products.find(p=>p.collection===group&&p.name===name);
      if(p){card.dataset.price=p.price??'';const displayed=card.querySelector('.meta-price');if(displayed)displayed.textContent=(p.mode==='custom'?t('From ','起價 '):'')+(p.price===null?t('By appointment','預約諮詢'):new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',minimumFractionDigits:Number.isInteger(Number(p.price))?0:2,maximumFractionDigits:2}).format(Number(p.price)));}
-     const show=!!p&&filterProduct(p,{collection:collection.value,type:type.value,query:query.value,max:price.value});
+     const show=!!p&&filterProduct(p,{collection:collection.value,type:type.value,query:query.value,max:price.value,style:style.value});
      card.hidden=!show;if(show)count++;
     });
     cards.sort((a,b)=>{
@@ -125,11 +128,13 @@
    });
    status.textContent=t(count+' pieces · Starting prices use listed stone weights and starting metal. Sorting applies within each category.','共 '+count+' 件作品 · 起價按列明鑽石重量及起始金屬計算，排序按每個類別進行。');
    empty.hidden=count>0;
-   if(persist){const url=new URL(location.href);[['q',query.value.trim()],['collection',collection.value],['type',type.value],['max',price.value],['sort',sort.value==='default'?'':sort.value]].forEach(([key,value])=>value?url.searchParams.set(key,value):url.searchParams.delete(key));history.replaceState(null,'',url);}
+   if(persist){const url=new URL(location.href);[['q',query.value.trim()],['collection',collection.value],['type',type.value],['style',style.value],['max',price.value],['sort',sort.value==='default'?'':sort.value]].forEach(([key,value])=>value?url.searchParams.set(key,value):url.searchParams.delete(key));history.replaceState(null,'',url);}
   }
+  style.addEventListener('change',()=>{if(style.value)type.value='Ring';update();});
+  type.addEventListener('change',()=>{if(type.value!=='Ring')style.value='';update();});
   fromURL();update(false);
-  query.addEventListener('input',()=>update());[collection,type,price,sort].forEach(el=>el.addEventListener('change',()=>update()));
-  reset.addEventListener('click',()=>{query.value='';collection.value='';type.value='';price.value='';sort.value='default';update();query.focus();});
+  query.addEventListener('input',()=>update());[collection,type,price,style,sort].forEach(el=>el.addEventListener('change',()=>update()));
+  reset.addEventListener('click',()=>{query.value='';collection.value='';type.value='';style.value='';price.value='';sort.value='default';update();query.focus();});
   window.addEventListener('popstate',()=>{fromURL();update(false);});
   document.getElementById('langSelect')?.addEventListener('change',()=>location.reload());
  });

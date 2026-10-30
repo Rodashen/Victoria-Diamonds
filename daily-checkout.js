@@ -45,7 +45,7 @@
   quote=null;version++;controller?.abort();field('dailySubmit').disabled=true;totals(null);field('dailyRetry').hidden=true;
   status(t('Checking your price…','正在核對價格…'),false,diamondOrigin!==null&&(diamondOrigin!=='natural'||naturalGroups.length>0));
   field('dailyCaratTotal').textContent=(read().diamonds.reduce((sum,d)=>sum+Number(d.carat??window.VDDiamondCatalogue?.items?.find(stone=>stone.id===d.naturalId)?.carat??0)*d.qty,0)*(selected.stackingSetMultiplier||1)).toFixed(2)+' ct';
-  const count=field('dailyBraceletStoneCount');if(count){const product=window.VDProducts?.products.find(p=>p.id===selected.id),record=window.VDDiamondCatalogue?.products[selected.id],listed=parseFloat(product?.details?.find(d=>d.key==='totalKarat')?.value),total=Number.isFinite(listed)?listed:(record?.naturalDesign||[]).reduce((sum,d)=>sum+Number(d.carat)*d.qty,0),carat=Number(field('dailyCarat0').value),qty=total/carat;count.hidden=diamondOrigin==='natural';count.textContent=total>0&&Number.isInteger(qty)?t('Diamonds per bracelet: ','每條手鏈鑽石數量：')+qty+' × '+carat.toFixed(2)+' ct · '+total.toFixed(2)+' ct '+t('total','總重'):t('The stone count for this option requires atelier confirmation.','此選項的鑽石數量須由工作室確認。');}
+  const count=field('dailyBraceletStoneCount');if(count){const carat=Number(field('dailyCarat0').value),qty=selected.stoneCount,total=qty*carat;count.hidden=diamondOrigin==='natural';count.textContent=Number.isInteger(qty)?t('Configured diamonds per bracelet: ','每條手鏈設定鑽石數量：')+qty+' × '+carat.toFixed(2)+' ct · '+total.toFixed(2)+' ct '+t('total. Final fit and construction require atelier confirmation.','總重。最終尺寸及結構須由工作室確認。'):t('Stone count requires atelier confirmation.','鑽石數量須由工作室確認。');const legend=field('dailyCarat0').closest('.configuration-options')?.querySelector('legend');if(legend)legend.textContent=t('Carat per stone · Total: ','每顆克拉 · 總重：')+total.toFixed(2)+' ct';}
   field('dailyKaratWrap').hidden=field('dailyMetal').value!=='gold';field('dailyPurityWrap').hidden=field('dailyMetal').value!=='silver';
   syncChoices();
   clearTimeout(timer);timer=setTimeout(refreshQuote,250);
@@ -74,13 +74,15 @@
     if(diamond&&Number(option.value)>0){const illustration=document.createElement('span');illustration.className='diamond-size';illustration.setAttribute('aria-hidden','true');const size=43*Math.cbrt(Number(option.value));illustration.style.setProperty('--stone-size',size+'px');illustration.innerHTML=window.VDDiamondVisuals.icon(selected.haloDesign&&select.id==='dailyCarat0'?'Oval':'Round');face.append(illustration);}
     const text=document.createElement('span');text.textContent=metal?{gold:t('Yellow gold','黃金'),silver:t('Silver','白銀'),platinum:t('Platinum','鉑金')}[option.value]:option.textContent;
     face.append(text);
+    if(diamond&&Number(option.value)>0&&['bracelet','necklace'].includes(selected.type)){const width=document.createElement('small');width.className='stone-width-guide';width.textContent=t('Stone guide ≈ ','鑽石參考直徑約 ')+(6.5*Math.cbrt(Number(option.value))).toFixed(1)+t(' mm (round equivalent)',' 毫米（等效圓形）');face.append(width);}
+
     if(selected.diamondPriceOptions&&select.id==='dailyCarat0'){const price=document.createElement('small');price.textContent=money(selected.diamondPriceOptions[option.value]);face.append(price);}
     if(select.id==='dailyKarat'){const purity=document.createElement('small');purity.textContent=({9:'375',14:'585',18:'750',22:'916'})[option.value]+' '+t('purity','純度');face.append(purity);}
     label.append(input,face);choices.append(label);
     input.addEventListener('change',()=>{if(input.checked){select.value=input.value;select.dispatchEvent(new Event('input',{bubbles:true}));}});
    });
    select.hidden=true;group.append(select,choices);original.replaceWith(group);
-   if(diamond){const note=document.createElement('p');note.className='choice-note';note.textContent=t('Relative size guide, not actual dimensions. Carat is the weight of each stone; this design’s cut is fixed.','相對大小僅供參考，並非實際尺寸。克拉為每顆鑽石的重量；此設計的切工固定。');group.append(note);}
+   if(diamond){const note=document.createElement('p');note.className='choice-note';note.textContent=t('Approximate stone diameters are round-equivalent guides, not finished jewellery widths. Shape, cut and setting affect the finished width; confirm with the atelier. Carat is the weight of each stone.','相對大小僅供參考，並非實際尺寸。克拉為每顆鑽石的重量；此設計的切工固定。');group.append(note);}
   });
  }
  function open(p){
@@ -129,7 +131,7 @@
   if(p.diamondPriceOptions){
    const first=field('dailyCarat0').closest('.daily-diamond');first.querySelector('legend').textContent=t('Bracelet diamond size option','手鏈鑽石大小選項');
    const total=window.VDProducts?.products.find(product=>product.id===p.id)?.details?.find(detail=>detail.key==='totalKarat')?.value;
-   if(total)field('dailyCarat0').parentElement.firstChild.textContent=t('Carat per stone · Total carat weight: ','每顆克拉 · 總克拉重量：')+total;
+   field('dailyCarat0').parentElement.firstChild.textContent=t('Carat per stone','每顆克拉');
    [field('dailyQuality0'),field('dailyQty0')].forEach(control=>{control.disabled=true;control.parentElement.hidden=true;});
    field('dailyAdditional').hidden=true;caratSummary.hidden=true;
    const count=document.createElement('p');count.id='dailyBraceletStoneCount';count.className='daily-note lab-design-note';count.setAttribute('aria-live','polite');first.after(count);

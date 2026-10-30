@@ -21,3 +21,5 @@
 :is(.collection-section,.product-card,.product-grid,.category-label,.filter-empty)[hidden] { display: none !important; }
 .product-card[tabindex]:focus-visible { outline: 2px solid #8B6914; outline-offset: 5px; }
 @media(max-width:600px) { .catalogue-filters { padding-inline: 16px; gap: 12px; } .catalogue-filters label:first-child { flex-basis: 100%; } .search-heading h2 { font-size: 32px; } }
+
+.ring-style-shortcuts{max-width:1336px;margin:20px auto 28px;padding:0 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}.ring-style-shortcuts strong{font:500 22px Georgia,serif;margin-right:12px}.ring-style-shortcuts a{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border:1px solid #c4b5a5;border-radius:24px;text-decoration:none;color:#3a3a3a;font:14px/1.4 Arial,sans-serif}.ring-style-shortcuts a:hover,.ring-style-shortcuts a:focus-visible{background:#eee5d8;border-color:#8b6914}.stone-width-guide{font-size:12px;line-height:1.5;display:block;max-width:145px;white-space:normal}
