@@ -74,7 +74,7 @@
     if(diamond&&Number(option.value)>0){const illustration=document.createElement('span');illustration.className='diamond-size';illustration.setAttribute('aria-hidden','true');const size=43*Math.cbrt(Number(option.value));illustration.style.setProperty('--stone-size',size+'px');illustration.innerHTML=window.VDDiamondVisuals.icon(selected.haloDesign&&select.id==='dailyCarat0'?'Oval':'Round');face.append(illustration);}
     const text=document.createElement('span');text.textContent=metal?{gold:t('Yellow gold','黃金'),silver:t('Silver','白銀'),platinum:t('Platinum','鉑金')}[option.value]:option.textContent;
     face.append(text);
-    if(diamond&&Number(option.value)>0&&['bracelet','necklace'].includes(selected.type)){const width=document.createElement('small');width.className='stone-width-guide';width.textContent=t('Stone guide ≈ ','鑽石參考直徑約 ')+(6.5*Math.cbrt(Number(option.value))).toFixed(1)+t(' mm (round equivalent)',' 毫米（等效圓形）');face.append(width);}
+    if(diamond&&Number(option.value)>0&&['bracelet','necklace'].includes(selected.type)){const width=document.createElement('small');width.className='stone-width-guide';width.textContent=t('Approx. width guide ≈ ','參考闊度約 ')+(6.5*Math.cbrt(Number(option.value))).toFixed(1)+t(' mm (round stone; setting varies)',' 毫米（圓形鑽石；鑲座尺寸或有不同）');face.append(width);}
 
     if(selected.diamondPriceOptions&&select.id==='dailyCarat0'){const price=document.createElement('small');price.textContent=money(selected.diamondPriceOptions[option.value]);face.append(price);}
     if(select.id==='dailyKarat'){const purity=document.createElement('small');purity.textContent=({9:'375',14:'585',18:'750',22:'916'})[option.value]+' '+t('purity','純度');face.append(purity);}
