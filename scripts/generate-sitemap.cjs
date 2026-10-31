@@ -11,7 +11,7 @@ const base = 'https://victoria-diamonds.com/';
 const registry = context.window.VDProducts;
 // Discover published static journal pages so new guides survive regeneration.
 const articles = fs.readdirSync(root).filter(file => /^journal-.+\.html$/.test(file) && !/<meta\b[^>]*content=["'][^"']*noindex/i.test(fs.readFileSync(path.join(root, file), 'utf8'))).sort();
-const pages = ['', 'view-catalogue.html', ...Object.values(registry.collections).map(collection => collection[1]), 'artist.html', 'newsletter.html', 'privacy-policy.html', 'cookie-policy.html', 'journal.html', ...articles];
+const pages = ['', 'view-catalogue.html', ...Object.values(registry.collections).map(collection => collection[1]), 'artist.html', 'newsletter.html', 'privacy-policy.html', 'cookie-policy.html', 'returns-policy.html', 'journal.html', ...articles];
 const urls = [...pages.map(page => base + page), ...registry.products.map(product => base + 'product.html?item=' + encodeURIComponent(product.id))];
 if (new Set(urls).size !== urls.length) throw Error('Duplicate sitemap URLs');
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
