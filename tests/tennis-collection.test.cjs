@@ -14,10 +14,13 @@ test('all tennis styles are moved once, retain stable URLs, and five new designs
  assert.equal(products.find(p=>p.id==='ds_m_aurea_bracelet').collection,'dailySparkle');assert.equal(products.find(p=>p.id==='sl_b_diamond_paperclip_link_bracelet').collection,'singleLady');
 });
 test('every tennis carat option quotes authoritative design-specific prices across metals and deposits',()=>{
- for(const p of tennis)for(const metal of ['gold','platinum','silver'])for(const carat of ['0.25','0.50','0.75','1.00'])for(const paymentPercentage of [30,50,100]){
+ for(const p of tennis)for(const metal of ['gold','platinum','silver'])for(const carat of ['0.20','0.25','0.50','0.75','1.00'])for(const paymentPercentage of [30,50,100]){
   const input={productId:p.id,metal,karat:18,purity:925,quantity:1,paymentPercentage,braceletMetalTier:'essential',diamonds:[{quality:'luxe',carat,qty:99}]};
   const q=quoteDaily(input,'tennis');assert.equal(q.params.braceletMetalTier,p.preset.braceletMetalTier);assert.equal(q.params.diamonds[0].qty,1);assert.equal(q.total,pricing.PRICING_PACKAGE_MATRIX[p.preset.braceletMetalTier][metal==='gold'?'18K':metal]+p.preset.diamondPriceOptions[carat]);assert.equal(q.due,Math.round(q.total*paymentPercentage)/100);
  }
+});
+test('new tennis defaults use 0.20 ct and price each of 48 stones at the approved midpoint',()=>{
+ for(const p of tennis.filter(p=>p.id.startsWith('tennis_'))){assert.equal(p.preset.diamonds[0].carat,'0.20');assert.equal(p.preset.stoneCount,48);assert.equal(p.preset.diamondPriceOptions['0.20'],3000);const q=quoteDaily({productId:p.id,metal:'gold',karat:18,purity:925,quantity:1,paymentPercentage:100,braceletMetalTier:'premium',diamonds:p.preset.diamonds},'tennis');assert.equal(q.total,5520);}
 });
 test('legacy collection requests stay compatible; invalid options cannot reach payment',()=>{
  for(const p of tennis.filter(p=>!p.id.startsWith('tennis_'))){const body={productId:p.id,metal:'gold',karat:18,purity:925,quantity:1,paymentPercentage:100,braceletMetalTier:'supreme',diamonds:p.preset.diamonds};assert.equal(quoteDaily(body,p.id.startsWith('mens_')?'mens':'occasionWear').total,quoteDaily(body,'tennis').total);}

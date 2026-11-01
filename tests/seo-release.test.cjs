@@ -21,7 +21,7 @@ test('every public static page has one self-canonical and one generated alias re
 test('all product first responses contain unique content, a single canonical and matching real offers',async()=>{
  const pages=(await generated).default.products;
  assert.equal(Object.keys(pages).length,c.window.VDProducts.products.length);
- const titles=new Set();
+ const titles=new Set(),descriptions=new Set();
  for(const p of c.window.VDProducts.products){
   const page=pages[p.id],expected=base+'product.html?item='+encodeURIComponent(p.id),html=page.html;
   assert.deepEqual(canonicalTags(html),[expected],p.id);
@@ -29,6 +29,7 @@ test('all product first responses contain unique content, a single canonical and
   assert.ok(!html.includes('Loading your piece'),p.id);
   assert.ok(html.includes('id="order"'),p.id);
   const title=html.match(/<title>(.*?)<\/title>/s)[1];assert.ok(!titles.has(title),p.id);titles.add(title);
+  const description=html.match(/<meta name="description" content="([^"]+)"/)[1];assert.ok(!descriptions.has(description),p.id);descriptions.add(description);
   const schema=JSON.parse(html.match(/<script\b[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1]);
   const expectedSchema=JSON.parse(JSON.stringify(c.window.VDProductSchema.create(p,c.window.VDDiamondCatalogue.products[p.id])));
   assert.deepEqual(schema,expectedSchema,p.id);

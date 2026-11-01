@@ -3,7 +3,7 @@ const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'ind
 test('homepage metadata, heading and local business data are consistent',()=>{
  const title=html.match(/<title[^>]*>([^<]+)<\/title>/)[1],description=html.match(/<meta name="description" content="([^"]+)"/)[1];
  assert.ok(title.length<60);assert.ok(description.length<155);assert.match(description,/Hatton Garden/);
- assert.equal((html.match(/<h1\b/g)||[]).length,1);assert.match(html,/<h1[^>]*>Bespoke Jewellery Workshop in London<\/h1>/);
+ assert.equal((html.match(/<h1\b/g)||[]).length,1);assert.match(html,/<h1[^>]*>Bespoke Diamond Jewellery, Designed in London<\/h1>/);
  const schema=JSON.parse(html.match(/<script type="application\/ld\+json" id="atelierSchema">([\s\S]*?)<\/script>/)[1]);
  assert.equal(schema['@type'],'JewelryStore');assert.equal(schema.address.streetAddress,'59 Leather Lane');assert.equal(schema.address.postalCode,'EC1N 7TJ');assert.equal(schema.telephone,'+447594442577');
 });

@@ -19,7 +19,7 @@
  const name=getProductName(p.name),collection=VDProducts.collections[p.collection];
  const categoryNames={Ring:'戒指',Earring:'耳環','Earring Stud':'耳釘',Necklace:'項鏈',Bracelet:'手鏈',Anklet:'腳鏈',Brooch:'胸針',Tiara:'冠冕'};
  document.title=name+' | '+collection[0]+' | Victoria Diamonds';
- document.querySelector('meta[name=description]').content=`${name} — ${collection[0]}. `+t(p.mode==='custom'?'Choose your materials, diamonds and payment option.':'Discover the design and order with Victoria Diamonds.',p.mode==='custom'?'選擇材質、鑽石及付款方式。':'探索設計及訂購詳情。');
+ document.querySelector('meta[name=description]').content=zh?`${name} — ${collection[0]}. `+t('','探索設計及訂購詳情。'):VDProducts.metaDescription(p);
  const canonical=document.querySelector('link[rel="canonical"]')||document.createElement('link');canonical.rel='canonical';canonical.href='https://victoria-diamonds.com/product.html?item='+encodeURIComponent(p.id);if(!canonical.isConnected)document.head.append(canonical);
  const starting=window.VDDiamondCatalogue?.products[p.id];
  const structured=document.getElementById('productStructuredData')||document.createElement('script');structured.id='productStructuredData';structured.type='application/ld+json';structured.textContent=JSON.stringify(window.VDProductSchema.create(p,starting));if(!structured.isConnected)document.head.append(structured);
