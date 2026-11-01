@@ -66,3 +66,5 @@
  .landing-page .faq-question{white-space:normal;overflow-wrap:break-word;min-width:0;padding-right:40px}
  .landing-page .faq-question::after{right:8px;width:10px;height:10px}
 }
+/* Keep the existing language switch in the mobile homepage header. */
+@media(max-width:760px){.landing-page .site-header .header-inner>.lang-selector-mobile{display:block!important;position:static!important;transform:none!important;flex:none;margin:0!important}.landing-page .site-header .header-inner>.lang-selector-mobile select{display:block;min-width:44px;max-width:76px;min-height:44px;padding:6px 3px;border:0;background:transparent;color:#282828;font-size:13px}.landing-page .site-header .header-inner>.lang-selector-mobile select:focus-visible{outline:2px solid #8b6914;outline-offset:2px}}

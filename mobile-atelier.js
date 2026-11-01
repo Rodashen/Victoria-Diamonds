@@ -5,9 +5,6 @@ document.addEventListener('DOMContentLoaded',()=>{
  const t=(en,zh)=>document.documentElement.lang.startsWith('zh')?zh:en;
  const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
  const home=document.body.classList.contains('landing-page');
- // Keep the existing language control and its listeners available inside the phone menu.
- const language=document.querySelector('.lang-selector-mobile'),homeMenu=document.getElementById('mobileNav');
- if(language&&homeMenu){const marker=document.createComment('mobile language position');language.before(marker);const moveLanguage=()=>mobile.matches?homeMenu.append(language):marker.after(language);mobile.addEventListener('change',moveLanguage);moveLanguage();}
  const icons={home:'<path d="m3 11 9-8 9 8v10h-7v-7h-4v7H3Z"/>',collections:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>',search:'<circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/>',contact:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>'};
  const art=key=>'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+icons[key]+'</svg>';
  // SVG stays monochrome on iOS; Unicode diagonal arrows can become coloured emoji.
