@@ -15,7 +15,8 @@
  const url=p=>'product.html?item='+encodeURIComponent(p.id)+(document.documentElement.lang.startsWith('zh')?'&lang=zh-HK':'');
  const imageAlt=p=>[p.name,p.metal|| (p.collection==='silverCollection'?'Sterling 925 silver':''),p.designVisualisation?'lab-grown diamond design visualisation':'original jewellery design',collections[p.collection]?.[0],'Victoria Diamonds'].filter(Boolean).join(' — ');
  const metaDescription=p=>{const collection=collections[p.collection]?.[0]||'Victoria Diamonds';const prefix=p.name+' | '+collection+'. ';const detail=typeof p.description==='string'&&p.description.trim()?p.description.trim():(p.mode==='custom'?'Explore available materials and diamond options online.':p.mode==='silver'?'Explore this sterling silver design and order online.':'Contact our atelier to discuss this design.');const full=(prefix+detail).replace(/\s+/g,' ').trim();if(full.length<=155)return full;return full.slice(0,152).replace(/\s+\S*$/,'')+'…';};
- window.VDProducts={products,collections,find,url,slug,imageAlt,metaDescription};
+ const navigationGroups=[{en:'Everyday',zh:'日常',files:['daily-sparkle.html','aura-collection.html','silver-collection.html','mens-collection.html']},{en:'Occasion',zh:'特別時刻',files:['halo-collection.html','forever-bond.html','high-note-collection.html','tennis-collection.html']},{en:'Gifts & seasonal',zh:'禮物及節日',files:['christmas-collection.html','keepsake-collection.html','pet-lover-collection.html']}];
+ window.VDProducts={products,collections,find,url,slug,imageAlt,metaDescription,navigationGroups};
 })();
 
 // Apply the same tennis option schedule to every product entry point.
