@@ -7,6 +7,7 @@ http://victoria-diamonds.com/* https://victoria-diamonds.com/:splat 301!
 /product /product.html 301!
 /artist /artist.html 301!
 /aura-collection /aura-collection.html 301!
+/christmas-collection /christmas-collection.html 301!
 /cookie-policy /cookie-policy.html 301!
 /daily-sparkle /daily-sparkle.html 301!
 /forever-bond /forever-bond.html 301!

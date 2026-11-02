@@ -1,0 +1,468 @@
+[
+  {
+    "id": "aura_laurel_diamond_band",
+    "name": "Laurel Diamond Band",
+    "type": "ring",
+    "collection": "singleLady",
+    "silver": false,
+    "permanent": true,
+    "image": "products/aura_laurel_diamond_band.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 5,
+        "shape": "Round"
+      }
+    ],
+    "price": 1575,
+    "soldAsPair": false,
+    "pendantOnly": false
+  },
+  {
+    "id": "aura_pear_and_round_bypass_ring",
+    "name": "Pear and Round Bypass Ring",
+    "type": "ring",
+    "collection": "singleLady",
+    "silver": false,
+    "permanent": true,
+    "image": "products/aura_pear_and_round_bypass_ring.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "1.00",
+        "qty": 1,
+        "shape": "Pear"
+      },
+      {
+        "quality": "select",
+        "carat": "0.50",
+        "qty": 1,
+        "shape": "Round"
+      }
+    ],
+    "price": 1525,
+    "soldAsPair": false,
+    "pendantOnly": false
+  },
+  {
+    "id": "aura_ribbon_diamond_ring",
+    "name": "Ribbon Diamond Ring",
+    "type": "ring",
+    "collection": "singleLady",
+    "silver": false,
+    "permanent": true,
+    "image": "products/aura_ribbon_diamond_ring.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.50",
+        "qty": 1,
+        "shape": "Round"
+      },
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 2,
+        "shape": "Round"
+      }
+    ],
+    "price": 1455,
+    "soldAsPair": false,
+    "pendantOnly": false
+  },
+  {
+    "id": "aura_diamond_bow_pendant",
+    "name": "Diamond Bow Pendant",
+    "type": "pendant",
+    "collection": "singleLady",
+    "silver": false,
+    "permanent": true,
+    "image": "products/aura_diamond_bow_pendant.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.50",
+        "qty": 1,
+        "shape": "Round"
+      },
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 2,
+        "shape": "Round"
+      }
+    ],
+    "price": 1455,
+    "soldAsPair": false,
+    "pendantOnly": true
+  },
+  {
+    "id": "aura_diamond_leaf_circle_pendant",
+    "name": "Diamond Leaf Circle Pendant",
+    "type": "pendant",
+    "collection": "singleLady",
+    "silver": false,
+    "permanent": true,
+    "image": "products/aura_diamond_leaf_circle_pendant.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 5,
+        "shape": "Round"
+      }
+    ],
+    "price": 1575,
+    "soldAsPair": false,
+    "pendantOnly": true
+  },
+  {
+    "id": "aura_diamond_bow_stud_earrings",
+    "name": "Diamond Bow Stud Earrings",
+    "type": "earring",
+    "collection": "singleLady",
+    "silver": false,
+    "permanent": true,
+    "image": "products/aura_diamond_bow_stud_earrings.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.50",
+        "qty": 2,
+        "shape": "Round"
+      }
+    ],
+    "price": 1425,
+    "soldAsPair": true,
+    "pendantOnly": false
+  },
+  {
+    "id": "aura_pear_diamond_drop_earrings",
+    "name": "Pear Diamond Drop Earrings",
+    "type": "earring",
+    "collection": "singleLady",
+    "silver": false,
+    "permanent": true,
+    "image": "products/aura_pear_diamond_drop_earrings.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "1.00",
+        "qty": 2,
+        "shape": "Pear"
+      },
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 2,
+        "shape": "Round"
+      }
+    ],
+    "price": 1805,
+    "soldAsPair": true,
+    "pendantOnly": false
+  },
+  {
+    "id": "aura_diamond_ribbon_bracelet",
+    "name": "Diamond Ribbon Bracelet",
+    "type": "bracelet",
+    "collection": "singleLady",
+    "silver": false,
+    "permanent": true,
+    "image": "products/aura_diamond_ribbon_bracelet.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.50",
+        "qty": 1,
+        "shape": "Round"
+      },
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 2,
+        "shape": "Round"
+      }
+    ],
+    "price": 1455,
+    "soldAsPair": false,
+    "pendantOnly": false
+  },
+  {
+    "id": "aura_diamond_star_station_bracelet",
+    "name": "Diamond Star Station Bracelet",
+    "type": "bracelet",
+    "collection": "singleLady",
+    "silver": false,
+    "permanent": true,
+    "image": "products/aura_diamond_star_station_bracelet.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 5,
+        "shape": "Round"
+      }
+    ],
+    "price": 1575,
+    "soldAsPair": false,
+    "pendantOnly": false
+  },
+  {
+    "id": "christmas_silver_holly_embrace_ring",
+    "name": "Holly Embrace Ring",
+    "type": "ring",
+    "collection": "christmas",
+    "silver": true,
+    "permanent": false,
+    "image": "products/christmas_silver_holly_embrace_ring.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.20",
+        "qty": 1,
+        "shape": "Round"
+      },
+      {
+        "quality": "select",
+        "carat": "0.10",
+        "qty": 2,
+        "shape": "Round"
+      }
+    ],
+    "price": 147.5,
+    "soldAsPair": false,
+    "pendantOnly": false
+  },
+  {
+    "id": "christmas_silver_noelle_starburst_ring",
+    "name": "Noelle Starburst Ring",
+    "type": "ring",
+    "collection": "christmas",
+    "silver": true,
+    "permanent": false,
+    "image": "products/christmas_silver_noelle_starburst_ring.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.20",
+        "qty": 1,
+        "shape": "Round"
+      },
+      {
+        "quality": "select",
+        "carat": "0.10",
+        "qty": 6,
+        "shape": "Round"
+      }
+    ],
+    "price": 239.5,
+    "soldAsPair": false,
+    "pendantOnly": false
+  },
+  {
+    "id": "christmas_silver_evergreen_tree_pendant",
+    "name": "Evergreen Tree Pendant",
+    "type": "pendant",
+    "collection": "christmas",
+    "silver": true,
+    "permanent": false,
+    "image": "products/christmas_silver_evergreen_tree_pendant.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.20",
+        "qty": 1,
+        "shape": "Round"
+      },
+      {
+        "quality": "select",
+        "carat": "0.10",
+        "qty": 2,
+        "shape": "Round"
+      }
+    ],
+    "price": 147.5,
+    "soldAsPair": false,
+    "pendantOnly": true
+  },
+  {
+    "id": "christmas_silver_midnight_snowfall_pendant",
+    "name": "Midnight Snowfall Pendant",
+    "type": "pendant",
+    "collection": "christmas",
+    "silver": true,
+    "permanent": false,
+    "image": "products/christmas_silver_midnight_snowfall_pendant.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.20",
+        "qty": 1,
+        "shape": "Round"
+      },
+      {
+        "quality": "select",
+        "carat": "0.10",
+        "qty": 6,
+        "shape": "Round"
+      }
+    ],
+    "price": 239.5,
+    "soldAsPair": false,
+    "pendantOnly": true
+  },
+  {
+    "id": "christmas_silver_candy_cane_diamond_earrings",
+    "name": "Candy Cane Diamond Earrings",
+    "type": "earring",
+    "collection": "christmas",
+    "silver": true,
+    "permanent": false,
+    "image": "products/christmas_silver_candy_cane_diamond_earrings.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.10",
+        "qty": 6,
+        "shape": "Round"
+      }
+    ],
+    "price": 184,
+    "soldAsPair": true,
+    "pendantOnly": false
+  },
+  {
+    "id": "christmas_solstice_crown_ring",
+    "name": "Solstice Crown Ring",
+    "type": "ring",
+    "collection": "christmas",
+    "silver": false,
+    "permanent": false,
+    "image": "products/christmas_solstice_crown_ring.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.75",
+        "qty": 1,
+        "shape": "Round"
+      },
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 4,
+        "shape": "Round"
+      }
+    ],
+    "price": 1673,
+    "soldAsPair": false,
+    "pendantOnly": false
+  },
+  {
+    "id": "christmas_noelle_star_pendant",
+    "name": "Noelle Star Pendant",
+    "type": "pendant",
+    "collection": "christmas",
+    "silver": false,
+    "permanent": false,
+    "image": "products/christmas_noelle_star_pendant.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.50",
+        "qty": 1,
+        "shape": "Round"
+      }
+    ],
+    "price": 1275,
+    "soldAsPair": false,
+    "pendantOnly": true
+  },
+  {
+    "id": "christmas_noelle_wreath_drop_earrings",
+    "name": "Noelle Wreath Drop Earrings",
+    "type": "earring",
+    "collection": "christmas",
+    "silver": false,
+    "permanent": false,
+    "image": "products/christmas_noelle_wreath_drop_earrings.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 12,
+        "shape": "Round"
+      }
+    ],
+    "price": 2205,
+    "soldAsPair": true,
+    "pendantOnly": false
+  },
+  {
+    "id": "christmas_winter_snowflake_earrings",
+    "name": "Winter Snowflake Earrings",
+    "type": "earring",
+    "collection": "christmas",
+    "silver": false,
+    "permanent": false,
+    "image": "products/christmas_winter_snowflake_earrings.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.50",
+        "qty": 2,
+        "shape": "Round"
+      },
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 12,
+        "shape": "Round"
+      }
+    ],
+    "price": 2505,
+    "soldAsPair": true,
+    "pendantOnly": false
+  },
+  {
+    "id": "christmas_solstice_diamond_line_bracelet",
+    "name": "Solstice Diamond Line Bracelet",
+    "type": "bracelet",
+    "collection": "christmas",
+    "silver": false,
+    "permanent": false,
+    "image": "products/christmas_solstice_diamond_line_bracelet.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 35,
+        "shape": "Round"
+      }
+    ],
+    "price": 4275,
+    "soldAsPair": false,
+    "pendantOnly": false
+  },
+  {
+    "id": "christmas_winter_wreath_bracelet",
+    "name": "Winter Wreath Bracelet",
+    "type": "bracelet",
+    "collection": "christmas",
+    "silver": false,
+    "permanent": false,
+    "image": "products/christmas_winter_wreath_bracelet.png",
+    "diamonds": [
+      {
+        "quality": "select",
+        "carat": "0.25",
+        "qty": 6,
+        "shape": "Round"
+      }
+    ],
+    "price": 1665,
+    "soldAsPair": false,
+    "pendantOnly": false
+  }
+]
