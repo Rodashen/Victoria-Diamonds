@@ -1,0 +1,57 @@
+{
+  "status": "designs-approved-integration-pending",
+  "metalTier": "supreme",
+  "defaultMetal": "gold",
+  "defaultKarat": 18,
+  "caratsPerStone": [
+    "0.05",
+    "0.10",
+    "0.15",
+    "0.20"
+  ],
+  "estimatedLengthsInches": [
+    16,
+    18,
+    20
+  ],
+  "defaultLengthInches": 16,
+  "defaultCaratPerStone": "0.20",
+  "countMethod": "Estimated length in millimetres minus 10 mm clasp allowance, divided by estimated stone diameter plus 0.2 mm setting allowance, rounded to nearest whole stone. Final construction requires atelier confirmation.",
+  "products": [
+    {
+      "id": "tennis_necklace_round_classic",
+      "name": "Classic Round Tennis Necklace",
+      "shape": "Round",
+      "setting": "Prong",
+      "image": "products/tennis_necklace_round_classic.png"
+    },
+    {
+      "id": "tennis_necklace_oval_riviere",
+      "name": "Oval Riviere Tennis Necklace",
+      "shape": "Oval",
+      "setting": "Prong",
+      "image": "products/tennis_necklace_oval_riviere.png"
+    },
+    {
+      "id": "tennis_necklace_princess_line",
+      "name": "Princess Line Tennis Necklace",
+      "shape": "Princess",
+      "setting": "Prong",
+      "image": "products/tennis_necklace_princess_line.png"
+    },
+    {
+      "id": "tennis_necklace_pear_lumiere",
+      "name": "Pear Lumiere Tennis Necklace",
+      "shape": "Pear",
+      "setting": "Prong",
+      "image": "products/tennis_necklace_pear_lumiere.png"
+    },
+    {
+      "id": "tennis_necklace_round_bezel",
+      "name": "Round Bezel Tennis Necklace",
+      "shape": "Round",
+      "setting": "Bezel",
+      "image": "products/tennis_necklace_round_bezel.png"
+    }
+  ]
+}
