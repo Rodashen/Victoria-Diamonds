@@ -8,7 +8,7 @@ test('Artist profile has crawlable biography, gallery, canonical URL and matchin
  const schema=JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
  assert.equal(schema['@graph'][0]['@type'],'ProfilePage');
  assert.equal(schema['@graph'][1].name,'Rachel Gemma Tan');
- assert.equal((html.match(/data-artwork /g)||[]).length,3);
+ assert.equal((html.match(/data-artwork /g)||[]).length,4);
  assert.ok(html.includes('Nanyang Academy of Fine Arts'));
  for(const [,attrs] of html.matchAll(/<img\b([^>]+)>/g)) {
   if(!attrs.includes('src='))continue; // The dialog image is populated only when opened.
