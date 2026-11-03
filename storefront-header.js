@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const details=(title,items)=>{const d=document.createElement('details'),s=document.createElement('summary'),panel=document.createElement('div');d.className='vd-nav-menu';s.textContent=title;panel.className='vd-nav-panel';for(const item of items)panel.append(item);d.append(s,panel);d.addEventListener('toggle',()=>{if(d.open)nav.querySelectorAll('details').forEach(other=>{if(other!==d)other.open=false;});});return d;};
  function render(){
   nav.replaceChildren(link('silver-collection.html',t('Silver Collection','純銀系列'),'vd-collection-pill'),link('prism-collection.html',t('Color Diamond Collection','彩色鑽石系列'),'vd-collection-pill vd-prism-pill'));
+  nav.append(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈')));
   const collections=window.VDProducts?.collections;
   const collectionLinks=collections?Object.values(collections).map(c=>link(c[1],c[document.documentElement.lang.startsWith('zh')?2:0])):[['daily-sparkle.html','Daily Sparkle'],['aura-collection.html','Aura'],['high-note-collection.html','High Note'],['forever-bond.html','Forever Bond'],['halo-collection.html','Halo Ring Collection'],['tennis-collection.html','Tennis Collection'],['mens-collection.html',"Men’s Collection"],['christmas-collection.html','Christmas Collection'],['keepsake-collection.html','Keepsake Collection'],['pet-lover-collection.html','Pet Lover Collection']].map(([href,name])=>link(href,name));
   collectionLinks.push(link('view-catalogue.html',t('Browse all pieces','瀏覽所有作品')));nav.append(details(t('White diamond','白色鑽石'),collectionLinks));
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.mobile-nav-links,.ux-menu-links,.ma-sheet-links').forEach(menu=>{
    menu.querySelector('.vd-mobile-info')?.closest('.vd-mobile-info-item')?.remove();menu.querySelector('.vd-mobile-info')?.remove();
    for(const child of [...menu.children]){const a=child.matches('a')?child:child.matches('li')?child.querySelector(':scope > a'):null;if(a&&(a.matches('.js-guarantee-trigger')||/journal\.html|artist\.html|#(?:story|craftsmanship|diamond-pricing)|Jewelry-Care\.pdf|Catalogue\.pdf/.test(a.getAttribute('href')||'')))child.remove();}
-   const group=document.createElement('details');group.className='vd-mobile-info';const summary=document.createElement('summary');summary.textContent=t('Discover Victoria','探索 Victoria');group.append(summary);
+   const group=document.createElement('details');group.className='vd-mobile-info';const summary=document.createElement('summary');summary.textContent=t('Discover Victoria','探索 Victoria');group.append(summary);group.append(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈')));
    for(const [href,en,zh] of [['journal.html','Blogs','日誌及鑽石指南'],['Jewelry-Care.pdf','Jewellery care','珠寶保養'],['Catalogue.pdf','Download our catalogue','下載目錄'],['index.html?panel=guarantee','Our Guarantee','我們的保證'],['artist.html','Know Our Artist','認識藝術家'],['index.html#story','Our story','品牌故事'],['index.html#craftsmanship','Craftsmanship','工藝']])group.append(link(href,t(en,zh)));
    if(menu.tagName==='UL'){const li=document.createElement('li');li.className='vd-mobile-info-item';li.append(group);menu.append(li);}else menu.append(group);
   });
