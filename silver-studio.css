@@ -1,4 +1,6 @@
 /* Silver has its own entrance; catalogue and checkout retain the shared components. */
+.mobile-prism-entrance{display:none}
+@media(max-width:760px){.mobile-prism-entrance{display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:0 22px;background:#f1e9dd;color:#514018;text-decoration:none;font:500 14px/1.3 'DM Sans',sans-serif}.mobile-prism-entrance:focus-visible{outline:2px solid #b8860b;outline-offset:-3px}}
 .silver-header-link{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;min-height:44px;padding:10px 16px;border:1px solid var(--atelier-gold,#B8860B);border-radius:24px;background:#f1e9dd;color:#514018;font:500 13px/1.3 var(--font-body);text-align:center;text-decoration:none;transition:background .2s ease,transform .2s ease}
 .silver-header-link:hover{background:#e8dcc6;transform:translateY(-1px)}
 .silver-header-link:focus-visible{outline:2px solid var(--atelier-gold,#B8860B);outline-offset:4px}
