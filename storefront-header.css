@@ -21,3 +21,4 @@
 }
 @media(min-width:1100px) and (max-width:1300px){.vd-header-row{padding-inline:18px;gap:7px}.vd-primary-navigation{gap:7px;font-size:11px}.vd-collection-pill{padding-inline:9px}.vd-header-socials a{min-width:26px}.vd-header-brand .logo,.vd-header-brand.wordmark,.vd-header-brand .wordmark{font-size:21px!important}}
 @media(min-width:1200px) and (max-width:1300px){.vd-primary-navigation{gap:10px;font-size:12px}.vd-header-brand .logo,.vd-header-brand.wordmark,.vd-header-brand .wordmark{font-size:23px!important}}
+.vd-mobile-info>summary{font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:400}.guarantee-certificate{padding:24px 0;margin:20px 0;line-height:1.65}.guarantee-certificate .btn-primary{margin-top:12px}
