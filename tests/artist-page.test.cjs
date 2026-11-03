@@ -19,7 +19,7 @@ test('Artist profile has crawlable biography, gallery, canonical URL and matchin
 });
 test('Artist page is discoverable through the homepage, Journal headers, mobile menu and sitemap',()=>{
  const home=read('index.html');assert.match(home,/<a href="artist.html"[^>]*class="btn-primary"[^>]*id="craftArtistBtn"/);
- assert.ok(home.includes('<a href="artist.html" class="nav-catalog">Know Our Artist</a>'));
+ assert.match(home,/<a href="artist.html"[^>]*>Know Our Artist<\/a>/);
  for(const file of fs.readdirSync(root).filter(n=>/^journal(?:-.*)?\.html$/.test(n)))assert.match(read(file).match(/<header[\s\S]*?<\/header>/)[0],/href="artist.html"/,file);
  assert.ok(read('sitemap.xml').includes('<loc>https://victoria-diamonds.com/artist.html</loc>'));
  assert.ok(read('mobile-browsing.js').includes("link('artist.html'"));

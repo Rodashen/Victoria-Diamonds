@@ -1,0 +1,47 @@
+[
+  {
+    "id": "prism_aurelle_ring",
+    "name": "Aurelle Colour Solitaire Ring",
+    "type": "ring",
+    "category": "Ring",
+    "description": "A round brilliant coloured lab-grown diamond in an open four-prong setting, with a fine polished band.",
+    "minimumCarat": 1,
+    "stoneCount": 1
+  },
+  {
+    "id": "prism_orbe_ring",
+    "name": "Orbe Colour Bezel Ring",
+    "type": "ring",
+    "category": "Ring",
+    "description": "A single round brilliant coloured lab-grown diamond framed by a smooth gold bezel and softly rounded band.",
+    "minimumCarat": 1,
+    "stoneCount": 1
+  },
+  {
+    "id": "prism_lien_bracelet",
+    "name": "Lien Colour Solitaire Bracelet",
+    "type": "bracelet",
+    "category": "Bracelet",
+    "description": "One round brilliant coloured lab-grown diamond on a delicate chain bracelet. A single-stone design, rather than a tennis bracelet.",
+    "minimumCarat": 1,
+    "stoneCount": 1
+  },
+  {
+    "id": "prism_lumiere_studs",
+    "name": "Lumière Colour Stud Earrings",
+    "type": "earring",
+    "category": "Earring",
+    "description": "A matched pair of round brilliant coloured lab-grown diamond studs in open four-prong baskets. Carat options are per earring; the price includes the pair.",
+    "minimumCarat": 0.25,
+    "stoneCount": 2
+  },
+  {
+    "id": "prism_solene_necklace",
+    "name": "Solène Colour Solitaire Necklace",
+    "type": "necklace",
+    "category": "Necklace",
+    "description": "A round brilliant coloured lab-grown diamond in an open four-prong pendant, suspended from a fine chain necklace.",
+    "minimumCarat": 0.25,
+    "stoneCount": 1
+  }
+]

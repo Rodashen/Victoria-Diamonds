@@ -21,7 +21,7 @@
  dialog.addEventListener('keydown',e=>{if(e.key==='Escape')e.stopPropagation();});
  dialog.addEventListener('click',e=>{const r=dialog.getBoundingClientRect();if(e.target===dialog&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))close();});
  const field=id=>dialog.querySelector('#'+id);
- const read=()=>({productId:selected.id,collection:selected.collection,...(selected.initialRequired?{initial:field('dailyInitial').value}:{}),...(selected.type==='bracelet'?{braceletSize:field('dailyBraceletSize').value}:{}),...(selected.necklaceLengths?{necklaceLength:Number(field('dailyNecklaceLength').value)}:{}),metal:field('dailyMetal').value,karat:Number(field('dailyKarat').value),purity:Number(field('dailyPurity').value),braceletMetalTier:field('dailyTier').value,quantity:Number(field('dailyQuantity').value),paymentPercentage:Number(field('dailyPayment').value),diamondOrigin:diamondOrigin||'lab',diamonds:diamondOrigin==='natural'?naturalGroups.map(({naturalId,qty})=>({naturalId,qty})):[0,1,2,3].map(i=>({quality:field('dailyQuality'+i).value,carat:field('dailyCarat'+i).value,qty:Number(field('dailyQty'+i).value)})).filter(d=>d.carat!=='0')});
+ const read=()=>({productId:selected.id,collection:selected.collection,...(selected.prism?{diamondColour:field('prismColour')?.value||'pink'}:{}),...(selected.initialRequired?{initial:field('dailyInitial').value}:{}),...(selected.type==='bracelet'&&!selected.prism?{braceletSize:field('dailyBraceletSize').value}:{}),...(selected.necklaceLengths?{necklaceLength:Number(field('dailyNecklaceLength').value)}:{}),metal:field('dailyMetal').value,karat:Number(field('dailyKarat').value),purity:Number(field('dailyPurity').value),braceletMetalTier:field('dailyTier').value,quantity:Number(field('dailyQuantity').value),paymentPercentage:Number(field('dailyPayment').value),diamondOrigin:diamondOrigin||'lab',diamonds:diamondOrigin==='natural'?naturalGroups.map(({naturalId,qty})=>({naturalId,qty})):[0,1,2,3].map(i=>({quality:field('dailyQuality'+i).value,carat:field('dailyCarat'+i).value,qty:Number(field('dailyQty'+i).value)})).filter(d=>d.carat!=='0')});
  const valid=b=>(!selected.initialRequired||/^[A-Z]$/.test(b.initial||''))&&Number.isInteger(b.quantity)&&b.quantity>=1&&b.quantity<=10&&b.diamonds.every(d=>Number.isInteger(d.qty)&&d.qty>=1&&d.qty<=100);
  function status(message,error=false,loading=false){window.VDLoading?.set('checkout',loading,message);field('dailyStatus').textContent=message;field('dailyStatus').classList.toggle('error',error);if(error){const price=document.getElementById('productQuote');if(price)price.textContent=t('Complete your selections for a price','完成選擇以查看價格');}}
  function totals(q){field('dailyTotal').textContent=q?money(q.total):'—';field('dailyDue').textContent=q?money(q.due):'—';field('dailyBalance').textContent=q?money(q.balance):'—';const price=document.getElementById('productQuote');if(price)price.textContent=q?money(q.total)+' GBP':diamondOrigin===null?t('Choose your diamond type','選擇您的鑽石種類'):diamondOrigin==='natural'&&!naturalGroups.length?t('Natural diamonds by appointment','天然鑽石版本請預約諮詢'):t('Confirming price…','正在確認價格…');}
@@ -87,8 +87,8 @@
  }
  function open(p){
   selected=p;lastFocus=document.activeElement;quote=null;busy=false;
-  diamondOrigin=inline&&window.VDDiamondCatalogue?null:'lab';naturalGroups=[];
-  const options=(p.diamondPriceOptions?Object.keys(p.diamondPriceOptions):catalogue.carats).map(c=>`<option value="${c}">${c} ct</option>`).join('');
+  diamondOrigin=p.prism?'lab':inline&&window.VDDiamondCatalogue?null:'lab';naturalGroups=[];
+  const options=(p.diamondPriceOptions?Object.keys(p.diamondPriceOptions):(p.allowedCarats||catalogue.carats)).map(c=>`<option value="${c}">${c} ct</option>`).join('');
   const tierNames=['essential','signature','atelier','premium','supreme'],minimumTier=tierNames.indexOf(p.minBraceletTier||'essential');
   const tierOptions=tierNames.map((tier,index)=>`<option value="${tier}" ${index<minimumTier?'disabled':''}>${tier[0].toUpperCase()+tier.slice(1)}</option>`).join('');
   const diamond=i=>`<fieldset class="daily-diamond"><legend>${i===0?t('Main diamonds','主鑽'):t('Diamond specification ','鑽石規格 ')+(i+1)}</legend><div class="daily-fields"><label>${t('Quality','級別')}<select id="dailyQuality${i}"><option value="select">Select</option><option value="luxe">Luxe</option></select></label><label>${t('Carat per stone','每顆克拉')}<select id="dailyCarat${i}">${i||['foreverBond','singleLady'].includes(p.collection)?`<option value="0">${t('None','無')}</option>`:''}${options}</select></label><label>${t('Number of stones','鑽石數量')}<input id="dailyQty${i}" type="number" min="1" max="100" step="1" value="1" required></label></div></fieldset>`;
@@ -155,6 +155,13 @@
   if(p.type==='ring'){
    dialog.querySelectorAll('.daily-diamond').forEach((group,i)=>{if(i>=p.diamonds.length){group.hidden=true;field('dailyCarat'+i).value='0';field('dailyQty'+i).value=1;}});
    field('dailyAdditional').hidden=p.diamonds.length<2;
+  }
+  if(p.prism){
+   field('dailyAdditional').hidden=true;
+   dialog.querySelectorAll('.daily-diamond').forEach((group,i)=>{group.hidden=i>0;field('dailyQty'+i).disabled=true;field('dailyQty'+i).parentElement.hidden=true;});
+   if(p.type==='bracelet'){const size=field('dailyBraceletSize');size.closest('.daily-fields').hidden=true;}
+   const section=document.createElement('fieldset');section.className='prism-colours';section.innerHTML='<legend>'+t('Diamond colour','鑽石顏色')+'</legend><input type="hidden" id="prismColour" value="pink"><div class="prism-colour-options"></div>';
+   const options=section.querySelector('div');for(const [colour,label,zh] of [['pink','Rose pink','玫瑰粉紅'],['red','Crimson red','深紅'],['orange','Sunset orange','日落橙'],['yellow','Golden yellow','金黃'],['green','Verdant green','翠綠'],['teal','Lagoon teal','湖水綠'],['blue','Azure blue','湛藍']]){const b=document.createElement('button');b.type='button';b.dataset.colour=colour;b.setAttribute('aria-pressed',String(colour==='pink'));b.innerHTML='<span class="prism-gem gem-'+colour+'" aria-hidden="true"></span><span>'+t(label,zh)+'</span>';b.onclick=()=>{field('prismColour').value=colour;options.querySelectorAll('button').forEach(other=>other.setAttribute('aria-pressed',String(other===b)));document.dispatchEvent(new CustomEvent('prism-colour-change',{detail:{colour}}));changed();};options.append(b);}field('dailyControls').querySelector('h3').before(section);
   }
   visualChoices();
   if(p.diamondPriceOptions&&field('configurationConfirm'))field('configurationConfirm').parentElement.lastChild.textContent=t('I have checked the bracelet diamond size option for my order.','我已確認訂單的手鏈鑽石大小選項。');
