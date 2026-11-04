@@ -14,9 +14,10 @@ document.addEventListener('DOMContentLoaded',()=>{
  function render(){
   nav.replaceChildren(link('silver-collection.html',t('Silver Collection','純銀系列'),'vd-collection-pill'),link('prism-collection.html',t('Color Diamond Collection','彩色鑽石系列'),'vd-collection-pill vd-prism-pill'));
   nav.append(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈')));
+  nav.append(link('white-diamond-collection.html',t('White Diamond','白色鑽石'),'vd-collection-pill'));
   const collections=window.VDProducts?.collections;
   const collectionLinks=collections?Object.values(collections).map(c=>link(c[1],c[document.documentElement.lang.startsWith('zh')?2:0])):[['daily-sparkle.html','Daily Sparkle'],['aura-collection.html','Aura'],['high-note-collection.html','High Note'],['forever-bond.html','Forever Bond'],['halo-collection.html','Halo Ring Collection'],['tennis-collection.html','Tennis Collection'],['mens-collection.html',"Men’s Collection"],['christmas-collection.html','Christmas Collection'],['keepsake-collection.html','Keepsake Collection'],['pet-lover-collection.html','Pet Lover Collection']].map(([href,name])=>link(href,name));
-  collectionLinks.push(link('view-catalogue.html',t('Browse all pieces','瀏覽所有作品')));nav.append(details(t('White diamond','白色鑽石'),collectionLinks));
+  collectionLinks.push(link('view-catalogue.html',t('Browse all pieces','瀏覽所有作品')));nav.append(details(t('Collections','系列'),collectionLinks));
   const guarantee=document.createElement('button');guarantee.type='button';guarantee.textContent=t('Our Guarantee','我們的保證');guarantee.onclick=()=>{const trigger=header.querySelector('.js-guarantee-trigger');if(trigger)trigger.click();else location.href='index.html?panel=guarantee';};
   nav.append(details(t('Discover Victoria','探索 Victoria'),[link('journal.html',t('Blogs','日誌及鑽石指南')),link('Jewelry-Care.pdf',t('Jewellery care','珠寶保養')),link('Catalogue.pdf',t('Download our catalogue','下載目錄')),guarantee,link('artist.html',t('Know Our Artist','認識藝術家')),link('index.html#story',t('Our story','品牌故事')),link('index.html#craftsmanship',t('Craftsmanship','工藝'))]));
   nav.append(link('index.html#contact',t('Book appointment','預約'),'vd-book-appointment'));
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
  }
  mobileInformation();
- document.querySelectorAll('.mobile-nav-links > li > a').forEach(a=>{if(a.dataset.i18n==='nav-collections'){a.removeAttribute('data-i18n');a.textContent=t('White diamond','白色鑽石');}});
+ document.querySelectorAll('.mobile-nav-links > li > a').forEach(a=>{if(a.dataset.i18n==='nav-collections'){const item=document.createElement('li');item.append(link('white-diamond-collection.html',t('White Diamond','白色鑽石')));a.closest('li').before(item);}});
  new MutationObserver(()=>{render();mobileInformation();language.value=document.documentElement.lang.startsWith('zh')?'zh-HK':'en';}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
  // Keep mobile navigation compact; expose Prism inside each existing menu.
  document.querySelectorAll('.mobile-nav-links,.ma-sheet-links').forEach(menu=>{if(menu.querySelector('[href="prism-collection.html"]'))return;const a=link('prism-collection.html',t('Color diamond','稜彩 · 彩色培育鑽石'));if(menu.tagName==='UL'){const li=document.createElement('li');li.append(a);menu.prepend(li);}else menu.prepend(a);});
