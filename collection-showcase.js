@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
  if(!collection)return;
  const host=['haloCollection','mensCollection','keepsakeCollection','tennisCollection','petLoverCollection'].includes(collection)?document.getElementById('mensProducts'):document.querySelector('.collection-section');
  if(!host)return;
- const inventory=registry.products.filter(product=>product.collection===collection).map(p=>collection==='petLoverCollection'?{...p,jewelleryCategory:p.category,category:p.petAudience}:p);
+ const inventory=registry.products.filter(product=>product.collection===collection && (collection!=='christmasCollection'||product.mode==='silver')).map(p=>collection==='petLoverCollection'?{...p,jewelleryCategory:p.category,category:p.petAudience}:p);
  const categories=[...new Set(inventory.map(product=>product.category))];
  const t=(en,zh)=>document.documentElement.lang.startsWith('zh')?zh:en;
  const translated=window.VDProductCards.name;
