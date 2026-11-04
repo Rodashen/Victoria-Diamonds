@@ -7,11 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
  if(!collection)return;
  const host=['haloCollection','mensCollection','keepsakeCollection','tennisCollection','petLoverCollection'].includes(collection)?document.getElementById('mensProducts'):document.querySelector('.collection-section');
  if(!host)return;
- const inventory=registry.products.filter(product=>product.collection===collection && (collection!=='christmasCollection'||product.mode==='silver')).map(p=>collection==='petLoverCollection'?{...p,jewelleryCategory:p.category,category:p.petAudience}:p);
- const categories=[...new Set(inventory.map(product=>product.category))];
+ const silverSubcollections={keepsakeCollection:['Keepsake Collection','珍藏系列'],christmasCollection:['Christmas in Sterling 925 Silver','925 純銀聖誕系列']};
+ const inventory=registry.products.filter(product=>(product.collection===collection||
+  collection==='silverCollection'&&Object.hasOwn(silverSubcollections,product.collection))&&
+  (product.collection!=='christmasCollection'||product.mode==='silver'))
+  .map(p=>collection==='petLoverCollection'?{...p,jewelleryCategory:p.category,category:p.petAudience}:p);
+ const sectionOf=product=>collection==='silverCollection'&&Object.hasOwn(silverSubcollections,product.collection)?product.collection:product.category;
+ const categories=[...new Set(inventory.map(sectionOf))];
  const t=(en,zh)=>document.documentElement.lang.startsWith('zh')?zh:en;
  const translated=window.VDProductCards.name;
- const categoryName=window.VDProductCards.categoryName;
+ const categoryName=category=>silverSubcollections[category]?t(...silverSubcollections[category]):window.VDProductCards.categoryName(category);
  const normalize=value=>value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
  const price=window.VDProductCards.price;
  const element=(tag,className,text)=>{const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;};
@@ -41,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const selected=type.value,sorted=sort.value||'default';type.replaceChildren();sort.replaceChildren();jumps.replaceChildren();
   [['',t('All pieces','所有作品')],...categories.map(category=>[category,categoryName(category)])].forEach(([value,name])=>{const option=element('option','',name);option.value=value;type.append(option);});type.value=selected;
   [['default',t('Featured order','精選排序')],['asc',t('Price: low to high','價格：由低至高')],['desc',t('Price: high to low','價格：由高至低')]].forEach(([value,name])=>{const option=element('option','',name);option.value=value;sort.append(option);});sort.value=sorted;
-  categories.forEach(category=>{const link=element('a','',categoryName(category)+' ');link.href='#'+categoryId(category);link.append(element('span','',inventory.filter(product=>product.category===category).length));link.addEventListener('click',()=>{search.value='';type.value='';render();});jumps.append(link);});
+  categories.forEach(category=>{const link=element('a','',categoryName(category)+' ');link.href='#'+categoryId(category);link.append(element('span','',inventory.filter(product=>sectionOf(product)===category).length));link.addEventListener('click',()=>{search.value='';type.value='';render();});jumps.append(link);});
  }
  function render(){
   results.replaceChildren();const query=normalize(search.value.trim());let count=0;
   categories.filter(category=>!type.value||type.value===category).forEach(category=>{
-   const products=inventory.filter(product=>product.category===category&&normalize(product.name+' '+translated(product)+' '+categoryName(category)).includes(query));
+   const products=inventory.filter(product=>sectionOf(product)===category&&normalize(product.name+' '+translated(product)+' '+categoryName(category)).includes(query));
    if(sort.value!=='default')products.sort((a,b)=>{const pa=price(a),pb=price(b);if(pa===null)return pb===null?0:1;if(pb===null)return -1;return sort.value==='asc'?pa-pb:pb-pa;});
    if(!products.length)return;count+=products.length;
    const section=element('section','showcase-category');section.id=categoryId(category);

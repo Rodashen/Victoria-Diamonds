@@ -100,8 +100,8 @@
   const grids=Array.from(document.querySelectorAll('.product-grid'));
   const grouped=element('section',undefined,'collection-section shopping-group-results');
   const groupHeading=element('h2');
-  const groupGrid=element('div',undefined,'product-grid');
-  grouped.append(groupHeading,groupGrid);empty.after(grouped);
+  const groupSections=element('div');
+  grouped.append(groupHeading,groupSections);empty.after(grouped);
   const homes=new Map();
   grids.forEach(grid=>Array.from(grid.children).forEach((card,index)=>{card.dataset.browseOrder=index;homes.set(card,grid);}));
   const byPrice=(a,b)=>{
@@ -116,9 +116,10 @@
    if(!sort.value)sort.value='default';
   }
   function update(persist=true) {
-   for(const card of [...groupGrid.children])homes.get(card).append(card);
+   for(const card of groupSections.querySelectorAll('.product-card'))homes.get(card).append(card);
+   groupSections.replaceChildren();
    const edit=window.VDProducts?.navigationGroups.find(g=>g.id===collection.value);
-   const selected=[];
+   const selected=new Map();
    grouped.hidden=!edit;
    if(edit)groupHeading.textContent=t(edit.en,edit.zh);
    let count=0;
@@ -129,7 +130,15 @@
      const p=products.find(p=>p.collection===group&&p.name===name);
      if(p){card.dataset.price=p.price??'';const displayed=card.querySelector('.meta-price');if(displayed)displayed.textContent=(p.mode==='custom'?t('From ','起價 '):'')+(p.price===null?t('By appointment','預約諮詢'):new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',minimumFractionDigits:Number.isInteger(Number(p.price))?0:2,maximumFractionDigits:2}).format(Number(p.price)));}
      const show=!!p&&filterProduct(p,{collection:collection.value,type:type.value,query:query.value,max:price.value,style:style.value});
-     card.hidden=!show;if(show){count++;if(edit)selected.push(card);}
+     card.hidden=!show;
+     if(show){
+      count++;
+      if(edit){
+       const type=typeOf(p.category);
+       if(!selected.has(type))selected.set(type,[]);
+       selected.get(type).push(card);
+      }
+     }
     });
     cards.sort((a,b)=>{
      if(sort.value==='default')return Number(a.dataset.browseOrder)-Number(b.dataset.browseOrder);
@@ -141,14 +150,26 @@
     grid.hidden=!cards.some(card=>!card.hidden);
     if(grid.previousElementSibling?.classList.contains('category-label'))grid.previousElementSibling.hidden=grid.hidden;
    });
-   if(edit){if(sort.value!=='default')selected.sort(byPrice);groupGrid.append(...selected);grouped.hidden=!selected.length;}
+   if(edit){
+    const order=[...new Set(['Ring','Earring','Necklace','Bracelet','Pendant',...selected.keys()])];
+    for(const type of order){
+     const cards=selected.get(type);
+     if(!cards?.length)continue;
+     if(sort.value!=='default')cards.sort(byPrice);
+     const section=element('section');
+     const heading=element('h3',types[type]?.[zh()?1:0]||type,'category-label');
+     const grid=element('div',undefined,'product-grid');
+     grid.append(...cards);section.append(heading,grid);groupSections.append(section);
+    }
+    grouped.hidden=!count;
+   }
    document.querySelectorAll('.collection-section:not(.shopping-group-results)').forEach(section=>{
     const visible=Array.from(section.querySelectorAll('.product-card')).filter(card=>!card.hidden).length;
     section.hidden=!visible;
     const counter=section.querySelector('.count');
     if(counter){counter.removeAttribute('data-i18n');counter.textContent=t(visible+' pieces',visible+' 件作品');}
    });
-   status.textContent=edit?t(count+' pieces',count+' 件作品'):t(count+' pieces · Starting prices use listed stone weights and starting metal. Sorting applies within each category.','共 '+count+' 件作品 · 起價按列明鑽石重量及起始金屬計算，排序按每個類別進行。');
+   status.textContent=edit?t(count+' pieces · Sorted within each jewellery type.','共 '+count+' 件作品 · 按珠寶類別排序。'):t(count+' pieces · Starting prices use listed stone weights and starting metal. Sorting applies within each category.','共 '+count+' 件作品 · 起價按列明鑽石重量及起始金屬計算，排序按每個類別進行。');
    empty.hidden=count>0;
    if(persist){const url=new URL(location.href);[['q',query.value.trim()],['collection',collection.value],['type',type.value],['style',style.value],['max',price.value],['sort',sort.value==='default'?'':sort.value]].forEach(([key,value])=>value?url.searchParams.set(key,value):url.searchParams.delete(key));history.replaceState(null,'',url);}
   }

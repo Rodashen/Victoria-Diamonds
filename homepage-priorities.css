@@ -1,1 +1,13 @@
 .mobile-home-refresh .home-customisation{padding:28px 20px;border-block:1px solid #d8cdbd}.mobile-home-refresh .edits a{display:flex;flex-direction:column}.mobile-home-refresh .edits img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:#fff}.mobile-home-refresh .edits span{flex:1}.landing-page #story:not(:target),.landing-page #craftsmanship:not(:target),.landing-page #diamond-pricing:not(:target),.landing-page #faq:not(:target){display:none}.landing-page :is(#story,#craftsmanship,#diamond-pricing,#faq){scroll-margin-top:108px}
+
+.bespoke-advantage{width:min(100%,1280px);margin-inline:auto;padding:clamp(28px,5vw,76px) clamp(20px,5vw,64px);scroll-margin-top:110px}
+.bespoke-advantage>p:not(.text-label){max-width:62ch}
+.bespoke-advantages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,56px);margin:24px 0}
+.bespoke-advantages>div{border-top:1px solid #d8cdbd;padding:14px 0}
+.bespoke-advantages dt{font-weight:600}
+.bespoke-advantages dd{margin:4px 0 0}
+@media(max-width:760px){
+ .bespoke-advantages{grid-template-columns:minmax(0,1fr);margin:16px 0}
+ .bespoke-advantage h2{font-size:clamp(30px,8vw,42px)}
+ .mobile-nav-links [data-mobile-shopping]>.ux-menu-group{margin-block:0;border-block-start:0}
+}
