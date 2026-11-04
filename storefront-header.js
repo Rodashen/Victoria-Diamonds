@@ -1,6 +1,27 @@
 /* Shared navigation: existing page controls remain available on small screens. */
 document.addEventListener('DOMContentLoaded',()=>{
  const header=document.querySelector('header');if(!header)return;
+ const nativeLanguage=document.querySelector('#productLanguage,#langSelect,#mensLanguage,#langSelectMobile');
+ if(!nativeLanguage){
+  let preferred=new URLSearchParams(location.search).get('lang');
+  if(!preferred)try{preferred=localStorage.getItem('victoriaLanguage');}catch{}
+  if(preferred)document.documentElement.lang=preferred.toLowerCase()==='zh-hk'?'zh-HK':'en';
+ }
+ const syncLanguageURL=()=>{
+  const url=new URL(location.href);
+  if(document.documentElement.lang.startsWith('zh'))url.searchParams.set('lang','zh-HK');
+  else if(url.searchParams.get('lang')?.toLowerCase()==='zh-hk')url.searchParams.delete('lang');
+  if(url.href!==location.href)history.replaceState(history.state,'',url);
+ };
+ syncLanguageURL();
+ document.addEventListener('click',event=>{
+  const link=event.target.closest?.('a[href]');
+  if(!link)return;
+  if(!document.documentElement.lang.startsWith('zh')){if(link.dataset.languageCarry){link.href=link.dataset.languageCarry;delete link.dataset.languageCarry;}return;}
+  const url=new URL(link.href,location.href);
+  if(url.origin!==location.origin||!/^https?:$/.test(url.protocol)||!(/\.html$/i.test(url.pathname)||url.pathname==='/')||link.getAttribute('href').startsWith('#')||url.searchParams.has('lang'))return;
+  link.dataset.languageCarry=link.getAttribute('href');url.searchParams.set('lang','zh-HK');link.href=url.href;
+ },true);
  const t=(en,zh)=>document.documentElement.lang.startsWith('zh')?zh:en;
  const link=(href,text,cls='')=>{const a=document.createElement('a');a.href=href;a.textContent=text;a.className=cls;return a;};
  const row=document.createElement('div');row.className='vd-header-row';
@@ -44,7 +65,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  }
  mobileInformation();
  document.querySelectorAll('.mobile-nav-links > li > a').forEach(a=>{if(a.dataset.i18n==='nav-collections'){const item=document.createElement('li');item.append(link('white-diamond-collection.html',t('White Diamond','白色鑽石')));a.closest('li').before(item);}});
- new MutationObserver(()=>{render();mobileInformation();language.value=document.documentElement.lang.startsWith('zh')?'zh-HK':'en';}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+ new MutationObserver(()=>{syncLanguageURL();render();mobileInformation();language.value=document.documentElement.lang.startsWith('zh')?'zh-HK':'en';}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
  // Keep mobile navigation compact; expose Prism inside each existing menu.
  document.querySelectorAll('.mobile-nav-links,.ma-sheet-links').forEach(menu=>{if(menu.querySelector('[href="prism-collection.html"]'))return;const a=link('prism-collection.html',t('Color diamond','稜彩 · 彩色培育鑽石'));if(menu.tagName==='UL'){const li=document.createElement('li');li.append(a);menu.prepend(li);}else menu.prepend(a);});
  if(new URLSearchParams(location.search).get('panel')==='guarantee')header.querySelector('.js-guarantee-trigger')?.click();

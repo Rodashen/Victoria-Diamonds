@@ -427,6 +427,8 @@
 
     // ---------- Language / Translation ----------
     function getStoredLanguage() {
+        const requested = new URLSearchParams(location.search).get('lang');
+        if (requested === 'en' || requested?.toLowerCase() === 'zh-hk') return requested === 'en' ? 'en' : 'zh-HK';
         const savedLanguage =
             localStorage.getItem('victoriaLanguage') ||
             localStorage.getItem('vd-lang');
