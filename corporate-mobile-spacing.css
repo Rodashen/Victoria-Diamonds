@@ -1,1 +1,94 @@
-@media(max-width:760px){.editorial-page .concepts{padding:28px 22px}.editorial-page .concepts>div:first-child{margin-bottom:18px}.editorial-page .concept-list{gap:18px}.editorial-page .concept-list article{margin:0;padding-bottom:16px}.editorial-page .concept-list img{aspect-ratio:1;object-fit:cover;background:#eaddca}.editorial-page .concept-list article>span{display:block;margin-top:12px}.editorial-page .concept-list h3{margin-top:7px}}
+@media (width < 1100px) {
+  .editorial-page {
+    --corporate-gutter: clamp(16px, 5vw, 36px);
+  }
+
+  .editorial-page main :is(.corporate-hero, .occasions, .difference, .concepts, .enquiry) {
+    max-width: 760px;
+    margin-inline: auto;
+    padding: 28px var(--corporate-gutter);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .editorial-page .editorial-header {
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    min-height: 0;
+    padding: 12px var(--corporate-gutter);
+  }
+
+  .editorial-page .editorial-header nav {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0 16px;
+    font-size: 13px;
+  }
+
+  .editorial-page .editorial-header nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .editorial-page .editorial-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .editorial-page .editorial-hero h1 {
+    max-width: 19ch;
+    margin: 8px 0 12px;
+    font-size: clamp(34px, 7.5vw, 48px);
+  }
+
+  .editorial-page main h2 {
+    margin: 0 0 12px;
+    font-size: clamp(27px, 6vw, 36px);
+  }
+
+  .editorial-page main h3 {
+    margin: 0 0 6px;
+    font-size: 21px;
+    line-height: 1.13;
+  }
+
+  .editorial-page main p { margin: 0 0 10px; }
+  .editorial-page .corporate-hero .lead { font-size: 17px; }
+  .editorial-page .editorial-hero figure { max-width: 460px; }
+  .editorial-page .editorial-hero figure img { max-height: 240px; }
+  .editorial-page .editorial-hero figcaption { margin-top: 6px; }
+
+  .editorial-page .occasion-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .editorial-page .concepts > div:first-child { margin-bottom: 14px; }
+  .editorial-page .concept-list { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+
+  .editorial-page .concept-list article {
+    display: grid;
+    grid-template-columns: clamp(76px, 25vw, 132px) minmax(0, 1fr);
+    gap: 4px 12px;
+    padding: 0 0 14px;
+  }
+
+  .editorial-page .concept-list article > :not(img) { grid-column: 2; }
+  .editorial-page .concept-list article > span { margin: 0; }
+  .editorial-page .concept-list img {
+    grid-row: 1 / span 4;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+    background: transparent;
+    border-radius: 4px;
+  }
+
+  .editorial-page .concept-list a { padding-block: 10px; }
+  .editorial-page .enquiry { text-align: start; }
+  .editorial-page .actions { justify-content: flex-start; gap: 4px 14px; }
+  .editorial-page .button { min-height: 44px; padding: 10px 16px; font-size: 14px; }
+  .editorial-page .text-link { margin: 8px 0; padding-block: 10px; }
+  .editorial-page footer { padding: 16px var(--corporate-gutter); gap: 10px 18px; }
+}
