@@ -1,4 +1,5 @@
 .vd-header-row{display:none}
+@media(min-width:1100px){.vd-header-starting body>header:not(.vd-header-ready){visibility:hidden;min-height:88px}}
 .vd-mobile-info{padding-block:12px}.vd-mobile-info summary{cursor:pointer;min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:14px;list-style:none}.vd-mobile-info summary::-webkit-details-marker{display:none}.vd-mobile-info summary:after{content:'+';font-size:22px}.vd-mobile-info[open] summary:after{content:'−'}.vd-mobile-info>a{display:flex!important;align-items:center;min-height:44px;padding:10px 12px!important;font:400 16px/1.5 'DM Sans',sans-serif!important;letter-spacing:0!important;text-decoration:none;color:inherit}.vd-mobile-info-item{list-style:none}
 @media(min-width:1100px){
  header.vd-header-ready{padding:0!important;position:sticky;top:0;z-index:1000;background:#f7f3ed!important}
