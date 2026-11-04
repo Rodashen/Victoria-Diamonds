@@ -25,7 +25,7 @@
  document.querySelector('.mens-toolbar label[for="mensType"]').textContent=t('Category','類別');
  document.querySelectorAll('.category-nav a').forEach((link,index)=>{link.firstChild.textContent=[t('Rings ','戒指 '),t('Bracelets ','手鏈 '),t('Pendants ','吊墜 ')][index];});
  const headerLinks=document.querySelectorAll('.mens-header nav a');
- headerLinks[0].textContent=t('Collections','系列');headerLinks[1].textContent=t('All pieces','所有作品');headerLinks[2].textContent=t('Book appointment ↗','預約鑑賞 ↗');
+ headerLinks[0].textContent=t('Collections','系列');headerLinks[1].textContent=t('All pieces','所有作品');headerLinks[2].textContent=t('Book appointment','預約鑑賞');
  document.querySelector('#mensType option[value=""]').textContent=t('All pieces','所有作品');
  document.querySelector('#mensType option[value="Ring"]').textContent=t('Rings','戒指');
  document.querySelector('#mensType option[value="Bracelet"]').textContent=t('Bracelets','手鏈');

@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   // The original reveal observer watched the replaced element.
   link.classList.add('revealed');
   const action=document.createElement('span');action.style.cssText='display:block;margin:12px 16px;font-size:12px;text-decoration:underline;text-underline-offset:4px';
-  const update=()=>{const zh=document.documentElement.lang.startsWith('zh');action.textContent=product.mode==='enquiry'?(zh?'預約諮詢 ↗':'Book appointment ↗'):product.mode==='silver'?(zh?'查看及購買 ↗':'View & buy ↗'):(zh?'查看及訂製 ↗':'View & customise ↗');link.href=registry.url(product);};
+  const update=()=>{const zh=document.documentElement.lang.startsWith('zh');action.textContent=product.mode==='enquiry'?(zh?'預約諮詢':'Book appointment'):product.mode==='silver'?(zh?'查看及購買':'View & buy'):(zh?'查看及訂製':'View & customise');link.href=registry.url(product);};
   link.append(action);update();document.getElementById('langSelect')?.addEventListener('change',update);
  });
  const legacy=()=>{

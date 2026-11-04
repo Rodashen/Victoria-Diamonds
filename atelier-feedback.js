@@ -27,7 +27,7 @@
   const title=document.createElement('h3');title.textContent=t('A little more sparkle, in your inbox.','為您的收件箱增添一點閃耀。');
   const message=document.createElement('p');message.textContent=t('Thank you for subscribing. You’re part of the Victoria Diamonds community.','感謝您的訂閱，歡迎加入 Victoria Diamonds 社群。');
   const note=document.createElement('p');note.className='atelier-confirmation-note';note.textContent=t('Discover new collections, jewellery stories and moments from our London atelier.','探索全新系列、珠寶故事及倫敦工作室的精彩時刻。');
-  const follow=document.createElement('a');follow.href='https://www.instagram.com/victoriadiamondsco/';follow.target='_blank';follow.rel='noopener';follow.className='atelier-confirmation-follow';follow.textContent=t('Follow our story on Instagram ↗','在 Instagram 關注我們 ↗');
+  const follow=document.createElement('a');follow.href='https://www.instagram.com/victoriadiamondsco/';follow.target='_blank';follow.rel='noopener';follow.className='atelier-confirmation-follow';follow.textContent=t('Follow our story on Instagram','在 Instagram 關注我們');
   element.replaceChildren(art,eyebrow,title,message,note,follow);element.setAttribute('role','status');
  }
  window.VDLoading={set};window.VDFeedback={ring,newsletterSuccess};
