@@ -8,11 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
  menu.addEventListener('keydown',event=>{if(event.key==='Escape'){menu.open=false;menu.querySelector('summary').focus();}});
  const mobileCollections=document.createElement('details'); mobileCollections.className='mobile-collections ux-menu-group';
  const collectionSummary=document.createElement('summary');collectionSummary.textContent=t('Shop by collection','按系列選購');mobileCollections.append(collectionSummary);
- document.querySelectorAll('.collection-menu-links > *').forEach(link=>mobileCollections.append(link.cloneNode(true)));
+ document.querySelectorAll('.collection-menu-links > :not([href$="collection=tennis"])').forEach(link=>mobileCollections.append(link.cloneNode(true)));
  document.querySelector('.mobile-nav-links li').append(mobileCollections);
+ const tennisItem=document.createElement('li'),tennis=document.createElement('details'),tennisTitle=document.createElement('summary');
+ tennis.className='ux-menu-group';tennis.append(tennisTitle);tennisItem.append(tennis);mobileCollections.closest('li').after(tennisItem);
+ const tennisLinks=[['','All tennis pieces','所有網球珠寶'],['Bracelet','Tennis bracelets','網球手鏈'],['Necklace','Tennis necklaces','網球項鏈']].map(([type,en,cn])=>{const a=document.createElement('a');a.href='view-catalogue.html?collection=tennis'+(type?'&type='+type:'');tennis.append(a);return [a,en,cn];});
+ const updateTennis=()=>{tennisTitle.textContent=t('Tennis','網球珠寶');tennisLinks.forEach(([a,en,cn])=>a.textContent=t(en,cn));};
+ updateTennis();
  const typeItem=document.createElement('li'),typeGroup=document.createElement('details'),typeSummary=document.createElement('summary');typeGroup.className='ux-menu-group';typeSummary.textContent=t('Shop by jewellery type','按珠寶類型選購');typeGroup.append(typeSummary);
- const typeLinks=[];[['Ring','Rings','戒指'],['Earring','Earrings','耳環'],['Necklace','Necklaces','項鏈'],['Bracelet','Bracelets','手鏈'],['Pendant','Pendants','吊墜'],['Key Charm','Initial charms','字母吊飾']].forEach(([type,en,cn])=>{const link=document.createElement('a');link.href='view-catalogue.html?type='+encodeURIComponent(type);link.textContent=t(en,cn);typeLinks.push([link,en,cn]);typeGroup.append(link);});typeItem.append(typeGroup);document.querySelector('.mobile-nav-links li').after(typeItem);
- new MutationObserver(()=>{collectionSummary.textContent=t('Shop by collection','按系列選購');typeSummary.textContent=t('Shop by jewellery type','按珠寶類型選購');typeLinks.forEach(([link,en,cn])=>link.textContent=t(en,cn));}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+ const typeLinks=[];[['Ring','Rings','戒指'],['Earring','Earrings','耳環'],['Necklace','Necklaces','項鏈'],['Bracelet','Bracelets','手鏈'],['Pendant','Pendants','吊墜'],['Key Charm','Initial charms','字母吊飾']].forEach(([type,en,cn])=>{const link=document.createElement('a');link.href='view-catalogue.html?type='+encodeURIComponent(type);link.textContent=t(en,cn);typeLinks.push([link,en,cn]);typeGroup.append(link);});typeItem.append(typeGroup);tennisItem.after(typeItem);
+ new MutationObserver(()=>{updateTennis();collectionSummary.textContent=t('Shop by collection','按系列選購');typeSummary.textContent=t('Shop by jewellery type','按珠寶類型選購');typeLinks.forEach(([link,en,cn])=>link.textContent=t(en,cn));}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
  const sectionLinks=Array.from(document.querySelectorAll('.section-nav a'));
  const observer=new IntersectionObserver(entries=>{
   const entry=entries.find(entry=>entry.isIntersecting);if(!entry)return;

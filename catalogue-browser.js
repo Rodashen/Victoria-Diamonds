@@ -9,6 +9,7 @@
   singleLady: ['Aura', 'aura-collection.html', 'Aura 系列'],
   mensCollection: ["Men’s Collection", 'mens-collection.html', '男士系列']
  };
+ const collectionInfo=id=>window.VDProducts?.collections[id]||collections[id]||[id,'view-catalogue.html',id];
  const types = {'Collar Charm':['Collar charms','寵物項圈吊飾'],'Bracelet Charm':['Bracelet charms','手鏈吊飾'],'Key Ring':['Key rings','鑰匙圈'],'Key Charm':['Initial key charms','字母鑰匙吊飾'],Ring:['Rings','戒指'], Earring:['Earrings','耳環'], Necklace:['Necklaces','項鏈'], Bracelet:['Bracelets','手鏈'], Anklet:['Anklets','腳鏈'], Pendant:['Pendants','吊墜'], Brooch:['Brooches','胸針'], Tiara:['Tiaras','冠冕']};
  const typeOf = category => category === 'Earring Stud' ? 'Earring' : category;
  const zh = () => document.documentElement.lang.startsWith('zh');
@@ -18,7 +19,7 @@
  function productURL(product) {
   const registered=window.VDProducts?.find(product.collection,product.name);
   if(registered)return VDProducts.url(registered);
-  const url = new URL(collections[product.collection][1], location.href);
+  const url = new URL(collectionInfo(product.collection)[1], location.href);
   url.searchParams.set('piece', product.name);
   url.searchParams.set('lang', zh() ? 'zh-HK' : 'en');
   return url.href;
@@ -27,11 +28,11 @@
   return (window.VDCatalogueGroups || []).flatMap(group => group.items.map(item => {
    const registered=window.VDProducts?.find(group.collection,item.name);
    const starting=window.VDDiamondCatalogue?.products[registered?.id];
-   return {...item, price: registered?.mode==='enquiry'?null:starting?Math.min(starting.lab,starting.natural??Infinity):registered?.preset?.price??item.price, mode:registered?.mode, collection: group.collection, category: group.category};
+   return {...item, id:registered?.id, price: registered?.mode==='enquiry'?null:starting?Math.min(starting.lab,starting.natural??Infinity):registered?.preset?.price??item.price, mode:registered?.mode, collection: group.collection, category: group.category};
   }));
  }
  function matches(product, query) {
-  const text = normal([product.name, translatedName(product.name), collections[product.collection][0], collections[product.collection][2], product.category, ...(types[typeOf(product.category)] || [])].join(' '));
+  const text = normal([product.name, translatedName(product.name), collectionInfo(product.collection)[0], collectionInfo(product.collection)[2], product.category, ...(types[typeOf(product.category)] || [])].join(' '));
   return normal(query).trim().split(/\s+/).every(word => text.includes(word));
  }
  function money(product) {
@@ -42,7 +43,11 @@
  function element(tag, text, className) { const el=document.createElement(tag); if(text!==undefined)el.textContent=text; if(className)el.className=className; return el; }
  function ringStyle(product){if(typeOf(product.category)!=='Ring')return '';const n=normal(product.name);if(/halo/.test(n))return 'halo';if(/three.stone|trilogy/.test(n))return 'three';if(/solitaire/.test(n))return 'solitaire';if(/etern|band|promise|bond|knot/.test(n))return 'bands';if(/signet|cluster|cocktail|crown|bypass/.test(n))return 'statement';return 'other';}
  function filterProduct(product,filters={}) {
-  return (!filters.style||ringStyle(product)===filters.style)&&(!filters.collection||(product.collection===filters.collection||filters.collection==='silverCollection'&&product.parentCollection==='silverCollection'))&&(!filters.type||typeOf(product.category)===filters.type)&&matches(product,filters.query||'')&&(!filters.max||(product.price!==null&&product.price!==''&&Number.isFinite(Number(product.price))&&(!product.currency||product.currency==='GBP')&&Number(product.price)<=Number(filters.max)));
+  const registry=window.VDProducts;
+  if(registry&&!registry.activeProduct(product))return false;
+  const edit=registry?.navigationGroups.some(g=>g.id===filters.collection);
+  const inCollection=!filters.collection||(edit?registry.shoppingGroups(product).includes(filters.collection):filters.collection==='silverCollection'?registry?.silverFamily(product):product.collection===filters.collection);
+  return (!filters.style||ringStyle(product)===filters.style)&&inCollection&&(!filters.type||typeOf(product.category)===filters.type)&&matches(product,filters.query||'')&&(!filters.max||(product.price!==null&&product.price!==''&&Number.isFinite(Number(product.price))&&(!product.currency||product.currency==='GBP')&&Number(product.price)<=Number(filters.max)));
  }
  document.addEventListener('DOMContentLoaded', () => {
   const products=inventory();
@@ -66,7 +71,7 @@
     found.slice(0,8).forEach(p=>{
      const a=element('a',undefined,'search-result'); a.href=productURL(p); a.target='_blank'; a.rel='noopener';
      const img=new Image(); img.src='images/'+(p.thumbnail||p.image); img.alt=window.VDProducts?.imageAlt(p)||p.name+' — Victoria Diamonds jewellery'; img.loading='lazy'; img.width=70; img.height=80;
-     const copy=element('span'); copy.append(element('strong',translatedName(p.name)),element('small',collections[p.collection][zh()?2:0]+' · '+money(p)));
+     const copy=element('span'); copy.append(element('strong',translatedName(p.name)),element('small',collectionInfo(p.collection)[zh()?2:0]+' · '+money(p)));
      a.append(img,copy,element('span','→')); results.append(a);
     });
     const all=dialog.querySelector('.search-all'),params=new URLSearchParams();[['q',query],['collection',filters.collection],['type',filters.type],['max',filters.max]].forEach(([key,value])=>{if(value)params.set(key,value);});all.href='view-catalogue.html?'+params; all.textContent=t('Browse all matching pieces →','瀏覽所有符合的作品 →');
@@ -83,7 +88,7 @@
   const controls=element('section',undefined,'catalogue-filters'); controls.setAttribute('aria-label','Find jewellery');
   const makeSelect=(id,label,options)=>{const wrap=element('label',label);const select=element('select');select.id=id;options.forEach(([value,name])=>{const option=element('option',name);option.value=value;select.append(option);});wrap.append(select);controls.append(wrap);return select;};
   const label=element('label',t('Search pieces','搜尋作品'));const query=element('input');query.type='search';query.id='catalogueQuery';label.append(query);controls.append(label);
-  const collection=makeSelect('collectionFilter',t('Collection','系列'),[['',t('All collections','所有系列')],...Object.entries(collections).map(([key,value])=>[key,value[zh()?2:0]])]);
+  const collection=makeSelect('collectionFilter',t('Collection','系列'),[['',t('All collections','所有系列')],...(window.VDProducts?.navigationGroups||[]).map(g=>[g.id,t(g.en,g.zh)]),...Object.entries(window.VDProducts?.collections||collections).map(([key,value])=>[key,value[zh()?2:0]])]);
   const type=makeSelect('typeFilter',t('Jewellery type','珠寶類別'),[['',t('All types','所有類別')],...Object.entries(types).map(([key,value])=>[key,value[zh()?1:0]])]);
   const style=makeSelect('ringStyleFilter',t('Ring style','戒指款式'),[['',t('All ring styles','所有戒指款式')],['solitaire',t('Solitaire','單鑽')],['halo',t('Halo & hidden halo','光環及隱藏光環')],['three',t('Three-stone','三石')],['bands',t('Bands & eternity','戒環及永恆戒指')],['statement',t('Statement & signet','個性及印章戒指')],['other',t('Other ring designs','其他戒指設計')]]);
   const price=makeSelect('priceFilter',t('Displayed price (GBP)','顯示價格（英鎊）'),[['',t('Any price','所有價格')],['200',t('Up to £200','£200 以下')],['1000',t('Up to £1,000','£1,000 以下')],['2500',t('Up to £2,500','£2,500 以下')],['5000',t('Up to £5,000','£5,000 以下')]]);
@@ -93,13 +98,29 @@
   document.querySelector('.catalogue-sort-wrapper').before(controls,status,empty);
   const ringNav=element('nav',undefined,'ring-style-shortcuts');ringNav.setAttribute('aria-label',t('Browse rings by style','按款式瀏覽戒指'));ringNav.append(element('strong',t('Find your ring','尋找您的戒指')));[...style.options].forEach(option=>{const a=element('a',option.value?option.textContent:t('All rings','所有戒指'));a.href='view-catalogue.html?type=Ring'+(option.value?'&style='+option.value:'');ringNav.append(a)});controls.before(ringNav);
   const grids=Array.from(document.querySelectorAll('.product-grid'));
-  grids.forEach(grid=>Array.from(grid.children).forEach((card,index)=>card.dataset.browseOrder=index));
+  const grouped=element('section',undefined,'collection-section shopping-group-results');
+  const groupHeading=element('h2');
+  const groupGrid=element('div',undefined,'product-grid');
+  grouped.append(groupHeading,groupGrid);empty.after(grouped);
+  const homes=new Map();
+  grids.forEach(grid=>Array.from(grid.children).forEach((card,index)=>{card.dataset.browseOrder=index;homes.set(card,grid);}));
+  const byPrice=(a,b)=>{
+   const pa=Number(a.dataset.price),pb=Number(b.dataset.price);
+   const aKnown=a.dataset.price!==''&&Number.isFinite(pa),bKnown=b.dataset.price!==''&&Number.isFinite(pb);
+   if(aKnown!==bKnown)return aKnown?-1:1;
+   return sort.value==='price-desc'?pb-pa:pa-pb;
+  };
   function fromURL() {
    const params=new URLSearchParams(location.search);
    style.value=params.get('style')||'';query.value=params.get('q') || '';collection.value=params.get('collection') || '';type.value=params.get('type') || '';price.value=params.get('max') || '';sort.value=params.get('sort') || 'default';
    if(!sort.value)sort.value='default';
   }
   function update(persist=true) {
+   for(const card of [...groupGrid.children])homes.get(card).append(card);
+   const edit=window.VDProducts?.navigationGroups.find(g=>g.id===collection.value);
+   const selected=[];
+   grouped.hidden=!edit;
+   if(edit)groupHeading.textContent=t(edit.en,edit.zh);
    let count=0;
    grids.forEach(grid=>{
     const group=grid.dataset.grid, category=grid.dataset.category; const cards=Array.from(grid.querySelectorAll('.product-card'));
@@ -108,7 +129,7 @@
      const p=products.find(p=>p.collection===group&&p.name===name);
      if(p){card.dataset.price=p.price??'';const displayed=card.querySelector('.meta-price');if(displayed)displayed.textContent=(p.mode==='custom'?t('From ','起價 '):'')+(p.price===null?t('By appointment','預約諮詢'):new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',minimumFractionDigits:Number.isInteger(Number(p.price))?0:2,maximumFractionDigits:2}).format(Number(p.price)));}
      const show=!!p&&filterProduct(p,{collection:collection.value,type:type.value,query:query.value,max:price.value,style:style.value});
-     card.hidden=!show;if(show)count++;
+     card.hidden=!show;if(show){count++;if(edit)selected.push(card);}
     });
     cards.sort((a,b)=>{
      if(sort.value==='default')return Number(a.dataset.browseOrder)-Number(b.dataset.browseOrder);
@@ -120,13 +141,14 @@
     grid.hidden=!cards.some(card=>!card.hidden);
     if(grid.previousElementSibling?.classList.contains('category-label'))grid.previousElementSibling.hidden=grid.hidden;
    });
-   document.querySelectorAll('.collection-section').forEach(section=>{
+   if(edit){if(sort.value!=='default')selected.sort(byPrice);groupGrid.append(...selected);grouped.hidden=!selected.length;}
+   document.querySelectorAll('.collection-section:not(.shopping-group-results)').forEach(section=>{
     const visible=Array.from(section.querySelectorAll('.product-card')).filter(card=>!card.hidden).length;
     section.hidden=!visible;
     const counter=section.querySelector('.count');
     if(counter){counter.removeAttribute('data-i18n');counter.textContent=t(visible+' pieces',visible+' 件作品');}
    });
-   status.textContent=t(count+' pieces · Starting prices use listed stone weights and starting metal. Sorting applies within each category.','共 '+count+' 件作品 · 起價按列明鑽石重量及起始金屬計算，排序按每個類別進行。');
+   status.textContent=edit?t(count+' pieces',count+' 件作品'):t(count+' pieces · Starting prices use listed stone weights and starting metal. Sorting applies within each category.','共 '+count+' 件作品 · 起價按列明鑽石重量及起始金屬計算，排序按每個類別進行。');
    empty.hidden=count>0;
    if(persist){const url=new URL(location.href);[['q',query.value.trim()],['collection',collection.value],['type',type.value],['style',style.value],['max',price.value],['sort',sort.value==='default'?'':sort.value]].forEach(([key,value])=>value?url.searchParams.set(key,value):url.searchParams.delete(key));history.replaceState(null,'',url);}
   }

@@ -15,20 +15,10 @@ document.addEventListener('DOMContentLoaded',()=>{
   nav.replaceChildren(link('silver-collection.html',t('Silver Collection','純銀系列'),'vd-collection-pill'),link('prism-collection.html',t('Color Diamond Collection','彩色鑽石系列'),'vd-collection-pill vd-prism-pill'));
   nav.append(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈')));
   nav.append(link('white-diamond-collection.html',t('White Diamond','白色鑽石'),'vd-collection-pill'));
-  const collections=window.VDProducts?.collections;
-  const groups=window.VDProducts?.navigationGroups||[{"en":"Love & milestones","zh":"愛與紀念","files":["halo-collection.html","forever-bond.html"]},{"en":"Everyday jewellery","zh":"日常珠寶","files":["aura-collection.html","daily-sparkle.html","tennis-collection.html"]},{"en":"Celebrations & seasonal","zh":"慶典與節日","files":["high-note-collection.html","tennis-collection.html","keepsake-collection.html","christmas-collection.html"]},{"en":"Men’s jewellery","zh":"男士珠寶","files":["mens-collection.html"]}];
-  const fallbackNames={"halo-collection.html": "Engagement rings", "forever-bond.html": "Anniversary jewellery", "aura-collection.html": "Aura", "daily-sparkle.html": "Daily Sparkle", "tennis-collection.html": "Tennis Collection", "high-note-collection.html": "High Note", "keepsake-collection.html": "Keepsake Collection", "christmas-collection.html": "Christmas Collection", "mens-collection.html": "Men’s Collection"};
-  const grouped=groups.map(group=>{
-   const section=document.createElement('details'),summary=document.createElement('summary');
-   section.className='vd-collection-group';summary.textContent=t(group.en,group.zh);section.append(summary);
-   for(const file of group.files){
-    const collection=Object.values(collections||{}).find(c=>c[1]===file);
-    const title=file==='halo-collection.html'?t('Engagement rings','訂婚戒指'):file==='forever-bond.html'?t('Anniversary jewellery','周年紀念珠寶'):collection?t(collection[0],collection[2]):fallbackNames[file];
-    section.append(link(file,title));
-   }
-   return section;
-  });
+  const groups=window.VDProducts?.navigationGroups||[{"id":"romance","en":"Romance","zh":"浪漫"},{"id":"everyday","en":"Everyday","zh":"日常"},{"id":"celebration","en":"Celebration","zh":"慶典"},{"id":"tennis","en":"Tennis","zh":"網球珠寶"},{"id":"men","en":"Men’s jewellery","zh":"男士珠寶"}];
+  const grouped=groups.filter(group=>group.id!=='tennis').map(group=>link('view-catalogue.html?collection='+group.id,t(group.en,group.zh)));
   nav.append(details(t('Collections','系列'),[...grouped,link('view-catalogue.html',t('Browse all pieces','瀏覽所有作品'))]));
+  nav.append(details(t('Tennis','網球珠寶'),[link('view-catalogue.html?collection=tennis',t('All tennis pieces','所有網球珠寶')),link('view-catalogue.html?collection=tennis&type=Bracelet',t('Tennis bracelets','網球手鏈')),link('view-catalogue.html?collection=tennis&type=Necklace',t('Tennis necklaces','網球項鏈'))]));
   const guarantee=document.createElement('button');guarantee.type='button';guarantee.textContent=t('Our Guarantee','我們的保證');guarantee.onclick=()=>{const trigger=header.querySelector('.js-guarantee-trigger');if(trigger)trigger.click();else location.href='index.html?panel=guarantee';};
   nav.append(details(t('Discover Victoria','探索 Victoria'),[link('journal.html',t('Blogs','日誌及鑽石指南')),link('Jewelry-Care.pdf',t('Jewellery care','珠寶保養')),link('Catalogue.pdf',t('Download our catalogue','下載目錄')),guarantee,link('artist.html',t('Know Our Artist','認識藝術家')),link('index.html#story',t('Our story','品牌故事')),link('index.html#craftsmanship',t('Craftsmanship','工藝'))]));
   nav.append(link('index.html#contact',t('Book appointment','預約'),'vd-book-appointment'));

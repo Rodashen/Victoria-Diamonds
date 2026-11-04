@@ -15,8 +15,23 @@
  const url=p=>'product.html?item='+encodeURIComponent(p.id)+(document.documentElement.lang.startsWith('zh')?'&lang=zh-HK':'');
  const imageAlt=p=>[p.name,p.metal|| (p.collection==='silverCollection'?'Sterling 925 silver':''),p.designVisualisation?'lab-grown diamond design visualisation':'original jewellery design',collections[p.collection]?.[0],'Victoria Diamonds'].filter(Boolean).join(' — ');
  const metaDescription=p=>{const collection=collections[p.collection]?.[0]||'Victoria Diamonds';const prefix=p.name+' | '+collection+'. ';const detail=typeof p.description==='string'&&p.description.trim()?p.description.trim():(p.mode==='custom'?'Explore available materials and diamond options online.':p.mode==='silver'?'Explore this sterling silver design and order online.':'Contact our atelier to discuss this design.');const full=(prefix+detail).replace(/\s+/g,' ').trim();if(full.length<=155)return full;return full.slice(0,152).replace(/\s+\S*$/,'')+'…';};
- const navigationGroups=[{"en":"Love & milestones","zh":"愛與紀念","files":["halo-collection.html","forever-bond.html"]},{"en":"Everyday jewellery","zh":"日常珠寶","files":["aura-collection.html","daily-sparkle.html","tennis-collection.html"]},{"en":"Celebrations & seasonal","zh":"慶典與節日","files":["high-note-collection.html","tennis-collection.html","keepsake-collection.html","christmas-collection.html"]},{"en":"Men’s jewellery","zh":"男士珠寶","files":["mens-collection.html"]}];
- window.VDProducts={products,collections,find,url,slug,imageAlt,metaDescription,navigationGroups};
+ const navigationGroups=[{"id":"romance","en":"Romance","zh":"浪漫"},{"id":"everyday","en":"Everyday","zh":"日常"},{"id":"celebration","en":"Celebration","zh":"慶典"},{"id":"tennis","en":"Tennis","zh":"網球珠寶"},{"id":"men","en":"Men’s jewellery","zh":"男士珠寶"}];
+ const groupURL=id=>'view-catalogue.html?collection='+encodeURIComponent(id);
+ const silverFamily=p=>p.mode==='silver'||['silverCollection','petLoverCollection','christmasCollection','keepsakeCollection'].includes(p.collection);
+ const activeProduct=p=>p.collection!=='christmasCollection'||p.mode==='silver';
+ function shoppingGroups(p){
+  if(silverFamily(p))return [];
+  const groups=[];
+  const ring=p.category==='Ring';
+  const romance=ring&&(p.collection==='haloCollection'||p.collection==='foreverBond'||/solitaire|halo|three.stone|eternity|promise|amour|engagement/i.test(p.name)||['ds_s_aurelia','ds_s_timeless','ds_s_princess','ds_s_solenne'].includes(p.id));
+  if(romance)groups.push('romance');
+  if(['dailySparkle','singleLady','prismCollection','tennisCollection'].includes(p.collection))groups.push('everyday');
+  if(['occasionalWear','foreverBond','haloCollection','tennisCollection','prismCollection'].includes(p.collection)||/halo|cluster|stacking|three.stone/i.test(p.name))groups.push('celebration');
+  if(p.collection==='tennisCollection')groups.push('tennis');
+  if(p.collection==='mensCollection')groups.push('men');
+  return groups;
+ }
+ window.VDProducts={products,collections,find,url,slug,imageAlt,metaDescription,navigationGroups,groupURL,silverFamily,activeProduct,shoppingGroups};
 })();
 
 // Apply the same tennis option schedule to every product entry point.
