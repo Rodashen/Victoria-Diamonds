@@ -1,6 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
  'use strict';
  const t=(en,cn)=>document.documentElement.lang.startsWith('zh')?cn:en;
+ // Swap the existing sections only on mobile; preserve one crawlable copy of each.
+ const mobileSectionOrder=matchMedia('(max-width:760px)');
+ const usp=document.getElementById('bespoke-advantage'),design=document.querySelector('.home-customisation');
+ let sectionsSwapped=false;
+ const positionSellingPoint=()=>{
+  if(!usp||!design||sectionsSwapped===mobileSectionOrder.matches)return;
+  const slot=document.createComment('mobile-section-swap');
+  design.replaceWith(slot);usp.replaceWith(design);slot.replaceWith(usp);
+  sectionsSwapped=mobileSectionOrder.matches;
+ };
+ positionSellingPoint();mobileSectionOrder.addEventListener('change',positionSellingPoint);
  const header=document.querySelector('.site-header');
  new ResizeObserver(()=>document.documentElement.style.setProperty('--landing-header-height',header.offsetHeight+'px')).observe(header);
  const menu=document.querySelector('.collection-menu');

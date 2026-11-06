@@ -7,6 +7,10 @@
 .bespoke-advantages dt{font-weight:600}
 .bespoke-advantages dd{margin:4px 0 0}
 @media(max-width:760px){
+ .landing-page .home-customisation{padding:28px 20px;border-block:1px solid #d8cdbd;background:#f7f3ed;color:#282522;font:16px/1.5 'DM Sans',sans-serif;}
+ .landing-page .home-customisation h2{font:500 36px/1.05 'Cormorant Garamond',Georgia,serif;margin:0;}
+ .landing-page .home-customisation .kicker{color:#805e21;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px;}
+ .landing-page .home-customisation .primary{display:flex;min-height:48px;align-items:center;justify-content:center;border-radius:28px;background:#282522;color:white;text-decoration:none;font-weight:500;}
  .bespoke-advantages{grid-template-columns:minmax(0,1fr);margin:16px 0}
  .bespoke-advantage h2{font-size:clamp(30px,8vw,42px)}
  .mobile-nav-links [data-mobile-shopping]>.ux-menu-group{margin-block:0;border-block-start:0}
