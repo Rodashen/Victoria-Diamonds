@@ -10,7 +10,7 @@ for(const p of c.window.VDProducts.products){
  const collection=c.window.VDProducts.collections[p.collection],canonical=base+'product.html?item='+encodeURIComponent(p.id),starting=c.window.VDDiamondCatalogue.products[p.id];
  const centreRing=!p.haloDesign&&p.mode==='custom'&&p.category==='Ring'&&p.preset.diamonds.length&&!c.window.VDDesignRules.isPerStone(p)&&!/band|eternity|alternating/i.test(p.name);
  const metal=p.metal||(centreRing?'18K White Gold':null);
- const details=centreRing?[{key:'centreStone',value:'1.00 ct'}]:(p.details||[]).map(d=>c.window.VDDesignRules.isPerStone(p)&&d.key==='centreStone'?{...d,key:'eachDiamond'}:d);
+ const details=centreRing?[{key:'centreStone',value:'1.00 ct'}]:c.window.VDDesignRules.publicDetails(p).map(d=>c.window.VDDesignRules.isPerStone(p)&&d.key==='centreStone'?{...d,key:'eachDiamond'}:d);
  const facts=[metal,...details.map(d=>(labels[d.key]||d.key)+': '+d.value)].filter(Boolean);
  const description=c.window.VDProducts.metaDescription(p);
  const title=p.name+' | '+collection[0]+' | Victoria Diamonds';
