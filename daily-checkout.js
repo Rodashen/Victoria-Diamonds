@@ -21,6 +21,9 @@
  dialog.addEventListener('keydown',e=>{if(e.key==='Escape')e.stopPropagation();});
  dialog.addEventListener('click',e=>{const r=dialog.getBoundingClientRect();if(e.target===dialog&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))close();});
  const field=id=>dialog.querySelector('#'+id);
+ const dismissQualityHelp=()=>{dialog.querySelectorAll('.quality-tooltip').forEach(tip=>{if(tip.hidePopover&&tip.matches(':popover-open'))tip.hidePopover();tip.hidden=true;});dialog.querySelectorAll('.quality-help').forEach(help=>help.setAttribute('aria-expanded','false'));};
+ dialog.addEventListener('click',e=>{if(!e.target.closest('.quality-help,.quality-tooltip'))dismissQualityHelp();});
+ window.addEventListener('scroll',dismissQualityHelp,{passive:true,capture:true});window.addEventListener('resize',dismissQualityHelp);
  const read=()=>({productId:selected.id,collection:selected.collection,...(selected.prism?{diamondColour:field('prismColour')?.value||'pink'}:{}),...(selected.initialRequired?{initial:field('dailyInitial').value}:{}),...(selected.type==='bracelet'&&!selected.prism?{braceletSize:field('dailyBraceletSize').value}:{}),...(selected.necklaceLengths?{necklaceLength:Number(field('dailyNecklaceLength').value)}:{}),metal:field('dailyMetal').value,karat:Number(field('dailyKarat').value),purity:Number(field('dailyPurity').value),braceletMetalTier:field('dailyTier').value,quantity:Number(field('dailyQuantity').value),paymentPercentage:Number(field('dailyPayment').value),diamondOrigin:diamondOrigin||'lab',diamonds:diamondOrigin==='natural'?naturalGroups.map(({naturalId,qty})=>({naturalId,qty})):[0,1,2,3].map(i=>({...(window.VDDesignRules.isAccent(selected,i)?selected.diamonds[i]:{quality:field('dailyQuality'+i).value,carat:field('dailyCarat'+i).value,qty:Number(field('dailyQty'+i).value)})})).filter(d=>d.carat!=='0')});
  const valid=b=>(!selected.initialRequired||/^[A-Z]$/.test(b.initial||''))&&Number.isInteger(b.quantity)&&b.quantity>=1&&b.quantity<=10&&b.diamonds.every(d=>Number.isInteger(d.qty)&&d.qty>=1&&d.qty<=100);
  function status(message,error=false,loading=false){window.VDLoading?.set('checkout',loading,message);field('dailyStatus').textContent=message;field('dailyStatus').classList.toggle('error',error);if(error){const price=document.getElementById('productQuote');if(price)price.textContent=t('Complete your selections for a price','完成選擇以查看價格');}}
@@ -78,7 +81,21 @@
 
     if(selected.diamondPriceOptions&&!selected.necklaceLengths&&select.id==='dailyCarat0'){const price=document.createElement('small');price.textContent=money(selected.diamondPriceOptions[option.value]);face.append(price);}
     if(select.id==='dailyKarat'){const purity=document.createElement('small');purity.textContent=({9:'375',14:'585',18:'750',22:'916'})[option.value]+' '+t('purity','純度');face.append(purity);}
-    label.append(input,face);choices.append(label);
+    label.append(input,face);
+    if(select.id.startsWith('dailyQuality')){
+     const wrap=document.createElement('div');wrap.className='quality-choice';
+     const help=document.createElement('button');help.type='button';help.className='quality-help';help.textContent='?';help.setAttribute('aria-label',t('About '+option.textContent+' diamonds','關於 '+option.textContent+' 鑽石'));help.setAttribute('aria-expanded','false');
+     const tip=document.createElement('div');tip.className='quality-tooltip';tip.id=select.id+'-'+option.value+'-help';tip.hidden=true;tip.setAttribute('role','tooltip');help.setAttribute('aria-describedby',tip.id);
+     const luxe=option.value==='luxe';
+     tip.innerHTML='<strong>'+option.textContent+' '+t('Lab-Grown Diamonds','培育鑽石')+'</strong><p>'+t('Colour','顏色')+': '+(luxe?'D':'E / F / G')+'</p><p>'+t('Clarity','淨度')+': '+(luxe?'IF / VVS2':t('VS2 or above','VS2 或以上'))+'</p><p>'+t('Ideal for: ','適合：')+(luxe?t('The top end of polish, rarity, and light performance.','追求頂級拋光、稀有度及光線表現。'):t('Exceptional brilliance and striking value with beautiful near-colourless character.','追求出色璀璨光芒與價值，展現優美近無色特質。'))+'</p>';
+     if(tip.showPopover)tip.setAttribute('popover','manual');
+     let hideTimer;
+     const hide=()=>{clearTimeout(hideTimer);if(tip.hidePopover&&tip.matches(':popover-open'))tip.hidePopover();tip.hidden=true;help.setAttribute('aria-expanded','false');};
+     const show=()=>{clearTimeout(hideTimer);dialog.querySelectorAll('.quality-tooltip').forEach(other=>{if(other!==tip){if(other.hidePopover&&other.matches(':popover-open'))other.hidePopover();other.hidden=true;dialog.querySelector('[aria-describedby="'+other.id+'"]')?.setAttribute('aria-expanded','false');}});tip.hidden=false;if(tip.showPopover&&!tip.matches(':popover-open'))tip.showPopover();const rect=help.getBoundingClientRect(),width=Math.min(290,innerWidth-32);tip.style.width=width+'px';tip.style.left=Math.max(16,Math.min(rect.left,innerWidth-width-16))+'px';const height=tip.getBoundingClientRect().height;tip.style.top=Math.max(16,rect.bottom+8+height<innerHeight?rect.bottom+8:rect.top-height-8)+'px';help.setAttribute('aria-expanded','true');};
+     const later=()=>{hideTimer=setTimeout(hide,150);};
+     help.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')show();});help.addEventListener('pointerleave',later);help.addEventListener('focus',show);help.addEventListener('blur',later);help.addEventListener('click',show);tip.addEventListener('pointerenter',()=>clearTimeout(hideTimer));tip.addEventListener('pointerleave',later);help.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();e.stopPropagation();hide();}});
+     wrap.append(label,help,tip);choices.append(wrap);
+    }else choices.append(label);
     input.addEventListener('change',()=>{if(input.checked){select.value=input.value;select.dispatchEvent(new Event('input',{bubbles:true}));}});
    });
    select.hidden=true;group.append(select,choices);original.replaceWith(group);
