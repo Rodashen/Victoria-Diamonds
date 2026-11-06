@@ -29,3 +29,11 @@
 .vd-collection-group>a{display:block;margin-inline-start:12px}
 .mobile-nav-links .vd-collection-group>summary,
 .mobile-home .vd-collection-group>summary{min-height:44px;align-content:center}
+/* Mobile navigation separates shopping from quieter editorial links. */
+@media(max-width:1099px){
+ .vd-mobile-menu .ux-menu-group>summary{font:600 16px/1.4 var(--font-body,'DM Sans',Arial,sans-serif)!important;letter-spacing:0!important;padding:16px 0!important;min-height:48px;}
+ .vd-mobile-menu .ux-menu-group>a,.vd-mobile-menu.ma-sheet-links>a:not(.ma-contact-button):not(.ma-browse-all){font:500 22px/1.35 var(--font-body,'DM Sans',Arial,sans-serif)!important;letter-spacing:0!important;display:flex;align-items:center;min-height:48px;padding:12px 0!important;text-decoration:none;}
+ .vd-mobile-menu .vd-mobile-info{border-top:1px solid #d9cebd;margin-top:16px;padding-top:12px;}
+ .vd-mobile-menu .vd-mobile-info>summary{font:400 20px/1.4 var(--font-display,'Cormorant Garamond',Georgia,serif)!important;}
+ .vd-mobile-menu .vd-mobile-info>a{font:400 14px/1.5 var(--font-body,'DM Sans',Arial,sans-serif)!important;padding:10px 0!important;min-height:44px;color:#665d52;}
+}

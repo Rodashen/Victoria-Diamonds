@@ -56,10 +56,13 @@ document.addEventListener('DOMContentLoaded',()=>{
  function mobileInformation(){
   document.querySelectorAll('.mobile-nav-links a,.ux-menu-links a').forEach(a=>{if(a.dataset.i18n==='nav-visit-us'||/^visit us$/i.test(a.textContent.trim())){(a.closest('li')||a).remove();}else if(/book appointment/i.test(a.textContent)){a.href='index.html#contact';a.removeAttribute('target');}});
   document.querySelectorAll('.mobile-nav-links,.ux-menu-links,.ma-sheet-links').forEach(menu=>{
+   menu.classList.add('vd-mobile-menu');
+   // Keep shopping prominent; customer-service documents remain in the footer and desktop menu.
+   menu.querySelectorAll('a,button').forEach(a=>{const href=a.getAttribute('href')||'';if(/Jewelry-Care\.pdf|Catalogue\.pdf|artist\.html|journal\.html|#(?:diamond-pricing|story|craftsmanship)|panel=guarantee/.test(href)||a.matches('.js-guarantee-trigger')){const item=a.parentElement;if(item?.tagName==='LI'&&item.parentElement===menu)item.remove();else a.remove();}});
    menu.querySelector('.vd-mobile-info')?.closest('.vd-mobile-info-item')?.remove();menu.querySelector('.vd-mobile-info')?.remove();
    for(const child of [...menu.children]){const a=child.matches('a')?child:child.matches('li')?child.querySelector(':scope > a'):null;if(a&&(a.matches('.js-guarantee-trigger')||/journal\.html|artist\.html|#(?:story|craftsmanship|diamond-pricing)|Jewelry-Care\.pdf|Catalogue\.pdf/.test(a.getAttribute('href')||'')))child.remove();}
    const group=document.createElement('details');group.className='vd-mobile-info';const summary=document.createElement('summary');summary.textContent=t('Discover Victoria','探索 Victoria');group.append(summary);if(!menu.querySelector(':scope > li > a[href="corporate-collaborations.html"]'))group.append(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈')));
-   for(const [href,en,zh] of [['journal.html','Blogs','日誌及鑽石指南'],['Jewelry-Care.pdf','Jewellery care','珠寶保養'],['Catalogue.pdf','Download our catalogue','下載目錄'],['index.html?panel=guarantee','Our Guarantee','我們的保證'],['artist.html','Know Our Artist','認識藝術家'],['index.html#story','Our story','品牌故事'],['index.html#craftsmanship','Craftsmanship','工藝']])group.append(link(href,t(en,zh)));
+   for(const [href,en,zh] of [['journal.html','Blogs','網誌'],['index.html#story','Our story','品牌故事'],['index.html#craftsmanship','Craftsmanship','工藝']])group.append(link(href,t(en,zh)));
    if(menu.tagName==='UL'){const li=document.createElement('li');li.className='vd-mobile-info-item';li.append(group);menu.append(li);}else menu.append(group);
   });
  }
