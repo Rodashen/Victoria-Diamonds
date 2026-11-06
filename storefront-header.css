@@ -38,3 +38,13 @@
  .vd-mobile-menu .vd-mobile-info>summary{font:400 20px/1.4 var(--font-display,'Cormorant Garamond',Georgia,serif)!important;}
  .vd-mobile-menu .vd-mobile-info>a{font:400 14px/1.5 var(--font-body,'DM Sans',Arial,sans-serif)!important;padding:10px 0!important;min-height:44px;color:#665d52;}
 }
+
+@media(max-width:1099px){
+ .vd-mobile-menu .ux-menu-group .ux-menu-group{margin:6px 0 10px 12px;padding-left:14px;border-left:1px solid #d7cabc;}
+ .vd-mobile-menu .ux-menu-group .ux-menu-group>summary{font-size:16px!important;}
+ .vd-mobile-menu .ux-menu-group .ux-menu-group>a{font-size:16px!important;display:block;padding:12px 0;min-height:44px;}
+ .vd-mobile-menu>li{list-style:none;}
+ .vd-mobile-menu .vd-mobile-info{margin-top:12px;}
+ .vd-mobile-menu .vd-mobile-info>summary{text-align:left!important;justify-content:flex-start;gap:10px;}
+ .vd-mobile-menu .vd-mobile-info>summary::after{margin-left:auto;}
+}

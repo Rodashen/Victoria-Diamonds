@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   nav.append(details(t('Collections','系列'),[...grouped,link('prism-collection.html',t('Colour Diamond','彩色鑽石')),tennis,link('view-catalogue.html',t('Browse all pieces','瀏覽所有作品'))]));
   nav.append(link('silver-collection.html',t('Silver','純銀'),'vd-collection-pill'));
   nav.append(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈')));
-  const guarantee=document.createElement('button');guarantee.type='button';guarantee.textContent=t('Our Guarantee','我們的保證');guarantee.onclick=()=>{const trigger=header.querySelector('.js-guarantee-trigger');if(trigger)trigger.click();else location.href='index.html?panel=guarantee';};
+  const guarantee=document.createElement('button');guarantee.type='button';guarantee.textContent=t('Our Guarantee','我們的保證');guarantee.onclick=()=>{const trigger=guaranteeTrigger;if(trigger)trigger.click();else location.href='index.html?panel=guarantee';};
   nav.append(details(t('Discover Victoria','探索 Victoria'),[link('journal.html',t('Blogs','網誌')),link('igi-certificate.html',t('IGI Certificate','IGI 證書')),link('jewellery-care.html',t('Jewellery care','珠寶保養')),guarantee,link('artist.html',t('Know Our Artist','認識藝術家')),link('our-story.html',t('Our Story & Craftsmanship','品牌故事與工藝'))]));
   nav.append(link('index.html#contact',t('Book appointment','預約'),'vd-book-appointment'));
  }
@@ -53,23 +53,38 @@ document.addEventListener('DOMContentLoaded',()=>{
  if(back){const desktop=matchMedia('(min-width:1100px)');const positionBack=()=>{if(desktop.matches)row.prepend(back);else header.prepend(back);};desktop.addEventListener('change',positionBack);positionBack();}
  document.addEventListener('click',e=>{if(!nav.contains(e.target))nav.querySelectorAll('details').forEach(d=>d.open=false);});
  nav.addEventListener('keydown',e=>{if(e.key==='Escape'){const open=nav.querySelector('details[open]');if(open){open.open=false;open.querySelector('summary').focus();}}});
+ // One mobile hierarchy across home, product and collection sheets.
+ const guaranteeTrigger=header.querySelector('.js-guarantee-trigger');
  function mobileInformation(){
-  document.querySelectorAll('.mobile-nav-links a,.ux-menu-links a').forEach(a=>{if(a.dataset.i18n==='nav-visit-us'||/^visit us$/i.test(a.textContent.trim())){(a.closest('li')||a).remove();}else if(/book appointment/i.test(a.textContent)){a.href='index.html#contact';a.removeAttribute('target');}});
   document.querySelectorAll('.mobile-nav-links,.ux-menu-links,.ma-sheet-links').forEach(menu=>{
-   menu.classList.add('vd-mobile-menu');
-   // Keep shopping prominent; customer-service documents remain in the footer and desktop menu.
-   menu.querySelectorAll('a,button').forEach(a=>{const href=a.getAttribute('href')||'';if(/Jewelry-Care\.pdf|Catalogue\.pdf|artist\.html|journal\.html|#(?:diamond-pricing|story|craftsmanship)|panel=guarantee/.test(href)||a.matches('.js-guarantee-trigger')){const item=a.parentElement;if(item?.tagName==='LI'&&item.parentElement===menu)item.remove();else a.remove();}});
-   menu.querySelector('.vd-mobile-info')?.closest('.vd-mobile-info-item')?.remove();menu.querySelector('.vd-mobile-info')?.remove();
-   for(const child of [...menu.children]){const a=child.matches('a')?child:child.matches('li')?child.querySelector(':scope > a'):null;if(a&&(a.matches('.js-guarantee-trigger')||/journal\.html|artist\.html|#(?:story|craftsmanship|diamond-pricing)|Jewelry-Care\.pdf|Catalogue\.pdf/.test(a.getAttribute('href')||'')))child.remove();}
-   const group=document.createElement('details');group.className='vd-mobile-info';const summary=document.createElement('summary');summary.textContent=t('Discover Victoria','探索 Victoria');group.append(summary);if(!menu.querySelector(':scope > li > a[href="corporate-collaborations.html"]'))group.append(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈')));
-   for(const [href,en,zh] of [['journal.html','Blogs','網誌'],['index.html#story','Our story','品牌故事'],['index.html#craftsmanship','Craftsmanship','工藝']])group.append(link(href,t(en,zh)));
-   if(menu.tagName==='UL'){const li=document.createElement('li');li.className='vd-mobile-info-item';li.append(group);menu.append(li);}else menu.append(group);
+   const opened=[...menu.querySelectorAll('details[open]')].map(d=>d.dataset.mobileSection).filter(Boolean);
+   const types=menu.querySelector('[data-mobile-section="types"]')||[...menu.querySelectorAll('details')].find(d=>d.querySelector('a[href*="?type="]'));
+   const wrap=node=>{if(menu.tagName==='UL'){const li=document.createElement('li');li.append(node);return li;}return node;};
+   const group=(title,key,items)=>{const d=document.createElement('details'),summary=document.createElement('summary');d.className='ux-menu-group';d.dataset.mobileSection=key;summary.textContent=title;d.append(summary,...items);d.open=opened.includes(key);return d;};
+   const groups=window.VDProducts?.navigationGroups||[{id:'romance',en:'Romance',zh:'浪漫'},{id:'everyday',en:'Everyday',zh:'日常'},{id:'celebration',en:'Celebration',zh:'慶典'},{id:'men',en:'Men’s jewellery',zh:'男士珠寶'}];
+   const tennis=group(t('Tennis','網球珠寶'),'tennis',[
+    link('view-catalogue.html?collection=tennis',t('All tennis pieces','所有網球珠寶')),
+    link('view-catalogue.html?collection=tennis&type=Bracelet',t('Tennis bracelets','網球手鏈')),
+    link('view-catalogue.html?collection=tennis&type=Necklace',t('Tennis necklaces','網球項鏈'))]);
+   const shopping=group(t('Collections','系列'),'collections',[
+    ...groups.filter(g=>g.id!=='tennis').map(g=>link('view-catalogue.html?collection='+g.id,t(g.en,g.zh))),
+    link('prism-collection.html',t('Colour Diamond','彩色鑽石')),tennis,
+    link('view-catalogue.html',t('Browse all pieces','瀏覽所有作品'))]);
+   const guarantee=link('index.html?panel=guarantee',t('Our Guarantee','我們的保證'));
+   if(guaranteeTrigger)guarantee.addEventListener('click',event=>{event.preventDefault();menu.closest('dialog')?.close();guaranteeTrigger.click();});
+   const discover=group(t('Discover Victoria','探索 Victoria'),'discover',[
+    link('journal.html',t('Blogs','網誌')),link('igi-certificate.html',t('IGI Certificate','IGI 證書')),
+    link('jewellery-care.html',t('Jewellery care','珠寶保養')),guarantee,
+    link('artist.html',t('Know Our Artist','認識藝術家')),
+    link('our-story.html',t('Our Story & Craftsmanship','品牌故事與工藝'))]);
+   discover.classList.add('vd-mobile-info');
+   menu.replaceChildren(wrap(shopping));menu.classList.add('vd-mobile-menu');
+   if(types){types.dataset.mobileSection='types';menu.append(wrap(types));}
+   menu.append(wrap(link('silver-collection.html',t('Silver','純銀'))),wrap(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈'))),wrap(discover),wrap(link('index.html#contact',t('Book appointment','預約'))));
   });
  }
  mobileInformation();
- document.querySelectorAll('.mobile-nav-links > li > a').forEach(a=>{if(a.dataset.i18n==='nav-collections'){const item=document.createElement('li');item.append(link('white-diamond-collection.html',t('White Diamond','白色鑽石')));a.closest('li').before(item);}});
+ document.addEventListener('vd-mobile-navigation-refresh',mobileInformation);
  new MutationObserver(()=>{syncLanguageURL();render();mobileInformation();language.value=document.documentElement.lang.startsWith('zh')?'zh-HK':'en';}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
- // Keep mobile navigation compact; expose Prism inside each existing menu.
- document.querySelectorAll('.mobile-nav-links,.ma-sheet-links').forEach(menu=>{if(menu.querySelector('[href="prism-collection.html"]'))return;const a=link('prism-collection.html',t('Color diamond','稜彩 · 彩色培育鑽石'));if(menu.tagName==='UL'){const li=document.createElement('li');li.append(a);menu.prepend(li);}else menu.prepend(a);});
- if(new URLSearchParams(location.search).get('panel')==='guarantee')header.querySelector('.js-guarantee-trigger')?.click();
+ if(new URLSearchParams(location.search).get('panel')==='guarantee')guaranteeTrigger?.click();
 });
