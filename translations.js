@@ -579,7 +579,7 @@ Object.assign(translations['zh-HK'], {
   "home-hk-0": "企業禮贈",
   "home-hk-9": "倫敦 · Hatton Garden",
   "home-hk-10": "挑選系列作品作個人化訂製，或與倫敦工作室一起設計專屬珠寶。",
-  "home-hk-11": "選購白色鑽石",
+  "home-hk-11": "瀏覽珠寶",
   "home-hk-12": "與設計師洽談",
   "home-hk-14": "顧客評價",
   "home-hk-15": "訂製珠寶",

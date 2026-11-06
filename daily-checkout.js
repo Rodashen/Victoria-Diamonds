@@ -26,16 +26,25 @@
  window.addEventListener('scroll',dismissQualityHelp,{passive:true,capture:true});window.addEventListener('resize',dismissQualityHelp);
  const read=()=>({productId:selected.id,collection:selected.collection,...(selected.prism?{diamondColour:field('prismColour')?.value||'pink'}:{}),...(selected.initialRequired?{initial:field('dailyInitial').value}:{}),...(selected.type==='bracelet'&&!selected.prism?{braceletSize:field('dailyBraceletSize').value}:{}),...(selected.necklaceLengths?{necklaceLength:Number(field('dailyNecklaceLength').value)}:{}),metal:field('dailyMetal').value,karat:Number(field('dailyKarat').value),purity:Number(field('dailyPurity').value),braceletMetalTier:field('dailyTier').value,quantity:Number(field('dailyQuantity').value),paymentPercentage:Number(field('dailyPayment').value),diamondOrigin:diamondOrigin||'lab',diamonds:diamondOrigin==='natural'?naturalGroups.map(({naturalId,qty})=>({naturalId,qty})):[0,1,2,3].map(i=>({...(window.VDDesignRules.isAccent(selected,i)?selected.diamonds[i]:{quality:field('dailyQuality'+i).value,carat:field('dailyCarat'+i).value,qty:window.VDDesignRules.hasFixedRingCounts(selected)&&selected.diamonds[i]?selected.diamonds[i].qty:Number(field('dailyQty'+i).value)})})).filter(d=>d.carat!=='0')});
  const valid=b=>(!selected.initialRequired||/^[A-Z]$/.test(b.initial||''))&&Number.isInteger(b.quantity)&&b.quantity>=1&&b.quantity<=10&&b.diamonds.every(d=>Number.isInteger(d.qty)&&d.qty>=1&&d.qty<=100);
- function status(message,error=false,loading=false){window.VDLoading?.set('checkout',loading,message);field('dailyStatus').textContent=message;field('dailyStatus').classList.toggle('error',error);if(error){const price=document.getElementById('productQuote');if(price)price.textContent=t('Complete your selections for a price','完成選擇以查看價格');}}
- function totals(q){field('dailyTotal').textContent=q?money(q.total):'—';field('dailyDue').textContent=q?money(q.due):'—';field('dailyBalance').textContent=q?money(q.balance):'—';const price=document.getElementById('productQuote');if(price)price.textContent=q?money(q.total)+' GBP':diamondOrigin===null?t('Choose your diamond type','選擇您的鑽石種類'):diamondOrigin==='natural'&&!naturalGroups.length?t('Natural diamonds by appointment','天然鑽石版本請預約諮詢'):t('Confirming price…','正在確認價格…');}
+ function status(message,error=false,loading=false){const preview=field('dailySelectionPrice');if(preview&&error)preview.textContent=message;window.VDLoading?.set('checkout',loading,message);field('dailyStatus').textContent=message;field('dailyStatus').classList.toggle('error',error);if(error){const price=document.getElementById('productQuote');if(price)price.textContent=t('Complete your selections for a price','完成選擇以查看價格');}}
+ function totals(q){const preview=field('dailySelectionPrice');if(preview)preview.textContent=q?t('Your price: ','您的價格：')+money(q.total)+' GBP':diamondOrigin===null?t('Choose your diamond type for a price.','選擇鑽石種類以查看價格。'):t('Updating your price…','正在更新您的價格…');field('dailyTotal').textContent=q?money(q.total):'—';field('dailyDue').textContent=q?money(q.due):'—';field('dailyBalance').textContent=q?money(q.balance):'—';const price=document.getElementById('productQuote');if(price)price.textContent=q?money(q.total)+' GBP':diamondOrigin===null?t('Choose your diamond type','選擇您的鑽石種類'):diamondOrigin==='natural'&&!naturalGroups.length?t('Natural diamonds by appointment','天然鑽石版本請預約諮詢'):t('Confirming price…','正在確認價格…');}
+ let quoteRetries=0;
  async function refreshQuote(){
   const current=++version;controller?.abort();const request=new AbortController();controller=request;quote=null;field('dailySubmit').disabled=true;totals(null);
   if(diamondOrigin===null){status(t('Choose lab-grown or natural diamonds to begin.','請先選擇培育或天然鑽石。'));return;}
   if(diamondOrigin==='natural'&&!naturalGroups.length){status(t('Choose a priced natural diamond for every stone group, or book an appointment.','請為每組鑽石選擇已定價的天然鑽石，或預約諮詢。'));return;}
   const body=read();if(selected.initialRequired&&!/^[A-Z]$/.test(body.initial||'')){status(t('Choose your initial from A to Z to confirm the price.','請選擇 A 至 Z 字母以確認價格。'));return;}if(diamondOrigin!=='natural'&&field('dailyCarat0').value===''){status(t('Choose the main stone size, or choose no diamonds for a plain design.','請選擇主石大小，或為素面設計選擇無鑽石。'),true);return;}if(!valid(body)){status(t('Please enter whole-number quantities within the stated limits.','請輸入有效範圍內的整數數量。'),true);return;}
-  status(t('Checking your price…','正在核對價格…'),false,true);const timeout=setTimeout(()=>request.abort(),20000);
+  status(t('Checking your price…','正在核對價格…'),false,true);const timeout=setTimeout(()=>request.abort(),60000);
   try{
    const res=await fetch(API+'/'+selected.route+'/quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal:request.signal});
+   if(res.status===429){
+    if(current!==version)return;
+    if(quoteRetries++>=2)throw Error('Quote request limit');
+    const seconds=Math.max(1,Number(res.headers.get('Retry-After'))||15);
+    const message=t('Price checks are busy. We will retry shortly.','價格查詢繁忙，我們將稍後自動重試。');
+    status(message);if(field('dailySelectionPrice'))field('dailySelectionPrice').textContent=message;
+    timer=setTimeout(()=>{if(current===version)return refreshQuote();},seconds*1000);return;
+   }
    const data=await res.json();if(current!==version)return;
    if(!res.ok)throw Error(data.error||'Quote unavailable');
    if(![data.total,data.due,data.balance].every(Number.isFinite)||data.currency!=='GBP'||data.total<=0||data.due<=0||data.due>data.total)throw Error('Invalid quote');
@@ -44,6 +53,7 @@
   finally{clearTimeout(timeout);}
  }
  function changed(){
+  quoteRetries=0;
   const confirmation=field('configurationConfirm');if(confirmation)confirmation.checked=false;
   quote=null;version++;controller?.abort();field('dailySubmit').disabled=true;totals(null);field('dailyRetry').hidden=true;
   status(t('Checking your price…','正在核對價格…'),false,diamondOrigin!==null&&(diamondOrigin!=='natural'||naturalGroups.length>0));
@@ -87,7 +97,7 @@
      const help=document.createElement('button');help.type='button';help.className='quality-help';help.textContent='?';help.setAttribute('aria-label',t('About '+option.textContent+' diamonds','關於 '+option.textContent+' 鑽石'));help.setAttribute('aria-expanded','false');
      const tip=document.createElement('div');tip.className='quality-tooltip';tip.id=select.id+'-'+option.value+'-help';tip.hidden=true;tip.setAttribute('role','tooltip');help.setAttribute('aria-describedby',tip.id);
      const luxe=option.value==='luxe';
-     tip.innerHTML='<strong>'+option.textContent+' '+t('Lab-Grown Diamonds','培育鑽石')+'</strong><p>'+t('Colour','顏色')+': '+(luxe?'D':'E / F / G')+'</p><p>'+t('Clarity','淨度')+': '+(luxe?'VVS1':t('VS2 or above','VS2 或以上'))+'</p><p>'+t('Ideal for: ','適合：')+(luxe?t('The top end of polish, rarity, and light performance.','追求頂級拋光、稀有度及光線表現。'):t('Exceptional brilliance and striking value with beautiful near-colourless character.','追求出色璀璨光芒與價值，展現優美近無色特質。'))+'</p>';
+     tip.innerHTML='<strong>'+option.textContent+' '+t('Lab-Grown Diamonds','培育鑽石')+'</strong><p>'+t('Colour','顏色')+': '+(luxe?'D':'E / F / G')+'</p><p>'+t('Clarity','淨度')+': '+(luxe?'VVS+':'VS+')+'</p><p>'+t('Ideal for: ','適合：')+(luxe?t('The top end of polish, rarity, and light performance.','追求頂級拋光、稀有度及光線表現。'):t('Exceptional brilliance and striking value with beautiful near-colourless character.','追求出色璀璨光芒與價值，展現優美近無色特質。'))+'</p>';
      if(tip.showPopover)tip.setAttribute('popover','manual');
      let hideTimer;
      const hide=()=>{clearTimeout(hideTimer);if(tip.hidePopover&&tip.matches(':popover-open'))tip.hidePopover();tip.hidden=true;help.setAttribute('aria-expanded','false');};
@@ -193,6 +203,7 @@
   visualChoices();
   if(p.diamondPriceOptions&&field('configurationConfirm'))field('configurationConfirm').parentElement.lastChild.textContent=t('I have checked the bracelet diamond size option for my order.','我已確認訂單的手鏈鑽石大小選項。');
   field('dailyClose').onclick=close;field('dailyRetry').onclick=()=>{field('dailyRetry').hidden=true;refreshQuote();};
+  const selectionPrice=document.createElement('p');selectionPrice.id='dailySelectionPrice';selectionPrice.className='daily-live-price';selectionPrice.setAttribute('role','status');selectionPrice.setAttribute('aria-live','polite');dialog.querySelector('.daily-diamond').after(selectionPrice);
   field('dailyControls').addEventListener('input',e=>{if(!e.target.dataset.select&&!['dailyCustomer','dailyEmail','configurationConfirm'].includes(e.target.id))changed();});
   field('dailyForm').addEventListener('submit',submit);if(!inline){dialog.showModal();field('dailyClose').focus();}changed();
  }

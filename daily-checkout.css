@@ -43,3 +43,5 @@
 .quality-tooltip{position:fixed;inset:auto;z-index:20000;box-sizing:border-box;max-width:calc(100vw - 32px);margin:0;padding:18px 20px;border:1px solid #c9bdab;border-radius:14px;background:#fffbf5;color:#282522;box-shadow:0 12px 36px #28252220;font:13px/1.55 var(--font-body,Arial);text-align:left}
 .quality-tooltip[hidden]{display:none!important}.quality-tooltip strong{display:block;margin-bottom:8px;font-size:15px}.quality-tooltip p{margin:5px 0}.quality-tooltip p:last-child{margin-top:10px}
 @media(max-width:600px){.configuration-choices{gap:7px;margin-bottom:10px}.metal-options .choice-face{min-height:108px}.daily-checkout h3{margin-top:20px}.daily-diamond{padding:12px}.daily-checkout .daily-note{margin-block:10px}}
+
+.daily-live-price{font:600 17px/1.5 var(--font-body,'DM Sans',Arial,sans-serif);padding:14px 0;margin:6px 0 18px;color:var(--charcoal,#1c1c1c);}

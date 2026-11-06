@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const dock = document.querySelector('.ma-dock');
   const hero = document.querySelector('.mobile-home-refresh .hero');
   const shop = document.querySelector('#mobile-home-shop');
-  if (!dock || !hero || !shop) return;
+  if (!dock || !hero) return;
   const mobile = matchMedia('(max-width: 760px)');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const sections = [...document.querySelectorAll('.landing-page > .featured-piece, #story, #reviews, .mobile-home-refresh .corporate')];
@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     frame = 0;
     if (!mobile.matches) return;
     const heroBounds = hero.getBoundingClientRect();
-    const shopBounds = shop.getBoundingClientRect();
+    const shopBounds = shop?.getBoundingClientRect();
     dock.classList.toggle('on-content', heroBounds.bottom < dock.getBoundingClientRect().top);
-    dock.classList.toggle('is-browsing', shopBounds.top <= innerHeight * .4 && shopBounds.bottom > innerHeight * .35);
+    dock.classList.toggle('is-browsing', !!shopBounds && shopBounds.top <= innerHeight * .4 && shopBounds.bottom > innerHeight * .35);
     if (motion.matches || !heroBounds.height) return;
     const progress = Math.min(1, Math.max(0, -heroBounds.top / heroBounds.height));
     hero.style.setProperty('--hero-drift', `${progress * 52}px`);
