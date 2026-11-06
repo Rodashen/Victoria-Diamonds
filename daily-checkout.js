@@ -87,7 +87,7 @@
      const help=document.createElement('button');help.type='button';help.className='quality-help';help.textContent='?';help.setAttribute('aria-label',t('About '+option.textContent+' diamonds','關於 '+option.textContent+' 鑽石'));help.setAttribute('aria-expanded','false');
      const tip=document.createElement('div');tip.className='quality-tooltip';tip.id=select.id+'-'+option.value+'-help';tip.hidden=true;tip.setAttribute('role','tooltip');help.setAttribute('aria-describedby',tip.id);
      const luxe=option.value==='luxe';
-     tip.innerHTML='<strong>'+option.textContent+' '+t('Lab-Grown Diamonds','培育鑽石')+'</strong><p>'+t('Colour','顏色')+': '+(luxe?'D':'E / F / G')+'</p><p>'+t('Clarity','淨度')+': '+(luxe?'IF / VVS1':t('VS2 or above','VS2 或以上'))+'</p><p>'+t('Ideal for: ','適合：')+(luxe?t('The top end of polish, rarity, and light performance.','追求頂級拋光、稀有度及光線表現。'):t('Exceptional brilliance and striking value with beautiful near-colourless character.','追求出色璀璨光芒與價值，展現優美近無色特質。'))+'</p>';
+     tip.innerHTML='<strong>'+option.textContent+' '+t('Lab-Grown Diamonds','培育鑽石')+'</strong><p>'+t('Colour','顏色')+': '+(luxe?'D':'E / F / G')+'</p><p>'+t('Clarity','淨度')+': '+(luxe?'VVS1':t('VS2 or above','VS2 或以上'))+'</p><p>'+t('Ideal for: ','適合：')+(luxe?t('The top end of polish, rarity, and light performance.','追求頂級拋光、稀有度及光線表現。'):t('Exceptional brilliance and striking value with beautiful near-colourless character.','追求出色璀璨光芒與價值，展現優美近無色特質。'))+'</p>';
      if(tip.showPopover)tip.setAttribute('popover','manual');
      let hideTimer;
      const hide=()=>{clearTimeout(hideTimer);if(tip.hidePopover&&tip.matches(':popover-open'))tip.hidePopover();tip.hidden=true;help.setAttribute('aria-expanded','false');};
