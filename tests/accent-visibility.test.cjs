@@ -2,6 +2,18 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const root=path.resolve(__dirname,'..'),c={window:{},document:{documentElement:{lang:'en'}}};
 for(const f of ['catalogue-data.js','daily-products.js','high-note-products.js','remaining-products.js','mens-products.js','product-registry.js','design-rules.js'])vm.runInNewContext(fs.readFileSync(path.join(root,f),'utf8'),c);
 const rules=c.window.VDDesignRules,products=c.window.VDProducts.products;
+
+test('all custom ring designs keep their catalogue stone counts fixed',()=>{
+ const rings=products.filter(p=>p.category==='Ring'&&p.mode==='custom');
+ assert(rings.length>80);
+ for(const p of rings){
+  assert.equal(rules.hasFixedRingCounts(p),true,p.id);
+  assert.equal(rules.hasFixedRingCounts(p.preset),true,p.id+' checkout preset');
+  for(const stone of p.preset.diamonds)assert(Number.isInteger(stone.qty)&&stone.qty>0,p.id);
+ }
+ assert.equal(products.find(p=>p.id==='ow_m_eternelle').preset.diamonds[0].qty,14);
+ for(const p of products.filter(p=>p.category==='Bracelet'))assert.equal(rules.hasFixedRingCounts(p),false,p.id);
+});
 test('all small secondary presets are internal while principal stones stay available',()=>{
  let checked=0;
  for(const p of products.filter(p=>p.preset?.diamonds?.length)){

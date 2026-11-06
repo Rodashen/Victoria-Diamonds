@@ -49,3 +49,8 @@
  .vd-mobile-menu .vd-mobile-info>summary::after{margin-left:auto;}
  .vd-mobile-menu a.vd-mobile-silver,.vd-mobile-menu .vd-mobile-info>summary{font-weight:700!important;}
 }
+
+@media(max-width:1099px){
+ .vd-mobile-menu,.vd-mobile-menu>li,.vd-mobile-menu>details,.vd-mobile-menu .ux-menu-group,.vd-mobile-menu .ux-menu-group>summary,.vd-mobile-menu .ux-menu-group>a,.vd-mobile-menu>a,.vd-mobile-menu .vd-mobile-info{border:0!important;box-shadow:none!important;}
+ .vd-mobile-menu a.vd-mobile-silver{font-weight:700!important;}
+}

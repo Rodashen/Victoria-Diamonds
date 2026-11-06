@@ -6,5 +6,6 @@
  const isAccent=(p,i)=>i>0&&(!!p.haloDesign||!!p.lockAccentSize||!!p.preset?.lockAccentSize||Number(diamonds(p)[i]?.carat)<=0.20||(Number(diamonds(p)[i]?.carat)<=0.25&&diamonds(p)[i]?.qty>=10));
  const hasAccents=p=>diamonds(p).some((d,i)=>isAccent(p,i));
  const publicDetails=p=>(p.details||[]).filter(d=>!['hiddenHalo','paveBand','secondarySide','finishingSide'].includes(d.key)&&!(hasAccents(p)&&['sideStone','mainSide','stoneCount','totalKarat','info'].includes(d.key)));
- window.VDDesignRules={isPerStone:p=>perStone.has(p.id),isAccent,hasAccents,publicDetails};
+ const hasFixedRingCounts=p=>String(p.preset?.type||p.type).toLowerCase()==='ring';
+ window.VDDesignRules={hasFixedRingCounts,isPerStone:p=>perStone.has(p.id),isAccent,hasAccents,publicDetails};
 })();
