@@ -25,6 +25,7 @@
 .vd-mobile-info>summary{font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:400}.guarantee-certificate{padding:24px 0;margin:20px 0;line-height:1.65}.guarantee-certificate .btn-primary{margin-top:12px}
 
 .vd-collection-group{padding-block:4px;border-bottom:1px solid #d9cebd}
+@media(min-width:1100px){.vd-nav-panel .vd-nav-menu>summary{padding:10px 14px;font:500 14px/1.4 'DM Sans',sans-serif;justify-content:space-between;min-height:44px}.vd-nav-panel .vd-nav-panel{position:static;width:auto;max-height:none;padding:0 0 8px 12px;border:0;border-left:1px solid #d9cebd;border-radius:0;box-shadow:none;margin:0 12px 8px}.vd-nav-panel .vd-nav-menu{border-block:1px solid #e6ddd0;margin-block:6px}}
 .vd-collection-group>summary{padding:10px 8px;cursor:pointer}
 .vd-collection-group>a{display:block;margin-inline-start:12px}
 .mobile-nav-links .vd-collection-group>summary,
