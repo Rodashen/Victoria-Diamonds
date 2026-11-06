@@ -7,6 +7,7 @@
 .bespoke-advantages dt{font-weight:600}
 .bespoke-advantages dd{margin:4px 0 0}
 @media(max-width:760px){
+ .mobile-home-refresh .bespoke-advantage .btn-primary{color:var(--color-cream,#fffcf7);}
  .landing-page .home-customisation{padding:28px 20px;border-block:1px solid #d8cdbd;background:#f7f3ed;color:#282522;font:16px/1.5 'DM Sans',sans-serif;}
  .landing-page .home-customisation h2{font:500 36px/1.05 'Cormorant Garamond',Georgia,serif;margin:0;}
  .landing-page .home-customisation .kicker{color:#805e21;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px;}
