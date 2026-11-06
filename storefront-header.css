@@ -47,4 +47,5 @@
  .vd-mobile-menu .vd-mobile-info{margin-top:12px;}
  .vd-mobile-menu .vd-mobile-info>summary{text-align:left!important;justify-content:flex-start;gap:10px;}
  .vd-mobile-menu .vd-mobile-info>summary::after{margin-left:auto;}
+ .vd-mobile-menu a.vd-mobile-silver,.vd-mobile-menu .vd-mobile-info>summary{font-weight:700!important;}
 }

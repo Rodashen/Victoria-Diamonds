@@ -79,8 +79,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     link('our-story.html',t('Our Story & Craftsmanship','品牌故事與工藝'))]);
    discover.classList.add('vd-mobile-info');
    menu.replaceChildren(wrap(shopping));menu.classList.add('vd-mobile-menu');
+   menu.append(wrap(link('silver-collection.html',t('Silver','純銀'),'vd-mobile-silver')));
    if(types){types.dataset.mobileSection='types';menu.append(wrap(types));}
-   menu.append(wrap(link('silver-collection.html',t('Silver','純銀'))),wrap(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈'))),wrap(discover),wrap(link('index.html#contact',t('Book appointment','預約'))));
+   menu.append(wrap(discover),wrap(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈'))),wrap(link('index.html#contact',t('Book appointment','預約'))));
   });
  }
  mobileInformation();
