@@ -15,12 +15,12 @@
  .mobile-nav-links [data-mobile-shopping]>.ux-menu-group{margin-block:0;border-block-start:0}
 }
 
-.homepage-promos{min-width:0;margin:clamp(24px,4vw,56px) 0}
+.homepage-promos{container-type:inline-size;min-width:0;margin:clamp(24px,4vw,56px) 0}
 .collection-editorial>.homepage-promos{margin:0}
 .promo-slides{display:grid;border-radius:20px;overflow:hidden}
 .promo-ready .promo-slides>section{grid-area:1/1;transition:opacity .32s ease,visibility .32s}
 .promo-ready .promo-slides>section[inert]{opacity:0;visibility:hidden}
-.promo-slides>section{display:grid;grid-template-columns:44% minmax(0,1fr);min-width:0}
+.promo-slides>section{display:grid;grid-template-columns:1.15fr minmax(0,1fr);min-width:0}
 .promo-art{display:grid;place-items:center;min-width:0}
 .promo-art img{display:block;width:100%;height:auto;object-fit:contain}
 .promo-slides .bespoke-advantage .promo-art{position:relative}
@@ -41,6 +41,23 @@
 .promo-controls button{min-height:44px;padding:8px 4px;background:none;border:0;color:inherit;font:inherit;font-size:.875rem;cursor:pointer}
 .promo-controls button[aria-pressed="true"]{text-decoration:underline;text-underline-offset:6px;text-decoration-color:#876320;font-weight:600}
 .promo-controls .promo-toggle{margin-inline-start:auto}
+.promo-benefits{border-top:1px solid #d8cdbd;margin-top:4px}
+.promo-benefits summary{display:list-item;cursor:pointer;padding:11px 4px;font-size:.875rem}
+.promo-benefits>p{max-width:70ch;margin:4px 0 14px}
+.promo-benefits .bespoke-advantages{margin:4px 0 12px}
+@media(min-width:761px){
+ .promo-slides .promo-art{width:100%;aspect-ratio:3/2;align-self:center}
+ .promo-slides .promo-copy{padding:clamp(16px,3.2cqw,38px)}
+ .promo-slides .promo-copy h2{font-size:clamp(26px,4.4cqw,49px);margin-bottom:clamp(8px,1.6cqw,15px)}
+ .promo-slides .promo-copy>p{font-size:clamp(.875rem,1.65cqw,1rem);line-height:1.45}
+ .promo-slides .promo-copy .text-label{font-size:.68rem;margin-bottom:8px}
+ .promo-slides .promo-copy .btn-primary{min-height:44px;padding:12px 18px;border-radius:26px}
+}
+@media(min-width:761px) and (max-width:1000px){
+ .landing-page.shopping-navigation-ready .collection-editorial:has(.homepage-promos){grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
+ .collection-editorial>.homepage-promos{grid-row:1}
+}
+
 @media(max-width:760px){
  .homepage-promos{display:none}
  .mobile-home-refresh .bespoke-advantage{display:grid;padding:0;width:auto;margin:16px 12px 22px;border-radius:20px;overflow:hidden}

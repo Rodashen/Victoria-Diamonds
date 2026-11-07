@@ -8,10 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
  const christmas=slides.querySelector('.christmas-promo');
  const usp=document.getElementById('bespoke-advantage');
  const design=document.querySelector('.home-customisation');
+ const benefits=usp.querySelector('.bespoke-advantages');
+ const introduction=usp.querySelector('[data-i18n="home-hk-38"]');
+ const benefitDetails=promos.querySelector('.promo-benefits');
  const controls=promos.querySelector('.promo-controls');
  const choices=[...controls.querySelectorAll('[data-promo-slide]')];
  const toggle=controls.querySelector('.promo-toggle');
- let current=0, promoTimer, paused=false, inView=false, hovering=false;
+ let current=0, promoTimer, paused=reduceMotion.matches;
 
  function showSlide(index){
   current=index;
@@ -20,9 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
  }
  function schedulePromo(){
   clearTimeout(promoTimer);
-  toggle.textContent=paused||reduceMotion.matches?t('Play','播放'):t('Pause','暫停');
-  toggle.hidden=reduceMotion.matches;
-  if(mobilePromos.matches||reduceMotion.matches||paused||!inView||document.hidden||hovering||promos.contains(document.activeElement))return;
+  toggle.textContent=paused?t('Play','播放'):t('Pause','暫停');
+  benefitDetails.firstElementChild.textContent=t('See the bespoke benefits','查看訂製服務優勢');
+  if(mobilePromos.matches||paused||document.hidden||slides.contains(document.activeElement))return;
   promoTimer=setTimeout(()=>{showSlide(1-current);schedulePromo();},4000);
  }
  function followPromoLink(){
@@ -35,10 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
  }
  function positionSellingPoint(){
   if(mobilePromos.matches){
+   usp.querySelector('.btn-primary').before(introduction,benefits);
    design.before(usp);
    usp.inert=false;
    promos.classList.remove('promo-ready');
   }else{
+   benefitDetails.append(introduction,benefits);
    slides.append(usp);
    showSlide(current);
    promos.classList.add('promo-ready');
@@ -47,18 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
   followPromoLink();
   schedulePromo();
  }
- choices.forEach((button,index)=>button.addEventListener('click',()=>{paused=true;showSlide(index);schedulePromo();}));
+ choices.forEach((button,index)=>button.addEventListener('click',()=>{showSlide(index);schedulePromo();}));
  toggle.addEventListener('click',()=>{paused=!paused;schedulePromo();});
- promos.addEventListener('mouseenter',()=>{hovering=true;schedulePromo();});
- promos.addEventListener('mouseleave',()=>{hovering=false;schedulePromo();});
- promos.addEventListener('focusin',schedulePromo);
- promos.addEventListener('focusout',()=>setTimeout(schedulePromo,0));
- new IntersectionObserver(([entry])=>{inView=entry.isIntersecting;schedulePromo();},{threshold:.25}).observe(promos);
+ slides.addEventListener('focusin',schedulePromo);
+ slides.addEventListener('focusout',()=>setTimeout(schedulePromo,0));
  new MutationObserver(schedulePromo).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
  document.addEventListener('visibilitychange',schedulePromo);
  window.addEventListener('hashchange',followPromoLink);
  mobilePromos.addEventListener('change',positionSellingPoint);
- reduceMotion.addEventListener('change',schedulePromo);
+ reduceMotion.addEventListener('change',()=>{paused=reduceMotion.matches;schedulePromo();});
  positionSellingPoint();
  const header=document.querySelector('.site-header');
  new ResizeObserver(()=>document.documentElement.style.setProperty('--landing-header-height',header.offsetHeight+'px')).observe(header);
