@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
  const christmas=slides.querySelector('.christmas-promo');
  const usp=document.getElementById('bespoke-advantage');
  const design=document.querySelector('.home-customisation');
- const benefits=usp.querySelector('.bespoke-advantages');
  const introduction=usp.querySelector('[data-i18n="home-hk-38"]');
  const benefitDetails=promos.querySelector('.promo-benefits');
  const controls=promos.querySelector('.promo-controls');
@@ -18,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
  function showSlide(index){
   current=index;
-  [christmas,usp].forEach((slide,i)=>{slide.inert=i!==index;});
+  [usp,christmas].forEach((slide,i)=>{slide.inert=i!==index;});
   choices.forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
  }
  function schedulePromo(){
   clearTimeout(promoTimer);
   toggle.textContent=paused?t('Play','播放'):t('Pause','暫停');
-  benefitDetails.firstElementChild.textContent=t('See the bespoke benefits','查看訂製服務優勢');
+  benefitDetails.firstElementChild.textContent=t('About our London atelier','關於我們的倫敦工作室');
   if(mobilePromos.matches||paused||document.hidden||slides.contains(document.activeElement))return;
   promoTimer=setTimeout(()=>{showSlide(1-current);schedulePromo();},4000);
  }
@@ -32,19 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if(location.hash!=='#bespoke-advantage')return;
   if(mobilePromos.matches){usp.scrollIntoView();return;}
   paused=true;
-  showSlide(1);
+  showSlide(0);
   usp.scrollIntoView();
   schedulePromo();
  }
  function positionSellingPoint(){
   if(mobilePromos.matches){
-   usp.querySelector('.btn-primary').before(introduction,benefits);
+   usp.querySelector('.bespoke-advantages').before(introduction);
    design.before(usp);
    usp.inert=false;
    promos.classList.remove('promo-ready');
   }else{
-   benefitDetails.append(introduction,benefits);
-   slides.append(usp);
+   benefitDetails.append(introduction);
+   slides.prepend(usp);
    showSlide(current);
    promos.classList.add('promo-ready');
   }
