@@ -34,3 +34,24 @@ test('browser and first-response product facts share the same disclosure policy'
  for(const f of ['product-page.js','scripts/generate-product-html.cjs'])assert.match(fs.readFileSync(path.join(root,f),'utf8'),/VDDesignRules.publicDetails\(p\)/);
  for(const f of ['daily-checkout.js','natural-shopping.js','product-cards.js'])assert.match(fs.readFileSync(path.join(root,f),'utf8'),/VDDesignRules.isAccent/);
 });
+
+test('Hidden Halo checkout quotes the centre and accent groups without submitting unused slots', () => {
+ const source = fs.readFileSync(path.join(root, 'daily-checkout.js'), 'utf8');
+ const checkout = source.slice(source.indexOf(' const read='), source.indexOf(' function status('));
+ const halos = products.filter(p => p.collection === 'haloCollection');
+ assert.equal(halos.length, 5);
+ for (const product of halos) {
+  const selected = product.preset;
+  const values = { dailyMetal:'gold', dailyKarat:'18', dailyPurity:'925', dailyTier:'essential', dailyQuantity:'1', dailyPayment:'50' };
+  for (let i = 0; i < 4; i++) {
+   values['dailyQuality'+i] = selected.diamonds[i]?.quality ?? 'select';
+   values['dailyCarat'+i] = selected.diamonds[i]?.carat ?? '0';
+   values['dailyQty'+i] = String(selected.diamonds[i]?.qty ?? 1);
+  }
+  const result = vm.runInNewContext(checkout + '\nconst body = read(); ({body, valid:valid(body)})', {
+   window:c.window, selected, diamondOrigin:'lab', field:id=>Object.hasOwn(values,id)?{value:values[id]}:undefined
+  });
+  assert.equal(result.valid, true, product.id);
+  assert.deepEqual(JSON.parse(JSON.stringify(result.body.diamonds)), JSON.parse(JSON.stringify(selected.diamonds)), product.id);
+ }
+});
