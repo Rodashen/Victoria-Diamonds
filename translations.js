@@ -235,7 +235,7 @@ const translations = {
         'occasional-title': '高雅系列',
         'occasional-subtitle': '為人生特別時刻打造的矚目設計 — 慶典、晚宴和里程碑。',
         'occasional-count': '26 件作品',
-        'high-note-online': '網上訂製及下單，可選擇支付30%、50%訂金或全額付款。Celestia Broche、Éternelle Broche 及 Lunaria Tiara 僅限預約訂購。',
+        'high-note-online': '網上訂製及下單，可選擇支付50%訂金或全額付款。Celestia Broche、Éternelle Broche 及 Lunaria Tiara 僅限預約訂購。',
         'occasional-hero-title': '高雅系列',
         'occasional-hero-subtitle': '為人生特別時刻打造的矚目設計 — 慶典、晚宴和里程碑。',
 
@@ -306,7 +306,6 @@ const translations = {
         'checkout-full-payment': '全額付款',
         'checkout-full-desc': '一次過付清 100%',
         'checkout-deposit-50': '50% 訂金',
-        'checkout-deposit-30': '30% 訂金 (最低)',
         'checkout-deposit-desc': '先付訂金，餘額稍後付清',
         'checkout-order-total': '訂單總額',
         'checkout-balance': '餘額',

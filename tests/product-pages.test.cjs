@@ -15,7 +15,7 @@ test('same-named pieces keep their collection and checkout identity',()=>{
 });
 test('every customizable piece quotes correctly for all metals and payment options',()=>{
  const {quoteDaily}=require(path.resolve(root,'../../calculator/daily-checkout'));
- for(const p of products.filter(p=>p.mode==='custom'))for(const metal of ['gold','silver','platinum'])for(const paymentPercentage of [30,50,100]){
+ for(const p of products.filter(p=>p.mode==='custom'))for(const metal of ['gold','silver','platinum'])for(const paymentPercentage of [50,100]){
   const preset=p.preset,body={productId:p.id,metal,karat:18,purity:925,quantity:1,diamonds:preset.diamonds,braceletMetalTier:preset.braceletMetalTier,paymentPercentage,...(preset.initialRequired?{initial:'A'}:{})};
   const q=quoteDaily(body,preset.collection);assert.ok(q.total>0,p.name);assert.equal(q.due,Math.round(q.total*paymentPercentage)/100);assert.equal(Math.round((q.due+q.balance)*100),Math.round(q.total*100));
   if(metal===(preset.defaultMetal||'gold'))assert.equal(q.total,preset.price,p.name);

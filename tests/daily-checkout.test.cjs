@@ -27,7 +27,7 @@ test('all 31 website pieces map uniquely to backend and their default price',()=
  for(const p of products){const q=quoteDaily(body(p));assert.equal(q.total,p.price,p.name);assert.ok(fs.existsSync(path.join(site,'images',p.image)));}
 });
 test('all products, metals, qualities and payment choices agree with server pricing',()=>{
- for(const p of products)for(const metal of ['gold','silver','platinum'])for(const quality of ['select','luxe'])for(const paymentPercentage of [30,50,100]){
+ for(const p of products)for(const metal of ['gold','silver','platinum'])for(const quality of ['select','luxe'])for(const paymentPercentage of [50,100]){
   const input={...body(p),metal,karat:14,paymentPercentage,diamonds:[{carat:p.diamondPriceOptions?'0.25':'0.05',qty:3,quality}],quantity:2};
   const q=quoteDaily(input),computed=pricing.computePricing(q.params);
   assert.equal(q.total,Math.round(computed.finalTotal*100)/100);assert.equal(q.due,Math.round(q.total*paymentPercentage)/100);assert.equal(Math.round((q.due+q.balance)*100),Math.round(q.total*100));

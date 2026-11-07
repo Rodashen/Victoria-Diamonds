@@ -7,7 +7,7 @@ test('three stacking sets charge the whole finished configuration three times, i
  for(const id of ['ow_s_promise','fb_s_unbreakable_hearts','fb_s_bound_by_destiny']){
   const p=all.find(p=>p.id===id),collection=p.collection||'occasionWear';
   assert.equal(p.stackingSetMultiplier,3);assert.equal(p.soldAsSet,true);
-  for(const metal of ['gold','silver','platinum'])for(const quantity of [1,2])for(const paymentPercentage of [30,50,100]){
+  for(const metal of ['gold','silver','platinum'])for(const quantity of [1,2])for(const paymentPercentage of [50,100]){
    const body={productId:id,metal,karat:18,purity:925,diamonds:p.diamonds,quantity,paymentPercentage};
    const q=quoteDaily(body,collection),r=pricing.computePricing(q.params);
    assert.equal(r.stackingSetMultiplier,3);

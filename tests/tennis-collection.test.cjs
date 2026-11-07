@@ -14,7 +14,7 @@ test('all tennis styles are moved once, retain stable URLs, and five new designs
  assert.equal(products.find(p=>p.id==='ds_m_aurea_bracelet').collection,'dailySparkle');assert.equal(products.find(p=>p.id==='sl_b_diamond_paperclip_link_bracelet').collection,'singleLady');
 });
 test('every tennis carat option quotes authoritative design-specific prices across metals and deposits',()=>{
- for(const p of tennis.filter(p=>p.category==='Bracelet'))for(const metal of ['gold','platinum','silver'])for(const carat of ['0.20','0.25','0.50','0.75','1.00'])for(const paymentPercentage of [30,50,100]){
+ for(const p of tennis.filter(p=>p.category==='Bracelet'))for(const metal of ['gold','platinum','silver'])for(const carat of ['0.20','0.25','0.50','0.75','1.00'])for(const paymentPercentage of [50,100]){
   const input={productId:p.id,metal,karat:18,purity:925,quantity:1,paymentPercentage,braceletMetalTier:'essential',diamonds:[{quality:'luxe',carat,qty:99}]};
   const q=quoteDaily(input,'tennis');assert.equal(q.params.braceletMetalTier,p.preset.braceletMetalTier);assert.equal(q.params.diamonds[0].qty,1);assert.equal(q.total,pricing.PRICING_PACKAGE_MATRIX[p.preset.braceletMetalTier][metal==='gold'?'18K':metal]+p.preset.diamondPriceOptions[carat]);assert.equal(q.due,Math.round(q.total*paymentPercentage)/100);
  }

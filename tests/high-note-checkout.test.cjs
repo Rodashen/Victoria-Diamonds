@@ -4,7 +4,7 @@ const {quoteDaily}=require(path.join(stage,'daily-checkout'));
 const productsContext={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../high-note-products.js'),'utf8'),productsContext);
 const products=productsContext.window.HighNoteProducts.products;
 assert.equal(products.length,22);
-for(const p of products)for(const metal of ['gold','silver','platinum'])for(const percentage of [30,50,100]){
+for(const p of products)for(const metal of ['gold','silver','platinum'])for(const percentage of [50,100]){
  const body={productId:p.id,metal,karat:18,purity:925,quantity:1,paymentPercentage:percentage,diamonds:p.diamonds,braceletMetalTier:p.braceletMetalTier};
  const q=quoteDaily(body,'occasionWear');assert.ok(q.total>0);assert.equal(q.due,Math.round(q.total*percentage)/100);if(metal==='gold')assert.equal(q.total,p.price);
  assert.equal(quoteDaily({...body,discount:100,expectedTotal:1},'occasionWear').total,q.total);
@@ -17,7 +17,7 @@ const context=vm.createContext({require(id){if(id==='express')return express;if(
 vm.runInContext(fs.readFileSync(path.join(stage,'server.js'),'utf8'),context);
 async function request(route,body){const res={code:200,status(code){this.code=code;return this;},set(){return this;},json(data){this.data=data;return this;}};await routes.get(route)({path:route,body},res);return res;}
 (async()=>{
- const p=products[0],body={productId:p.id,collection:'dailySparkle',metal:'gold',karat:18,purity:925,quantity:1,paymentPercentage:30,diamonds:p.diamonds,braceletMetalTier:p.braceletMetalTier,customerName:'Preview',customerEmail:'preview@example.com'};
+ const p=products[0],body={productId:p.id,collection:'dailySparkle',metal:'gold',karat:18,purity:925,quantity:1,paymentPercentage:50,diamonds:p.diamonds,braceletMetalTier:p.braceletMetalTier,customerName:'Preview',customerEmail:'preview@example.com'};
  const q=await request('/high-note/quote',body);assert.equal(q.code,200);assert.equal(calls.length,0);assert.equal(q.data.params,undefined);
  assert.equal((await request('/high-note/payment-link',{...body,expectedTotal:1})).code,409);assert.equal(calls.length,0);
  const paid=await request('/high-note/payment-link',{...body,expectedTotal:q.data.total});assert.equal(paid.code,200);assert.equal(paid.data.amount,q.data.due);

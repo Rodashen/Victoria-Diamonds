@@ -13,7 +13,7 @@ test('Prism charges standard metal plus 120 percent of diamonds across colours, 
   assert.equal(result.diamondPrice,Math.round(pricing.DIAMOND_PRICES[quality][carat]*p.stoneCount*1.2*100)/100);
   assert.equal(q.total,Math.round(((result.jewelleryPrice??result.ringPrice??result.designComplexityFee)+result.diamondPrice)*100)/100);
   assert.equal(q.params.diamondColour,colour);assert.equal(q.params.diamondOrigin,'lab');
-  for(const paymentPercentage of [30,50,100]){const deposit=quoteDaily({...b,paymentPercentage,quantity:2},'prism');assert.equal(deposit.total,q.total*2);assert.equal(deposit.due,Math.round(deposit.total*paymentPercentage)/100);}
+  for(const paymentPercentage of [50,100]){const deposit=quoteDaily({...b,paymentPercentage,quantity:2},'prism');assert.equal(deposit.total,q.total*2);assert.equal(deposit.due,Math.round(deposit.total*paymentPercentage)/100);}
  }
 });
 test('Prism rejects natural diamonds, invalid colours, changed counts, unavailable sizes and client price overrides',()=>{
