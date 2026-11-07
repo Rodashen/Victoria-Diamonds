@@ -53,7 +53,7 @@
  .promo-slides .promo-copy .btn-primary{min-height:44px;padding:12px 18px;border-radius:26px}
  .promo-slides .bespoke-advantage .promo-copy{padding:14px clamp(16px,2.3cqw,32px)}
  .promo-slides #bespoke-advantage-title{font-size:clamp(24px,3.1cqw,36px);margin-bottom:7px;text-wrap:initial}
- .promo-slides .bespoke-advantages{gap:0 14px;margin:7px 0 8px;font-size:clamp(.8125rem,1.45cqw,.9375rem)}
+ .promo-slides .bespoke-advantages{gap:0 14px;margin:7px 0 8px;font-size:clamp(.40625rem,.725cqw,.46875rem)}
  .promo-slides .bespoke-advantages>div{padding:5px 0}
  .promo-slides .bespoke-advantages dd{font-size:inherit;line-height:1.3}
 }
