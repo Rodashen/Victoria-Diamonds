@@ -1,17 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
  'use strict';
  const t=(en,cn)=>document.documentElement.lang.startsWith('zh')?cn:en;
- // Swap the existing sections only on mobile; preserve one crawlable copy of each.
- const mobileSectionOrder=matchMedia('(max-width:760px)');
- const usp=document.getElementById('bespoke-advantage'),design=document.querySelector('.home-customisation');
- let sectionsSwapped=false;
- const positionSellingPoint=()=>{
-  if(!usp||!design||sectionsSwapped===mobileSectionOrder.matches)return;
-  const slot=document.createComment('mobile-section-swap');
-  design.replaceWith(slot);usp.replaceWith(design);slot.replaceWith(usp);
-  sectionsSwapped=mobileSectionOrder.matches;
- };
- positionSellingPoint();mobileSectionOrder.addEventListener('change',positionSellingPoint);
+ const mobilePromos=matchMedia('(max-width:760px)');
+ const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)');
+ const promos=document.querySelector('.homepage-promos');
+ const slides=promos.querySelector('.promo-slides');
+ const christmas=slides.querySelector('.christmas-promo');
+ const usp=document.getElementById('bespoke-advantage');
+ const design=document.querySelector('.home-customisation');
+ const controls=promos.querySelector('.promo-controls');
+ const choices=[...controls.querySelectorAll('[data-promo-slide]')];
+ const toggle=controls.querySelector('.promo-toggle');
+ let current=0, promoTimer, paused=false, inView=false, hovering=false;
+
+ function showSlide(index){
+  current=index;
+  [christmas,usp].forEach((slide,i)=>{slide.inert=i!==index;});
+  choices.forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
+ }
+ function schedulePromo(){
+  clearTimeout(promoTimer);
+  toggle.textContent=paused||reduceMotion.matches?t('Play','播放'):t('Pause','暫停');
+  toggle.hidden=reduceMotion.matches;
+  if(mobilePromos.matches||reduceMotion.matches||paused||!inView||document.hidden||hovering||promos.contains(document.activeElement))return;
+  promoTimer=setTimeout(()=>{showSlide(1-current);schedulePromo();},4000);
+ }
+ function followPromoLink(){
+  if(location.hash!=='#bespoke-advantage')return;
+  if(mobilePromos.matches){usp.scrollIntoView();return;}
+  paused=true;
+  showSlide(1);
+  usp.scrollIntoView();
+  schedulePromo();
+ }
+ function positionSellingPoint(){
+  if(mobilePromos.matches){
+   design.before(usp);
+   usp.inert=false;
+   promos.classList.remove('promo-ready');
+  }else{
+   slides.append(usp);
+   showSlide(current);
+   promos.classList.add('promo-ready');
+  }
+  controls.hidden=mobilePromos.matches;
+  followPromoLink();
+  schedulePromo();
+ }
+ choices.forEach((button,index)=>button.addEventListener('click',()=>{paused=true;showSlide(index);schedulePromo();}));
+ toggle.addEventListener('click',()=>{paused=!paused;schedulePromo();});
+ promos.addEventListener('mouseenter',()=>{hovering=true;schedulePromo();});
+ promos.addEventListener('mouseleave',()=>{hovering=false;schedulePromo();});
+ promos.addEventListener('focusin',schedulePromo);
+ promos.addEventListener('focusout',()=>setTimeout(schedulePromo,0));
+ new IntersectionObserver(([entry])=>{inView=entry.isIntersecting;schedulePromo();},{threshold:.25}).observe(promos);
+ new MutationObserver(schedulePromo).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+ document.addEventListener('visibilitychange',schedulePromo);
+ window.addEventListener('hashchange',followPromoLink);
+ mobilePromos.addEventListener('change',positionSellingPoint);
+ reduceMotion.addEventListener('change',schedulePromo);
+ positionSellingPoint();
  const header=document.querySelector('.site-header');
  new ResizeObserver(()=>document.documentElement.style.setProperty('--landing-header-height',header.offsetHeight+'px')).observe(header);
  const menu=document.querySelector('.collection-menu');

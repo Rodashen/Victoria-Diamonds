@@ -1,7 +1,5 @@
 .mobile-home-refresh .home-customisation{padding:28px 20px;border-block:1px solid #d8cdbd}.mobile-home-refresh .edits a{display:flex;flex-direction:column}.mobile-home-refresh .edits img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:#fff}.mobile-home-refresh .edits span{flex:1}.landing-page #story:not(:target),.landing-page #craftsmanship:not(:target),.landing-page #diamond-pricing:not(:target),.landing-page #faq:not(:target){display:none}.landing-page :is(#story,#craftsmanship,#diamond-pricing,#faq){scroll-margin-top:108px}
 
-.bespoke-advantage{width:min(100%,1280px);margin-inline:auto;padding:clamp(28px,5vw,76px) clamp(20px,5vw,64px);scroll-margin-top:110px}
-.bespoke-advantage>p:not(.text-label){max-width:62ch}
 .bespoke-advantages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,56px);margin:24px 0}
 .bespoke-advantages>div{border-top:1px solid #d8cdbd;padding:14px 0}
 .bespoke-advantages dt{font-weight:600}
@@ -16,3 +14,43 @@
  .bespoke-advantage h2{font-size:clamp(30px,8vw,42px)}
  .mobile-nav-links [data-mobile-shopping]>.ux-menu-group{margin-block:0;border-block-start:0}
 }
+
+.homepage-promos{min-width:0;margin:clamp(24px,4vw,56px) 0}
+.collection-editorial>.homepage-promos{margin:0}
+.promo-slides{display:grid;border-radius:20px;overflow:hidden}
+.promo-ready .promo-slides>section{grid-area:1/1;transition:opacity .32s ease,visibility .32s}
+.promo-ready .promo-slides>section[inert]{opacity:0;visibility:hidden}
+.promo-slides>section{display:grid;grid-template-columns:44% minmax(0,1fr);min-width:0}
+.promo-art{display:grid;place-items:center;min-width:0}
+.promo-art img{display:block;width:100%;height:auto;object-fit:contain}
+.promo-slides .bespoke-advantage .promo-art{position:relative}
+.promo-slides .bespoke-advantage .promo-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 57%}
+.christmas-promo{background:#421019;color:#fff7ea}
+.christmas-promo .promo-art{background:#350711}
+.promo-copy{align-self:center;padding:clamp(24px,3vw,54px)}
+.promo-copy h2{margin:0 0 14px;font-size:clamp(30px,3.7vw,58px);line-height:1.04;text-wrap:balance}
+.promo-copy .text-label{margin:0 0 12px;color:inherit}
+.promo-copy>p:not(.text-label){margin:0 0 16px;max-width:60ch}
+.christmas-promo h2{font-style:italic}
+.christmas-promo .btn-primary{background:#fff7ea;color:#421019}
+.bespoke-advantage{background:#f0e6d9;color:#26211c;scroll-margin-top:110px}
+.bespoke-advantages{gap:0 18px;margin:14px 0 18px}
+.bespoke-advantages>div{padding:9px 0}
+.bespoke-advantages dd{font-size:.875rem;line-height:1.4}
+.promo-controls:not([hidden]){display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin-top:8px}
+.promo-controls button{min-height:44px;padding:8px 4px;background:none;border:0;color:inherit;font:inherit;font-size:.875rem;cursor:pointer}
+.promo-controls button[aria-pressed="true"]{text-decoration:underline;text-underline-offset:6px;text-decoration-color:#876320;font-weight:600}
+.promo-controls .promo-toggle{margin-inline-start:auto}
+@media(max-width:760px){
+ .homepage-promos{display:none}
+ .mobile-home-refresh .bespoke-advantage{display:grid;padding:0;width:auto;margin:16px 12px 22px;border-radius:20px;overflow:hidden}
+ .mobile-home-refresh .bespoke-advantage .promo-art{background:#ecdecc}
+ .mobile-home-refresh .bespoke-advantage .promo-art img{height:clamp(150px,45vw,220px);object-fit:cover;object-position:center 57%}
+ .mobile-home-refresh .bespoke-advantage .promo-copy{padding:20px 16px 22px}
+ .mobile-home-refresh .bespoke-advantage h2{font-size:clamp(30px,8vw,42px)}
+ .mobile-home-refresh .bespoke-advantages{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}
+ .mobile-home-refresh .bespoke-advantage .btn-primary{display:flex;justify-content:center;align-items:center;min-height:44px;text-align:center}
+ html:not(:has(.mobile-home-refresh .bespoke-advantage)) .homepage-promos{display:block}
+ html:not(:has(.mobile-home-refresh .bespoke-advantage)) .promo-slides>section{grid-template-columns:minmax(0,1fr)}
+}
+@media(prefers-reduced-motion:reduce){.promo-ready .promo-slides>section{transition:none}}

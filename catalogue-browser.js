@@ -45,6 +45,7 @@
  function filterProduct(product,filters={}) {
   const registry=window.VDProducts;
   if(registry&&!registry.activeProduct(product))return false;
+  if(filters.type&&!filters.collection&&registry?.silverFamily(product))return false;
   const edit=registry?.navigationGroups.some(g=>g.id===filters.collection);
   const inCollection=!filters.collection||(edit?registry.shoppingGroups(product).includes(filters.collection):filters.collection==='silverCollection'?registry?.silverFamily(product):product.collection===filters.collection);
   return (!filters.style||ringStyle(product)===filters.style)&&inCollection&&(!filters.type||typeOf(product.category)===filters.type)&&matches(product,filters.query||'')&&(!filters.max||(product.price!==null&&product.price!==''&&Number.isFinite(Number(product.price))&&(!product.currency||product.currency==='GBP')&&Number(product.price)<=Number(filters.max)));
