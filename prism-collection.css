@@ -5,3 +5,11 @@
 @media(max-width:760px){.prism-hero{grid-template-columns:1fr;padding:32px 22px;gap:24px}.prism-hero h1{font-size:56px}.prism-colour-options{grid-template-columns:repeat(3,minmax(0,1fr))}.prism-colour-options button{font-size:13px;min-height:96px}}
 @media(prefers-reduced-motion:reduce){.prism-colour-options button{transition:none}.prism-colour-options button:hover{transform:none}}
 .colour-discovery{max-width:1360px;margin:auto;padding:32px;box-sizing:border-box}.colour-discovery h2{font:400 36px/1.2 'Cormorant Garamond',serif}.colour-discovery-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}.colour-discovery-grid a{display:flex;flex-direction:column;text-align:center;gap:10px;color:inherit;text-decoration:none;padding:8px;background:#fff;border-radius:12px}.colour-discovery-grid img{width:100%;height:auto;object-fit:contain}.colour-discovery-grid a:focus-visible{outline:2px solid #a17b28;outline-offset:3px}@media(max-width:760px){.colour-discovery{padding:24px 22px}.colour-discovery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.colour-discovery-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;padding:12px 0 18px;gap:14px}
+.colour-discovery-grid a{flex:0 0 clamp(132px,15vw,190px);scroll-snap-align:start;box-sizing:border-box;background:transparent}
+.colour-discovery-grid img{aspect-ratio:1;object-fit:contain}
+.colour-carousel-controls{display:flex;justify-content:flex-end;gap:10px}
+.colour-carousel-controls button{width:44px;height:44px;border:1px solid #cbbba8;border-radius:50%;background:#fffaf3;color:#282828;cursor:pointer;font-size:20px}
+.colour-carousel-controls button:focus-visible,.colour-discovery-grid:focus-visible{outline:2px solid #a17b28;outline-offset:3px}
+@media(max-width:760px){.colour-discovery-grid a{flex-basis:145px}}
