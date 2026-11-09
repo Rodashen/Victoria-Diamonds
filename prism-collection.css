@@ -16,6 +16,8 @@
 .colour-discovery{max-width:1120px;padding-top:24px;padding-bottom:20px}
 .colour-discovery h2{font-size:30px;margin:0 0 8px}
 .colour-discovery-grid{gap:12px;padding:6px 0 12px}
+.colour-discovery-grid{scrollbar-width:none;-ms-overflow-style:none}
+.colour-discovery-grid::-webkit-scrollbar{display:none}
 .colour-discovery-grid a{flex-basis:clamp(110px,12vw,150px)}
 .colour-discovery-grid picture{display:block;width:100%}
 @media(max-width:760px){.colour-discovery{padding:20px 22px}.colour-discovery-grid a{flex-basis:116px}}
