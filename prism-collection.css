@@ -13,3 +13,9 @@
 .colour-carousel-controls button{width:44px;height:44px;border:1px solid #cbbba8;border-radius:50%;background:#fffaf3;color:#282828;cursor:pointer;font-size:20px}
 .colour-carousel-controls button:focus-visible,.colour-discovery-grid:focus-visible{outline:2px solid #a17b28;outline-offset:3px}
 @media(max-width:760px){.colour-discovery-grid a{flex-basis:145px}}
+.colour-discovery{max-width:1120px;padding-top:24px;padding-bottom:20px}
+.colour-discovery h2{font-size:30px;margin:0 0 8px}
+.colour-discovery-grid{gap:12px;padding:6px 0 12px}
+.colour-discovery-grid a{flex-basis:clamp(110px,12vw,150px)}
+.colour-discovery-grid picture{display:block;width:100%}
+@media(max-width:760px){.colour-discovery{padding:20px 22px}.colour-discovery-grid a{flex-basis:116px}}
