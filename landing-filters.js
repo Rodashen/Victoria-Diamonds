@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded',()=>{
  function options(select,values){const selected=select.value;select.replaceChildren();values.forEach(([value,text])=>{const option=document.createElement('option');option.value=value;option.textContent=text;select.append(option);});select.value=selected;}
  function labels(){
   label('landingCollection',t('Collection','系列'));label('landingType',t('Jewellery type','珠寶類別'));label('landingPrice',t('Starting price','起始價格'));reset.textContent=t('Clear filters','清除篩選');
-  options(collection,[['',t('All collections','所有系列')],...Object.entries(registry.collections).map(([key,value])=>[key,value[document.documentElement.lang.startsWith('zh')?2:0]])]);
-  const types=[...new Set(registry.products.map(product=>product.category==='Earring Stud'?'Earring':product.category))];
+  options(collection,[['',t('All collections','所有系列')],...Object.entries(registry.collections).filter(([key])=>!['silverCollection','petLoverCollection','christmasCollection','keepsakeCollection'].includes(key)).map(([key,value])=>[key,value[document.documentElement.lang.startsWith('zh')?2:0]])]);
+  const types=[...new Set(registry.products.filter(product=>!registry.silverFamily(product)).map(product=>product.category==='Earring Stud'?'Earring':product.category))];
   options(type,[['',t('All types','所有類別')],...types.map(value=>[value,cards.categoryName(value)])]);
   options(max,[['',t('Any price','所有價格')],['200',t('Up to £200','£200 以下')],['1000',t('Up to £1,000','£1,000 以下')],['2500',t('Up to £2,500','£2,500 以下')],['5000',t('Up to £5,000','£5,000 以下')]]);
  }

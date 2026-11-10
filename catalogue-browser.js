@@ -45,7 +45,7 @@
  function filterProduct(product,filters={}) {
   const registry=window.VDProducts;
   if(registry&&!registry.activeProduct(product))return false;
-  if(filters.type&&!filters.collection&&registry?.silverFamily(product))return false;
+  if(registry?.silverFamily(product))return false;
   const edit=registry?.navigationGroups.some(g=>g.id===filters.collection);
   const inCollection=!filters.collection||(edit?registry.shoppingGroups(product).includes(filters.collection):filters.collection==='silverCollection'?registry?.silverFamily(product):product.collection===filters.collection);
   return (!filters.style||ringStyle(product)===filters.style)&&inCollection&&(!filters.type||typeOf(product.category)===filters.type)&&matches(product,filters.query||'')&&(!filters.max||(product.price!==null&&product.price!==''&&Number.isFinite(Number(product.price))&&(!product.currency||product.currency==='GBP')&&Number(product.price)<=Number(filters.max)));
@@ -89,7 +89,7 @@
   const controls=element('section',undefined,'catalogue-filters'); controls.setAttribute('aria-label','Find jewellery');
   const makeSelect=(id,label,options)=>{const wrap=element('label',label);const select=element('select');select.id=id;options.forEach(([value,name])=>{const option=element('option',name);option.value=value;select.append(option);});wrap.append(select);controls.append(wrap);return select;};
   const label=element('label',t('Search pieces','搜尋作品'));const query=element('input');query.type='search';query.id='catalogueQuery';label.append(query);controls.append(label);
-  const collection=makeSelect('collectionFilter',t('Collection','系列'),[['',t('All collections','所有系列')],...(window.VDProducts?.navigationGroups||[]).map(g=>[g.id,t(g.en,g.zh)]),...Object.entries(window.VDProducts?.collections||collections).map(([key,value])=>[key,value[zh()?2:0]])]);
+  const collection=makeSelect('collectionFilter',t('Collection','系列'),[['',t('All collections','所有系列')],...(window.VDProducts?.navigationGroups||[]).map(g=>[g.id,t(g.en,g.zh)]),...Object.entries(window.VDProducts?.collections||collections).filter(([key])=>!['silverCollection','petLoverCollection','christmasCollection','keepsakeCollection'].includes(key)).map(([key,value])=>[key,value[zh()?2:0]])]);
   const type=makeSelect('typeFilter',t('Jewellery type','珠寶類別'),[['',t('All types','所有類別')],...Object.entries(types).map(([key,value])=>[key,value[zh()?1:0]])]);
   const style=makeSelect('ringStyleFilter',t('Ring style','戒指款式'),[['',t('All ring styles','所有戒指款式')],['solitaire',t('Solitaire','單鑽')],['halo',t('Halo & hidden halo','光環及隱藏光環')],['three',t('Three-stone','三石')],['bands',t('Bands & eternity','戒環及永恆戒指')],['statement',t('Statement & signet','個性及印章戒指')],['other',t('Other ring designs','其他戒指設計')]]);
   const price=makeSelect('priceFilter',t('Displayed price (GBP)','顯示價格（英鎊）'),[['',t('Any price','所有價格')],['200',t('Up to £200','£200 以下')],['1000',t('Up to £1,000','£1,000 以下')],['2500',t('Up to £2,500','£2,500 以下')],['5000',t('Up to £5,000','£5,000 以下')]]);
