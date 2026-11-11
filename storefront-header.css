@@ -57,3 +57,14 @@
  .vd-mobile-menu.ma-sheet-links>a.vd-mobile-silver:not(.ma-contact-button):not(.ma-browse-all),
  .vd-mobile-menu [data-mobile-section="collections"]>summary{font:700 16px/1.4 var(--font-body,'DM Sans',Arial,sans-serif)!important;letter-spacing:0!important;}
 }
+
+@media(max-width:1099px){
+ .vd-mobile-menu .ux-menu-group>summary,
+ .vd-mobile-menu .ux-menu-group>a,
+ .vd-mobile-menu.ma-sheet-links>a:not(.ma-contact-button),
+ .vd-mobile-menu .vd-mobile-info>summary,
+ .vd-mobile-menu .vd-mobile-info>a {
+  font:600 16px/1.4 var(--font-body,'DM Sans',Arial,sans-serif)!important;
+  letter-spacing:0!important;
+ }
+}
