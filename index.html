@@ -159,8 +159,8 @@
     <script src="daily-products.js?v=20261102seo020" defer></script>
     <script src="catalogue-browser.js?v=20261110silver" defer></script>
     <script src="landing-page.js?v=20261108uspfirst" defer></script>
-    <script src="translations.js?v=20261112colour"></script>
-    <script src="victoria-diamonds.js?v=20261105hk"></script>
+    <script src="translations.js?v=20261113craft"></script>
+    <script src="victoria-diamonds.js?v=20261113craft"></script>
 <script src="high-note-products.js?v=20261102seo020" defer></script>
 <script src="remaining-products.js?v=20261112colour" defer></script><script src="product-registry.js?v=20261104edits" defer></script><script src="design-rules.js?v=20261107halocheckout" defer></script><script src="diamond-prices.js?v=20261112colour" defer></script>
 <link rel="stylesheet" href="collection-showcase.css?v=20261017c">
@@ -173,9 +173,9 @@
 <link rel="stylesheet" href="atelier-feedback.css?v=20261023ring">
 <link rel="stylesheet" href="mobile-atelier.css?v=20261102navigation">
 <link rel="stylesheet" href="silver-studio.css?v=20261103prismmobile">
-<link rel="stylesheet" href="shopping-navigation.css?v=20261102festive2">
-<script src="shopping-navigation.js?v=20261108banners" defer></script>
-<link rel="stylesheet" href="storefront-header.css?v=20261112colour"><script>document.documentElement.classList.add("vd-header-starting");setTimeout(()=>document.documentElement.classList.remove("vd-header-starting"),3000);</script><link rel="stylesheet" href="mobile-home-refresh.css?v=20261104order"><link rel="stylesheet" href="mobile-home-lens.css?v=20261104"><link rel="stylesheet" href="homepage-priorities.css?v=20261110usp"></head>
+<link rel="stylesheet" href="shopping-navigation.css?v=20261113craft">
+<script src="shopping-navigation.js?v=20261113craft" defer></script>
+<link rel="stylesheet" href="storefront-header.css?v=20261112colour"><script>document.documentElement.classList.add("vd-header-starting");setTimeout(()=>document.documentElement.classList.remove("vd-header-starting"),3000);</script><link rel="stylesheet" href="mobile-home-refresh.css?v=20261104order"><link rel="stylesheet" href="mobile-home-lens.css?v=20261104"><link rel="stylesheet" href="homepage-priorities.css?v=20261110usp"><script>if(new URLSearchParams(location.search).get('panel')==='guarantee')location.replace('our-guarantee.html'+(new URLSearchParams(location.search).get('lang')==='zh-HK'?'?lang=zh-HK':''));</script></head>
 <body class="landing-page">
     <div class="progress-bar" id="progressBar"></div>
 
@@ -190,7 +190,7 @@
                     <details class="collection-menu"><summary data-i18n="nav-collections">Collections</summary><div class="collection-menu-links">
 <a href="view-catalogue.html?collection=romance" data-i18n="home-hk-4">Romance</a><a href="view-catalogue.html?collection=everyday" data-i18n="home-hk-5">Everyday</a><a href="view-catalogue.html?collection=celebration" data-i18n="home-hk-6">Celebration</a><a href="view-catalogue.html?collection=tennis" data-i18n="home-hk-7">Tennis</a><a href="view-catalogue.html?collection=men" data-i18n="home-hk-8">Men’s jewellery</a><a href="view-catalogue.html" data-i18n="qol-browse-all">Browse all pieces →</a>
 </div></details>
-<details class="collection-menu"><summary>Discover Victoria</summary><div class="collection-menu-links"><a href="journal.html" data-i18n="home-hk-26">Blogs</a><a href="#diamond-pricing">Price</a><a href="Jewelry-Care.pdf" data-i18n="home-hk-32">Jewellery care</a><a href="Catalogue.pdf" download>Download our catalogue</a><button class="js-guarantee-trigger">Our Guarantee</button><a href="artist.html">Know Our Artist</a><a href="#story" data-i18n="home-hk-13">Our story</a><a href="#craftsmanship" data-i18n="home-hk-25">Craftsmanship</a></div></details>
+<details class="collection-menu"><summary>Discover Victoria</summary><div class="collection-menu-links"><a href="journal.html" data-i18n="home-hk-26">Blogs</a><a href="#diamond-pricing">Price</a><a href="Jewelry-Care.pdf" data-i18n="home-hk-32">Jewellery care</a><a href="Catalogue.pdf" download>Download our catalogue</a><a href="our-guarantee.html">Our Guarantee</a><a href="artist.html">Artist Collaborations</a><a href="#story" data-i18n="home-hk-13">Our story</a><a href="#craftsmanship" data-i18n="home-hk-25">Craftsmanship</a></div></details>
 
 
                     <a href="https://calendly.com/general-victoria-diamonds/30min" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav-book-appointment">Book Appointment</a>
@@ -273,9 +273,9 @@
                 <a href="Jewelry-Care.pdf" target="_blank" rel="noopener" data-i18n="nav-jewelry-care">Jewelry Care</a>
             </li>
             <li>
-                <a href="#" id="mobileGuaranteeLink" class="js-guarantee-trigger" data-i18n="nav-our-guarantee">Our Guarantee</a>
+                <a href="our-guarantee.html" data-i18n="nav-our-guarantee">Our Guarantee</a>
             </li>
-            <li><a href="artist.html">Know Our Artist</a></li>
+            <li><a href="artist.html">Artist Collaborations</a></li>
         </ul>
     </nav>
 
@@ -502,7 +502,7 @@
                     </ul>
                     <div style="display:flex;flex-wrap:wrap;gap:1rem;">
                         <a href="#contact" class="btn-primary" data-i18n="craft-commission">Commission a Custom Piece</a>
-                        <a href="artist.html" class="btn-primary" id="craftArtistBtn" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);cursor:pointer;" data-i18n="craft-know-artist">Know Our Artist</a>
+                        <a href="artist.html" class="btn-primary" id="craftArtistBtn" style="background:transparent;color:var(--color-charcoal);border-color:var(--color-charcoal);cursor:pointer;" data-i18n="craft-know-artist">Artist Collaborations</a>
                     </div>
                 </div>
                 <div class="craft-image-wrapper">
@@ -541,10 +541,11 @@
 <article class="testimonial-card testimonial-card-photo testimonial-featured">
                     <p class="testimonial-text" data-i18n="testimonial-hideo">It looks lovely on her—simple and elegant. 👍</p>
                     <div class="testimonial-author"><div class="testimonial-info"><p class="testimonial-name">Hideo U</p><p class="testimonial-detail"><span data-i18n="review-purchased">Purchased:</span> <a href="product.html?item=silver_link_charm" target="_blank" rel="noopener">Link Charm Bracelet</a></p></div></div>
-                    <div class="testimonial-photos">
+                    <div class="testimonial-photos review-thumbnails">
                         <a href="images/hideo-link-charm-closeup.png" target="_blank" rel="noopener" aria-label="Open Hideo’s close-up bracelet photo"><img src="images/hideo-link-charm-closeup.png" alt="Hideo’s photo of the Link Charm Bracelet on a wrist" width="1536" height="2048" loading="lazy"></a>
                         <a href="images/hideo-link-charm-worn.png" target="_blank" rel="noopener" aria-label="Open Hideo’s bracelet styling photo"><img src="images/hideo-link-charm-worn.png" alt="Hideo’s photo showing the Link Charm Bracelet worn with rings" width="1536" height="2048" loading="lazy"></a>
                     </div>
+                    <dialog id="reviewPhotoDialog" aria-label="Client photo"><button type="button" aria-label="Close photo">×</button><img alt=""></dialog>
                     <a class="testimonial-shop" href="product.html?item=silver_link_charm" target="_blank" rel="noopener" data-i18n="review-buy-yours">Buy yours too →</a>
                     <div class="testimonial-reply"><p class="testimonial-reply-label" data-i18n="review-reply-label">Reply from Victoria Diamonds</p><p data-i18n="review-reply-4">Thank you, Hideo. We’re so pleased the Link Charm Bracelet looks lovely on her, and we appreciate you sharing these photos with us.</p></div>
                 </article>
@@ -810,60 +811,7 @@
         </div>
     </section>
 
-<!-- Our Guarantee Modal -->
-    <div class="modal-overlay" id="guaranteeModal" aria-hidden="true">
-        <div class="modal-popup guarantee-popup" role="dialog" aria-modal="true" aria-labelledby="guaranteeHeading">
-            <button class="modal-close-x" id="guaranteeModalCloseX" type="button" aria-label="Close guarantee modal">×</button>
-            <div class="guarantee-modal-body">
-                <p class="text-label" style="margin-bottom:0.75rem;" data-i18n="guarantee-label">Our Promise</p>
-                <h2 class="heading-display" id="guaranteeHeading" style="font-size:2rem;margin-bottom:1rem;line-height:1.1;" data-i18n="guarantee-title">The Victoria Diamonds Promise</h2>
-                <p class="text-body" style="font-size:0.97rem;margin-bottom:1.5rem;" data-i18n="guarantee-subtitle">
-                    Every piece is crafted with uncompromising care, transparency, and attention to the details that matter most to you.
-                </p>
-                <div class="guarantee-modal-grid">
-                    <div class="guarantee-item">
-                        <h3 class="guarantee-item-title" data-i18n="guarantee-1-title">Complementary Personal Inscriptions</h3>
-                        <p class="guarantee-item-text" data-i18n="guarantee-1-text">
-                            Complementary bespoke engraving (name, date, or private message) crafted with precision onto your piece.
-                        </p>
-                    </div>
-                    <div class="guarantee-item">
-                        <h3 class="guarantee-item-title" data-i18n="guarantee-2-title">Personalized Design Approval</h3>
-                        <p class="guarantee-item-text" data-i18n="guarantee-2-text">
-                            Custom 2D designs shared for your review before any gemstone is set or metal cast; production starts only after your approval.
-                        </p>
-                    </div>
-                    <div class="guarantee-item">
-                        <h3 class="guarantee-item-title" data-i18n="guarantee-3-title">Tailored Precision Fit</h3>
-                        <p class="guarantee-item-text" data-i18n="guarantee-3-text">
-                            Each ring is individually crafted to your exact size for a balanced, comfortable fit.
-                        </p>
-                    </div>
-                    <div class="guarantee-item">
-                        <h3 class="guarantee-item-title" data-i18n="guarantee-4-title">Certified Excellence</h3>
-                        <p class="guarantee-item-text" data-i18n="guarantee-4-text">
-                            Every lab-grown diamond over 1.00 carat comes with an independent IGI grading report.
-                        </p>
-                    </div>
-                    <div class="guarantee-item">
-                        <h3 class="guarantee-item-title" data-i18n="guarantee-5-title">One-Year Complimentary Care & Resizing</h3>
-                        <p class="guarantee-item-text" data-i18n="guarantee-5-text">
-                            One free ring resizing within the first year of ownership.
-                        </p>
-                    </div>
-                    <div class="guarantee-item">
-                        <h3 class="guarantee-item-title" data-i18n="guarantee-6-title">Bespoke Creation Integrity</h3>
-                        <p class="guarantee-item-text" data-i18n="guarantee-6-text">
-                            Custom commissions are one-of-a-kind and final sale, as they can't be repurposed.
-                        </p>
-                    </div>
-                </div>
-                <section class="guarantee-certificate"><h3>Jewellery purchase &amp; specification certificate</h3><p>Your certificate records the purchase date, client and item description, metal type and weight, number of stones and total carat weight. Its stone schedule records shape, carat, colour, clarity and certification numbers where applicable, alongside purchase price and authentication.</p><p>This seller-issued record of sale is separate from an independent diamond grading report. It is not an independent valuation. For insurance, probate or open-market valuation, obtain a report from a qualified independent valuer.</p><a class="btn-primary" href="sample-certificate.html">View sample certificate</a></section><button class="modal-close-btn" id="guaranteeModalCloseBtn" type="button" data-i18n="modal-close">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
+<!-- Footer -->
     <section class="newsletter-inline" aria-labelledby="newsletterInlineTitle"><div class="container newsletter-inline-inner"><div><h2 id="newsletterInlineTitle" data-i18n="qol-newsletter-title">Stay close to the collection</h2><p data-i18n="qol-newsletter-copy">New pieces and stories from Victoria Diamonds.</p></div><form id="newsletterInlineForm"><label for="newsletterInlineEmail" data-i18n="qol-email">Your email address</label><div class="newsletter-inline-fields"><input id="newsletterInlineEmail" type="email" autocomplete="email" required><button class="btn-primary" type="submit" data-i18n="qol-subscribe">Subscribe</button></div></form></div></section>
     <footer class="site-footer">
         <div class="container">
@@ -906,7 +854,7 @@
                         <li><a href="#contact" data-i18n="footer-custom-design">Custom Design</a></li>
                         <li><a href="T&C.pdf" target="_blank" rel="noopener" data-i18n="footer-terms-conditions">Terms &amp; Conditions</a></li>
                         <li><a href="journal.html" data-i18n="home-hk-26">Blogs</a></li>
-                        <li><a href="artist.html">Know Our Artist</a></li>
+                        <li><a href="artist.html">Artist Collaborations</a></li>
                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
                         <li><a href="returns-policy.html">Returns &amp; Refunds</a></li>
                         <li><a href="cookie-policy.html">Cookie Policy</a></li>
@@ -1208,7 +1156,7 @@
 <script src="page-back.js?v=20261103prism" defer></script>
 <script src="desktop-storefront.js?v=20261108banners" defer></script>
 <script src="atelier-theme.js?v=20261028tennis" defer></script>
-<script src="mobile-atelier.js?v=20261106mobileorder" defer></script>
-<script src="storefront-header.js?v=20261106mobileorder" defer></script>
+<script src="mobile-atelier.js?v=20261113craft" defer></script>
+<script src="storefront-header.js?v=20261113craft" defer></script>
 <script src="mobile-home-lens.js?v=20261107shopping" defer></script></body>
 </html>

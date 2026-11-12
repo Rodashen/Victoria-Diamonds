@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   nav.append(details(t('Collections','系列'),[...grouped,link('prism-collection.html',t('Colour Diamond','彩色鑽石')),tennis,link('view-catalogue.html',t('Browse all pieces','瀏覽所有作品'))]));
   nav.append(link('silver-collection.html',t('Silver','純銀'),'vd-collection-pill'));
   nav.append(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈')));
-  const guarantee=document.createElement('button');guarantee.type='button';guarantee.textContent=t('Our Guarantee','我們的保證');guarantee.onclick=()=>{const trigger=guaranteeTrigger;if(trigger)trigger.click();else location.href='index.html?panel=guarantee';};
-  nav.append(details(t('Discover Victoria','探索 Victoria'),[link('journal.html',t('Blogs','網誌')),link('igi-certificate.html',t('IGI Certificate','IGI 證書')),link('jewellery-care.html',t('Jewellery care','珠寶保養')),guarantee,link('artist.html',t('Know Our Artist','認識藝術家')),link('our-story.html',t('Our Story & Craftsmanship','品牌故事與工藝'))]));
+  const guarantee=link('our-guarantee.html',t('Our Guarantee','我們的保證'));
+  nav.append(details(t('Discover Victoria','探索 Victoria'),[link('journal.html',t('Blogs','網誌')),link('igi-certificate.html',t('IGI Certificate','IGI 證書')),link('jewellery-care.html',t('Jewellery care','珠寶保養')),guarantee,link('artist.html',t('Artist Collaborations','藝術家合作')),link('our-story.html',t('Craftsmanship','工藝'))]));
   nav.append(link('index.html#contact',t('Book appointment','預約'),'vd-book-appointment'));
  }
  render();row.append(nav);
@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded',()=>{
  document.addEventListener('click',e=>{if(!nav.contains(e.target))nav.querySelectorAll('details').forEach(d=>d.open=false);});
  nav.addEventListener('keydown',e=>{if(e.key==='Escape'){const open=nav.querySelector('details[open]');if(open){open.open=false;open.querySelector('summary').focus();}}});
  // One mobile hierarchy across home, product and collection sheets.
- const guaranteeTrigger=header.querySelector('.js-guarantee-trigger');
  function mobileInformation(){
   document.querySelectorAll('.mobile-nav-links,.ux-menu-links,.ma-sheet-links').forEach(menu=>{
    const opened=[...menu.querySelectorAll('details[open]')].map(d=>d.dataset.mobileSection).filter(Boolean);
@@ -70,13 +69,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     ...groups.filter(g=>g.id!=='tennis').map(g=>link('view-catalogue.html?collection='+g.id,t(g.en,g.zh))),
     link('prism-collection.html',t('Colour Diamond','彩色鑽石')),tennis,
     link('view-catalogue.html',t('Browse all pieces','瀏覽所有作品'))]);
-   const guarantee=link('index.html?panel=guarantee',t('Our Guarantee','我們的保證'));
-   if(guaranteeTrigger)guarantee.addEventListener('click',event=>{event.preventDefault();menu.closest('dialog')?.close();guaranteeTrigger.click();});
+   const guarantee=link('our-guarantee.html',t('Our Guarantee','我們的保證'));
    const discover=group(t('Discover Victoria','探索 Victoria'),'discover',[
     link('journal.html',t('Blogs','網誌')),link('igi-certificate.html',t('IGI Certificate','IGI 證書')),
     link('jewellery-care.html',t('Jewellery care','珠寶保養')),guarantee,
-    link('artist.html',t('Know Our Artist','認識藝術家')),
-    link('our-story.html',t('Our Story & Craftsmanship','品牌故事與工藝'))]);
+    link('artist.html',t('Artist Collaborations','藝術家合作')),
+    link('our-story.html',t('Craftsmanship','工藝'))]);
    discover.classList.add('vd-mobile-info');
    menu.replaceChildren(wrap(shopping));menu.classList.add('vd-mobile-menu');
    menu.append(wrap(link('silver-collection.html',t('Silver','純銀'),'vd-mobile-silver')));
@@ -87,5 +85,4 @@ document.addEventListener('DOMContentLoaded',()=>{
  mobileInformation();
  document.addEventListener('vd-mobile-navigation-refresh',mobileInformation);
  new MutationObserver(()=>{syncLanguageURL();render();mobileInformation();language.value=document.documentElement.lang.startsWith('zh')?'zh-HK':'en';}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
- if(new URLSearchParams(location.search).get('panel')==='guarantee')guaranteeTrigger?.click();
 });

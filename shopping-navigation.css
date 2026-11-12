@@ -8,3 +8,17 @@
 .shopping-navigation-ready .shopping-seasonal .collection-feature-copy>.shopping-seasonal-label{background:transparent!important;padding:0!important;min-height:0!important;border:0!important;border-radius:0!important;color:#e4c991!important;display:block!important;width:auto!important;letter-spacing:.18em!important;text-decoration:none!important}
 
 @media(min-width:761px){.landing-page.shopping-navigation-ready .collection-editorial{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;align-items:start!important}.landing-page.shopping-navigation-ready .shopping-collections{background:transparent!important;border:0!important;padding-top:0!important}.landing-page.shopping-navigation-ready .shopping-seasonal{border:0!important;box-shadow:none!important;margin:0!important}.shopping-collections h3{font-size:30px;line-height:1.2;margin-bottom:24px}}
+
+.shopping-product-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 60px)/4);overflow-x:auto;scroll-snap-type:x proximity;padding:4px 4px 12px}
+.shopping-product-grid .shopping-product{scroll-snap-align:start}
+.review-thumbnails{display:flex!important;grid-column:auto!important;gap:8px!important;justify-content:flex-start!important}
+.review-thumbnails a{display:block!important;width:54px!important;flex:0 0 54px}
+.review-thumbnails img{width:54px!important;height:54px!important;aspect-ratio:1!important;object-fit:cover!important}
+#reviewPhotoDialog{max-width:min(90vw,640px);max-height:90vh;padding:12px;border:0;border-radius:14px;background:#fffdf9}
+#reviewPhotoDialog img{display:block;max-width:100%;max-height:76vh;object-fit:contain}
+#reviewPhotoDialog button{display:block;margin:0 0 6px auto;font-size:24px;width:44px;height:44px;cursor:pointer}
+#reviewPhotoDialog::backdrop{background:#0009}
+@media(max-width:760px){.shopping-product-grid{grid-template-columns:none;grid-auto-columns:calc((100% - 12px)/2);gap:12px}}
+
+.shopping-scroll-buttons{display:flex;justify-content:flex-end;gap:8px;margin:0 4px 8px}
+.shopping-scroll-buttons button{min-width:44px;min-height:44px;border:1px solid #c4b5a5;border-radius:50%;background:#fffdf9;color:#282828;cursor:pointer}

@@ -13,10 +13,8 @@
         const mobileOverlay = document.getElementById('mobileOverlay');
         const mobileNavClose = document.getElementById('mobileNavClose');
         const transparencyModal = document.getElementById('transparencyModal');
-        const guaranteeModal = document.getElementById('guaranteeModal');
         const managedModals = [
-            transparencyModal,
-            guaranteeModal
+            transparencyModal
         ].filter(Boolean);
         const originalBodyOverflow = document.body.style.overflow;
 
@@ -125,13 +123,6 @@
             trigger.addEventListener('click', function(event) {
                 event.preventDefault();
                 openModal(transparencyModal);
-            });
-        });
-
-        document.querySelectorAll('.js-guarantee-trigger').forEach(function(trigger) {
-            trigger.addEventListener('click', function(event) {
-                event.preventDefault();
-                openModal(guaranteeModal);
             });
         });
 
