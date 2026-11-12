@@ -38,7 +38,9 @@ for(const p of context.window.VDProducts.products.filter(p=>p.mode==='custom')){
  if(preset.diamondPriceOptions){
   const listed=(p.details||[]).filter(d=>['centreStone','mainDiamond','mainSide','secondarySide','finishingSide','sideStone','eachDiamond'].includes(d.key)).map(d=>{const match=d.value.match(/([\d.]+)\s*(?:ct\s*)?[x×]\s*(\d+)/i);return match?{carat:Number(match[1]),qty:Number(match[2])}:{carat:parseFloat(d.value),qty:1};}).filter(d=>d.carat>0);
   const total=parseFloat(p.details?.find(d=>d.key==='totalKarat')?.value);
-  naturalDesign=listed.length?listed:Number.isFinite(total)&&Number.isInteger(total/Number(diamonds[0].carat))?[{carat:Number(diamonds[0].carat),qty:total/Number(diamonds[0].carat)}]:[];
+  const carat=Number(diamonds[0].carat);
+  const count=preset.stoneCount||Math.round(total/carat);
+  naturalDesign=listed.length?listed:Number.isInteger(count)&&count>0&&Math.abs(count*carat-total)<0.00001?[{carat,qty:count}]:[];
  }
  const selected=naturalDesign.map(d=>{const stone=p.collection==='tennisCollection'?context.window.VDTennisNatural.select(items,'Round',d.carat,d.carat*d.qty):items.filter(i=>i.carat===Number(d.carat)).sort((a,b)=>a.price-b.price)[0];return stone?{naturalId:stone.id,qty:d.qty}:null;});
  const available=!rules[p.id]?.labOnly&&selected.length>0&&selected.every(Boolean);
