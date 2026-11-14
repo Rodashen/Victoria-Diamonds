@@ -74,7 +74,10 @@
    if(select.id==='dailyDestination'||select.disabled||select.closest('.daily-diamond')?.hidden)return;
    const original=select.parentElement,group=document.createElement('fieldset'),legend=document.createElement('legend');
    group.className='configuration-options';if(original.id)group.id=original.id;group.hidden=original.hidden;
-   legend.textContent=original.firstChild.textContent.trim();group.append(legend);
+   legend.textContent=original.firstChild.textContent.trim();
+   const helpLink=original.querySelector('.colour-intensity-help');
+   if(helpLink)legend.append(helpLink);
+   group.append(legend);
    const choices=document.createElement('div');choices.className='configuration-choices';
    const metal=select.id==='dailyMetal',diamond=select.id.startsWith('dailyCarat');
    if(select.id==='dailyInitial')group.classList.add('initial-options');
