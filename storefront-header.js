@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded',()=>{
    menu.replaceChildren(wrap(shopping));menu.classList.add('vd-mobile-menu');
    menu.append(wrap(link('silver-collection.html',t('Silver','純銀'),'vd-mobile-silver')));
    if(types){types.dataset.mobileSection='types';menu.append(wrap(types));}
-   menu.append(wrap(discover),wrap(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈'))),wrap(link('index.html#contact',t('Book appointment','預約'))));
+   menu.append(wrap(discover),wrap(link('corporate-collaborations.html',t('Corporate gifts','企業禮贈'),'vd-mobile-primary-link')),wrap(link('index.html#contact',t('Book appointment','預約'),'vd-mobile-primary-link')));
   });
  }
  mobileInformation();

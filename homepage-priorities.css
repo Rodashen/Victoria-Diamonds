@@ -91,3 +91,16 @@
 @media(max-width:760px){
  .mobile-home-refresh .bespoke-advantage .promo-art img{width:100%;aspect-ratio:auto}
 }
+
+@media(max-width:760px){
+ .mobile-home-refresh #mobile-home-corporate,.mobile-home-refresh .mobile-home-shortcut,.mobile-home-refresh .bespoke-advantage .promo-art{display:none!important}
+ .mobile-home-refresh .bespoke-advantage{background:#efe3d0;color:#28211a;border:1px solid #ac8a51}
+ .mobile-home-refresh .bespoke-advantage .promo-copy{color:inherit;background:transparent}
+ .mobile-home-refresh .bespoke-advantage :is(h2,p,dt,dd){color:inherit}
+ .mobile-home-refresh .bespoke-advantage .btn-primary{color:#fffaf0;background:#30251a}
+ .mobile-home-refresh .bespoke-advantage .text-label{color:#76551f}
+ .mobile-home-refresh .bespoke-advantages>div{border-color:#a88c5b65}
+ .mobile-home-refresh>.shopping-products{margin:0;padding:20px 12px}
+ .mobile-home-refresh>.hero{min-height:0;background:none}
+ .mobile-home-refresh>.hero>img{display:none}
+}

@@ -71,3 +71,8 @@
 
 .vd-silver-end{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;border:1px solid #c4b5a5;border-radius:50%;padding:.45rem;text-decoration:none}
 @media(max-width:1099px){.vd-silver-end{display:none}}
+
+@media(max-width:1099px){
+ .vd-mobile-menu a.vd-mobile-primary-link{display:flex;align-items:center;min-height:48px;font:600 16px/1.4 var(--font-body,'DM Sans',Arial,sans-serif)!important;letter-spacing:0!important}
+ body:has(.mobile-home-refresh) .vd-header-mobile-picks a[href*="corporate-collaborations"]{display:none}
+}
