@@ -90,9 +90,9 @@
 #reviews.testimonials{padding-block:clamp(32px,5vw,68px)}
 
 @media(max-width:760px){
- .mobile-home-refresh .bespoke-advantage .promo-art{display:block;margin:12px 12px 0;border-radius:12px;overflow:hidden;background:#e8e5e2}
+ .mobile-home-refresh .bespoke-advantage .promo-art{display:block;margin:0;border-radius:0;overflow:hidden;background:transparent}
  .mobile-home-refresh .bespoke-advantage .promo-art picture{display:block}
- .mobile-home-refresh .bespoke-advantage .promo-art img{width:100%;height:clamp(132px,42vw,200px);object-fit:cover;object-position:center 49%}
+ .mobile-home-refresh .bespoke-advantage .promo-art img{width:100%;height:clamp(160px,48vw,230px);object-fit:contain;object-position:center;mix-blend-mode:multiply;mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 78%,transparent)}
 }
 
 @media(max-width:760px){
